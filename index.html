@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NZ Cascading Impact Simulator | SAFER Framework + Canterbury CDEM</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --bg-primary: #0a0e17;
+  --bg-secondary: #111827;
+  --bg-card: #1a2235;
+  --bg-card-hover: #1f2940;
+  --border: #2a3650;
+  --border-active: #448aff;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  /* Colorblind-safe palette (CVD-optimized) */
+  --accent-blue: #448aff;
+  --accent-green: #4fc3f7;    /* blue-cyan for "good" — distinct from orange/pink in all CVD types */
+  --accent-red: #f06292;      /* pink-magenta for "critical" — not confused with green/orange */
+  --accent-amber: #ffb74d;    /* warm orange for "warning" — safe pair with blue */
+  --accent-purple: #b39ddb;   /* soft lavender — high contrast on dark */
+  --accent-cyan: #4dd0e1;
+  --accent-pink: #f06292;
+  /* CIMS Function Colors */
+  --cims-control: #ffffff;
+  --cims-safety: #4fc3f7;
+  --cims-intel: #5c6bc0;
+  --cims-planning: #ec4899;
+  --cims-ops: #f97316;
+  --cims-logistics: #eab308;
+  --cims-pim: #8b5cf6;
+  --cims-welfare: #67e8f9;
+  --cims-recovery: #9ca3af;
+  --font-display: 'Instrument Sans', sans-serif;
+  --font-body: 'DM Mono', monospace;
+  --font-serif: 'Libre Baskerville', serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* Screen Management */
+.screen { display: none; min-height: 100vh; }
+.screen.active { display: flex; flex-direction: column; }
+
+/* ============ TITLE SCREEN ============ */
+#title-screen {
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.title-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(240,98,146,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 30%, rgba(59,130,246,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(79,195,247,0.05) 0%, transparent 50%);
+}
+
+.seismo-line {
+  position: absolute;
+  top: 35%;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  opacity: 0.15;
+}
+
+.seismo-line svg {
+  width: 100%;
+  height: 100%;
+}
+
+.seismo-path {
+  stroke: var(--accent-red);
+  stroke-width: 2;
+  fill: none;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: drawSeismo 4s ease-in-out forwards;
+}
+
+@keyframes drawSeismo {
+  to { stroke-dashoffset: 0; }
+}
+
+.title-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.title-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(240,98,146,0.1);
+  border: 1px solid rgba(240,98,146,0.3);
+  border-radius: 20px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-red);
+  margin-bottom: 2rem;
+}
+
+.title-badge .pulse {
+  width: 8px;
+  height: 8px;
+  background: var(--accent-red);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(240,98,146,0.4); }
+  50% { opacity: 0.8; box-shadow: 0 0 0 8px rgba(240,98,146,0); }
+}
+
+.title-main {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -1px;
+}
+
+.title-main .af8 {
+  color: var(--accent-red);
+}
+
+.title-sub {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.title-framework {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 3rem;
+}
+
+.title-desc {
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-primary {
+  background: var(--accent-red);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(240,98,146,0.3);
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-active);
+}
+
+.btn-small {
+  padding: 8px 16px;
+  font-size: 12px;
+}
+
+.title-footer {
+  position: absolute;
+  bottom: 2rem;
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+/* ============ GAME SCREEN ============ */
+#game-screen {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.game-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.game-logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--accent-red);
+}
+
+.game-timer {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.game-timer .clock {
+  color: var(--accent-amber);
+}
+
+.game-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.classification-badge {
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.classification-badge.l2 { background: rgba(255,183,77,0.15); color: var(--accent-amber); border: 1px solid rgba(255,183,77,0.3); }
+.classification-badge.r3 { background: rgba(240,98,146,0.15); color: var(--accent-red); border: 1px solid rgba(240,98,146,0.3); }
+.classification-badge.n4 { background: rgba(240,98,146,0.25); color: #f8bbd0; border: 1px solid rgba(240,98,146,0.5); }
+
+/* Score/Status Bar */
+.status-bar {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 8px;
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  overflow-x: auto;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  font-size: 11px;
+  white-space: nowrap;
+  border-radius: 3px;
+}
+
+.status-item .label { color: var(--text-muted); }
+.status-item .value { font-weight: 500; }
+.status-item.good .value, .status-item .value.good { color: var(--accent-green); }
+.status-item.warning .value, .status-item .value.warning { color: var(--accent-amber); }
+.status-item.critical .value, .status-item .value.critical { color: var(--accent-red); }
+
+/* Main Game Layout */
+.game-main {
+  display: grid;
+  grid-template-columns: 240px 1fr 280px;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Left Panel */
+.panel-left {
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.panel-title {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  padding: 8px 8px 4px;
+  margin-bottom: 4px;
+}
+
+
+
+
+
+
+
+/* Center Panel - Event Feed & Decisions */
+.panel-center {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.event-feed {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+.event-entry {
+  margin-bottom: 12px;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.event-timestamp {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+  font-family: var(--font-body);
+}
+
+.event-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--border);
+}
+
+.event-card.inject { border-left-color: var(--accent-red); }
+.event-card.info { border-left-color: var(--accent-blue); }
+.event-card.decision { border-left-color: var(--accent-amber); }
+.event-card.cascade { border-left-color: var(--accent-purple); }
+.event-card.success { border-left-color: var(--accent-green); }
+
+.event-tag {
+  display: inline-block;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.event-tag.inject { background: rgba(240,98,146,0.15); color: var(--accent-red); }
+.event-tag.info { background: rgba(68,138,255,0.15); color: var(--accent-blue); }
+.event-tag.decision { background: rgba(255,183,77,0.15); color: var(--accent-amber); }
+.event-tag.cascade { background: rgba(179,157,219,0.15); color: var(--accent-purple); }
+.event-tag.success { background: rgba(79,195,247,0.15); color: var(--accent-green); }
+.event-tag.cims { background: rgba(77,208,225,0.15); color: var(--accent-cyan); }
+.event-tag.noise { background: rgba(148,163,184,0.15); color: #94a3b8; }
+
+.event-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.event-body {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.event-source {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* Decision Panel */
+.decision-panel {
+  background: var(--bg-secondary);
+  border-top: 2px solid var(--accent-amber);
+  padding: 12px;
+  flex-shrink: 0;
+  max-height: 45vh;
+  overflow-y: auto;
+}
+
+.decision-prompt {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12px;
+  margin-bottom: 8px;
+  color: var(--accent-amber);
+}
+
+.decision-options {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.decision-btn {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.decision-btn:hover {
+  border-color: var(--accent-amber);
+  background: var(--bg-card-hover);
+}
+
+.decision-btn .opt-key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  background: rgba(255,183,77,0.15);
+  color: var(--accent-amber);
+  font-weight: 600;
+  font-size: 11px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.decision-btn .opt-text { flex: 1; }
+.decision-btn .opt-text .opt-label { font-weight: 500; color: var(--text-primary); }
+.decision-btn .opt-text .opt-desc { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+/* Right Panel - Situation Board */
+.panel-right {
+  background: var(--bg-secondary);
+  border-left: 1px solid var(--border);
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.sit-section {
+  margin-bottom: 12px;
+}
+
+.sit-section-title {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  padding: 6px 8px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sit-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  border-left: 2px solid transparent;
+}
+
+.sit-item:hover { background: rgba(255,255,255,0.02); }
+
+/* Dashboard change animations */
+@keyframes dashPulse {
+  0% { box-shadow: inset 0 0 0 0 rgba(255,183,77,0.4); }
+  30% { box-shadow: inset 0 0 12px 0 rgba(255,183,77,0.3); }
+  100% { box-shadow: inset 0 0 0 0 transparent; }
+}
+
+@keyframes dashPulseDown {
+  0% { box-shadow: inset 0 0 0 0 rgba(240,98,146,0.5); }
+  30% { box-shadow: inset 0 0 14px 0 rgba(240,98,146,0.35); }
+  100% { box-shadow: inset 0 0 0 0 transparent; }
+}
+
+@keyframes dashPulseUp {
+  0% { box-shadow: inset 0 0 0 0 rgba(79,195,247,0.5); }
+  30% { box-shadow: inset 0 0 14px 0 rgba(79,195,247,0.35); }
+  100% { box-shadow: inset 0 0 0 0 transparent; }
+}
+
+@keyframes valueFlash {
+  0% { transform: scale(1); }
+  20% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+@keyframes cascadePulse {
+  0% { border-color: var(--border); }
+  25% { border-color: var(--accent-amber); }
+  100% { border-color: var(--border); }
+}
+
+.sit-item.dash-changed {
+  animation: dashPulse 2.5s ease-out forwards;
+  border-left: 2px solid var(--accent-amber);
+}
+
+.sit-item.dash-changed-down {
+  animation: dashPulseDown 2.5s ease-out forwards;
+  border-left: 2px solid var(--accent-red);
+}
+
+.sit-item.dash-changed-up {
+  animation: dashPulseUp 2.5s ease-out forwards;
+  border-left: 2px solid var(--accent-green);
+}
+
+.sit-item .sit-value.value-flash {
+  animation: valueFlash 0.4s ease-out;
+  display: inline-block;
+}
+
+.cascade-item.cascade-changed {
+  animation: cascadePulse 2s ease-out forwards;
+}
+
+.sit-item .sit-label { color: var(--text-secondary); }
+.sit-item .sit-value { font-weight: 500; font-family: var(--font-body); }
+.sit-item .sit-value.good { color: var(--accent-green); }
+.sit-item .sit-value.degraded { color: var(--accent-amber); }
+.sit-item .sit-value.failed { color: var(--accent-red); }
+.sit-item .sit-value.unknown { color: var(--text-muted); }
+
+.meter-bar {
+  width: 60px;
+  height: 8px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+.meter-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.meter-fill.green { background: linear-gradient(90deg, var(--accent-green), #81d4fa); }
+.meter-fill.amber { background: linear-gradient(90deg, var(--accent-amber), #ffe082); }
+.meter-fill.red { background: linear-gradient(90deg, var(--accent-red), #f48fb1); }
+
+/* Cascading Hazard Tracker */
+.cascade-tracker {
+  padding: 8px;
+}
+
+.cascade-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 8px;
+  margin-bottom: 3px;
+  border-radius: 4px;
+  font-size: 11px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cascade-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.cascade-name { flex: 1; color: var(--text-secondary); }
+
+.cascade-level {
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+.cascade-level.low { background: rgba(79,195,247,0.1); color: var(--accent-green); }
+.cascade-level.moderate { background: rgba(255,183,77,0.12); color: var(--accent-amber); }
+.cascade-level.high { background: rgba(240,98,146,0.12); color: var(--accent-red); }
+.cascade-level.extreme { background: rgba(240,98,146,0.25); color: #f8bbd0; }
+
+/* Aftershock indicator */
+.aftershock-flash {
+  position: fixed;
+  inset: 0;
+  background: rgba(240,98,146,0.08);
+  pointer-events: none;
+  z-index: 1000;
+  animation: aftershockPulse 1.5s ease-out forwards;
+}
+
+@keyframes aftershockPulse {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.shake {
+  animation: shake 0.6s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10% { transform: translateX(-4px) translateY(2px); }
+  20% { transform: translateX(3px) translateY(-1px); }
+  30% { transform: translateX(-5px) translateY(3px); }
+  40% { transform: translateX(4px) translateY(-2px); }
+  50% { transform: translateX(-3px) translateY(1px); }
+  60% { transform: translateX(2px); }
+  70% { transform: translateX(-1px); }
+}
+
+/* Stop Breathe Think overlay */
+.sbt-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,14,23,0.92);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.sbt-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 3rem;
+  max-width: 500px;
+  text-align: center;
+}
+
+.sbt-card h2 {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.sbt-card p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.8;
+  font-size: 13px;
+}
+
+.sbt-checklist {
+  text-align: left;
+  margin: 1.5rem 0;
+}
+
+.sbt-checklist div {
+  padding: 8px 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sbt-checklist div:last-child { border-bottom: none; }
+
+/* Responsive */
+.debrief-tab.active { background: var(--accent-blue); color: white; border-color: var(--accent-blue); }
+@media (max-width: 1024px) {
+  .game-main { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+  .panel-left { display: none; }
+  .panel-right { max-height: 200px; overflow-y: auto; border-right: none; border-top: 1px solid var(--border); }
+  .status-bar { flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ TITLE SCREEN ============ -->
+<div id="title-screen" class="screen active">
+  <div class="title-bg"></div>
+  <div class="seismo-line">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path class="seismo-path" d="M0,60 L100,60 L120,60 L140,58 L160,62 L180,55 L200,65 L210,40 L215,85 L220,20 L225,95 L230,15 L235,90 L240,25 L245,80 L250,35 L255,70 L260,45 L270,58 L280,60 L350,60 L370,58 L380,65 L385,30 L390,80 L395,25 L400,75 L405,40 L410,60 L500,60 L520,62 L530,55 L535,70 L540,45 L545,68 L550,52 L560,60 L700,60 L720,58 L730,62 L735,50 L740,72 L745,48 L750,60 L900,60 L1200,60"/>
+    </svg>
+  </div>
+  <div class="title-content">
+    <div class="title-badge">
+      <span class="pulse"></span>
+      Magnitude 8.0 Scenario
+    </div>
+    <h1 class="title-main">
+      <span class="af8">AF8</span> Cascading<br>Impact Simulator
+    </h1>
+    <p class="title-sub">Mana Tangata: Power of Leadership Through the People</p>
+    <p class="title-framework">SAFER Framework · CIMS 3rd Edition</p>
+    <p class="title-desc">
+      Step into the role of a CDEM Controller coordinating the South Island response to a magnitude 8 rupture of the Alpine Fault. Manage cascading hazards, coordinate across six CDEM Groups, and make decisions that determine outcomes for over a million people.
+    </p>
+    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+      <button class="btn btn-primary" onclick="startGame('af8')">▶ Begin AF8 Scenario</button>
+      <button class="btn btn-secondary" onclick="startGame('local')">Canterbury Local Response</button>
+      <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);">
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:12px;color:var(--text-secondary);justify-content:center;">
+          <input type="checkbox" id="facilitator-toggle" style="accent-color:var(--accent-blue);width:16px;height:16px;" />
+          <span>Facilitator Mode</span>
+          <span style="color:var(--text-muted);font-size:10px;">(shows teaching notes, doctrine links, discussion prompts)</span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="title-footer">
+    <div style="margin-bottom:8px;">Built for emergency management training · Based on NZ CIMS doctrine</div>
+    <div style="font-size:11px;color:var(--text-secondary);">
+      Designed and developed by <strong style="color:var(--text-primary);">Victoria Kluge</strong>
+      <br><a href="https://vakconsultingllc.com" target="_blank" style="color:var(--accent-cyan);text-decoration:none;">VAK Consulting LLC</a> · Interactive Emergency Management Training
+    </div>
+  </div>
+</div>
+
+<!-- ============ GAME SCREEN ============ -->
+<div id="game-screen" class="screen">
+  <!-- Header -->
+  <div class="game-header">
+    <div class="game-header-left">
+      <span class="game-logo" id="game-logo">AF8 SIMULATOR</span>
+      <span class="game-timer">
+        <span class="clock">⏱</span>
+        <span id="game-time">H+00:00</span>
+      </span>
+      <span id="game-phase" style="font-size:11px;color:var(--text-muted);">IMMEDIATE RESPONSE</span>
+    </div>
+    <div class="game-header-right">
+      <span id="facilitator-badge" style="display:none;padding:3px 10px;background:rgba(68,138,255,0.15);border:1px solid var(--accent-blue);border-radius:4px;font-size:10px;color:var(--accent-blue);font-family:var(--font-body);letter-spacing:0.5px;">FACILITATOR</span>
+      <span id="classification-badge" class="classification-badge r3">R3 ▲</span>
+      <button class="btn btn-small btn-secondary" onclick="triggerSBT()">⏸ Stop · Breathe · Think</button>
+    </div>
+  </div>
+
+  <!-- Status Bar -->
+  <div class="status-bar" id="status-bar-items">
+    <div class="status-item" id="stat-lives"><span class="label">Lives at Risk:</span> <span class="value warning" id="val-lives">~45,000</span></div>
+    <div class="status-item" id="stat-comms"><span class="label">Comms:</span> <span class="value warning" id="val-comms">Degraded</span></div>
+    <div class="status-item" id="stat-power"><span class="label">Power:</span> <span class="value critical" id="val-power">15% SI</span></div>
+    <div class="status-item" id="stat-roads"><span class="label">Roads:</span> <span class="value critical" id="val-roads">Severed W</span></div>
+    <div class="status-item" id="stat-eoc"><span class="label">ECCs Active:</span> <span class="value good" id="val-eoc">4/6</span></div>
+    <div class="status-item" id="stat-score"><span class="label">Effectiveness:</span> <span class="value" id="val-score" style="color:var(--accent-cyan)">72%</span></div>
+  </div>
+
+  <!-- Main Game Layout -->
+  <div class="game-main">
+    <!-- Left Panel: Response Metrics -->
+    <div class="panel-left">
+      <div class="panel-title">Response Metrics</div>
+      <div id="soft-metrics"></div>
+
+      <div class="panel-title" style="margin-top:16px;" id="cdem-groups-title">CDEM Group Status</div>
+      <div id="cdem-groups">
+        <div class="sit-item"><span class="sit-label">Canterbury</span><span class="sit-value good">ECC Active</span></div>
+        <div class="sit-item"><span class="sit-label">West Coast</span><span class="sit-value failed">Isolated</span></div>
+        <div class="sit-item"><span class="sit-label">Otago</span><span class="sit-value degraded">Partial</span></div>
+        <div class="sit-item"><span class="sit-label">Southland</span><span class="sit-value good">ECC Active</span></div>
+        <div class="sit-item"><span class="sit-label">Nelson-Tasman</span><span class="sit-value degraded">Partial</span></div>
+        <div class="sit-item"><span class="sit-label">Marlborough</span><span class="sit-value good">ECC Active</span></div>
+      </div>
+
+      <div class="panel-title" style="margin-top:16px;">Partner Agencies</div>
+      <div id="agency-status">
+        <div class="sit-item"><span class="sit-label">NZ Police</span><span class="sit-value good">Active</span></div>
+        <div class="sit-item"><span class="sit-label">FENZ / USAR</span><span class="sit-value degraded">Deploying</span></div>
+        <div class="sit-item"><span class="sit-label">NZDF</span><span class="sit-value degraded">Mobilising</span></div>
+        <div class="sit-item"><span class="sit-label">St John</span><span class="sit-value good">Active</span></div>
+        <div class="sit-item"><span class="sit-label">DHBs</span><span class="sit-value degraded">Stressed</span></div>
+        <div class="sit-item"><span class="sit-label">NCMC</span><span class="sit-value unknown">Confirming</span></div>
+      </div>
+    </div>
+
+    <!-- Center Panel: Event Feed -->
+    <div class="panel-center">
+      <div class="event-feed" id="event-feed"></div>
+      <div class="decision-panel" id="decision-panel" style="display:none;">
+        <div class="decision-prompt" id="decision-prompt"></div>
+        <div class="decision-options" id="decision-options"></div>
+      </div>
+    </div>
+
+    <!-- Right Panel: Situation Board -->
+    <div class="panel-right">
+      <div class="sit-section">
+        <div class="sit-section-title">Lifeline Utilities</div>
+        <div id="lifelines-section">
+        <div class="sit-item"><span class="sit-label">Electricity</span><span class="sit-value failed">SI Blackout</span></div>
+        <div class="sit-item"><span class="sit-label">Telecoms</span><span class="sit-value failed">Severely Degraded</span></div>
+        <div class="sit-item"><span class="sit-label">Water</span><span class="sit-value degraded">Compromised</span></div>
+        <div class="sit-item"><span class="sit-label">Wastewater</span><span class="sit-value failed">Failed (WC)</span></div>
+        <div class="sit-item"><span class="sit-label">Fuel</span><span class="sit-value degraded">Limited</span></div>
+        <div class="sit-item"><span class="sit-label">FMCG</span><span class="sit-value degraded">Disrupted</span></div>
+        </div>
+      </div>
+
+      <div class="sit-section">
+        <div class="sit-section-title">Transport</div>
+        <div id="transport-section">
+        <div class="sit-item"><span class="sit-label">Alpine Passes</span><span class="sit-value failed">Impassable</span></div>
+        <div class="sit-item"><span class="sit-label">SH6 South</span><span class="sit-value failed">Blocked</span></div>
+        <div class="sit-item"><span class="sit-label">SH1 East Coast</span><span class="sit-value degraded">Disrupted</span></div>
+        <div class="sit-item"><span class="sit-label">Rail (WC)</span><span class="sit-value failed">Destroyed</span></div>
+        <div class="sit-item"><span class="sit-label">Christchurch AP</span><span class="sit-value degraded">Assessing</span></div>
+        <div class="sit-item"><span class="sit-label">Queenstown AP</span><span class="sit-value degraded">Assessing</span></div>
+        <div class="sit-item"><span class="sit-label">Hokitika AP</span><span class="sit-value failed">Damaged</span></div>
+        <div class="sit-item"><span class="sit-label">Lyttelton Port</span><span class="sit-value good">Operational</span></div>
+        <div class="sit-item"><span class="sit-label">Greymouth Port</span><span class="sit-value failed">Destroyed</span></div>
+        </div>
+      </div>
+
+      <div class="sit-section">
+        <div class="sit-section-title">Cascading Hazards</div>
+        <div class="cascade-tracker" id="cascade-tracker">
+          <div class="cascade-item">
+            <span class="cascade-icon">🔁</span>
+            <span class="cascade-name">Aftershocks</span>
+            <span class="cascade-level extreme">Extreme</span>
+          </div>
+          <div class="cascade-item">
+            <span class="cascade-icon">⛰️</span>
+            <span class="cascade-name">Landslide Dams</span>
+            <span class="cascade-level high">High</span>
+          </div>
+          <div class="cascade-item">
+            <span class="cascade-icon">🌊</span>
+            <span class="cascade-name">Lake Tsunami</span>
+            <span class="cascade-level moderate">Moderate</span>
+          </div>
+          <div class="cascade-item">
+            <span class="cascade-icon">💧</span>
+            <span class="cascade-name">Liquefaction</span>
+            <span class="cascade-level high">High</span>
+          </div>
+          <div class="cascade-item">
+            <span class="cascade-icon">🌧️</span>
+            <span class="cascade-name">Weather Risk</span>
+            <span class="cascade-level moderate">Moderate</span>
+          </div>
+          <div class="cascade-item">
+            <span class="cascade-icon">🏗️</span>
+            <span class="cascade-name">Structural Collapse</span>
+            <span class="cascade-level high">High</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sit-section">
+        <div class="sit-section-title">Response Resources</div>
+        <div id="resources-section">
+        <div class="sit-item">
+          <span class="sit-label">Helicopters</span>
+          <div class="meter-bar"><div class="meter-fill amber" style="width:35%"></div></div>
+        </div>
+        <div class="sit-item">
+          <span class="sit-label">USAR Teams</span>
+          <div class="meter-bar"><div class="meter-fill red" style="width:20%"></div></div>
+        </div>
+        <div class="sit-item">
+          <span class="sit-label">Medical Teams</span>
+          <div class="meter-bar"><div class="meter-fill amber" style="width:40%"></div></div>
+        </div>
+        <div class="sit-item">
+          <span class="sit-label">Fuel Reserves</span>
+          <div class="meter-bar"><div class="meter-fill red" style="width:25%"></div></div>
+        </div>
+        <div class="sit-item">
+          <span class="sit-label">Shelter Capacity</span>
+          <div class="meter-bar"><div class="meter-fill amber" style="width:45%"></div></div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SBT Overlay (hidden) -->
+<div class="sbt-overlay" id="sbt-overlay" style="display:none;">
+  <div class="sbt-card">
+    <h2>Stop · Breathe · Think</h2>
+    <p>Pause. Assess the foundation of your response before continuing.</p>
+    <div class="sbt-checklist">
+      <div>1. Are enough of the right people in the right places?</div>
+      <div>2. Are they correctly briefed and tasked?</div>
+      <div>3. Are they coordinated across the wider response?</div>
+      <div>4. Have you communicated with everyone you need to?</div>
+    </div>
+    <p style="color:var(--text-muted);font-size:11px;margin-top:1rem;">— Christchurch City CDEM Response Protocol</p>
+    <button class="btn btn-primary" onclick="closeSBT()" style="margin-top:1.5rem;">Resume Operations ▶</button>
+  </div>
+</div>
+
+
+<script src="nz-cascading-impact-simulator.js"></script>
+</body>
+</html>
