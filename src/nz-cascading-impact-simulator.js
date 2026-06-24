@@ -493,11 +493,33 @@ var eventTimer = null;
 var gameInterval = null;
 var currentDecision = null;
 
+// ============ PERSONA REGISTRY ============
+// Adding a persona = register its events here (or from a persona file via
+// PERSONA_EVENTS.<id> = [...]) and add a SCENARIO_CONFIGS entry that includes a
+// `panels` block. The header dropdown switches between registered personas.
+var PERSONA_EVENTS = { af8: AF8_EVENTS, local: LOCAL_EVENTS };
+
 function getActiveEvents() {
-  return GameState.scenario === 'local' ? LOCAL_EVENTS : AF8_EVENTS;
+  return PERSONA_EVENTS[GameState.scenario] || AF8_EVENTS;
+}
+
+// Title used for the persona in decision feedback ("<Actor> Decision: Option A").
+function getActorTitle() {
+  var cfg = SCENARIO_CONFIGS[GameState.scenario];
+  return (cfg && cfg.actorTitle) || 'Controller';
+}
+
+// Restart the sim under a different persona (used by the header dropdown).
+function switchPersona(id) {
+  if (!id || !SCENARIO_CONFIGS[id]) return;
+  startGame(id);
 }
 
 function startGame(scenario) {
+  // Clear any timers from a prior run (e.g. switching persona mid-game).
+  clearTimeout(eventTimer);
+  clearInterval(gameInterval);
+
   GameState.scenario = scenario;
   GameState.eventIndex = 0;
   GameState.decisions = [];
@@ -514,6 +536,8 @@ function startGame(scenario) {
 
   // Update UI
   document.getElementById('game-logo').textContent = config.label;
+  var personaSelect = document.getElementById('persona-select');
+  if (personaSelect) personaSelect.value = scenario;
   document.getElementById('classification-badge').textContent = config.classText;
   document.getElementById('classification-badge').className = 'classification-badge ' + config.classCSS;
 
@@ -534,7 +558,7 @@ function startGame(scenario) {
   initSoftMetrics();
 
   // Configure panels
-  if (scenario === 'local') { configureLocalPanels(); } else { configureAF8Panels(); }
+  configurePanels();
 
   // Render utility meters into resource section
   renderUtilityPanel();
@@ -588,6 +612,36 @@ function buildMeterItems(items) {
     html += '<div class="sit-item"><span class="sit-label">' + r.label + '</span><div style="display:flex;align-items:center;gap:6px;"><div class="meter-bar"><div class="meter-fill ' + r.cls + '" style="width:' + r.pct + '%"></div></div><span style="font-size:10px;color:var(--text-muted);font-family:var(--font-body);min-width:28px;">' + r.pct + '%</span></div></div>';
   }
   return html;
+}
+
+function setPanelTitle(id, text) {
+  if (!text) return;
+  var el = document.getElementById(id);
+  if (el) el.textContent = text;
+}
+
+// Generic, data-driven panel config. Personas that declare a `panels` block on
+// their SCENARIO_CONFIGS entry render through here; af8/local keep their
+// existing hand-written functions.
+function configurePanels() {
+  var config = SCENARIO_CONFIGS[GameState.scenario];
+  if (config && config.panels) { renderPanels(config.panels); return; }
+  if (GameState.scenario === 'local') { configureLocalPanels(); } else { configureAF8Panels(); }
+}
+
+function renderPanels(p) {
+  setPanelTitle('cdem-groups-title', p.groupsTitle);
+  setPanelTitle('agency-title', p.agenciesTitle);
+  setPanelTitle('lifelines-title', p.lifelinesTitle);
+  setPanelTitle('transport-title', p.transportTitle);
+  setPanelTitle('cascade-title', p.cascadeTitle);
+  setPanelTitle('resources-title', p.resourcesTitle);
+  if (p.groups) document.getElementById('cdem-groups').innerHTML = buildSitItems(p.groups);
+  if (p.agencies) document.getElementById('agency-status').innerHTML = buildSitItems(p.agencies);
+  if (p.lifelines) document.getElementById('lifelines-section').innerHTML = buildSitItems(p.lifelines);
+  if (p.transport) document.getElementById('transport-section').innerHTML = buildSitItems(p.transport);
+  if (p.cascades) document.getElementById('cascade-tracker').innerHTML = buildCascadeItems(p.cascades);
+  // resources-section is populated by renderUtilityPanel()
 }
 
 function configureLocalPanels() {
@@ -875,7 +929,7 @@ function makeDecision(key) {
   resultEntry.innerHTML =
     '<div class="event-timestamp">DECISION MADE</div>' +
     '<div class="event-card success"><span class="event-tag success">DECISION</span>' +
-    '<div class="event-title">Controller Decision: Option ' + key + '</div>' +
+    '<div class="event-title">' + getActorTitle() + ' Decision: Option ' + key + '</div>' +
     '<div class="event-body">' + option.label + '</div></div>';
   feed.appendChild(resultEntry);
   feed.scrollTop = feed.scrollHeight;
@@ -1395,7 +1449,8 @@ function showDebrief() {
   clearInterval(gameInterval);
   clearTimeout(eventTimer);
 
-  var scenarioName = GameState.scenario === 'local' ? 'AF8 \u2014 Canterbury Local Response' : 'AF8 \u2014 South Island Regional Response';
+  var sceneCfg = SCENARIO_CONFIGS[GameState.scenario] || {};
+  var scenarioName = sceneCfg.debriefName || (GameState.scenario === 'local' ? 'AF8 \u2014 Canterbury Local Response' : 'AF8 \u2014 South Island Regional Response');
   var totalDecisions = GameState.decisions.length;
   var goodDecisions = 0;
   var poorDecisions = 0;
@@ -1525,8 +1580,9 @@ function showDebrief() {
     facGuideHTML += '<div style="padding:12px 0;border-bottom:1px solid var(--border);">' +
       '<div style="font-size:13px;font-weight:600;color:var(--accent-blue);margin-bottom:8px;">Scenario Learning Objectives</div>' +
       '<div style="font-size:11px;color:var(--text-secondary);line-height:1.6;">This scenario tests the player\u2019s ability to manage ' +
+      (sceneCfg.facObjective ? sceneCfg.facObjective :
       (GameState.scenario === 'local' ? 'a dual-role response where Canterbury is both moderately damaged and the primary logistics hub for the South Island. Key themes: proportionate resource allocation, community-led response, civil-military coordination, and psychosocial awareness.' :
-      'a multi-regional catastrophic earthquake response under the SAFER Framework. Key themes: "no regrets" rapid relief, CDEM Group pairing obligations, cascading hazard management, and resource discipline under scarcity.') +
+      'a multi-regional catastrophic earthquake response under the SAFER Framework. Key themes: "no regrets" rapid relief, CDEM Group pairing obligations, cascading hazard management, and resource discipline under scarcity.')) +
       '</div></div>';
 
     for (var fg = 0; fg < GameState.decisions.length; fg++) {
@@ -2756,7 +2812,7 @@ function getNextNoise() {
 
 
 // ============ RESPONSE METRICS (SOFT METRICS) ============
-var SOFT_METRIC_DEFAULTS = {
+var BASE_SOFT_METRICS = {
   political: { label: 'Political Capital', value: 60, icon: '\uD83C\uDFDB' },
   publicTrust: { label: 'Public Trust', value: 55, icon: '\uD83E\uDD1D' },
   staffCapacity: { label: 'Staff Capacity', value: 70, icon: '\u26A1' },
@@ -2765,6 +2821,10 @@ var SOFT_METRIC_DEFAULTS = {
   interagency: { label: 'Interagency', value: 55, icon: '\uD83D\uDD17' },
   communityRes: { label: 'Community', value: 50, icon: '\uD83C\uDFE0' }
 };
+
+// Per-persona response metrics. Personas may register their own set
+// (SOFT_METRIC_DEFAULTS.<id> = {...}); falls back to the CDEM base set.
+var SOFT_METRIC_DEFAULTS = { af8: BASE_SOFT_METRICS, local: BASE_SOFT_METRICS };
 
 var SOFT_METRIC_EFFECTS = {
   // Canterbury Local
@@ -2796,9 +2856,10 @@ var SOFT_METRIC_EFFECTS = {
 };
 
 function initSoftMetrics() {
+  var defaults = SOFT_METRIC_DEFAULTS[GameState.scenario] || BASE_SOFT_METRICS;
   GameState.softMetrics = {};
-  for (var key in SOFT_METRIC_DEFAULTS) {
-    var d = SOFT_METRIC_DEFAULTS[key];
+  for (var key in defaults) {
+    var d = defaults[key];
     GameState.softMetrics[key] = { label: d.label, value: d.value, icon: d.icon };
   }
   renderSoftMetrics();

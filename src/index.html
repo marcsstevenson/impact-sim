@@ -779,6 +779,7 @@ body {
     <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
       <button class="btn btn-primary" onclick="startGame('af8')">▶ Begin AF8 Scenario</button>
       <button class="btn btn-secondary" onclick="startGame('local')">Canterbury Local Response</button>
+      <button class="btn btn-secondary" onclick="startGame('principal')">School Principal (Alpine Fault)</button>
       <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);">
         <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:12px;color:var(--text-secondary);justify-content:center;">
           <input type="checkbox" id="facilitator-toggle" style="accent-color:var(--accent-blue);width:16px;height:16px;" />
@@ -803,6 +804,12 @@ body {
   <div class="game-header">
     <div class="game-header-left">
       <span class="game-logo" id="game-logo">AF8 SIMULATOR</span>
+      <select id="persona-select" onchange="switchPersona(this.value)" title="Switch persona / scenario (restarts the sim)"
+        style="background:var(--bg-card);color:var(--text-secondary);border:1px solid var(--border);border-radius:4px;font-family:var(--font-body);font-size:11px;padding:3px 6px;cursor:pointer;max-width:230px;">
+        <option value="af8">CDEM Controller - AF8 Regional</option>
+        <option value="local">CDEM Controller - Canterbury Local</option>
+        <option value="principal">School Principal - Te Awa Area School</option>
+      </select>
       <span class="game-timer">
         <span class="clock">⏱</span>
         <span id="game-time">H+00:00</span>
@@ -843,7 +850,7 @@ body {
         <div class="sit-item"><span class="sit-label">Marlborough</span><span class="sit-value good">ECC Active</span></div>
       </div>
 
-      <div class="panel-title" style="margin-top:16px;">Partner Agencies</div>
+      <div class="panel-title" style="margin-top:16px;" id="agency-title">Partner Agencies</div>
       <div id="agency-status">
         <div class="sit-item"><span class="sit-label">NZ Police</span><span class="sit-value good">Active</span></div>
         <div class="sit-item"><span class="sit-label">FENZ / USAR</span><span class="sit-value degraded">Deploying</span></div>
@@ -866,7 +873,7 @@ body {
     <!-- Right Panel: Situation Board -->
     <div class="panel-right">
       <div class="sit-section">
-        <div class="sit-section-title">Lifeline Utilities</div>
+        <div class="sit-section-title" id="lifelines-title">Lifeline Utilities</div>
         <div id="lifelines-section">
         <div class="sit-item"><span class="sit-label">Electricity</span><span class="sit-value failed">SI Blackout</span></div>
         <div class="sit-item"><span class="sit-label">Telecoms</span><span class="sit-value failed">Severely Degraded</span></div>
@@ -878,7 +885,7 @@ body {
       </div>
 
       <div class="sit-section">
-        <div class="sit-section-title">Transport</div>
+        <div class="sit-section-title" id="transport-title">Transport</div>
         <div id="transport-section">
         <div class="sit-item"><span class="sit-label">Alpine Passes</span><span class="sit-value failed">Impassable</span></div>
         <div class="sit-item"><span class="sit-label">SH6 South</span><span class="sit-value failed">Blocked</span></div>
@@ -893,7 +900,7 @@ body {
       </div>
 
       <div class="sit-section">
-        <div class="sit-section-title">Cascading Hazards</div>
+        <div class="sit-section-title" id="cascade-title">Cascading Hazards</div>
         <div class="cascade-tracker" id="cascade-tracker">
           <div class="cascade-item">
             <span class="cascade-icon">🔁</span>
@@ -929,7 +936,7 @@ body {
       </div>
 
       <div class="sit-section">
-        <div class="sit-section-title">Response Resources</div>
+        <div class="sit-section-title" id="resources-title">Response Resources</div>
         <div id="resources-section">
         <div class="sit-item">
           <span class="sit-label">Helicopters</span>
@@ -975,5 +982,6 @@ body {
 
 
 <script src="nz-cascading-impact-simulator.js"></script>
+<script src="personas/principal.js"></script>
 </body>
 </html>
