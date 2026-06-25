@@ -1,0 +1,541 @@
+Persona: Michael Te Rangi
+
+Role: Managing Director, Alpine Utilities Ltd
+
+Utility: Regional electricity distribution network
+
+Location: South Island, New Zealand
+
+Customers Served: Approximately 42,000 homes and businesses across alpine towns, farming districts and remote communities.
+
+Background
+
+Michael has been Managing Director for eight years.
+
+He is:
+
+A Chartered Professional Engineer.
+Former field line mechanic.
+Well respected by staff and industry.
+Responsible for strategy, public confidence and business continuity.
+Accountable to the Board, regulator, shareholders and community.
+He understands that electricity is no longer just another utility.
+
+Without power:
+
+Water stops.
+Fuel stops.
+Communications fail.
+Supermarkets struggle.
+Medical facilities deteriorate.
+Businesses close.
+Public confidence collapses.
+Utility Network
+
+Assets include:
+
+18 zone substations
+1,600 km of overhead lines
+300 km of underground cables
+Remote mountain transmission assets
+Communications network
+Control room
+18 field crews
+6 contractors
+Helicopter inspection contracts
+Critical customers include:
+
+Hospital
+Water treatment plants
+Wastewater plants
+Emergency Operations Centres
+Fuel terminals
+Telecommunications sites
+Dairy factories
+Rest homes
+Police and Fire stations
+Core Leadership Challenge
+
+"Every hour without electricity increases the risk to lives, businesses and critical infrastructure. How do I restore the network safely when every decision leaves someone without power?"
+
+Earthquake Scenario
+
+At 10:34 a.m., a magnitude 7.9 Alpine Fault earthquake strikes.
+
+Within minutes:
+
+Multiple transmission faults.
+Five substations offline.
+Hundreds of protection trips.
+Unknown damage to mountain transmission towers.
+Fibre communications partially lost.
+SCADA visibility degraded.
+Fuel deliveries interrupted.
+Roads blocked by landslides.
+Helicopters grounded due to weather.
+Nearly 38,000 customers lose power.
+
+Immediate Situation
+
+Information is incomplete.
+
+Unknown:
+
+Number of damaged poles.
+Status of transmission towers.
+Substation integrity.
+Extent of underground cable damage.
+Number of trapped field crews.
+Generator availability.
+Duration of outage.
+Meanwhile:
+
+Everyone wants answers immediately.
+
+Leadership Responsibilities
+
+Michael must simultaneously:
+
+Protect field crews.
+Restore electricity.
+Prioritise critical customers.
+Support emergency response.
+Manage media.
+Brief Government.
+Support staff.
+Protect long-term viability of the company.
+Immediate Challenges
+
+1. Crew Safety
+
+Several crews are already travelling.
+
+Unknown hazards include:
+
+Live conductors.
+Rockfall.
+Bridge collapse.
+Damaged poles.
+Unstable slopes.
+Aftershocks.
+Dilemma
+
+Do you:
+
+Stand crews down?
+
+Or continue restoration?
+
+Trade-off
+
+Stopping work protects crews.
+
+Stopping work delays restoration for tens of thousands of people.
+
+2. Critical Infrastructure Priorities
+
+The first substation can restore power to only one of the following:
+
+Regional hospital
+Water treatment plant
+Wastewater plant
+Emergency Operations Centre
+Telecommunications exchange
+Every option has strong justification.
+
+Every option leaves another critical service offline.
+
+3. Limited Field Resources
+
+Only eight field crews are operational.
+
+Requests arrive from:
+
+Hospital
+Mayor
+Civil Defence
+Water company
+Airport
+Fuel distributor
+Farmers
+Supermarkets
+Rest homes
+Everyone insists they are the highest priority.
+
+Complex Leadership Decisions
+
+Hospital vs Water
+
+The hospital has backup generators for another six hours.
+
+The water treatment plant has generators for only two hours.
+
+If water treatment fails:
+
+The entire town may lose safe drinking water.
+
+Decision
+
+Restore:
+
+Hospital?
+
+Or water?
+
+Telecommunications
+
+Mobile towers begin failing as batteries discharge.
+
+Without communications:
+
+Emergency calls stop.
+Public information collapses.
+Coordination deteriorates.
+Restoring telecommunications delays repairs elsewhere.
+
+Wastewater
+
+Wastewater pumps fail.
+
+Untreated sewage begins entering rivers.
+
+Environmental regulators demand immediate action.
+
+Hospital demands remain higher.
+
+Which takes priority?
+
+Ethical Dilemmas
+
+Urban vs Rural
+
+One repair can restore:
+
+9,000 urban customers.
+Or
+
+600 isolated rural customers.
+Those 600 include:
+
+Elderly residents.
+Farms.
+Remote marae.
+Rural schools.
+Question
+
+Do you maximise numbers?
+
+Or protect vulnerable communities?
+
+Essential Industry
+
+A dairy processor requests urgent restoration.
+
+Without power:
+
+Millions of litres of milk will be lost.
+
+Civil Defence argues:
+
+Restore residential communities first.
+
+Political Pressure
+
+The Mayor calls personally.
+
+"Restore the town centre first."
+
+Board Chair calls.
+
+"Protect our major industrial customers."
+
+Civil Defence says.
+
+"Support life safety before economics."
+
+Each request is reasonable.
+
+None align.
+
+Crew Fatigue
+
+After 20 hours:
+
+Crews are exhausted.
+
+One narrowly avoids electrocution.
+
+Operations Manager recommends mandatory rest.
+
+Civil Defence requests:
+
+Continue working.
+
+Decision
+
+Stop work?
+
+Or continue?
+
+Contradictory Advice
+
+National Grid Operator
+
+Restore transmission first.
+
+Local Engineers
+
+Focus on local distribution faults.
+
+Civil Defence
+
+Prioritise community welfare.
+
+Health Authority
+
+Restore healthcare.
+
+Water Utility
+
+Restore treatment plants.
+
+Telecommunications Provider
+
+Restore communication towers first.
+
+Shareholders
+
+Minimise financial loss.
+
+Media
+
+Restore residential customers immediately.
+
+Every stakeholder presents compelling evidence.
+
+No prioritisation satisfies everyone.
+
+Public Challenges
+
+Media
+
+Questions include:
+
+"When will power return?"
+
+Michael genuinely does not know.
+
+Should he:
+
+Give optimistic estimates?
+Be conservative?
+Refuse timelines?
+Social Media
+
+Rumours spread:
+
+"Power company ignored warnings."
+
+"Crews only helping wealthy suburbs."
+
+"Rural communities abandoned."
+
+Some criticism is justified.
+
+Much is inaccurate.
+
+Staff
+
+Employees ask:
+
+"Can I go home to check on my family?"
+
+Many have damaged homes themselves.
+
+Financial Pressures
+
+The network is sustaining millions of dollars in damage.
+
+Insurance cannot yet be contacted.
+
+Contractors demand payment guarantees.
+
+Fuel suppliers request immediate payment.
+
+Banks are unreachable.
+
+The Board asks:
+
+"How much will this cost?"
+
+Michael cannot answer.
+
+Cascading Hazards
+
+During the afternoon:
+
+Strong aftershock.
+Snow begins.
+Landslide blocks access to major transmission corridor.
+Fuel shortages worsen.
+Water demand increases.
+Telecommunications continue failing.
+The situation deteriorates faster than repairs can occur.
+
+Game Injects
+
+Inject 1
+
+Hospital backup generators fail two hours earlier than expected.
+
+Inject 2
+
+One field crew becomes trapped by landslides.
+
+Do you:
+
+Continue restoration?
+
+Or redirect resources to rescue?
+
+Inject 3
+
+The only available helicopter becomes operational.
+
+It can perform only one mission.
+
+Options:
+
+Inspect transmission towers.
+Deliver crews.
+Rescue trapped workers.
+Deliver generator to hospital.
+Inject 4
+
+The Emergency Operations Centre requests exclusive priority restoration.
+
+This delays power restoration to the water treatment plant.
+
+Inject 5
+
+A rest home reports:
+
+Oxygen systems have only one hour of battery remaining.
+
+Meanwhile:
+
+The wastewater system is close to catastrophic failure.
+
+Inject 6
+
+A major supermarket offers to privately fund immediate repairs to its feeder.
+
+Accepting would delay residential restoration.
+
+Should private funding influence priorities?
+
+Inject 7
+
+A field supervisor reports:
+
+"We can probably restore power if we work beneath unstable rock faces."
+
+Health and Safety Manager says:
+
+"Absolutely not."
+
+Civil Defence urges:
+
+"Take calculated risks."
+
+Inject 8
+
+The Prime Minister requests a national media briefing.
+
+You have:
+
+Incomplete information.
+
+Large uncertainty.
+
+Intense political pressure.
+
+How much uncertainty do you disclose?
+
+Inject 9
+
+An isolated rural marae has become a welfare centre for 350 evacuees.
+
+Restoring its feeder would delay restoring power to 5,000 urban homes.
+
+Inject 10
+
+A crew discovers widespread damage to the main transmission corridor.
+
+Repair time:
+
+Estimated seven days.
+
+The Board asks:
+
+Should emergency diesel generation be hired at enormous cost?
+
+Civil Defence says:
+
+"Do whatever it takes."
+
+Finance Manager says:
+
+"The company may never recover financially."
+
+Inject 11
+
+One crew leader refuses an assigned task.
+
+They believe conditions are unsafe.
+
+Operations management believes the risk is acceptable.
+
+Do you:
+
+Support the crew?
+
+Direct them to continue?
+
+Replace them?
+
+Assessment Criteria
+
+Players are assessed on:
+
+Protection of worker safety.
+Prioritisation of critical infrastructure.
+Ethical resource allocation.
+Leadership under political pressure.
+Communication with the public.
+Stakeholder management.
+Infrastructure resilience.
+Financial stewardship.
+Adaptability.
+Strategic thinking.
+Long-term community recovery.
+Transparency under uncertainty.
+Hardest Lesson
+
+The Managing Director never has enough:
+
+Information.
+Crews.
+Fuel.
+Time.
+Money.
+Equipment.
+Every restoration decision creates winners and losers.
+
+Restoring electricity is not an engineering problem—it is a leadership problem involving ethics, politics, economics, safety and public trust.
+
+The objective is not simply to restore power as quickly as possible.
+
+It is to restore the greatest level of community function while ensuring no worker is unnecessarily placed in harm's way.
+
+Learning Objective: Players should leave understanding that utility leaders make some of the most consequential yet least visible decisions during disasters. Their choices determine whether hospitals function, water remains safe, communications continue, businesses survive and communities recover—all while balancing safety, public expectations and competing critical needs.
