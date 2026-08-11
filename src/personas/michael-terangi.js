@@ -106,7 +106,16 @@
     'terangi_urban_rural': { 'A': { crews: -10 }, 'B': { crews: -10 } },
     'terangi_helicopter': { 'A': { heli: -10 }, 'B': { heli: -10 }, 'C': { heli: -10 } },
     'terangi_diesel': { 'A': { generation: 25, fuel: -15 }, 'B': { generation: -10 } },
-    'terangi_marae': { 'A': { crews: -8, generation: -10 } }
+    'terangi_marae': { 'A': { crews: -8, generation: -10 } },
+    'terangi_scada': { 'A': { comms: 10 }, 'B': { comms: -10 }, 'C': { crews: 10 }, 'D': { comms: -15 } },
+    'terangi_eoc_priority': { 'A': { generation: -10 }, 'B': { generation: -30 }, 'D': { generation: -10 } },
+    'terangi_rest_home': { 'A': { generation: -20, crews: -5 }, 'D': { generation: -8 } },
+    'terangi_backfeed': { 'A': { crews: -10 }, 'B': { crews: -5 }, 'C': { crews: -5 } },
+    'terangi_transmission': { 'A': { spares: -10 }, 'D': { crews: -15, spares: -15 } },
+    'terangi_fuel_logistics': { 'A': { fuel: -15 }, 'B': { fuel: -30, generation: -20 }, 'C': { fuel: -25, crews: -20 }, 'D': { fuel: -35 } },
+    'terangi_supermarket': { 'B': { crews: -10, spares: -10 } },
+    'terangi_board': { 'A': { spares: 10 }, 'B': { generation: -15, spares: -10 }, 'D': { crews: -10 } },
+    'terangi_estimate': { 'C': { comms: -5 } }
   });
 
   Object.assign(SOFT_METRIC_EFFECTS, {
@@ -122,7 +131,16 @@
     'terangi_marae': { 'A': { criticalServices: 6, publicTrust: 6, restoration: -2 }, 'B': { publicTrust: -8, criticalServices: -4 }, 'C': { publicTrust: -3 }, 'D': { stakeholder: -3 } },
     'terangi_diesel': { 'A': { criticalServices: 8, publicTrust: 5, finances: -4 }, 'B': { criticalServices: -8, publicTrust: -5, finances: 4 }, 'C': { finances: -6, criticalServices: 3 }, 'D': { stakeholder: -3 } },
     'terangi_crew_refusal': { 'A': { crewSafety: 10, stakeholder: 3 }, 'B': { crewSafety: -12, restoration: 3 }, 'C': { crewSafety: -10, stakeholder: -4 }, 'D': { crewSafety: -3 } },
-    'terangi_fatigue': { 'A': { crewSafety: 8, restoration: -2, stakeholder: -2 }, 'B': { crewSafety: -12, restoration: 3 }, 'C': { crewSafety: 3, restoration: -2 }, 'D': { crewSafety: -4 } }
+    'terangi_fatigue': { 'A': { crewSafety: 8, restoration: -2, stakeholder: -2 }, 'B': { crewSafety: -12, restoration: 3 }, 'C': { crewSafety: 3, restoration: -2 }, 'D': { crewSafety: -4 } },
+    'terangi_scada': { 'A': { crewSafety: 9, restoration: -2, stakeholder: 3 }, 'B': { crewSafety: -12, restoration: 4 }, 'C': { restoration: -8, criticalServices: -5 }, 'D': { crewSafety: -8, restoration: -3 } },
+    'terangi_eoc_priority': { 'A': { stakeholder: 8, criticalServices: 5, publicTrust: 4 }, 'B': { criticalServices: -8, publicTrust: -4 }, 'C': { stakeholder: -7, criticalServices: -3 }, 'D': { stakeholder: -10, publicTrust: -5 } },
+    'terangi_rest_home': { 'A': { criticalServices: 9, publicTrust: 6, finances: -3 }, 'B': { criticalServices: -10, publicTrust: -7 }, 'C': { criticalServices: -7, publicTrust: -4 }, 'D': { criticalServices: -4, publicTrust: -3 } },
+    'terangi_backfeed': { 'A': { crewSafety: 10, publicTrust: 4, restoration: -3 }, 'B': { crewSafety: -8, restoration: 2 }, 'C': { crewSafety: -5, publicTrust: -2 }, 'D': { crewSafety: -14 } },
+    'terangi_transmission': { 'A': { stakeholder: 9, publicTrust: 5, restoration: 3 }, 'B': { stakeholder: -7, publicTrust: -4 }, 'C': { stakeholder: -9, publicTrust: -3 }, 'D': { restoration: -8, stakeholder: -5 } },
+    'terangi_fuel_logistics': { 'A': { criticalServices: 8, restoration: 4, finances: 2 }, 'B': { criticalServices: -10, restoration: 3 }, 'C': { restoration: -9, criticalServices: 4 }, 'D': { criticalServices: -8, restoration: -5 } },
+    'terangi_supermarket': { 'A': { publicTrust: 9, stakeholder: 5, finances: -2 }, 'B': { publicTrust: -12, stakeholder: -5, finances: 5 }, 'C': { publicTrust: -3, criticalServices: -3 }, 'D': { publicTrust: -12, stakeholder: -8 } },
+    'terangi_board': { 'A': { stakeholder: 8, criticalServices: 6, finances: 3 }, 'B': { criticalServices: -10, publicTrust: -6, finances: 4 }, 'C': { stakeholder: -9, finances: -6 }, 'D': { publicTrust: -12, criticalServices: -6 } },
+    'terangi_estimate': { 'A': { publicTrust: 9, stakeholder: 4 }, 'B': { publicTrust: -10, stakeholder: -4 }, 'C': { publicTrust: -6 }, 'D': { publicTrust: -12, stakeholder: -7 } }
   });
 
   Object.assign(STYLE_TAGS, {
@@ -138,7 +156,16 @@
     'terangi_marae': { 'A': { decisive: 1, lifeSafety: 1, communityTrust: 2 }, 'B': { decisive: 1, communityTrust: -2 }, 'C': { communityTrust: -1 }, 'D': { decisive: -2 } },
     'terangi_diesel': { 'A': { decisive: 1, lifeSafety: 1, centralized: 1 }, 'B': { decisive: 1, lifeSafety: -2 }, 'C': { decisive: 1, centralized: -1 }, 'D': { decisive: -2 } },
     'terangi_crew_refusal': { 'A': { decisive: 1, lifeSafety: 2, communityTrust: 1 }, 'B': { decisive: 2, lifeSafety: -2, centralized: 2 }, 'C': { centralized: 2, communityTrust: -2 }, 'D': { decisive: -2 } },
-    'terangi_fatigue': { 'A': { decisive: 1, lifeSafety: 2, centralized: 1 }, 'B': { decisive: 2, lifeSafety: -2 }, 'C': { lifeSafety: 1 }, 'D': { decisive: -1 } }
+    'terangi_fatigue': { 'A': { decisive: 1, lifeSafety: 2, centralized: 1 }, 'B': { decisive: 2, lifeSafety: -2 }, 'C': { lifeSafety: 1 }, 'D': { decisive: -1 } },
+    'terangi_scada': { 'A': { decisive: 1, lifeSafety: 2, centralized: 2 }, 'B': { decisive: 2, lifeSafety: -2 }, 'C': { decisive: -2, centralized: 1 }, 'D': { centralized: -2, lifeSafety: -1 } },
+    'terangi_eoc_priority': { 'A': { decisive: 1, centralized: 1, communityTrust: 1 }, 'B': { decisive: 1, centralized: 2, communityTrust: -1 }, 'C': { decisive: 1, centralized: -1, communityTrust: -1 }, 'D': { decisive: -1, communityTrust: -2 } },
+    'terangi_rest_home': { 'A': { decisive: 2, lifeSafety: 2, communityTrust: 1 }, 'B': { decisive: -1, lifeSafety: -2 }, 'C': { decisive: -2, lifeSafety: -1 }, 'D': { decisive: 1, lifeSafety: -1 } },
+    'terangi_backfeed': { 'A': { decisive: 2, lifeSafety: 2, centralized: 1 }, 'B': { decisive: 1, lifeSafety: -1 }, 'C': { decisive: 1, lifeSafety: -1 }, 'D': { decisive: -1, lifeSafety: -2 } },
+    'terangi_transmission': { 'A': { decisive: 2, centralized: 1, communityTrust: 1 }, 'B': { decisive: -2, centralized: 1 }, 'C': { centralized: 2, communityTrust: -1 }, 'D': { decisive: -1, lifeSafety: -1 } },
+    'terangi_fuel_logistics': { 'A': { decisive: 1, lifeSafety: 1, centralized: 2 }, 'B': { decisive: 2, lifeSafety: -2 }, 'C': { decisive: 1, lifeSafety: 1 }, 'D': { decisive: -2, centralized: -2 } },
+    'terangi_supermarket': { 'A': { decisive: 1, centralized: 1, communityTrust: 2 }, 'B': { decisive: 1, communityTrust: -2 }, 'C': { decisive: 1, communityTrust: -1 }, 'D': { decisive: -1, communityTrust: -2 } },
+    'terangi_board': { 'A': { decisive: 2, lifeSafety: 1, communityTrust: 1 }, 'B': { decisive: -1, lifeSafety: -2 }, 'C': { decisive: 2, centralized: -2 }, 'D': { decisive: 1, lifeSafety: -2, communityTrust: -2 } },
+    'terangi_estimate': { 'A': { decisive: 1, communityTrust: 2, centralized: 1 }, 'B': { decisive: 1, communityTrust: -1 }, 'C': { decisive: -2 }, 'D': { decisive: -1, communityTrust: -2 } }
   });
 
   Object.assign(CONSEQUENCE_MAP, {
@@ -153,6 +180,186 @@
             'have continued; the unsafe work should not have.',
           source: 'Field Operations / Health & Safety',
           scorePenalty: -5
+        },
+        stateChange: function () {
+          updatePanelItem('cdem-groups', 'Field Crews', '6 avail', 'failed');
+          updateCascadeItem('cascade-tracker', 'Rockfall / Slips', 'Extreme', 'extreme');
+          updateUtilityDirect('crews', 20);
+        }
+      }
+    },
+    'terangi_scada': {
+      'B': {
+        inject: {
+          type: 'cascade', tag: 'CONSEQUENCE',
+          title: 'Re-Energised Onto a Crew',
+          body: 'Switching from stale telemetry, the control room closed a breaker onto a section a crew was still working. ' +
+            'The earth was on and nobody was killed, but only because of the crew’s own discipline, not your system. Every ' +
+            'switching operation is now frozen pending investigation, which is where you would have been anyway.',
+          source: 'Control Room / Health & Safety',
+          scorePenalty: -6
+        },
+        stateChange: function () {
+          updatePanelItem('cdem-groups', 'SCADA Visibility', 'Not Trusted', 'failed');
+          updateCascadeItem('cascade-tracker', 'Live Lines', 'Extreme', 'extreme');
+          updateUtilityDirect('comms', 10);
+        }
+      }
+    },
+    'terangi_eoc_priority': {
+      'B': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: 'The Water Plant Goes Dark',
+          body: 'With your portable generation committed exclusively to the EOC, the water treatment plant ran its backup dry. ' +
+            'The town is now on a boil-water notice it cannot comply with, because it has no power to boil anything. The EOC ' +
+            'is well lit and coordinating a problem you created.',
+          source: 'Water Treatment / Public Health',
+          scorePenalty: -5
+        },
+        stateChange: function () {
+          updatePanelItem('lifelines-section', 'Water Treatment', 'Failed', 'failed');
+          updateUtilityDirect('generation', 5);
+        }
+      }
+    },
+    'terangi_rest_home': {
+      'B': {
+        inject: {
+          type: 'cascade', tag: 'CONSEQUENCE',
+          title: 'Two Residents Did Not Survive the Night',
+          body: 'The concentrators failed at about two in the morning. Ambulances could not reach the homes on closed roads, ' +
+            'which everyone knew when the decision was made. Two oxygen-dependent residents died. The homes were not on your ' +
+            'critical-customer list, and that list was yours to write.',
+          source: 'Health Authority / Coroner',
+          scorePenalty: -7
+        },
+        stateChange: function () {
+          updatePanelItem('lifelines-section', 'Rest Homes (O2)', 'Fatalities', 'failed');
+          updatePanelItem('agency-status', 'Health Authority', '"Explain this"', 'failed');
+        }
+      }
+    },
+    'terangi_backfeed': {
+      'D': {
+        inject: {
+          type: 'cascade', tag: 'CONSEQUENCE',
+          title: 'A Lineworker Takes a Shock',
+          body: 'A second resident had done exactly the same thing three streets away. A lineworker contacted a conductor he ' +
+            'had every reason to believe was dead and is in the medical centre with burns. He tested; the generator started ' +
+            'while he was working. The systemic fix was the public warning you did not send.',
+          source: 'Health & Safety',
+          scorePenalty: -7
+        },
+        stateChange: function () {
+          updateCascadeItem('cascade-tracker', 'Live Lines', 'Extreme', 'extreme');
+          updatePanelItem('transport-section', 'Live Conductors', 'Uncontrolled', 'failed');
+          updatePanelItem('cdem-groups', 'Field Crews', '7 avail', 'failed');
+        }
+      }
+    },
+    'terangi_transmission': {
+      'C': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: 'The Board Finds Out From the News',
+          body: 'Civil Defence briefed the Government, the Government briefed the media, and your Board Chair learned that the ' +
+            'transmission corridor is weeks from repair by watching the evening bulletin. The finding was right; withholding ' +
+            'it from your own directors was not, and your authority with them is gone at the worst possible moment.',
+          source: 'Board Chair',
+          scorePenalty: -5
+        },
+        stateChange: function () {
+          updatePanelItem('agency-status', 'Board Chair', '"Why the news?"', 'failed');
+          updatePanelItem('cdem-groups', 'Transmission Faults', 'Weeks to Repair', 'failed');
+        }
+      }
+    },
+    'terangi_fuel_logistics': {
+      'B': {
+        inject: {
+          type: 'cascade', tag: 'CONSEQUENCE',
+          title: 'The Generators Run Dry Before the Network Is Back',
+          body: 'The fleet is fuelled and moving, and the restoration is still days away. The generators keeping the water ' +
+            'plant and the rest homes alive ran out overnight. Your crews had diesel to drive to faults they could not yet ' +
+            'fix, while the loads that needed power tonight lost it.',
+          source: 'Logistics / Critical Customers',
+          scorePenalty: -6
+        },
+        stateChange: function () {
+          updatePanelItem('lifelines-section', 'Water Treatment', 'Failed', 'failed');
+          updatePanelItem('lifelines-section', 'Rest Homes (O2)', 'No Power', 'failed');
+          updateCascadeItem('cascade-tracker', 'Fuel Shortage', 'Extreme', 'extreme');
+          updateUtilityDirect('generation', 5);
+        }
+      }
+    },
+    'terangi_supermarket': {
+      'B': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: '"They Sold the Queue"',
+          body: 'The supermarket’s lights came on while three streets of houses stayed dark, and the payment did not stay ' +
+            'secret for six hours. Every customer still waiting now believes the restoration order is for sale, the ' +
+            'regulator has asked for the file, and your published priority list means nothing to anyone.',
+          source: 'Media / Commerce Commission',
+          scorePenalty: -6
+        },
+        stateChange: function () {
+          updatePanelItem('agency-status', 'Media', '"Pay to jump"', 'failed');
+          updatePanelItem('agency-status', 'Mayor', '"Explain yourself"', 'failed');
+        }
+      }
+    },
+    'terangi_board': {
+      'D': {
+        inject: {
+          type: 'cascade', tag: 'CONSEQUENCE',
+          title: 'Restoring by Revenue',
+          body: 'Industrial feeders came back while the hospital was still on generators and the rest homes were still on ' +
+            'batteries. The basis leaked within a day. This is now a Ministerial matter, the regulator is involved, and the ' +
+            'trust you will need for a two-year recovery has been spent to protect a quarter’s revenue.',
+          source: 'Regulator / Minister',
+          scorePenalty: -7
+        },
+        stateChange: function () {
+          updatePanelItem('agency-status', 'Civil Defence', '"Unacceptable"', 'failed');
+          updatePanelItem('agency-status', 'Media', '"Revenue first"', 'failed');
+          updatePanelItem('lifelines-section', 'Hospital', 'Still on Backup', 'failed');
+        }
+      }
+    },
+    'terangi_estimate': {
+      'B': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: 'Day Six, Still Dark',
+          body: 'The five-day figure you published became the promise. It is day six, the transmission corridor is untouched, ' +
+            'and families who stayed in cold houses on the strength of your date are now evacuating in worse conditions than ' +
+            'if they had left on day one. The range was the honest answer and it was available.',
+          source: 'Civil Defence / Media',
+          scorePenalty: -6
+        },
+        stateChange: function () {
+          updatePanelItem('agency-status', 'Media', '"Broken promise"', 'failed');
+          updatePanelItem('agency-status', 'Mayor', '"Lost the town"', 'failed');
+        }
+      }
+    },
+    'terangi_trapped_crew': {
+      'B': {
+        inject: {
+          type: 'cascade', tag: 'CONSEQUENCE',
+          title: 'Your Crew Spent the Night in the Slip Zone',
+          body: 'Told to sit tight until it was convenient, the trapped crew spent the night in an active rockfall zone in ' +
+            'freezing conditions. They got out in the morning with one hypothermic and all four wondering what the company ' +
+            'would have done if it had been worse. Every lineworker in the district now knows the answer.',
+          source: 'Field Operations',
+          scorePenalty: -6
+        },
+        stateChange: function () {
+          updatePanelItem('cdem-groups', 'Trapped Crews', '1 overnight', 'failed');
+          updateUtilityDirect('crews', 18);
         }
       }
     },
@@ -166,6 +373,80 @@
             'response, and the restoration you were chasing is further away than ever. "Absolutely not" was the right call.',
           source: 'Health & Safety / Field Supervisor',
           scorePenalty: -6
+        },
+        stateChange: function () {
+          updatePanelItem('cdem-groups', 'Field Crews', '5 avail', 'failed');
+          updateCascadeItem('cascade-tracker', 'Rockfall / Slips', 'Extreme', 'extreme');
+          updateUtilityDirect('crews', 15);
+        }
+      }
+    },
+    'terangi_crew_refusal': {
+      'B': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: 'Stop-Work Is Now Meaningless',
+          body: 'You directed the crew leader to do the task anyway. The work was completed without incident, and something ' +
+            'more expensive was lost: the next crew to judge a job unsafe will weigh whether it is worth their position ' +
+            'first. You will not know which job that was until someone is hurt on it.',
+          source: 'Health & Safety / Union',
+          scorePenalty: -5
+        },
+        stateChange: function () {
+          updateCascadeItem('cascade-tracker', 'Live Lines', 'Extreme', 'extreme');
+          updateUtilityDirect('crews', 22);
+        }
+      }
+    },
+    'terangi_fatigue': {
+      'B': {
+        inject: {
+          type: 'cascade', tag: 'CONSEQUENCE',
+          title: 'The Near-Miss Becomes a Contact',
+          body: 'Twenty-six hours in, a crew member who had already had one near-electrocution made contact with a live ' +
+            'conductor. He is alive. He will not be back at work this year, and the investigation will ask why an exhausted ' +
+            'crew was working live after a near-miss was reported to you.',
+          source: 'Health & Safety / WorkSafe',
+          scorePenalty: -7
+        },
+        stateChange: function () {
+          updatePanelItem('cdem-groups', 'Field Crews', '5 avail', 'failed');
+          updateCascadeItem('cascade-tracker', 'Live Lines', 'Extreme', 'extreme');
+          updateUtilityDirect('crews', 10);
+        }
+      }
+    },
+    'terangi_marae': {
+      'B': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: '350 People, A Second Cold Night',
+          body: 'The urban feeders came back and the marae did not. Three hundred and fifty evacuees, including elderly ' +
+            'residents and infants, spent a second night below zero with no heating, while 5,000 homes with intact heat ' +
+            'pumps were restored ahead of them on a customer count.',
+          source: 'Civil Defence / Marae Committee',
+          scorePenalty: -5
+        },
+        stateChange: function () {
+          updatePanelItem('agency-status', 'Civil Defence', '"Welfare failing"', 'failed');
+          updatePanelItem('agency-status', 'Media', '"Rural abandoned"', 'failed');
+        }
+      }
+    },
+    'terangi_pm_briefing': {
+      'B': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: 'The Timeline You Gave the Nation',
+          body: 'The confident restoration date you gave at the national briefing is now being quoted back at you by every ' +
+            'customer, the Mayor and the Minister. The transmission corridor has not moved. Every accurate thing you say ' +
+            'from here is heard as another number that will slip.',
+          source: 'Media / Minister',
+          scorePenalty: -5
+        },
+        stateChange: function () {
+          updatePanelItem('agency-status', 'Media', '"Which date now?"', 'failed');
+          updatePanelItem('agency-status', 'Mayor', '"You promised"', 'failed');
         }
       }
     },
@@ -179,6 +460,63 @@
             'the moment has cost the community its most critical services - the spend that protected lives was the defensible one.',
           source: 'Critical Customers / Civil Defence',
           scorePenalty: -5
+        },
+        stateChange: function () {
+          updatePanelItem('lifelines-section', 'Water Treatment', 'Failed', 'failed');
+          updatePanelItem('lifelines-section', 'Rest Homes (O2)', 'Failed', 'failed');
+          updateUtilityDirect('generation', 5);
+        }
+      }
+    },
+    'terangi_hospital_water': {
+      'C': {
+        inject: {
+          type: 'cascade', tag: 'CONSEQUENCE',
+          title: 'Both Critical Loads Lose Their Runway',
+          body: 'Neither the hospital feeder nor the water treatment plant was prioritised in time. The hospital is on its ' +
+            'last generator hours with theatres on the emergency circuit, and the town’s water supply is unsafe. Two loads ' +
+            'were competing; choosing neither meant losing both.',
+          source: 'Health Authority / Water Treatment',
+          scorePenalty: -6
+        },
+        stateChange: function () {
+          updatePanelItem('lifelines-section', 'Hospital', 'Critical', 'failed');
+          updatePanelItem('lifelines-section', 'Water Treatment', 'Failed', 'failed');
+        }
+      }
+    },
+    'terangi_political': {
+      'B': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: 'The Town Centre Came Back First',
+          body: 'You restored the town centre because the Mayor asked loudest. The hospital is still on generators, the water ' +
+            'plant is still failing, and the retail street is lit. The Health Authority has escalated to the Minister, and ' +
+            'the restoration order now looks political rather than clinical - because it was.',
+          source: 'Health Authority / Minister',
+          scorePenalty: -5
+        },
+        stateChange: function () {
+          updatePanelItem('agency-status', 'Health Authority', '"Escalating"', 'failed');
+          updatePanelItem('lifelines-section', 'Hospital', 'Still on Backup', 'failed');
+        }
+      }
+    },
+    'terangi_helicopter': {
+      'D': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: 'Good Photographs, Same Problems',
+          body: 'The tower inspection produced an excellent damage picture and nothing else. The weather closed within the ' +
+            'hour, the trapped crew spent another night out, and the hospital generator problem was unchanged. You bought ' +
+            'situational awareness with the only flight anyone was going to get.',
+          source: 'Field Operations',
+          scorePenalty: -4
+        },
+        stateChange: function () {
+          updatePanelItem('transport-section', 'Mountain Towers', 'Mapped, Unreachable', 'failed');
+          updatePanelItem('transport-section', 'Helicopters', 'Weathered In', 'failed');
+          updateUtilityDirect('heli', 0);
         }
       }
     }
@@ -268,6 +606,263 @@
         'How do you give a frightened public something useful without a firm time you cannot keep?',
         'What do you commit to (next update, what you are doing) instead of a restoration date?'
       ]
+    },
+    'terangi_scada': {
+      learningObjective: 'Operate a network safely when telemetry is unreliable - confirmation from a person, under a written rule.',
+      bestPractice: 'A',
+      teachingNote: 'Degraded SCADA is the condition in which lineworkers are killed. Switching from stale telemetry risks ' +
+        'energising a fault or a crew; freezing all switching stops restoration entirely; letting depots switch independently ' +
+        'guarantees they eventually energise each other’s people. Positive ground confirmation under an agreed safe-switching ' +
+        'rule is slower and is the only defensible method.',
+      references: [
+        { label: 'Safe switching', desc: 'no switching without positive confirmation of the state of the network and the location of crews' },
+        { label: 'Degraded telemetry', desc: 'stale SCADA is more dangerous than no SCADA because it looks authoritative' }
+      ],
+      discussionPrompts: [
+        'What does "positive confirmation" mean when comms are intermittent?',
+        'Who has authority to switch when the control room cannot see the network?'
+      ]
+    },
+    'terangi_eoc_priority': {
+      learningObjective: 'Hold a defensible critical-customer list against a powerful stakeholder asking for exclusivity.',
+      bestPractice: 'A',
+      teachingNote: 'The EOC is a genuine critical load, and so are the hospital, the water plant and the rest homes. The ' +
+        'value of a published priority list is precisely that it lets you place the EOC high without giving it everything - ' +
+        'and lets you refuse the next exclusive request on the same basis. Agreeing verbally while doing something else ' +
+        'destroys the relationship you will need for a fortnight.',
+      references: [
+        { label: 'Critical customer lists', desc: 'a published, defensible basis is what makes a priority order survive pressure' },
+        { label: 'Stakeholder management', desc: 'saying no with a stated basis preserves the relationship; saying yes falsely does not' }
+      ],
+      discussionPrompts: [
+        'What is on your critical-customer list today, and who agreed it?',
+        'How do you tell a coordination centre it is important but not exclusive?'
+      ]
+    },
+    'terangi_rest_home': {
+      learningObjective: 'Recognise a life-safety load that is missing from your list, and fix both the immediate risk and the list.',
+      bestPractice: 'A',
+      teachingNote: 'Oxygen-dependent residents on failing concentrators are a critical load whether or not the paperwork ' +
+        'says so. The response has two halves: generation to all three homes tonight, and a corrected critical-customer list ' +
+        'so this cannot recur. Deferring to an ambulance service that cannot reach them, or picking one home without a ' +
+        'stated basis, are both indefensible afterwards.',
+      references: [
+        { label: 'Vulnerable customer registers', desc: 'medically dependent customers must be identified before the event, not during it' },
+        { label: 'Life-safety loads', desc: 'a load is critical because of consequence, not because of its place on a list' }
+      ],
+      discussionPrompts: [
+        'How would you know about a medically dependent customer who is not on your register?',
+        'What would it take to get generation to three sites tonight, and who decides the order?'
+      ]
+    },
+    'terangi_urban_rural': {
+      learningObjective: 'Balance the greatest restored function against the most vulnerable customers, with an interim bridge.',
+      bestPractice: 'A',
+      teachingNote: 'This is population versus vulnerability in its cleanest form. Restoring 9,000 first maximises community ' +
+        'function - including those customers’ own critical services - provided the vulnerable rural feeder is committed as ' +
+        'the very next task and interim welfare or generation bridges the gap. Splitting a scarce crew across both usually ' +
+        'restores neither, and deciding opaquely invites the "rural communities abandoned" story whatever you chose.',
+      references: [
+        { label: 'Restoration sequencing', desc: 'customer counts, vulnerability and interim options are three separate inputs' },
+        { label: 'Transparency', desc: 'the basis for the order matters as much as the order itself' }
+      ],
+      discussionPrompts: [
+        'What interim support makes a "you are next" commitment credible to the rural feeder?',
+        'How do you explain this order to the 600 without sounding like you counted them and moved on?'
+      ]
+    },
+    'terangi_backfeed': {
+      learningObjective: 'Treat an unauthorised generator back-feed as a systemic hazard requiring a public warning, not a one-off fix.',
+      bestPractice: 'A',
+      teachingNote: 'A single back-feed found means others exist. The correct response has three parts: stop work and re-treat ' +
+        'the whole area as live, locate and isolate the source, and get a public safety message out about generator ' +
+        'connection - because the message is what stops the next three tonight. Relying on crews testing before touching is ' +
+        'exactly the individual-practice defence that fails against a systemic hazard.',
+      references: [
+        { label: 'Generator back-feed', desc: 'unauthorised connection energises the network through the local transformer' },
+        { label: 'Hierarchy of controls', desc: 'eliminate the systemic source; do not rely on individual behaviour as the last defence' }
+      ],
+      discussionPrompts: [
+        'What does your public message say, and how does it reach people with no power and patchy cell coverage?',
+        'How do your crews change their method for the rest of this event?'
+      ]
+    },
+    'terangi_dairy': {
+      learningObjective: 'Rank commercial loss below life safety and critical services, while still treating the economic harm as real.',
+      bestPractice: 'A',
+      teachingNote: 'A dairy factory losing a season’s milk is genuine economic damage to a major employer, and it still sits ' +
+        'below residential life safety and critical services. The defensible answer restores those first, gives the dairy a ' +
+        'real scheduled slot as soon as it does not delay them, and explains the basis openly. Promising a slot you cannot ' +
+        'honour is worse than refusing one.',
+      references: [
+        { label: 'Restoration priority', desc: 'life safety, then critical services, then economic function' },
+        { label: 'Commercial stakeholders', desc: 'a fair scheduled place with an honest explanation beats a false promise' }
+      ],
+      discussionPrompts: [
+        'How do you tell a major employer their loss is real and still not first?',
+        'What would make the dairy a critical load rather than a commercial one?'
+      ]
+    },
+    'terangi_transmission': {
+      learningObjective: 'Escalate material bad news immediately, to everyone who is planning against the old assumption.',
+      bestPractice: 'A',
+      teachingNote: 'A weeks-long transmission outage invalidates every plan in the district, so the entire value of the ' +
+        'finding is in how fast it travels. Waiting for a verified estimate leaves everyone planning against a number you ' +
+        'know is wrong; telling Civil Defence but not the Board is a governance failure as well as a practical one; and ' +
+        'pushing on with the old plan spends crews on work that cannot deliver.',
+      references: [
+        { label: 'Escalation', desc: 'material findings are escalated on discovery, with the uncertainty stated' },
+        { label: 'Governance', desc: 'directors cannot discharge their duties on information they do not have' }
+      ],
+      discussionPrompts: [
+        'What is the minimum you can say in the first five minutes without a verified estimate?',
+        'Who needs this finding, and what decision does each of them change because of it?'
+      ]
+    },
+    'terangi_trapped_crew': {
+      learningObjective: 'Treat a trapped crew as a rescue that outranks restoration - your people must be able to trust that you will come.',
+      bestPractice: 'A',
+      teachingNote: 'A trapped crew is a life-safety incident, not a scheduling problem. Coordinate the rescue with emergency ' +
+        'services and account for every crew before pushing restoration in that area. Sending a second crew up the same ' +
+        'unstable route risks two trapped crews; leaving them to self-rescue, or to "sit tight until convenient", tells every ' +
+        'lineworker in the company exactly what their safety is worth.',
+      references: [
+        { label: 'Duty of care', desc: 'the employer’s obligation to workers in a hazard zone is not discretionary' },
+        { label: 'Crew accounting', desc: 'know where every crew is before authorising work in the same area' }
+      ],
+      discussionPrompts: [
+        'How do you account for eight crews when comms are intermittent?',
+        'What does this decision teach the rest of your workforce about stopping work?'
+      ]
+    },
+    'terangi_fuel_logistics': {
+      learningObjective: 'Ration a shared scarce input between restoration capacity and life-safety generation, with a stated split.',
+      bestPractice: 'A',
+      teachingNote: 'The same diesel runs the trucks that will end the outage and the generators keeping people alive tonight. ' +
+        'A stated split, reviewed each shift, keeps both running and makes the trade-off visible. Fuelling only the fleet ' +
+        'bets lives on an optimistic restoration schedule; fuelling only generators guarantees there is no restoration to end ' +
+        'the problem; and letting depots draw freely means the last critical load to ask goes without.',
+      references: [
+        { label: 'Resource rationing', desc: 'a stated, reviewed split beats first-come-first-served under scarcity' },
+        { label: 'Competing demands', desc: 'the same input serving response and life support must be explicitly divided' }
+      ],
+      discussionPrompts: [
+        'What is your split, and what evidence would change it at the next shift review?',
+        'Who is authorised to draw fuel, and how do you enforce that across three depots?'
+      ]
+    },
+    'terangi_helicopter': {
+      learningObjective: 'Allocate a single scarce asset by life-safety consequence, not by information value or restoration speed.',
+      bestPractice: 'A',
+      teachingNote: 'One flight, four candidate missions. With your own people in danger, worker life safety takes the ' +
+        'airframe. The hospital generator mission is a genuine life-safety alternative but the hospital still has backup, ' +
+        'while the crew’s exposure is immediate. Crew delivery and tower inspection are both valuable and neither saves a ' +
+        'life today.',
+      references: [
+        { label: 'Scarce asset allocation', desc: 'rank missions by consequence of not flying them, not by long-term value' },
+        { label: 'Worker safety primacy', desc: 'a utility that will not fly for its own trapped crew cannot ask them to take risks' }
+      ],
+      discussionPrompts: [
+        'What would have to be true for the hospital mission to outrank the rescue?',
+        'How does the weather window change the calculation if it is closing in an hour?'
+      ]
+    },
+    'terangi_supermarket': {
+      learningObjective: 'Refuse to let restoration order be bought, while still assessing the underlying need on its merits.',
+      bestPractice: 'A',
+      teachingNote: 'The supermarket may genuinely deserve a high place as the town’s only food distribution - and that ' +
+        'assessment must be made on the published list, not because money was offered. Accepting the payment tells every ' +
+        'waiting customer the order is for sale; refusing to discuss it at all misses a real community need; and taking the ' +
+        'money without delivering priority is worse than either.',
+      references: [
+        { label: 'Equity of restoration', desc: 'a priority order that can be purchased is not a priority order' },
+        { label: 'Regulatory exposure', desc: 'preferential treatment for payment attracts regulator and Commission attention' }
+      ],
+      discussionPrompts: [
+        'Does food distribution belong on your critical-customer list, and at what level?',
+        'How do you say no to the money and yes to the need in the same conversation?'
+      ]
+    },
+    'terangi_board': {
+      learningObjective: 'Give the Board real financial control without letting revenue set the restoration order.',
+      bestPractice: 'A',
+      teachingNote: 'The Board’s concern is legitimate: revenue has stopped and the repair bill is unbounded. The answer is a ' +
+        'scoped emergency spending envelope with regulator and Government cost-recovery engagement, minuted - not a ' +
+        'resolution that bars the spend keeping a hospital alive, not going around the Board, and certainly not restoring by ' +
+        'who pays most while rest homes sit on batteries.',
+      references: [
+        { label: 'Governance in emergencies', desc: 'directors retain financial oversight; management retains operational priority' },
+        { label: 'Cost recovery', desc: 'regulatory and Government mechanisms exist and should be engaged early, not after the spend' }
+      ],
+      discussionPrompts: [
+        'What does a scoped emergency spending envelope actually look like on paper?',
+        'How do you record this so it protects both the community and the directors?'
+      ]
+    },
+    'terangi_diesel': {
+      learningObjective: 'Spend to protect life-critical services, scoped and documented, with cost recovery engaged in parallel.',
+      bestPractice: 'A',
+      teachingNote: 'Seven days of transmission repair with no emergency generation means the hospital, water plant and ' +
+        'welfare centre run out. Hiring generation for those critical loads - staged, documented, with the Board, regulator ' +
+        'and Government engaged on recovery - is life safety over short-term finances, done responsibly. Refusing protects ' +
+        'the balance sheet at the community’s expense; unscoped "whatever it takes" may bankrupt the company the recovery ' +
+        'depends on; and waiting for perfect costings is too slow for loads failing now.',
+      references: [
+        { label: 'Emergency procurement', desc: 'scope, stage and document; do not choose between unbounded and nothing' },
+        { label: 'Cost recovery', desc: 'engage the regulator and Government while spending, not afterwards' }
+      ],
+      discussionPrompts: [
+        'Which loads are in the scope, and who signs off adding one?',
+        'What is the company’s position if cost recovery is later refused?'
+      ]
+    },
+    'terangi_crew_refusal': {
+      learningObjective: 'Protect the stop-work right of the person standing at the hazard.',
+      bestPractice: 'A',
+      teachingNote: 'The crew leader is the only person who can see the conditions. Backing the stop, reassessing with them ' +
+        'and H&S, and proceeding only if the hazard is genuinely controlled is what keeps the whole workforce willing to ' +
+        'raise concerns. Directing them from the office, or swapping in a more compliant crew, does not just risk this job - ' +
+        'it teaches every crew that the next refusal will cost them, and you will never know which job that was.',
+      references: [
+        { label: 'Stop-work authority', desc: 'the worker at the hazard may cease work and must be supported for doing so' },
+        { label: 'Safety culture', desc: 'a punished refusal suppresses the reporting the whole system depends on' }
+      ],
+      discussionPrompts: [
+        'What does "genuinely controlled" mean here, and who verifies it?',
+        'How do you protect the crew leader from consequences after the event?'
+      ]
+    },
+    'terangi_estimate': {
+      learningObjective: 'Publish an honest range with a fixed update schedule rather than a date you cannot hold.',
+      bestPractice: 'A',
+      teachingNote: 'Five to twenty days is an uncomfortable answer and it is the true one. Published with the reasons, what ' +
+        'would narrow it, and a fixed next-update time, people can plan around it. The optimistic end becomes a promise you ' +
+        'break; silence gets filled with worse numbers than yours; and different dates for different audiences collide ' +
+        'within a day and take your remaining credibility with them.',
+      references: [
+        { label: 'Communicating uncertainty', desc: 'ranges with reasons and update commitments outperform false precision' },
+        { label: 'Single version of the truth', desc: 'one published position to all audiences, or none of them believe any of it' }
+      ],
+      discussionPrompts: [
+        'What would actually narrow the range, and can you tell people that?',
+        'How often do you update, and what do you say when nothing has changed?'
+      ]
+    },
+    'terangi_fatigue': {
+      learningObjective: 'Enforce rest and rotation after a near-miss - exhausted crews near live conductors are a fatality waiting to happen.',
+      bestPractice: 'A',
+      teachingNote: 'A near-electrocution at twenty hours is the warning, and Civil Defence pressing for faster restoration ' +
+        'does not change the physiology. Mandatory rest and rotation costs restoration hours and prevents the contact that ' +
+        'costs a life. Leaving rest to self-report fails the most committed crews, and keeping the most experienced crews ' +
+        'working does not make a fatigued lineworker safe - it just selects who has the accident.',
+      references: [
+        { label: 'Fatigue management', desc: 'error and reaction time degrade sharply past sustained shift limits' },
+        { label: 'Near-miss reporting', desc: 'a reported near-miss is a control that only works if it changes what happens next' }
+      ],
+      discussionPrompts: [
+        'How do you rotate rest when every crew believes they are needed?',
+        'What do you say to Civil Defence when you stand crews down?'
+      ]
     }
   });
 
@@ -331,6 +926,66 @@
         { key: 'B', label: 'Let it stand to avoid a public clash with a politician', desc: 'An uncorrected "back on by tonight" becomes the promise you are blamed for breaking when the lights stay off.', effect: { score: -2 } },
         { key: 'C', label: 'Publicly attack the politician for lying', desc: 'Turns a correction into a feud that becomes the story, instead of the accurate timeline you needed to land.', effect: { score: -1 } }
       ]
+    },
+    {
+      tag: 'NOISE', title: 'A Farmer Wants to Cut Your Line',
+      body: 'A farmer is on the phone saying a low conductor is blocking his stock race and he intends to cut it himself if ' +
+        'nobody comes in the next hour.',
+      source: 'Call Centre',
+      prompt: 'How do you handle the call?',
+      options: [
+        { key: 'A', label: 'Treat it as an immediate public-safety job: tell him to stay well clear, treat it as live, and get a crew or a standby there', desc: 'A member of the public about to cut a conductor is a life-safety call that outranks the restoration queue.', effect: { score: 2 } },
+        { key: 'B', label: 'Tell him it is in the queue like everything else', desc: 'The queue does not apply to someone about to be electrocuted by your asset in the next hour.', effect: { score: -3 } },
+        { key: 'C', label: 'Tell him to cut it if he is sure it is dead', desc: 'You cannot confirm it is dead, and telling a farmer to make that call himself is how this becomes a fatality.', effect: { score: -3 } }
+      ]
+    },
+    {
+      tag: 'NOISE', title: 'A Contractor Offers Crews at Four Times the Rate',
+      body: 'An out-of-region contractor offers six additional crews immediately, at roughly four times the normal rate, ' +
+        'payable on a handshake with paperwork to follow.',
+      source: 'Procurement',
+      prompt: 'How do you respond?',
+      options: [
+        { key: 'A', label: 'Take the crews if you genuinely need them, but on a written scope and rate you can defend to the Board and the regulator afterwards', desc: 'Surge capacity is worth paying for; a handshake with no scope is what turns a defensible emergency spend into an audit finding.', effect: { score: 2 } },
+        { key: 'B', label: 'Refuse - the rate is exploitative', desc: 'Turning down needed crews on principle costs restoration days you cannot buy back.', effect: { score: -2 } },
+        { key: 'C', label: 'Accept immediately on the handshake', desc: 'An unbounded verbal commitment at four times the rate is the invoice that ends up in front of a select committee.', effect: { score: -2 } }
+      ]
+    },
+    {
+      tag: 'NOISE', title: 'A Crew Is Filming for Social Media',
+      body: 'A crew is posting live video from a worksite showing damaged assets and joking about the state of the network. ' +
+        'It is getting shared widely.',
+      source: 'Media Monitoring',
+      prompt: 'How do you handle it?',
+      options: [
+        { key: 'A', label: 'Stop the live posting from worksites, explain why, and set up a proper channel for the imagery people actually want', desc: 'Uncontrolled worksite footage creates safety and legal exposure; a sanctioned channel meets the same public appetite safely.', effect: { score: 2 } },
+        { key: 'B', label: 'Leave it - the public likes seeing the crews working', desc: 'Unvetted footage of damaged assets and unguarded commentary will be the clip played back at the inquiry.', effect: { score: -2 } },
+        { key: 'C', label: 'Discipline the crew publicly', desc: 'A public reprimand of exhausted crews doing their best costs you far more goodwill than the clip ever would.', effect: { score: -2 } }
+      ]
+    },
+    {
+      tag: 'NOISE', title: 'A Councillor Wants a Site Visit',
+      body: 'A councillor wants to be taken to an active worksite this afternoon "to see the work and reassure residents", ' +
+        'and has already told a reporter she is going.',
+      source: 'Council Liaison',
+      prompt: 'How do you respond?',
+      options: [
+        { key: 'A', label: 'Decline access to live worksites, and offer a properly escorted visit to a safe location with a real briefing', desc: 'Keeps an unqualified visitor away from live conductors while still giving her the visibility she legitimately needs.', effect: { score: 2 } },
+        { key: 'B', label: 'Take her to the worksite - the relationship matters', desc: 'An unqualified visitor at a live worksite is a hazard to herself and a distraction to the crew working the line.', effect: { score: -3 } },
+        { key: 'C', label: 'Refuse and say nothing further', desc: 'Correct on the safety point, and it hands her a story about a company with something to hide.', effect: { score: -1 } }
+      ]
+    },
+    {
+      tag: 'NOISE', title: 'Your Own House Is Still Dark',
+      body: 'Your partner calls: your own street is one of the last on the rural feeder, and a neighbour has asked - only ' +
+        'half joking - whether the Managing Director might move his own line up the list.',
+      source: 'Family',
+      prompt: 'How do you respond?',
+      options: [
+        { key: 'A', label: 'Leave your own feeder exactly where the priority list puts it, and say so openly if anyone asks', desc: 'The credibility of the whole restoration order depends on it applying to you too - and being seen to.', effect: { score: 2 } },
+        { key: 'B', label: 'Quietly ask the depot to bring your street forward', desc: 'The single fastest way to destroy every argument you have made about a defensible priority list.', effect: { score: -3 } },
+        { key: 'C', label: 'Snap at your partner and hang up', desc: 'Understandable at hour twenty, and it costs you the support at home you are going to need for a fortnight.', effect: { score: -1 } }
+      ]
     }
   ];
 
@@ -373,6 +1028,21 @@
       ]
     },
     {
+      time: 16, type: 'decision', tag: 'NETWORK',
+      title: 'Switching Blind',
+      body: 'SCADA visibility is degraded and fibre communications are partly lost. Your control room can see perhaps a third ' +
+        'of the network. Operations wants to start switching to isolate faults and re-energise what it can, working from the ' +
+        'last known state and phone calls to crews.',
+      decisionId: 'terangi_scada',
+      prompt: 'How do you operate without visibility?',
+      options: [
+        { key: 'A', label: 'Switch only on positive confirmation from a person on the ground, under a written safe-switching rule agreed before anyone touches a breaker', desc: 'Without telemetry, a human confirmation and a written rule are the only things standing between a switching operation and an electrocution.', effect: { score: 5 } },
+        { key: 'B', label: 'Switch from the last known SCADA state and correct as you go', desc: 'Re-energising from stale telemetry onto a fault - or onto crews who are working the line - is how lineworkers are killed.', effect: { score: -5 } },
+        { key: 'C', label: 'Freeze all switching until SCADA is restored', desc: 'Safe, and it also stops restoration entirely for a comms fix that may take days. Confirmed manual switching was available.', effect: { score: -3 } },
+        { key: 'D', label: 'Let each depot switch its own area independently', desc: 'Three depots switching a shared network without a common picture will eventually energise each other’s crews.', effect: { score: -4 } }
+      ]
+    },
+    {
       time: 22, type: 'inject', tag: 'CRITICAL',
       title: 'Hospital Generators Failing Early',
       body: 'The regional hospital reports its backup generators are running hotter and dirtier than expected on contaminated ' +
@@ -396,6 +1066,21 @@
       ]
     },
     {
+      time: 34, type: 'decision', tag: 'OWNER',
+      title: 'The EOC Wants Exclusive Priority',
+      body: 'The Emergency Operations Centre requests exclusive priority restoration for its own facility, and asks you to ' +
+        'commit your portable generation to it. The EOC is genuinely important. So are the hospital, the water treatment ' +
+        'plant and three rest homes.',
+      decisionId: 'terangi_eoc_priority',
+      prompt: 'How do you answer the EOC?',
+      options: [
+        { key: 'A', label: 'Restore the EOC as one critical load among several on a published priority list you can defend, and offer interim generation sized to its actual need', desc: 'The EOC earns a high place on the list, not the whole list. A published basis is what lets you say no to the next exclusive request.', effect: { score: 5 } },
+        { key: 'B', label: 'Give the EOC exclusive priority and commit your portable generation to it', desc: 'Ties up the generation that the hospital, water plant and rest homes need, on the say-so of whoever asked first and loudest.', effect: { score: -4 } },
+        { key: 'C', label: 'Refuse - the EOC can run on its own generator like everyone else', desc: 'The coordination centre for the whole district is a genuine critical load; treating it as ordinary is its own failure.', effect: { score: -3 } },
+        { key: 'D', label: 'Agree verbally and quietly do something else', desc: 'Buys peace for an hour and destroys the working relationship you will depend on for the next fortnight.', effect: { score: -5 } }
+      ]
+    },
+    {
       time: 40, type: 'decision', tag: 'NETWORK',
       title: 'Conflicting Stakeholders',
       body: 'The calls come in together. The Mayor: "Restore the town centre first." The Board Chair: "Protect our major ' +
@@ -407,6 +1092,24 @@
         { key: 'B', label: 'Do what the Board Chair wants - protect the major industrial customers', desc: 'Lets commercial power jump the queue ahead of life safety and critical services. Indefensible when the public sees it.', effect: { score: -5 } },
         { key: 'C', label: 'Do what the Mayor wants - restore the town centre first', desc: 'Political profile, not need, drives the order; the hospital, water and vulnerable wait behind the visible town centre.', effect: { score: -4 } },
         { key: 'D', label: 'Try to give every caller something to keep them all happy', desc: 'Fragmenting scarce crews to placate everyone restores nothing critical fully and satisfies no one.', effect: { score: -2 } }
+      ]
+    },
+    {
+      time: 46, type: 'decision', tag: 'ETHICAL',
+      title: 'Rest Homes on Failing Concentrators',
+      body: 'A rest home reports its oxygen concentrators are running on a backup that will not last the night, and two other ' +
+        'homes are in the same position. None of them are on your published critical-customer list. All of them have ' +
+        'residents who will not survive losing oxygen.',
+      decisionId: 'terangi_rest_home',
+      prompt: 'How do you respond to the rest homes?',
+      options: [
+        { key: 'A', label: 'Treat oxygen-dependent residents as a critical life-safety load: get interim generation to all three tonight, and add them to the critical-customer list permanently', desc: 'The list was wrong, and the fix is both immediate generation and a corrected list - so the next event does not repeat this.', effect: { score: 5 },
+          locked: function (log) {
+            return log['terangi_eoc_priority'] === 'B' ? 'Your portable generation is committed to the EOC under the exclusive-priority agreement' : false;
+          } },
+        { key: 'B', label: 'Tell them to call an ambulance if residents deteriorate', desc: 'Pushes a foreseeable, preventable failure onto an ambulance service that cannot reach them on closed roads.', effect: { score: -6 } },
+        { key: 'C', label: 'Add them to the list but do nothing tonight', desc: 'Fixes the paperwork for next time and leaves oxygen-dependent residents to get through this night on a dying battery.', effect: { score: -4 } },
+        { key: 'D', label: 'Send generation to one home and leave the other two', desc: 'Three homes have the same need; picking one without a stated basis is an arbitrary decision you cannot defend.', effect: { score: -3 } }
       ]
     },
     {
@@ -424,6 +1127,21 @@
       ]
     },
     {
+      time: 58, type: 'decision', tag: 'NETWORK',
+      title: 'Someone Has Back-Fed the Network',
+      body: 'A crew reports a live low-voltage line in an area you believe is de-energised. A resident has wired a portable ' +
+        'generator directly into their house switchboard, and it is back-feeding through the local transformer onto lines ' +
+        'your people are working on.',
+      decisionId: 'terangi_backfeed',
+      prompt: 'How do you handle the back-feed?',
+      options: [
+        { key: 'A', label: 'Stop all work on that feeder immediately, treat every conductor in the area as live, locate and isolate the source, and get a public safety message out about generator back-feed', desc: 'One back-feed means there are others. Stop work, re-treat the area as live, and warn the public - the message is as urgent as the isolation.', effect: { score: 5 } },
+        { key: 'B', label: 'Isolate that transformer and carry on working elsewhere on the feeder', desc: 'Fixes the one you found and leaves your crews working a network where any house could be doing the same thing.', effect: { score: -4 } },
+        { key: 'C', label: 'Have the crew disconnect the resident’s generator and continue', desc: 'Deals with the hazard in front of them but skips the warning that stops the next three residents doing it tonight.', effect: { score: -3 } },
+        { key: 'D', label: 'Note it and keep working - the crews know to test before touching', desc: 'Relies on perfect individual practice to survive a systemic hazard. This is precisely how lineworkers are electrocuted.', effect: { score: -6 } }
+      ]
+    },
+    {
       time: 64, type: 'decision', tag: 'ETHICAL',
       title: 'The Dairy Processor',
       body: 'A major dairy processor requests urgent restoration - without power, millions of litres of milk will be lost. ' +
@@ -435,6 +1153,21 @@
         { key: 'B', label: 'Restore the dairy first to save the milk and protect a major customer', desc: 'Puts a commercial loss ahead of residential life safety and critical services. The wrong order, and a damaging look.', effect: { score: -5 } },
         { key: 'C', label: 'Refuse the dairy any priority and tell them to wait indefinitely', desc: 'The economic damage to a major employer is real; a flat "wait indefinitely" with no schedule is neither fair nor necessary.', effect: { score: -2 } },
         { key: 'D', label: 'Promise the dairy a slot you know you cannot honour', desc: 'A false commitment to placate a big customer destroys trust the moment it is missed.', effect: { score: -2 } }
+      ]
+    },
+    {
+      time: 70, type: 'decision', tag: 'NETWORK',
+      title: 'The Transmission Corridor Is Worse Than Assumed',
+      body: 'A crew reaching the main transmission corridor reports damage far beyond the initial assessment: multiple towers ' +
+        'down, foundations undermined, and access only by helicopter. This is weeks of work, not days. Nobody outside that ' +
+        'crew knows yet.',
+      decisionId: 'terangi_transmission',
+      prompt: 'What do you do with the finding?',
+      options: [
+        { key: 'A', label: 'Escalate immediately to the Board, National Grid, Civil Defence and Government, and re-plan the whole restoration around long-term islanded supply', desc: 'A weeks-long transmission outage changes every other plan in the district. The value of the finding is entirely in how fast it travels.', effect: { score: 5 } },
+        { key: 'B', label: 'Hold the finding until you have a verified estimate', desc: 'Everyone else is planning against days, not weeks. Every hour you hold it is an hour of plans built on a number you know is wrong.', effect: { score: -4 } },
+        { key: 'C', label: 'Tell Civil Defence but keep it from the Board and Government for now', desc: 'Selective disclosure of material information to some stakeholders and not the Board is a governance failure as well as a practical one.', effect: { score: -5 } },
+        { key: 'D', label: 'Keep pushing the existing restoration plan and hope the corridor is repairable sooner', desc: 'Spends your crews on a plan you now know cannot work, and delays the islanded-supply strategy that could.', effect: { score: -5 } }
       ]
     },
     {
@@ -452,6 +1185,21 @@
       ]
     },
     {
+      time: 82, type: 'decision', tag: 'NETWORK',
+      title: 'Fuel for Trucks or Fuel for Generators',
+      body: 'The fuel terminal is offline and your reserve is finite. The same diesel runs your crew fleet and the portable ' +
+        'generators keeping the water treatment plant and the rest homes alive. At the current burn rate you cannot supply ' +
+        'both.',
+      decisionId: 'terangi_fuel_logistics',
+      prompt: 'How do you allocate the fuel?',
+      options: [
+        { key: 'A', label: 'Ration to a stated split - enough fleet fuel to keep crews productive, the balance reserved for life-safety generation - and review it every shift', desc: 'A stated, reviewed split keeps both restoration and life support running, and makes the trade-off visible instead of accidental.', effect: { score: 5 } },
+        { key: 'B', label: 'Put the fuel into the crew fleet - restoration ends the generator problem fastest', desc: 'Restoration is days away; the water plant and the rest homes need power tonight. This bets lives on an optimistic schedule.', effect: { score: -5 } },
+        { key: 'C', label: 'Put everything into the generators and stand the crews down', desc: 'Keeps life support alive tonight by guaranteeing there is no restoration to end the problem - the generators then run dry anyway.', effect: { score: -4 } },
+        { key: 'D', label: 'Let depots draw as needed until it runs out', desc: 'Whoever draws first gets the fuel, and the last critical load to ask is the one that goes without.', effect: { score: -5 } }
+      ]
+    },
+    {
       time: 88, type: 'decision', tag: 'NETWORK',
       title: 'The One Helicopter Mission',
       body: 'A break in the weather makes the only available helicopter operational for a single mission. The options: inspect ' +
@@ -461,9 +1209,30 @@
       prompt: 'What is the one helicopter mission?',
       options: [
         { key: 'A', label: 'Rescue the trapped workers - a life-safety mission outranks inspection or restoration', desc: 'With your own people in danger, the single flight goes to getting them out. Worker life safety first, every time.', effect: { score: 5 } },
-        { key: 'B', label: 'Deliver crews to the remote fault to speed restoration', desc: 'Valuable for restoration, but choosing feeders over your trapped people when both are on the list is the wrong order.', effect: { score: -2 } },
+        { key: 'B', label: 'Deliver crews to the remote fault to speed restoration', desc: 'Valuable for restoration, but choosing feeders over your trapped people when both are on the list is the wrong order.', effect: { score: -2 },
+          locked: function (log) {
+            return log['terangi_fuel_logistics'] === 'B' ? 'No aviation fuel was reserved - the airframe has one short mission in it, not a crew shuttle' : false;
+          } },
         { key: 'C', label: 'Fly a generator to the hospital to protect its power', desc: 'A genuine life-safety mission - but the hospital still has backup, while the trapped crew’s safety is immediate.', effect: { score: 1 } },
-        { key: 'D', label: 'Use it to inspect the transmission towers for the big picture', desc: 'Situational awareness matters, but it does not save a life today the way the rescue does.', effect: { score: -1 } }
+        { key: 'D', label: 'Use it to inspect the transmission towers for the big picture', desc: 'Situational awareness matters, but it does not save a life today the way the rescue does.', effect: { score: -1 },
+          locked: function (log) {
+            return log['terangi_fuel_logistics'] === 'B' ? 'No aviation fuel was reserved - a long inspection sortie is out of range' : false;
+          } }
+      ]
+    },
+    {
+      time: 94, type: 'decision', tag: 'ETHICAL',
+      title: 'A Supermarket Offers to Pay',
+      body: 'A major supermarket chain offers to privately fund immediate repairs to its own feeder, in cash, today. It would ' +
+        'genuinely help - the town has no other food distribution - and it would also put a paying customer ahead of ' +
+        'everyone else waiting.',
+      decisionId: 'terangi_supermarket',
+      prompt: 'How do you handle the offer?',
+      options: [
+        { key: 'A', label: 'Decline the private queue-jump, but assess the supermarket on its merits as the town’s food distribution and place it on the published priority list where that justifies', desc: 'The supermarket may well deserve priority - as a food-distribution load, on a published basis, not because it offered money.', effect: { score: 5 } },
+        { key: 'B', label: 'Accept the funding and restore their feeder today', desc: 'The day your restoration order can be bought is the day every other customer stops believing the list means anything.', effect: { score: -5 } },
+        { key: 'C', label: 'Refuse outright and refuse to discuss it', desc: 'Right instinct on the money, but it also refuses to consider a genuine community food-distribution need on its merits.', effect: { score: -2 } },
+        { key: 'D', label: 'Accept the money and put them in the normal queue without telling them', desc: 'Taking payment for something you are not providing, and concealing it, is worse than either honest answer.', effect: { score: -6 } }
       ]
     },
     {
@@ -479,6 +1248,14 @@
         { key: 'C', label: 'Let the supervisor and crew decide on the spot', desc: 'Pushes an unacceptable, contested hazard decision down onto the people most exposed to it.', effect: { score: -3 } },
         { key: 'D', label: 'Delay any decision and leave the fault unaddressed', desc: 'Avoids the unsafe work but also abandons the restoration entirely, when a safer method or sequence was the answer.', effect: { score: -2 } }
       ]
+    },
+    {
+      time: 106, type: 'inject', tag: 'CRITICAL',
+      title: 'Hospital Backup Fails Two Hours Early',
+      body: 'The hospital reports its backup generators have failed two hours earlier than the modelled runtime - fuel quality ' +
+        'and a damaged transfer switch are both suspected. Theatres are running on the emergency circuit only, and the ' +
+        'hospital is asking how long until its feeder is live.',
+      source: 'Health Authority'
     },
     {
       time: 112, type: 'cascade', tag: 'AFTERSHOCK',
@@ -504,6 +1281,21 @@
       ]
     },
     {
+      time: 128, type: 'decision', tag: 'OWNER',
+      title: 'The Board Wants the Balance Sheet Protected',
+      body: 'The Board Chair convenes an emergency meeting. Revenue has stopped, the repair bill is unbounded, and the Chair ' +
+        'wants a resolution restricting unbudgeted emergency spending and prioritising the industrial customers who pay the ' +
+        'most.',
+      decisionId: 'terangi_board',
+      prompt: 'What position do you take to the Board?',
+      options: [
+        { key: 'A', label: 'Argue for life-safety and community-function priority, propose a scoped emergency spending envelope with regulator and Government cost-recovery engagement, and get it in the minutes', desc: 'Gives the Board the financial control it is entitled to without letting revenue set the restoration order - and records the basis.', effect: { score: 5 } },
+        { key: 'B', label: 'Accept the resolution restricting emergency spending', desc: 'Hands the restoration order to the balance sheet at the exact moment the community needs it set by life safety.', effect: { score: -5 } },
+        { key: 'C', label: 'Ignore the Board and spend what you like', desc: 'The Board’s financial oversight is legitimate; going around it loses you the authority you will need for the recovery.', effect: { score: -4 } },
+        { key: 'D', label: 'Agree to prioritise industrial customers by revenue', desc: 'Restoring by who pays most, while a hospital and three rest homes wait, is the decision that ends careers and licences.', effect: { score: -6 } }
+      ]
+    },
+    {
       time: 134, type: 'decision', tag: 'OWNER',
       title: 'The Prime Minister Wants a Briefing',
       body: 'The Prime Minister requests a national media briefing. You have incomplete information, large uncertainty about ' +
@@ -518,6 +1310,14 @@
       ]
     },
     {
+      time: 142, type: 'cascade', tag: 'CASCADE',
+      title: 'Snow Closes the Tops',
+      body: 'Snow arrives across the ranges. The helicopter is grounded indefinitely, the mountain transmission towers cannot ' +
+        'be reached on foot, and crews working at altitude are being pulled back down. Rural customers now face a second ' +
+        'night below zero with no heating.',
+      source: 'MetService / Field Operations'
+    },
+    {
       time: 148, type: 'decision', tag: 'ETHICAL',
       title: 'Emergency Diesel at Enormous Cost',
       body: 'A crew confirms widespread damage to the main transmission corridor - estimated seven days to repair. The Board ' +
@@ -526,11 +1326,22 @@
       decisionId: 'terangi_diesel',
       prompt: 'Do you hire the emergency generation?',
       options: [
-        { key: 'A', label: 'Hire emergency generation for the critical loads (hospital, water, welfare), staged and documented, and engage the Board, regulator and Government on cost recovery', desc: 'Spends to keep life-critical services running, but scoped to what matters and with cost-recovery in train - life safety over short-term finances, responsibly.', effect: { score: 5 } },
+        { key: 'A', label: 'Hire emergency generation for the critical loads (hospital, water, welfare), staged and documented, and engage the Board, regulator and Government on cost recovery', desc: 'Spends to keep life-critical services running, but scoped to what matters and with cost-recovery in train - life safety over short-term finances, responsibly.', effect: { score: 5 },
+          locked: function (log) {
+            return log['terangi_board'] === 'B' ? 'The Board resolution you accepted this afternoon bars unbudgeted emergency hire' : false;
+          } },
         { key: 'B', label: 'Refuse the expense to protect the company’s finances', desc: 'Saving money while critical services lose power for seven days trades community lives and function for the balance sheet.', effect: { score: -5 } },
         { key: 'C', label: 'Hire generation for everything regardless of cost - "whatever it takes"', desc: 'Unscoped, open-ended hire may bankrupt the company the community needs for its long recovery; "whatever it takes" still needs targeting.', effect: { score: -2 } },
         { key: 'D', label: 'Defer the decision until you have full costings', desc: 'Critical loads are failing now; waiting for perfect costings before protecting the hospital and water is too slow.', effect: { score: -3 } }
       ]
+    },
+    {
+      time: 156, type: 'inject', tag: 'SITUATION',
+      title: 'The Depots Are Running Dry',
+      body: 'Two of your three depots report fleet diesel below a day. The terminal is still offline and the road south is ' +
+        'closed. Crews are idling vehicles to charge tools and keep warm, which is burning the reserve faster than the ' +
+        'model assumed.',
+      source: 'Logistics'
     },
     {
       time: 162, type: 'decision', tag: 'NETWORK',
@@ -547,6 +1358,20 @@
       ]
     },
     {
+      time: 170, type: 'decision', tag: 'OWNER',
+      title: 'The Town Wants a Date',
+      body: 'Every channel is asking the same question: when will the power be back? Your honest answer is a range of five to ' +
+        'twenty days depending on the transmission corridor, and the range is wider than anyone wants to hear.',
+      decisionId: 'terangi_estimate',
+      prompt: 'What do you publish?',
+      options: [
+        { key: 'A', label: 'Publish the honest range with the reasons, what would narrow it, and a fixed next-update time - and hold to that update schedule', desc: 'People can plan around an honest range with a known update time. They cannot plan around a confident date that moves every day.', effect: { score: 5 } },
+        { key: 'B', label: 'Publish the optimistic end of the range', desc: 'Five days becomes the promise, and every day past it is a broken one. Optimism published as fact is the fastest way to lose the town.', effect: { score: -5 } },
+        { key: 'C', label: 'Publish nothing until the range narrows', desc: 'The silence gets filled with worse numbers than yours, and people make decisions on rumour instead of a range.', effect: { score: -3 } },
+        { key: 'D', label: 'Publish a different date to each audience', desc: 'They talk to each other. The moment the versions collide you have no credibility left with any of them.', effect: { score: -6 } }
+      ]
+    },
+    {
       time: 176, type: 'decision', tag: 'NETWORK',
       title: 'Exhausted Crews, 20 Hours In',
       body: 'Twenty hours in, the crews are exhausted and one has just narrowly avoided electrocution. Your Operations Manager ' +
@@ -559,6 +1384,22 @@
         { key: 'C', label: 'Let crews rest only if they ask to', desc: 'The most committed crews never ask; leaving rest to self-report fails exactly the people most at risk of the next near-miss.', effect: { score: -1 } },
         { key: 'D', label: 'Keep the most experienced crews working and rest the rest', desc: 'Experience does not make a fatigued lineworker safe near live lines; it just changes who has the accident.', effect: { score: -3 } }
       ]
+    },
+    {
+      time: 184, type: 'inject', tag: 'MEDIA',
+      title: 'The Story Turns',
+      body: 'A widely shared post claims Alpine Utilities has restored power to businesses while leaving families in the dark, ' +
+        'with a photograph of a lit supermarket carpark as proof. The carpark is running on the supermarket’s own generator. ' +
+        'The story is running anyway.',
+      source: 'Media / Social Media'
+    },
+    {
+      time: 188, type: 'info', tag: 'NIGHT',
+      title: 'The Second Night',
+      body: 'The second night without power begins across the rural network. Welfare centres are full, the marae is sheltering ' +
+        '350, and the temperature is dropping below zero again. Your crews stand down in rotation for the first proper rest ' +
+        'since the shaking stopped.',
+      source: 'Civil Defence / Operations'
     },
     {
       time: 190, type: 'info', tag: 'HANDOVER',
