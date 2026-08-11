@@ -762,7 +762,7 @@ function processNextEvent() {
 
   var event = events[GameState.eventIndex];
   var prevTime = GameState.eventIndex > 0 ? events[GameState.eventIndex - 1].time : 0;
-  var delay = GameState.eventIndex === 0 ? 1000 : Math.max(2000, (event.time - prevTime) * 200);
+  var delay = GameState.eventIndex === 0 ? 1000 : Math.min(4000, Math.max(2000, (event.time - prevTime) * 200));
 
   eventTimer = setTimeout(function() {
     GameState.time = event.time;
@@ -921,7 +921,7 @@ function makeDecision(key) {
     }
   }
 
-  GameState.decisions.push({ time: currentDecision.time, key: key, label: option.label, desc: option.desc || '', title: currentDecision.title, score: option.effect ? (option.effect.score || 0) : 0, isNoise: currentDecision.isNoise || false });
+  GameState.decisions.push({ decisionId: decId, time: currentDecision.time, key: key, label: option.label, desc: option.desc || '', title: currentDecision.title, score: option.effect ? (option.effect.score || 0) : 0, isNoise: currentDecision.isNoise || false });
 
   var feed = document.getElementById('event-feed');
   var resultEntry = document.createElement('div');
@@ -1587,11 +1587,7 @@ function showDebrief() {
 
     for (var fg = 0; fg < GameState.decisions.length; fg++) {
       var fd = GameState.decisions[fg];
-      var fDecId = null;
-      for (var fid in GameState.choiceLog) {
-        if (GameState.choiceLog[fid] === fd.key) { fDecId = fid; break; }
-      }
-      var fn = fDecId ? FACILITATOR_NOTES[fDecId] : null;
+      var fn = fd.decisionId ? FACILITATOR_NOTES[fd.decisionId] : null;
       if (!fn) continue;
       var fHours = Math.floor(fd.time / 60);
       var fMins = fd.time % 60;
@@ -2071,19 +2067,11 @@ function generateStyleProfile() {
 
   for (var i = 0; i < GameState.decisions.length; i++) {
     var d = GameState.decisions[i];
-    var decId = null;
-    // Find decisionId from choiceLog keys
-    for (var id in GameState.choiceLog) {
-      if (GameState.choiceLog[id] === d.key) {
-        // Match by checking if this decision title corresponds
-        var tags = STYLE_TAGS[id] && STYLE_TAGS[id][d.key];
-        if (tags) {
-          for (var axis in tags) {
-            totals[axis] = (totals[axis] || 0) + tags[axis];
-            counts[axis] = (counts[axis] || 0) + 1;
-          }
-        }
-      }
+    var tags = d.decisionId && STYLE_TAGS[d.decisionId] ? STYLE_TAGS[d.decisionId][d.key] : null;
+    if (!tags) continue;
+    for (var axis in tags) {
+      totals[axis] = (totals[axis] || 0) + tags[axis];
+      counts[axis] = (counts[axis] || 0) + 1;
     }
   }
 
@@ -2103,17 +2091,9 @@ function buildConsequenceChain() {
   var chains = [];
   for (var i = 0; i < GameState.decisions.length; i++) {
     var d = GameState.decisions[i];
-    var decId = null;
-    // Find the decisionId that matches this decision
-    for (var id in GameState.choiceLog) {
-      if (GameState.choiceLog[id] === d.key) {
-        decId = id;
-        break;
-      }
-    }
-    if (!decId) continue;
+    if (!d.decisionId) continue;
 
-    var consequence = CONSEQUENCE_MAP[decId] && CONSEQUENCE_MAP[decId][d.key];
+    var consequence = CONSEQUENCE_MAP[d.decisionId] && CONSEQUENCE_MAP[d.decisionId][d.key];
     if (consequence && consequence.inject) {
       chains.push({
         sourceDecision: d.title,
