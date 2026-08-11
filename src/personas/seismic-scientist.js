@@ -111,7 +111,16 @@
     'sci_road': { 'A': { geotech: -5 } },
     'sci_deploy': { 'A': { geotech: -15, fieldData: 10 }, 'B': { geotech: -15, fieldData: 5 }, 'C': { geotech: -15 } },
     'sci_peer_review': { 'A': { peerReview: -5, modelling: -5 }, 'B': { peerReview: 5 } },
-    'sci_mana_whenua': { 'A': { geotech: -5, fieldData: 5 } }
+    'sci_mana_whenua': { 'A': { geotech: -5, fieldData: 5 } },
+    'sci_forecast_numbers': { 'A': { comms: -5 }, 'D': { comms: -15 } },
+    'sci_drone': { 'A': { aerial: -5, fieldData: 5 }, 'B': { fieldData: -10 } },
+    'sci_dam_evacuate': { 'A': { geotech: -10, comms: -10 } },
+    'sci_school': { 'A': { geotech: -10 }, 'D': { comms: -10 } },
+    'sci_hydro': { 'A': { geotech: -5, comms: -5 }, 'C': { comms: -15 } },
+    'sci_reversal': { 'A': { comms: -10, modelling: 5 }, 'D': { comms: -5 } },
+    'sci_tourists': { 'A': { comms: -15 }, 'D': { comms: -10 } },
+    'sci_colleague': { 'A': { comms: -10, peerReview: 10 }, 'B': { peerReview: -15 }, 'D': { peerReview: -20 } },
+    'sci_team_fatigue': { 'A': { modelling: -10, peerReview: 15 }, 'B': { modelling: -20 }, 'C': { modelling: -15 }, 'D': { modelling: -25 } }
   });
 
   // ---- Decision -> response-metric effects ----------------------------------
@@ -193,6 +202,60 @@
       'B': { equity: -10, publicTrust: -5 },
       'C': { equity: -3 },
       'D': { officialConfidence: -4, equity: -2 }
+    },
+    'sci_forecast_numbers': {
+      'A': { clarity: 10, publicTrust: 6, sciCredibility: 4 },
+      'B': { clarity: -8, publicTrust: -4 },
+      'C': { clarity: -5, sciCredibility: -4 },
+      'D': { integrity: -10, publicTrust: -7 }
+    },
+    'sci_drone': {
+      'A': { sciCredibility: 8, publicTrust: 5, integrity: 4 },
+      'B': { sciCredibility: -10, integrity: -6 },
+      'C': { sciCredibility: -6, publicTrust: -4 },
+      'D': { publicTrust: -5, clarity: -3 }
+    },
+    'sci_dam_evacuate': {
+      'A': { officialConfidence: 9, integrity: 6, clarity: 5 },
+      'B': { officialConfidence: -9, publicTrust: -6 },
+      'C': { officialConfidence: -10, clarity: -6 },
+      'D': { integrity: -9, sciCredibility: -5 }
+    },
+    'sci_school': {
+      'A': { integrity: 9, clarity: 6, officialConfidence: 4 },
+      'B': { integrity: -12, sciCredibility: -7 },
+      'C': { officialConfidence: -8, clarity: -5 },
+      'D': { sciCredibility: -6, officialConfidence: -4 }
+    },
+    'sci_hydro': {
+      'A': { integrity: 9, sciCredibility: 6, officialConfidence: 3 },
+      'B': { integrity: -10, sciCredibility: -6 },
+      'C': { publicTrust: -8, officialConfidence: -6 },
+      'D': { integrity: -7, officialConfidence: -4 }
+    },
+    'sci_reversal': {
+      'A': { integrity: 11, sciCredibility: 7, publicTrust: 5 },
+      'B': { integrity: -11, publicTrust: -7 },
+      'C': { integrity: -10, sciCredibility: -6 },
+      'D': { integrity: -4, publicTrust: -3 }
+    },
+    'sci_tourists': {
+      'A': { equity: 10, clarity: 7, publicTrust: 4 },
+      'B': { clarity: -7, equity: -4 },
+      'C': { equity: -11, publicTrust: -5 },
+      'D': { equity: -8, clarity: -8 }
+    },
+    'sci_colleague': {
+      'A': { sciCredibility: 10, integrity: 7, publicTrust: 4 },
+      'B': { sciCredibility: -11, integrity: -7 },
+      'C': { publicTrust: -6, officialConfidence: -4 },
+      'D': { integrity: -12, sciCredibility: -8 }
+    },
+    'sci_team_fatigue': {
+      'A': { sciCredibility: 8, integrity: 5, clarity: -2 },
+      'B': { sciCredibility: -10, integrity: -5 },
+      'C': { clarity: -5, sciCredibility: -3 },
+      'D': { officialConfidence: -8, clarity: -5 }
     }
   });
 
@@ -213,7 +276,16 @@
     'sci_maps': { 'A': { decisive: 1, communityTrust: 2 }, 'B': { decisive: -1, communityTrust: -2, centralized: 1 }, 'C': { decisive: 1, communityTrust: 1 }, 'D': { centralized: 1, communityTrust: -1 } },
     'sci_mana_whenua': { 'A': { communityTrust: 2, lifeSafety: 1, decisive: 1 }, 'B': { communityTrust: -2, decisive: -1 }, 'C': { communityTrust: -2, decisive: 1, lifeSafety: -1 }, 'D': { lifeSafety: 1, decisive: 1 } },
     'sci_leak': { 'A': { decisive: 1, communityTrust: 1, centralized: 1 }, 'B': { decisive: 1, communityTrust: -2 }, 'C': { decisive: -2 }, 'D': { decisive: 0, centralized: 1 } },
-    'sci_equity': { 'A': { communityTrust: 2, lifeSafety: 1, decisive: 1 }, 'B': { communityTrust: -2, centralized: 1 }, 'C': { decisive: -1 }, 'D': { decisive: -2, centralized: -2 } }
+    'sci_equity': { 'A': { communityTrust: 2, lifeSafety: 1, decisive: 1 }, 'B': { communityTrust: -2, centralized: 1 }, 'C': { decisive: -1 }, 'D': { decisive: -2, centralized: -2 } },
+    'sci_forecast_numbers': { 'A': { decisive: 1, communityTrust: 2, centralized: 1 }, 'B': { decisive: -1, communityTrust: -1 }, 'C': { decisive: 1, centralized: 1 }, 'D': { decisive: 1, communityTrust: -2, centralized: 1 } },
+    'sci_drone': { 'A': { decisive: 1, communityTrust: 2, centralized: 1 }, 'B': { decisive: 2, centralized: -1 }, 'C': { decisive: 1, communityTrust: -2 }, 'D': { decisive: -2, communityTrust: -1 } },
+    'sci_dam_evacuate': { 'A': { decisive: 2, lifeSafety: 2, centralized: 1 }, 'B': { decisive: -2, lifeSafety: -2 }, 'C': { decisive: -2, centralized: -2 }, 'D': { decisive: 2, lifeSafety: 1, communityTrust: -2 } },
+    'sci_school': { 'A': { decisive: 1, lifeSafety: 2, centralized: 1 }, 'B': { decisive: 2, lifeSafety: -2 }, 'C': { decisive: -2, centralized: -2 }, 'D': { decisive: 1, lifeSafety: 1, communityTrust: -1 } },
+    'sci_hydro': { 'A': { decisive: 1, lifeSafety: 2, centralized: 1 }, 'B': { decisive: -1, lifeSafety: -2 }, 'C': { decisive: 2, communityTrust: -2 }, 'D': { decisive: -2, centralized: -1 } },
+    'sci_reversal': { 'A': { decisive: 2, communityTrust: 2, centralized: 1 }, 'B': { decisive: 1, communityTrust: -2 }, 'C': { decisive: -1, communityTrust: -2 }, 'D': { decisive: 1, communityTrust: -1 } },
+    'sci_tourists': { 'A': { decisive: 1, lifeSafety: 2, communityTrust: 2 }, 'B': { decisive: 1, centralized: 1, communityTrust: -1 }, 'C': { decisive: -1, communityTrust: -2 }, 'D': { decisive: 2, lifeSafety: -2 } },
+    'sci_colleague': { 'A': { decisive: 1, communityTrust: 2, centralized: -1 }, 'B': { decisive: 2, communityTrust: -2 }, 'C': { decisive: -2 }, 'D': { decisive: 1, centralized: 2, communityTrust: -2 } },
+    'sci_team_fatigue': { 'A': { decisive: 1, lifeSafety: 1, centralized: 1 }, 'B': { decisive: 2, lifeSafety: -2 }, 'C': { decisive: -1, centralized: 1 }, 'D': { decisive: 1, lifeSafety: -1 } }
   });
 
   // ---- Consequence chains (reactive injects from poor choices) --------------
@@ -255,6 +327,220 @@
             'credibility is the casualty.',
           source: 'Media / Science Advisory Panel',
           scorePenalty: -4
+        },
+        stateChange: function () {
+          updatePanelItem('agency-status', 'Media', 'Filtered Advice?', 'failed');
+          updateCascadeItem('cascade-tracker', 'Slope Failure', 'Extreme', 'extreme');
+        }
+      }
+    },
+    'sci_forecast_numbers': {
+      'D': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: 'Two Versions, Side by Side',
+          body: 'A controller forwarded the official briefing to a community meeting and someone put it next to the public '
+            + 'bulletin. The numbers do not match. Nobody now believes either version, and the question being asked is not '
+            + 'about aftershocks - it is about what else you have given two answers on.',
+          source: 'Media / CDEM Controllers',
+          scorePenalty: -6
+        },
+        stateChange: function () {
+          updatePanelItem('agency-status', 'Media', 'Two Versions', 'failed');
+          updatePanelItem('agency-status', 'CDEM Controllers', 'Losing Faith', 'failed');
+        }
+      }
+    },
+    'sci_drone': {
+      'B': {
+        inject: {
+          type: 'cascade', tag: 'CONSEQUENCE',
+          title: 'The Feature Was a Farm Track',
+          body: 'Ground inspection reached the slope and the long tension crack on your published hazard map is a stock '
+            + 'track. It has been in every product, briefing and news bulletin for six hours, and two agencies have made '
+            + 'resourcing decisions on it. The real crack, when found, is somewhere else.',
+          source: 'Geotech Team / Field',
+          scorePenalty: -7
+        },
+        stateChange: function () {
+          updatePanelItem('lifelines-section', 'Drone Footage', 'Discredited', 'failed');
+          updatePanelItem('cdem-groups', 'Ground Deformation', 'Map Withdrawn', 'failed');
+          updateUtilityDirect('fieldData', 5);
+        }
+      }
+    },
+    'sci_dam_evacuate': {
+      'B': {
+        inject: {
+          type: 'cascade', tag: 'CONSEQUENCE',
+          title: 'The Dam Overtops at 03:40',
+          body: 'The breakout came at the early end of your range, before the ground data you were waiting for and before '
+            + 'the weather cleared. Three hundred and forty people were downstream. Most got out on the siren; the ones who '
+            + 'did not were the ones who had never been told to expect it.',
+          source: 'CDEM Controller / GeoNet',
+          scorePenalty: -9
+        },
+        stateChange: function () {
+          updateCascadeItem('cascade-tracker', 'Breakout Floods', 'Extreme', 'extreme');
+          updateCascadeItem('cascade-tracker', 'Landslide Dams', 'Extreme', 'extreme');
+          updatePanelItem('cdem-groups', 'Landslide-Dam / Flood', 'Breached', 'failed');
+        }
+      }
+    },
+    'sci_school': {
+      'B': {
+        inject: {
+          type: 'cascade', tag: 'CONSEQUENCE',
+          title: 'Debris Across the Playground',
+          body: 'The school reopened on your clearance. A M5.2 aftershock on the Tuesday brought material down the slope '
+            + 'and across the top playground, twenty minutes before morning break. Nobody was outside. The review will ask '
+            + 'what assessment the clearance was based on, and the answer is none.',
+          source: 'School Board / Ministry',
+          scorePenalty: -9
+        },
+        stateChange: function () {
+          updatePanelItem('transport-section', 'School Below Slope', 'Debris On Site', 'failed');
+          updateCascadeItem('cascade-tracker', 'Slope Failure', 'Extreme', 'extreme');
+        }
+      }
+    },
+    'sci_hydro': {
+      'B': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: 'The Operator Finds Damage It Missed',
+          body: 'Nine days later the operator\u2019s own follow-up inspection finds abutment damage its initial assessment did '
+            + 'not pick up. Your advice adopted their conclusion without independent data, so the record shows the science '
+            + 'advisor endorsed it. Two settlements sat below that structure for nine days on your endorsement.',
+          source: 'Hydro Operator / Regulator',
+          scorePenalty: -7
+        },
+        stateChange: function () {
+          updatePanelItem('transport-section', 'Hydro Dam', 'Damage Found', 'failed');
+          updatePanelItem('agency-status', 'Infrastructure CEs', 'Revising', 'failed');
+        }
+      }
+    },
+    'sci_reversal': {
+      'B': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: 'Somebody Kept the Old Map',
+          body: 'A journalist had downloaded the earlier version and noticed the silent edit. The story is now that the '
+            + 'hazard map was quietly changed without explanation. An open correction would have been a paragraph about '
+            + 'evidence; the silent one is a story about concealment.',
+          source: 'Media',
+          scorePenalty: -6
+        },
+        stateChange: function () {
+          updatePanelItem('agency-status', 'Media', 'Silent Edit', 'failed');
+          updatePanelItem('lifelines-section', 'Peer Review', 'Under Scrutiny', 'failed');
+        }
+      }
+    },
+    'sci_tourists': {
+      'D': {
+        inject: {
+          type: 'cascade', tag: 'CONSEQUENCE',
+          title: 'Nine Hundred People on the Rockfall Road',
+          body: 'Told to evacuate with no destination, three lodges emptied onto the only road out - the alpine pass you '
+            + 'had flagged as an active rockfall corridor. Two vehicles were struck. The instruction was followed exactly '
+            + 'as given, which is the problem.',
+          source: 'NZ Police / Tourist Centres',
+          scorePenalty: -8
+        },
+        stateChange: function () {
+          updateCascadeItem('cascade-tracker', 'Rockfall', 'Extreme', 'extreme');
+          updatePanelItem('transport-section', 'Alpine Pass', 'Casualties', 'failed');
+          updatePanelItem('transport-section', 'Tourist Centres', 'Self-Evacuated', 'failed');
+        }
+      }
+    },
+    'sci_colleague': {
+      'B': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: 'You Made It About Her',
+          body: 'The attack on her credibility is now the story, and it has done what her original post could not: convinced '
+            + 'a large audience that the official advice cannot withstand scrutiny. Compliance with the evacuation has '
+            + 'dropped noticeably since this morning.',
+          source: 'Media / Science Advisory Panel',
+          scorePenalty: -7
+        },
+        stateChange: function () {
+          updatePanelItem('agency-status', 'Media', 'Running the Feud', 'failed');
+          updatePanelItem('lifelines-section', 'Peer Review', 'Fractured', 'failed');
+          updateUtilityDirect('peerReview', 5);
+        }
+      }
+    },
+    'sci_team_fatigue': {
+      'B': {
+        inject: {
+          type: 'cascade', tag: 'CONSEQUENCE',
+          title: 'The Error That Was Not Caught',
+          body: 'The 22:00 forecast went out with a transposed magnitude threshold. Two controllers stood down cordons on '
+            + 'the strength of it before the correction reached them at midnight. Nobody was hurt, and the reason nobody '
+            + 'was hurt has nothing to do with any decision you made.',
+          source: 'CDEM Controllers / Internal Review',
+          scorePenalty: -8
+        },
+        stateChange: function () {
+          updatePanelItem('agency-status', 'CDEM Controllers', 'Stood Down Cordons', 'failed');
+          updatePanelItem('lifelines-section', 'Peer Review', 'Failed', 'failed');
+          updateUtilityDirect('modelling', 10);
+        }
+      }
+    },
+    'sci_certainty': {
+      'B': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: 'The Certainty You Did Not Have',
+          body: 'The firm figure you gave to end the pressure held for eleven hours. When the sequence departed from it, '
+            + 'every recipient concluded not that the science had updated but that you had been guessing all along - and '
+            + 'the honest ranges you publish from here are read the same way.',
+          source: 'CDEM Controllers / Media',
+          scorePenalty: -6
+        },
+        stateChange: function () {
+          updatePanelItem('agency-status', 'CDEM Controllers', 'Discounting You', 'failed');
+          updatePanelItem('agency-status', 'Mayors', 'Sceptical', 'failed');
+        }
+      }
+    },
+    'sci_leak': {
+      'B': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: 'The Draft Is Public and Uncontextualised',
+          body: 'The leaked draft is circulating without its caveats, its confidence bands or the paragraph explaining what '
+            + 'it does not cover. It is being read as a suppressed true version of the advice, and the actual published '
+            + 'advice now looks like the sanitised one.',
+          source: 'Media',
+          scorePenalty: -6
+        },
+        stateChange: function () {
+          updatePanelItem('agency-status', 'Media', 'Running the Draft', 'failed');
+          updatePanelItem('agency-status', 'Minister / NCMC', 'Demanding Answers', 'failed');
+        }
+      }
+    },
+    'sci_deploy': {
+      'D': {
+        inject: {
+          type: 'cascade', tag: 'CONSEQUENCE',
+          title: 'Both Teams Still in the Carpark',
+          body: 'While you scoped all five demands properly, both geotech teams sat idle and the weather closed. Twelve '
+            + 'hours into the response you have no ground data from anywhere, every piece of advice you have given rests '
+            + 'on imagery alone, and the slope above the township is still unassessed.',
+          source: 'Geotech Teams / Field',
+          scorePenalty: -6
+        },
+        stateChange: function () {
+          updatePanelItem('lifelines-section', 'Ground Inspection', 'None At All', 'failed');
+          updatePanelItem('cdem-groups', 'Ground Deformation', 'No Data', 'failed');
+          updateUtilityDirect('fieldData', 5);
         }
       }
     }
@@ -346,6 +632,268 @@
         'What is the smallest area you can evacuate that still covers the credible flood path?',
         'What is the explicit trigger that would cancel or extend the evacuation?'
       ]
+    },
+    'sci_aftershock': {
+      learningObjective: 'Communicate aftershock likelihood as a decision-ready statement rather than a raw probability or a reassurance.',
+      bestPractice: 'A',
+      teachingNote: 'Aftershock forecasts are probabilistic and the audience is operational. The skill is stating what the '
+        + 'sequence is likely to do, what that means for the decisions in front of controllers right now, and what would '
+        + 'change the picture. Both failure modes - burying it in technical caveats and flattening it into reassurance - '
+        + 'leave the recipient to invent their own interpretation.',
+      references: [
+        { label: 'Aftershock forecasting', desc: 'sequences decay predictably in aggregate and not at all individually' },
+        { label: 'Decision-ready advice', desc: 'state the implication for the decision, not only the parameter' }
+      ],
+      discussionPrompts: [
+        'What decision is the controller actually making with this forecast?',
+        'How do you convey that a decaying sequence still includes large events?'
+      ]
+    },
+    'sci_forecast_numbers': {
+      learningObjective: 'Publish a probability with the decision frame that stops people converting it into a yes or a no.',
+      bestPractice: 'A',
+      teachingNote: 'Sixty-three per cent is read as "an earthquake is coming" by half the audience and "probably fine" by '
+        + 'the other half. The number needs a plain-English translation: what to expect, what it does not predict, and what '
+        + 'would change it. Dropping the figure removes the precision that lets a controller compare this week with next '
+        + 'and invites the accusation of concealment; publishing different versions to different audiences collides within '
+        + 'a day.',
+      references: [
+        { label: 'Probabilistic communication', desc: 'a probability without a decision frame is completed by the reader' },
+        { label: 'One version', desc: 'the same figure to every audience, or none of them trust any of it' }
+      ],
+      discussionPrompts: [
+        'Write the one sentence that translates 63 per cent into an action.',
+        'What would you say to a school board asking whether that means it is safe to reopen?'
+      ]
+    },
+    'sci_messaging': {
+      learningObjective: 'Write hazard messaging for the people who have to act on it, not for the people who wrote it.',
+      bestPractice: 'A',
+      teachingNote: 'Technically precise language that nobody acts on has failed, and simplified language that overstates '
+        + 'certainty has failed differently. The target is plain, concrete wording that preserves the actual meaning and '
+        + 'the actual uncertainty - and that a lodge manager, a mayor and a parent all take the same thing from.',
+      references: [
+        { label: 'Plain language', desc: 'preserve meaning and uncertainty while removing jargon' },
+        { label: 'Actionability', desc: 'messaging that does not change a behaviour has not communicated a hazard' }
+      ],
+      discussionPrompts: [
+        'Who is the least technical person who must act on this message?',
+        'What behaviour are you actually trying to change?'
+      ]
+    },
+    'sci_deploy': {
+      learningObjective: 'Allocate scarce expert teams by life exposure and consequence, accepting incomplete coverage.',
+      bestPractice: 'A',
+      teachingNote: 'Two teams and five sites means somewhere goes unassessed. Triage by who is underneath the hazard - the '
+        + 'township slope above homes and the school below it - and cover the rest by imagery and remote methods. '
+        + 'Prioritising access restoration puts economics above life exposure; splitting thinly means no site gets a usable '
+        + 'assessment; and holding both while you scope perfectly leaves unstable slopes above people with no data at all.',
+      references: [
+        { label: 'Expert triage', desc: 'allocate scarce specialist capacity by exposure and consequence' },
+        { label: 'Partial coverage', desc: 'a proper assessment of two sites beats a token look at five' }
+      ],
+      discussionPrompts: [
+        'Which site are you accepting you will not assess today, and how do you say so?',
+        'What can imagery and remote methods genuinely cover in the meantime?'
+      ]
+    },
+    'sci_drone': {
+      learningObjective: 'Treat unverified public imagery as a tasking lead, never as evidence in an authoritative product.',
+      bestPractice: 'A',
+      teachingNote: 'Crowd-sourced imagery is genuinely useful and it is not verified data. Task verification against it and '
+        + 'say publicly that you are checking it and what you can and cannot yet confirm. Putting an unverified feature on '
+        + 'a hazard map means every downstream product carries an error you cannot trace; dismissing it publicly risks '
+        + 'being wrong about something significant; ignoring it entirely leaves it shaping behaviour without you.',
+      references: [
+        { label: 'Crowd-sourced data', desc: 'valuable as a lead, unusable as evidence until independently verified' },
+        { label: 'Provenance', desc: 'an unverified feature in an authoritative product contaminates everything built on it' }
+      ],
+      discussionPrompts: [
+        'What would it take to verify this, and how long?',
+        'What do you say publicly while verification is still running?'
+      ]
+    },
+    'sci_dam_evacuate': {
+      learningObjective: 'Give a clear precautionary recommendation under wide uncertainty, with the uncertainty stated and a review point set.',
+      bestPractice: 'A',
+      teachingNote: 'A plausible breakout within 12 to 48 hours, 340 people downstream, a closing weather window and no '
+        + 'ground data is exactly the situation the precautionary principle exists for. Recommend evacuation, say plainly '
+        + 'how wide the uncertainty is and why, and commit to a review point. Waiting for data you cannot get is a decision '
+        + 'to do nothing; handing it back as "an operational matter" withholds the judgement the Controller came for; and '
+        + 'overstating certainty to force the right action spends credibility every later warning needs.',
+      references: [
+        { label: 'Precautionary principle', desc: 'wide uncertainty plus catastrophic downside favours the protective action' },
+        { label: 'Review points', desc: 'a stated trigger for revisiting the advice is what makes precaution proportionate' }
+      ],
+      discussionPrompts: [
+        'How do you recommend evacuation while being honest that you might be wrong?',
+        'What is the review point, and who owns cancelling the evacuation?'
+      ]
+    },
+    'sci_school': {
+      learningObjective: 'Distinguish "no evidence of instability" from "assessed and cleared" when children are the exposed population.',
+      bestPractice: 'A',
+      teachingNote: 'You cannot clear a slope you have not assessed, and the absence of evidence from work you have not done '
+        + 'is not evidence of absence. The useful answer names the specific assessment required and how long it would take, '
+        + 'so the board can plan an alternative rather than simply hearing no. Declining to advise leaves a school board '
+        + 'guessing about a slope; recommending permanent closure goes far beyond the evidence.',
+      references: [
+        { label: 'Absence of evidence', desc: 'an unassessed slope is unknown, not safe' },
+        { label: 'Actionable refusal', desc: 'name the work required and the timeframe so the recipient can plan' }
+      ],
+      discussionPrompts: [
+        'What specific assessment would let you clear this slope, and how long does it take?',
+        'What do you offer the board instead of Monday?'
+      ]
+    },
+    'sci_hydro': {
+      learningObjective: 'Avoid adopting the conclusion of the party with the largest interest, without alarming the public.',
+      bestPractice: 'A',
+      teachingNote: 'The operator may well be right, and you have no independent data on a structure above two settlements '
+        + 'that experienced design-exceeding shaking. Stating that you cannot corroborate their assessment, recommending '
+        + 'independent inspection and recording that formally is the whole of your role. Adopting their conclusion makes it '
+        + 'yours; questioning the dam publicly alarms two settlements on no evidence; and calling it a regulatory matter '
+        + 'ignores that it is a hazard above people.',
+      references: [
+        { label: 'Independent verification', desc: 'the asset owner is not a neutral source on its own asset' },
+        { label: 'Formal record', desc: 'advice that is not recorded did not happen, from a review point of view' }
+      ],
+      discussionPrompts: [
+        'What is the difference between "I cannot corroborate this" and "I think it is unsafe"?',
+        'Who do you record the recommendation with, and what happens if it is declined?'
+      ]
+    },
+    'sci_conflicting': {
+      learningObjective: 'Resolve genuine scientific disagreement into a single usable position without hiding the disagreement.',
+      bestPractice: 'A',
+      teachingNote: 'Controllers cannot act on two competing expert views, and pretending consensus exists where it does not '
+        + 'is dishonest. The workable answer states the shared position, names where experts genuinely differ and what '
+        + 'would resolve it, and gives one recommendation to act on. Presenting the disagreement raw paralyses the '
+        + 'recipient; suppressing the dissenting view destroys the process that produced it.',
+      references: [
+        { label: 'Expert elicitation', desc: 'structured methods exist for producing one position from divergent expert views' },
+        { label: 'Honest consensus', desc: 'state the agreed core, the genuine divergence, and the single recommendation' }
+      ],
+      discussionPrompts: [
+        'What do the disagreeing experts actually agree on?',
+        'What evidence would settle the difference, and can you get it?'
+      ]
+    },
+    'sci_peer_review': {
+      learningObjective: 'Preserve as much scientific quality control as the timeframe allows, and be explicit about what was skipped.',
+      bestPractice: 'A',
+      teachingNote: 'Full peer review is not available at response tempo and abandoning review altogether is how errors reach '
+        + 'controllers. A rapid internal check, a named second reviewer and an explicit statement of what has and has not '
+        + 'been reviewed keeps the advice usable and honest about its own status.',
+      references: [
+        { label: 'Rapid review', desc: 'a proportionate check beats both full review and none' },
+        { label: 'Declaring review status', desc: 'recipients weigh advice differently when they know how it was checked' }
+      ],
+      discussionPrompts: [
+        'What is the minimum review that still catches the errors that matter?',
+        'How do you label the review status of a product on its face?'
+      ]
+    },
+    'sci_reversal': {
+      learningObjective: 'Correct published error openly and quickly - a visible correction is a demonstration of method, not a failure.',
+      bestPractice: 'A',
+      teachingNote: 'The risk conclusion is unchanged and the specifics you published are wrong, and people navigated by the '
+        + 'specifics. Saying what changed, why, and what it does and does not change about the risk demonstrates that your '
+        + 'advice tracks evidence rather than reputation. A silent map edit will be noticed and reads as concealment; '
+        + 'leaving a known error in a published hazard product is indefensible; burying the correction in an annex gets '
+        + 'none of the credibility benefit.',
+      references: [
+        { label: 'Open correction', desc: 'visible correction strengthens credibility; silent revision destroys it' },
+        { label: 'Version control', desc: 'assume every published product has been downloaded and will be compared' }
+      ],
+      discussionPrompts: [
+        'How do you frame a correction so it reads as method rather than incompetence?',
+        'Who needs to hear it directly before it is published?'
+      ]
+    },
+    'sci_tourists': {
+      learningObjective: 'Write advice that survives being relayed by non-experts to people with no local knowledge.',
+      bestPractice: 'A',
+      teachingNote: 'Nine hundred visitors, limited English, no local knowledge, and your advice reaching them through a '
+        + 'satellite phone and a lodge manager. The instruction has to be short, concrete and translatable - what to do, '
+        + 'where to go, what signal to act on - and confirmed by having it repeated back. A technical bulletin will not '
+        + 'survive the relay; treating the centres as outside your priority set abandons people inside the hazard zone; '
+        + 'and "evacuate immediately" with no destination sends them onto rockfall corridors.',
+      references: [
+        { label: 'Relayed messaging', desc: 'advice that passes through intermediaries must be testable by repeat-back' },
+        { label: 'Destination, not just direction', desc: 'an evacuation instruction without a destination creates new exposure' }
+      ],
+      discussionPrompts: [
+        'Write the instruction in under forty words.',
+        'How do you confirm the lodge manager understood it correctly?'
+      ]
+    },
+    'sci_colleague': {
+      learningObjective: 'Handle public scientific disagreement on the substance, in the open, without attacking the person.',
+      bestPractice: 'A',
+      teachingNote: 'A qualified colleague working from public data only has reached a different conclusion, and she is being '
+        + 'amplified by people who want the evacuation reversed. Responding on the substance - the field data she does not '
+        + 'have, where you genuinely agree, and an offer of the dataset - strengthens the advice and models how science '
+        + 'works. Attacking her credibility becomes the story and convinces observers you could not answer; silence lets '
+        + 'the counter-narrative erode compliance with a live evacuation; asking her institution to silence her is a far '
+        + 'bigger story than the disagreement.',
+      references: [
+        { label: 'Scientific disagreement in public', desc: 'engage the evidence; the personal frame always loses' },
+        { label: 'Data sharing', desc: 'offering the dataset is the fastest route from disagreement to agreement' }
+      ],
+      discussionPrompts: [
+        'What does she not have, and can you give it to her today?',
+        'Where is she actually right, and can you say so publicly?'
+      ]
+    },
+    'sci_leak': {
+      learningObjective: 'Respond to a leaked draft by publishing the full context fast, rather than confirming, denying or attacking.',
+      bestPractice: 'A',
+      teachingNote: 'A draft circulating without its caveats and confidence bands is being read as the suppressed true '
+        + 'version. The recovery is to put the complete picture out quickly - what the draft was, what changed and why, and '
+        + 'what the current advice is - so the full context outruns the fragment. Ignoring it leaves the fragment as the '
+        + 'authoritative version, and hunting the leaker makes the leak the story.',
+      references: [
+        { label: 'Leaked drafts', desc: 'context published fast beats denial, confirmation or silence' },
+        { label: 'Draft discipline', desc: 'assume any draft that exists may become public without its caveats' }
+      ],
+      discussionPrompts: [
+        'What is the fastest complete statement you can publish in the next twenty minutes?',
+        'How does the way you draft change once you assume drafts leak?'
+      ]
+    },
+    'sci_team_fatigue': {
+      learningObjective: 'Protect the accuracy of hazard products by reducing scope and rotating people, not by adding review to exhausted staff.',
+      bestPractice: 'A',
+      teachingNote: 'Two errors caught by chance in an hour means there are uncaught ones, and a wrong hazard product '
+        + 'propagates into every decision built on it. Rotate people off, cut back to the products that genuinely drive '
+        + 'decisions, and put a second pair of eyes on anything published. Pushing through produces the error that reaches '
+        + 'a controller; adding review steps loads more work onto the people the fatigue is affecting; standing the team '
+        + 'down entirely leaves a live evacuation with no hazard view.',
+      references: [
+        { label: 'Fatigue and analytical error', desc: 'error rates rise sharply and self-detection falls at the same time' },
+        { label: 'Scope reduction', desc: 'fewer products, checked, beats more products with untraced errors' }
+      ],
+      discussionPrompts: [
+        'Which products actually drive decisions tonight, and which are habit?',
+        'Who checks the checker at hour twenty-two?'
+      ]
+    },
+    'sci_equity': {
+      learningObjective: 'Allocate scarce scientific attention by hazard exposure and vulnerability, not by who is loudest or wealthiest.',
+      bestPractice: 'A',
+      teachingNote: 'Infrastructure chief executives, mayors and the Minister all have channels to you; isolated and remote '
+        + 'communities generally do not. Prioritising by exposure and vulnerability, and explicitly naming the remote '
+        + 'communities in the allocation, is what stops scientific attention flowing to the loudest voice. The pattern is '
+        + 'easy to see afterwards and almost invisible while it is happening.',
+      references: [
+        { label: 'Equity in advice', desc: 'access to the advisor is itself unequally distributed' },
+        { label: 'Explicit inclusion', desc: 'naming under-represented communities in the allocation is what makes it happen' }
+      ],
+      discussionPrompts: [
+        'Who has not asked you for anything today, and why not?',
+        'How would you know if your attention had been following the loudest voices?'
+      ]
     }
   });
 
@@ -410,6 +958,66 @@
         { key: 'B', label: 'Attend personally to keep everyone aligned', desc: 'Being in every meeting is how the expert stops doing the expert work. The imagery sits unreviewed while you align.', effect: { score: -1 } },
         { key: 'C', label: 'Skip it and send nothing', desc: 'Protects your time but leaves a coordination gap and a frustrated partner agency. A delegate was the better answer.', effect: { score: 0 } }
       ]
+    },
+    {
+      tag: 'NOISE', title: 'An Overseas Researcher Wants Your Raw Data',
+      body: 'A well-known overseas research group asks for your raw field data immediately, offering rapid analysis in '
+        + 'return and mentioning a paper.',
+      source: 'International Colleagues',
+      prompt: 'How do you respond?',
+      options: [
+        { key: 'A', label: 'Share what is already public now, agree data-sharing terms for the rest through the proper channel, and keep your team focused on the response', desc: 'Real analytical help is worth having, and it cannot come at the cost of response bandwidth or unagreed data terms.', effect: { score: 2 } },
+        { key: 'B', label: 'Send everything immediately - more eyes is better', desc: 'Unagreed release of field data mid-response creates competing public analyses of your own hazard picture.', effect: { score: -2 } },
+        { key: 'C', label: 'Ignore the request', desc: 'A two-line reply keeps a useful relationship alive at no cost to the response.', effect: { score: -1 } }
+      ]
+    },
+    {
+      tag: 'NOISE', title: 'A Documentary Crew Wants to Film You Working',
+      body: 'A documentary crew has arrived at the operations room and wants to film the science team at work "for the '
+        + 'historical record".',
+      source: 'Media',
+      prompt: 'How do you handle it?',
+      options: [
+        { key: 'A', label: 'Decline access to the operations room, and offer a short structured interview at a set time instead', desc: 'A camera in the room changes how people speak about uncertainty, which is the one thing you cannot afford right now.', effect: { score: 2 } },
+        { key: 'B', label: 'Let them film - transparency is good', desc: 'Analysts hedging their language because a camera is present is a subtle and serious degradation of the work.', effect: { score: -2 } },
+        { key: 'C', label: 'Have them removed from the building', desc: 'Declining is right; making it a confrontation gives them a better story than the filming would have.', effect: { score: -1 } }
+      ]
+    },
+    {
+      tag: 'NOISE', title: 'A Mayor Asks You to Say His Town Is Safe',
+      body: 'A mayor asks you to make a public statement that his township is safe, so that residents will return and '
+        + 'businesses can reopen. Your assessment does not support the word "safe".',
+      source: 'Mayors',
+      prompt: 'How do you respond?',
+      options: [
+        { key: 'A', label: 'Offer to state precisely what you can support - which areas, on what evidence, with what caveats - and explain why you cannot use the word he wants', desc: 'Gives him something real and usable, and holds the line on a word your evidence does not support.', effect: { score: 2 } },
+        { key: 'B', label: 'Say it - the risk in most of the town genuinely is low', desc: '"Safe" is heard as an all-clear across the whole township, including the parts your assessment excludes.', effect: { score: -3 } },
+        { key: 'C', label: 'Refuse and end the conversation', desc: 'The refusal is right and leaves a mayor with nothing to tell his residents, which he will fill himself.', effect: { score: -1 } }
+      ]
+    },
+    {
+      tag: 'NOISE', title: 'An Analyst Disagrees With You in Front of the Room',
+      body: 'One of your junior analysts challenges your slope interpretation in the middle of a briefing, in front of the '
+        + 'controllers.',
+      source: 'Science Team',
+      prompt: 'How do you respond?',
+      options: [
+        { key: 'A', label: 'Take the challenge seriously on the spot, say what would settle it, and thank them for raising it', desc: 'The junior analyst may be right, and how you respond determines whether anyone challenges you again tonight.', effect: { score: 2 } },
+        { key: 'B', label: 'Shut it down and discuss it privately afterwards', desc: 'Controllers saw the disagreement and now have no idea how it resolved, and your team learned not to speak up.', effect: { score: -2 } },
+        { key: 'C', label: 'Concede the point immediately to avoid a scene', desc: 'Conceding on the spot without testing it is as bad as dismissing it, and it confuses the controllers who need a position.', effect: { score: -2 } }
+      ]
+    },
+    {
+      tag: 'NOISE', title: 'A Rumour That the Alpine Fault Is Next',
+      body: 'A widely shared post claims this earthquake has "loaded" the Alpine Fault and that a M8 is imminent. It cites '
+        + 'a real paper, badly.',
+      source: 'Social Media',
+      prompt: 'How do you respond?',
+      options: [
+        { key: 'A', label: 'Correct it directly and plainly: what stress transfer does and does not mean, what the actual change in probability is, and what people should do about it', desc: 'A specific, numerate correction that respects the underlying science displaces the rumour better than a denial does.', effect: { score: 2 } },
+        { key: 'B', label: 'Dismiss it as scaremongering and move on', desc: 'It cites a real paper, so a flat dismissal reads as the establishment brushing off inconvenient science.', effect: { score: -2 } },
+        { key: 'C', label: 'Ignore it - you have real hazards to advise on', desc: 'People are making evacuation and travel decisions on it, which makes it one of your real hazards.', effect: { score: -2 } }
+      ]
     }
   ];
 
@@ -461,6 +1069,21 @@
       ]
     },
     {
+      time: 20, type: 'decision', tag: 'ADVISORY',
+      title: 'The Number Everyone Will Misread',
+      body: 'Your aftershock forecast gives a 63 per cent chance of one or more M6.0+ events in the next seven days. Every '
+        + 'recipient of that number - controllers, mayors, the public, a school board deciding whether to reopen - will '
+        + 'convert it into a yes or a no, and most will convert it wrongly.',
+      decisionId: 'sci_forecast_numbers',
+      prompt: 'How do you publish the forecast?',
+      options: [
+        { key: 'A', label: 'Publish the probability with a plain-English translation of what it means for a decision - what to expect, what it does not predict, and what would change it', desc: 'A probability without a decision frame is a number people fill in themselves. Say what it means for the choices they are actually making.', effect: { score: 5 } },
+        { key: 'B', label: 'Publish the number and let people interpret it', desc: 'Sixty-three per cent will be read as "an earthquake is coming" by half your audience and "probably fine" by the other half.', effect: { score: -4 } },
+        { key: 'C', label: 'Round it to "high likelihood" and drop the number entirely', desc: 'Removes the precision that lets a controller compare this week against next, and invites the accusation that you are hiding the figure.', effect: { score: -3 } },
+        { key: 'D', label: 'Give different versions to officials and the public', desc: 'Two versions of the same forecast collide within a day, and the public one is always the one that looks like a lie.', effect: { score: -5 } }
+      ]
+    },
+    {
       time: 28, type: 'decision', tag: 'ADVISORY',
       title: 'Public Messaging — "Could There Be a Bigger Earthquake?"',
       body: 'Live media is asking whether an even larger earthquake could follow. The public is frightened and wants a simple ' +
@@ -476,6 +1099,14 @@
       ]
     },
     {
+      time: 36, type: 'inject', tag: 'DATA',
+      title: 'A Two-Hour Aerial Window',
+      body: 'Cloud lifts enough for a single fixed-wing run over the valley. The imagery is oblique, low resolution in ' +
+        'places, and it is the only synoptic view you will get before the weather closes again tonight. Everything you ' +
+        'advise for the next twelve hours will rest largely on these frames.',
+      source: 'Aerial Recon / GNS'
+    },
+    {
       time: 42, type: 'decision', tag: 'ADVISORY',
       title: 'Expert Deployment — Two Geotech Teams',
       body: 'Only two geotechnical teams are available against five urgent demands: a damaged hospital access road, a ' +
@@ -488,6 +1119,21 @@
         { key: 'B', label: 'Send both to the alpine pass and hospital access road to restore access fastest', desc: 'Prioritises economic and logistical access over life exposure — the slopes sitting above a township and a school go unassessed.', effect: { score: -3 } },
         { key: 'C', label: 'Split the two teams thinly across all five sites for partial coverage', desc: 'Spreads them so thin that no site gets a proper assessment — the appearance of coverage without the substance.', effect: { score: -2 } },
         { key: 'D', label: 'Hold both until you can fully scope all five demands', desc: 'Delay while unstable slopes sit above people. Perfect scoping is the enemy of timely life-safety advice here.', effect: { score: -4 } }
+      ]
+    },
+    {
+      time: 50, type: 'decision', tag: 'ADVISORY',
+      title: 'Unverified Drone Footage',
+      body: 'A resident\u2019s drone footage is circulating widely. It appears to show a long tension crack across the slope '
+        + 'above the township - which would be significant if real. You cannot verify the location, the timing, or whether '
+        + 'what you are looking at is a fissure or a farm track. It is already on the news.',
+      decisionId: 'sci_drone',
+      prompt: 'How do you use the footage?',
+      options: [
+        { key: 'A', label: 'Treat it as a lead rather than evidence: task verification against it, say publicly that you are checking it and what you can and cannot yet confirm', desc: 'Unverified imagery is a tasking prompt, not a finding. Saying you are checking it beats both endorsement and silence.', effect: { score: 5 } },
+        { key: 'B', label: 'Incorporate it into the hazard map now - it is too significant to ignore', desc: 'Putting an unverified feature on an authoritative map means every subsequent product carries an error you cannot trace.', effect: { score: -5 } },
+        { key: 'C', label: 'Dismiss it publicly as unverified and say nothing further', desc: 'It may well be real, and a flat dismissal that later proves wrong costs you more than the footage ever could.', effect: { score: -4 } },
+        { key: 'D', label: 'Ignore it - your job is the official data', desc: 'It is on the news and shaping public behaviour whether you engage with it or not.', effect: { score: -3 } }
       ]
     },
     {
@@ -516,6 +1162,24 @@
       ]
     },
     {
+      time: 74, type: 'decision', tag: 'ETHICAL',
+      title: 'Evacuate Below the Dam?',
+      body: 'The landslide dam is impounding water and the CDEM Controller needs a recommendation now: evacuate the 340 '
+        + 'people downstream, or not. Your honest position is that a breakout is plausible within 12 to 48 hours, that you '
+        + 'cannot bound it better without ground data, and that the weather is closing.',
+      decisionId: 'sci_dam_evacuate',
+      prompt: 'What do you recommend to the Controller?',
+      options: [
+        { key: 'A', label: 'Recommend precautionary evacuation now, state plainly that the uncertainty is wide and why, and commit to a review point once ground data or the next imagery arrives', desc: 'Under wide uncertainty with a catastrophic downside and a closing weather window, the precautionary call with a stated review point is the defensible one.', effect: { score: 5 },
+          locked: function (log) {
+            return log['sci_deploy'] === 'D' ? 'No team has reached the dam - you held both while you scoped, and you have no ground truth to recommend on' : false;
+          } },
+        { key: 'B', label: 'Advise waiting until you can bound the timing properly', desc: 'The data that would bound it needs a team on the ground and a weather window you do not have, and the dam does not wait for either.', effect: { score: -5 } },
+        { key: 'C', label: 'Tell the Controller it is an operational decision, not a science one', desc: 'The Controller needs your hazard judgement to make that decision. Handing it back without a position is not neutrality, it is abdication.', effect: { score: -5 } },
+        { key: 'D', label: 'Recommend evacuation and present it as a certainty to make sure it happens', desc: 'Overstating certainty to force the right action works once, and destroys the credibility every later warning depends on.', effect: { score: -4 } }
+      ]
+    },
+    {
       time: 84, type: 'decision', tag: 'ADVISORY',
       title: 'Road Reopening — "Is It Safe?"',
       body: 'Roading officials are lobbying hard to reopen a key alpine route within six hours for fuel, food and medical ' +
@@ -528,6 +1192,21 @@
         { key: 'B', label: 'Advise the road stays fully closed until rockfall risk is low', desc: 'Defensible on pure hazard grounds but ignores the tolerable-risk framing — isolated communities pay the price while you wait for "low".', effect: { score: -2 } },
         { key: 'C', label: 'Advise it is safe enough to reopen so supplies can flow', desc: 'False certainty on a high-rockfall corridor during an aftershock sequence. "Safe enough" is the phrase that gets a convoy buried.', effect: { score: -6 } },
         { key: 'D', label: 'Tell officials it is their decision and decline to give a risk view', desc: 'Abdication when they specifically need your hazard read. Declining to advise is itself a failure of the advisory role.', effect: { score: -4 } }
+      ]
+    },
+    {
+      time: 92, type: 'decision', tag: 'ETHICAL',
+      title: 'The School Below the Slope',
+      body: 'The school sits directly below the slope you have flagged as high risk. The board wants to reopen on Monday '
+        + 'because 400 families have nowhere else for their children to go. Your assessment is incomplete, and the only '
+        + 'honest thing you can say about the slope is that you do not yet know.',
+      decisionId: 'sci_school',
+      prompt: 'What do you advise the school board?',
+      options: [
+        { key: 'A', label: 'Advise against reoccupation until the slope is assessed, say exactly what assessment is needed and how long it would take, and help them frame the alternative', desc: 'You cannot clear a slope you have not assessed. Naming the specific work and the timeframe turns "no" into something the board can act on.', effect: { score: 5 } },
+        { key: 'B', label: 'Clear it - there is no positive evidence of instability', desc: 'Absence of evidence from an assessment you have not done is not evidence of absence, and 400 children would be under it.', effect: { score: -6 } },
+        { key: 'C', label: 'Tell them it is their decision and decline to advise', desc: 'A school board cannot assess a slope. Withholding the judgement they came for leaves them guessing about children.', effect: { score: -5 } },
+        { key: 'D', label: 'Advise permanent closure of the site', desc: 'Goes far beyond what your evidence supports, and a recommendation you cannot substantiate will not survive the first challenge.', effect: { score: -4 } }
       ]
     },
     {
@@ -546,6 +1225,21 @@
       ]
     },
     {
+      time: 108, type: 'decision', tag: 'ADVISORY',
+      title: 'The Hydro Dam Nobody Has Inspected',
+      body: 'The hydro operator states its dam performed within design and needs no external assessment. You have no '
+        + 'independent data, the structure sits above two settlements, and the shaking exceeded what the original design '
+        + 'case assumed. The operator is a credible organisation and it is also the party with the most to lose.',
+      decisionId: 'sci_hydro',
+      prompt: 'How do you handle the hydro dam?',
+      options: [
+        { key: 'A', label: 'State plainly that you cannot corroborate the operator\u2019s assessment, recommend independent inspection, and record that advice formally', desc: 'The operator may well be right. Saying you cannot corroborate it, and putting the recommendation on the record, is the whole of your job here.', effect: { score: 5 } },
+        { key: 'B', label: 'Accept the operator\u2019s assessment - they know their own asset', desc: 'Adopting the assessment of the party with the largest interest, with no independent data, is how you end up owning their conclusion.', effect: { score: -5 } },
+        { key: 'C', label: 'Publicly question the dam\u2019s safety to force an inspection', desc: 'Alarming two settlements about a structure you have no evidence against, to win a procedural argument.', effect: { score: -5 } },
+        { key: 'D', label: 'Leave it - it is a regulatory matter, not yours', desc: 'It is a hazard above two settlements after design-exceeding shaking. That makes it yours to raise, whoever regulates it.', effect: { score: -4 } }
+      ]
+    },
+    {
       time: 116, type: 'decision', tag: 'ADVISORY',
       title: 'Conflicting Expert Views — A Slope Above Town',
       body: 'Two of your scientists genuinely disagree on whether a slope above the town is likely to fail. Officials need ' +
@@ -561,6 +1255,14 @@
       ]
     },
     {
+      time: 124, type: 'inject', tag: 'PRESSURE',
+      title: 'Everyone Wants a Different Answer',
+      body: 'Within twenty minutes: a mayor asks you to confirm his township is safe, an infrastructure chief executive asks '
+        + 'you to clear the pass for freight, a talkback host is reading your forecast aloud and laughing at it, and the '
+        + 'Minister\u2019s office wants to know why the advice keeps changing. None of them are asking for the same thing.',
+      source: 'Advice Recipients'
+    },
+    {
       time: 130, type: 'decision', tag: 'ETHICAL',
       title: 'Certainty vs Usefulness — "Give Us a Percentage"',
       body: 'Decision-makers want a single percentage risk number they can act on. You only have rough confidence levels. A ' +
@@ -568,11 +1270,22 @@
       decisionId: 'sci_certainty',
       prompt: 'How do you express the risk to decision-makers?',
       options: [
-        { key: 'A', label: 'Use confidence bands — low / moderate / high — each tied to a clear decision implication and trigger point', desc: 'Honest about precision and still decision-ready. Officials get something to act on without mistaking a guess for a measurement.', effect: { score: 5 } },
+        { key: 'A', label: 'Use confidence bands — low / moderate / high — each tied to a clear decision implication and trigger point', desc: 'Honest about precision and still decision-ready. Officials get something to act on without mistaking a guess for a measurement.', effect: { score: 5 },
+          locked: function (log) {
+            return log['sci_minister'] === 'B' ? 'You accepted the softened wording this morning - the certainty you gave is already public' : false;
+          } },
         { key: 'B', label: 'Give them a single percentage so they have something firm', desc: 'A falsely precise number gets over-trusted and quoted as fact. The decimal point implies a confidence you do not have.', effect: { score: -4 } },
         { key: 'C', label: 'Tell them the science cannot give a number and leave it there', desc: 'Technically true and operationally useless — it reads as the expert refusing to help.', effect: { score: -3 } },
         { key: 'D', label: 'Give a wide percentage range with heavy caveats', desc: 'Better than a point estimate, but a bare range without decision implications still leaves officials guessing what to do.', effect: { score: 1 } }
       ]
+    },
+    {
+      time: 138, type: 'inject', tag: 'DATA',
+      title: 'First Ground Truth',
+      body: 'The first geotech team reports back from the township slope. There is a genuine tension crack, it is shorter '
+        + 'than the drone footage suggested and in a different place, and the material below it is more mobile than the '
+        + 'imagery implied. Some of what you have already published is wrong in detail, and the overall risk is unchanged.',
+      source: 'Geotech Team / Field'
     },
     {
       time: 144, type: 'cascade', tag: 'WEATHER',
@@ -597,6 +1310,21 @@
       ]
     },
     {
+      time: 160, type: 'decision', tag: 'ETHICAL',
+      title: 'Your Earlier Advice Was Wrong in Detail',
+      body: 'Ground truth has shown that the crack you described this morning is in a different location and shorter than '
+        + 'you said. The risk conclusion has not changed, but the specifics you published have. Nobody outside your team '
+        + 'has noticed yet.',
+      decisionId: 'sci_reversal',
+      prompt: 'How do you handle the error?',
+      options: [
+        { key: 'A', label: 'Correct it openly and quickly: say what changed, why, what it does and does not change about the risk, and that this is what updating on evidence looks like', desc: 'A visible, explained correction is the strongest possible demonstration that your advice tracks evidence rather than reputation.', effect: { score: 5 } },
+        { key: 'B', label: 'Quietly update the map and say nothing', desc: 'Someone will notice the change, and a silent edit reads as concealment in a way an open correction never would.', effect: { score: -5 } },
+        { key: 'C', label: 'Leave it - the risk conclusion is unchanged so the detail does not matter', desc: 'The detail is what people navigated by. Leaving a known error in a published hazard product is not a rounding decision.', effect: { score: -5 } },
+        { key: 'D', label: 'Correct it but bury it in a technical annex', desc: 'Technically published, practically hidden, and it costs you the credibility that an open correction would have bought.', effect: { score: -3 } }
+      ]
+    },
+    {
       time: 168, type: 'decision', tag: 'ETHICAL',
       title: 'Transparency vs Panic — Landslide-Dam Maps',
       body: 'Officials are worried that publishing your landslide-dam hazard maps will cause panic. But the people living ' +
@@ -604,10 +1332,28 @@
       decisionId: 'sci_maps',
       prompt: 'What do you do with the landslide-dam hazard maps?',
       options: [
-        { key: 'A', label: 'Release simplified, plain-language risk areas with clear "what to do" guidance, holding back only raw detail that misleads', desc: 'Informs the exposed public in a form they can act on, without dumping confusing technical detail. Informed people act more safely.', effect: { score: 5 } },
+        { key: 'A', label: 'Release simplified, plain-language risk areas with clear "what to do" guidance, holding back only raw detail that misleads', desc: 'Informs the exposed public in a form they can act on, without dumping confusing technical detail. Informed people act more safely.', effect: { score: 5 },
+          locked: function (log) {
+            return log['sci_drone'] === 'B' ? 'Your published hazard map already carries an unverified drone feature' : false;
+          } },
         { key: 'B', label: 'Withhold the maps to avoid causing panic', desc: 'Withholding hazard information from the people it affects rarely prevents harm and devastates trust when the hazard materialises.', effect: { score: -5 } },
         { key: 'C', label: 'Publish the full raw technical maps unedited', desc: 'Accurate but easily misread — uncaveated technical maps can cause the very panic and confusion that was feared.', effect: { score: -1 } },
         { key: 'D', label: 'Release the maps to officials only, not the public', desc: 'The people standing below the dams are the ones who most need to know, and they are exactly who this leaves out.', effect: { score: -3 } }
+      ]
+    },
+    {
+      time: 176, type: 'decision', tag: 'ETHICAL',
+      title: 'Advice That Has to Travel Without You',
+      body: 'Three cut-off tourist centres hold roughly 900 visitors, many with limited English, no local knowledge and no '
+        + 'idea what a landslide dam is. Your hazard advice has to reach them through a satellite phone, a lodge manager '
+        + 'and whatever gets translated on the way.',
+      decisionId: 'sci_tourists',
+      prompt: 'How do you get the advice to them?',
+      options: [
+        { key: 'A', label: 'Write a short, concrete, translatable instruction - what to do, where to go, what signal to act on - and confirm the lodge managers can repeat it back correctly', desc: 'Advice that must pass through intermediaries has to survive being repeated. Confirming it comes back correctly is the only test that matters.', effect: { score: 5 } },
+        { key: 'B', label: 'Send them the same technical bulletin the controllers get', desc: 'A bulletin written for CDEM controllers will not survive translation by a lodge manager to 300 frightened visitors.', effect: { score: -4 } },
+        { key: 'C', label: 'Leave it to Civil Defence - the tourist centres are outside your priority set', desc: 'Nine hundred people in the hazard zone are not outside anyone\u2019s priority set, and nobody else can write the hazard instruction.', effect: { score: -5 } },
+        { key: 'D', label: 'Tell them to evacuate immediately without saying where to', desc: 'An instruction to move with no destination sends 900 people onto roads you have flagged as rockfall corridors.', effect: { score: -6 } }
       ]
     },
     {
@@ -625,6 +1371,21 @@
       ]
     },
     {
+      time: 192, type: 'decision', tag: 'ETHICAL',
+      title: 'A Colleague Contradicts You Publicly',
+      body: 'A respected academic seismologist has posted publicly that the official aftershock advice is overstated and '
+        + 'that the evacuation was unnecessary. She is well qualified, she is working from the public data only, and she is '
+        + 'being widely shared by people who want the evacuation reversed.',
+      decisionId: 'sci_colleague',
+      prompt: 'How do you respond?',
+      options: [
+        { key: 'A', label: 'Respond on the substance, publicly and without rancour: set out the field data she does not have, name where you genuinely agree, and offer her the dataset', desc: 'Scientific disagreement handled in the open, on evidence, strengthens the advice. Offering her the data is what separates confidence from defensiveness.', effect: { score: 5 } },
+        { key: 'B', label: 'Attack her credibility publicly', desc: 'Turns a disagreement about evidence into a fight about people, and every observer concludes you could not answer the substance.', effect: { score: -6 } },
+        { key: 'C', label: 'Say nothing and hope it passes', desc: 'An unanswered expert contradiction becomes the counter-narrative that undermines compliance with an evacuation still in force.', effect: { score: -4 } },
+        { key: 'D', label: 'Ask her institution to make her stop', desc: 'Suppressing a qualified colleague\u2019s scientific disagreement is the story, and it will be a bigger one than the disagreement.', effect: { score: -6 } }
+      ]
+    },
+    {
       time: 200, type: 'decision', tag: 'ADVISORY',
       title: 'Media Leak — Draft Risk Map Online',
       body: 'A draft technical risk map has leaked online and is spreading, stripped of its caveats and confidence labels. ' +
@@ -639,6 +1400,21 @@
       ]
     },
     {
+      time: 208, type: 'decision', tag: 'ADVISORY',
+      title: 'Your Own Team at Hour Twenty',
+      body: 'Two modelling errors have been caught internally in the last hour, both by chance. Your analysts have been on '
+        + 'since the mainshock, the next forecast update is due in ninety minutes, and there is no relief roster because '
+        + 'nobody planned for a response this long.',
+      decisionId: 'sci_team_fatigue',
+      prompt: 'How do you handle your team?',
+      options: [
+        { key: 'A', label: 'Rotate people off, reduce to the products that genuinely drive decisions, and put a second pair of eyes on anything published from here', desc: 'Fewer products, checked, beats more products with fatigue errors in them - and an error in a hazard product propagates into every decision built on it.', effect: { score: 5 } },
+        { key: 'B', label: 'Push through - the decisions being made need the full product set', desc: 'Two caught errors mean there are uncaught ones, and a wrong hazard product does more damage than a late one.', effect: { score: -5 } },
+        { key: 'C', label: 'Keep everyone on but add more review steps', desc: 'Adds work to exhausted people to catch the errors exhaustion is causing, and slows the products without fixing the cause.', effect: { score: -3 } },
+        { key: 'D', label: 'Stand the team down entirely until morning', desc: 'An evacuation is in force and the weather is closing; there are decisions tonight that need a hazard view.', effect: { score: -4 } }
+      ]
+    },
+    {
       time: 216, type: 'decision', tag: 'ETHICAL',
       title: 'Equity of Advice — Who Gets Assessed First?',
       body: 'Tourist centres and major highways are getting rapid technical assessment because of their economic and ' +
@@ -647,11 +1423,22 @@
       decisionId: 'sci_equity',
       prompt: 'How do you allocate scarce science assessment?',
       options: [
-        { key: 'A', label: 'Prioritise by hazard exposure and vulnerability, not economic profile — and explicitly include the remote and isolated communities', desc: 'Allocates scarce expertise to where people are most at risk, and says so openly. Equitable and defensible.', effect: { score: 5 } },
+        { key: 'A', label: 'Prioritise by hazard exposure and vulnerability, not economic profile — and explicitly include the remote and isolated communities', desc: 'Allocates scarce expertise to where people are most at risk, and says so openly. Equitable and defensible.', effect: { score: 5 },
+          locked: function (log) {
+            return log['sci_tourists'] === 'C' ? 'You already told the cut-off centres they were outside your priority set' : false;
+          } },
         { key: 'B', label: 'Follow the national economic priorities — highways and tourist centres first', desc: 'Lets economic and political profile, not exposure, decide who gets life-safety advice. The vulnerable wait longest exactly when it matters most.', effect: { score: -4 } },
         { key: 'C', label: 'First-come, first-served as requests arrive', desc: 'Neutral on its face, but defaults to whoever is best-connected and loudest — usually not the most exposed.', effect: { score: -2 } },
         { key: 'D', label: 'Defer the allocation entirely to officials', desc: 'Allocating scarce science capacity is exactly the call you should be advising on, not handing back unadvised.', effect: { score: -3 } }
       ]
+    },
+    {
+      time: 224, type: 'info', tag: 'NIGHT',
+      title: 'Twenty-Four Hours',
+      body: 'A day after the mainshock the aftershock sequence is decaying roughly as forecast, the dam is holding, the '
+        + 'township below it is empty, and nobody has died in a place you flagged. None of that proves you were right. It '
+        + 'means the decisions taken on your advice have not yet been tested by the thing you were warning about.',
+      source: 'GNS Science'
     },
     {
       time: 232, type: 'info', tag: 'HANDOVER',
