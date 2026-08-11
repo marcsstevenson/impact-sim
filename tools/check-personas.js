@@ -117,6 +117,55 @@ function checkPersona(ctx, id, errors, counts) {
     });
   });
 
+  // 7. stateChange must reference panel items that actually exist. The mutators
+  // match by label and silently no-op on a typo, so a wrong label is invisible
+  // at runtime - this is the only place it can be caught.
+  var panels = (ctx.SCENARIO_CONFIGS[id] && ctx.SCENARIO_CONFIGS[id].panels) || {};
+  var PANEL_SOURCES = {
+    'cdem-groups': panels.groups,
+    'agency-status': panels.agencies,
+    'lifelines-section': panels.lifelines,
+    'transport-section': panels.transport
+  };
+  function labelsOf(items) {
+    return (items || []).map(function (i) { return i.label; });
+  }
+  function checkStateChange(decisionId, optKey, fn) {
+    var src = fn.toString();
+    var where = 'CONSEQUENCE_MAP["' + decisionId + '"]["' + optKey + '"].stateChange';
+
+    var panelRe = /update(?:Panel|Meter)Item\(\s*'([^']+)'\s*,\s*'([^']+)'/g;
+    var m;
+    while ((m = panelRe.exec(src)) !== null) {
+      var source = PANEL_SOURCES[m[1]];
+      if (!source) { fail(where + ' targets unknown panel "' + m[1] + '"'); continue; }
+      if (labelsOf(source).indexOf(m[2]) === -1) {
+        fail(where + ' targets label "' + m[2] + '" which is not in ' + m[1]);
+      }
+    }
+
+    var cascadeRe = /updateCascadeItem\(\s*'([^']+)'\s*,\s*'([^']+)'/g;
+    while ((m = cascadeRe.exec(src)) !== null) {
+      if (m[1] !== 'cascade-tracker') { fail(where + ' targets unknown tracker "' + m[1] + '"'); continue; }
+      var names = (panels.cascades || []).map(function (c) { return c.name; });
+      if (names.indexOf(m[2]) === -1) {
+        fail(where + ' targets cascade "' + m[2] + '" which is not in the tracker');
+      }
+    }
+
+    var utilRe = /updateUtilityDirect\(\s*'([^']+)'/g;
+    while ((m = utilRe.exec(src)) !== null) {
+      if (!utilDefaults[m[1]]) fail(where + ' targets unknown utility "' + m[1] + '"');
+    }
+  }
+  Object.keys(ctx.CONSEQUENCE_MAP).forEach(function (key) {
+    if (!prefix || key.indexOf(prefix) !== 0) return;
+    Object.keys(ctx.CONSEQUENCE_MAP[key]).forEach(function (optKey) {
+      var sc = ctx.CONSEQUENCE_MAP[key][optKey].stateChange;
+      if (typeof sc === 'function') checkStateChange(key, optKey, sc);
+    });
+  });
+
   // 6. Depth counts.
   var consequenceIds = Object.keys(ctx.CONSEQUENCE_MAP).filter(function (k) {
     return prefix && k.indexOf(prefix) === 0;
