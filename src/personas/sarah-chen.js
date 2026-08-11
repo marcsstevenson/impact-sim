@@ -107,7 +107,16 @@
     'sarah_medical_centre': { 'A': { stock: -10 } },
     'sarah_insurance': { 'A': { building: 5 } },
     'sarah_donate': { 'A': { stock: -10 }, 'B': { stock: -30 } },
-    'sarah_security': { 'A': { security: 10 }, 'C': { security: -15 } }
+    'sarah_security': { 'A': { security: 10 }, 'C': { security: -15 } },
+    'sarah_gas': { 'A': { building: 10, stock: -5 }, 'B': { building: -15 }, 'C': { building: -10 }, 'D': { building: -20 } },
+    'sarah_eftpos': { 'A': { stock: -10, cash: -5 }, 'B': { stock: -2 }, 'C': { stock: -25, cash: -20 }, 'D': { cash: -10 } },
+    'sarah_migrant_staff': { 'A': { staffing: 10, cash: -5 }, 'B': { staffing: -10 }, 'C': { staffing: -15 }, 'D': { staffing: -5, building: -5 } },
+    'sarah_pooling': { 'A': { stock: -15 }, 'B': { stock: -5 }, 'C': { stock: -20 }, 'D': { stock: -10 } },
+    'sarah_customer_injury': { 'A': { building: 10, stock: -5 }, 'B': { building: -10 }, 'D': { stock: -5 } },
+    'sarah_bank': { 'A': { cash: 15 }, 'B': { cash: 10 }, 'C': { cash: -15 }, 'D': { cash: -25 } },
+    'sarah_reopen': { 'A': { building: 10, stock: -5 }, 'B': { building: -20 }, 'C': { cash: -10 }, 'D': { building: -15 } },
+    'sarah_staff_pay': { 'A': { cash: -25, staffing: 10 }, 'B': { cash: -25 }, 'C': { staffing: -25 }, 'D': { cash: -10, staffing: -30 } },
+    'sarah_civil_defence': { 'A': { stock: -25 }, 'B': { stock: -45 }, 'D': { stock: -20 } }
   });
 
   Object.assign(SOFT_METRIC_EFFECTS, {
@@ -123,7 +132,16 @@
     'sarah_employee_theft': { 'A': { staff: 8, reputation: 5, finances: -2 }, 'B': { staff: -8, reputation: -3 }, 'C': { finances: -5, staff: -2 }, 'D': { staff: -8, reputation: -4 } },
     'sarah_social_media': { 'A': { reputation: 8, community: 5, finances: 3 }, 'B': { reputation: -5, community: -3 }, 'C': { reputation: -4, finances: -3 }, 'D': { reputation: -4 } },
     'sarah_donate': { 'A': { community: 8, reputation: 6, finances: -3, staff: 2 }, 'B': { finances: -10, community: 4 }, 'C': { community: -8, reputation: -6 }, 'D': { reputation: -8, community: -4 } },
-    'sarah_security': { 'A': { family: 6, finances: 4, community: 3 }, 'B': { family: -5, safety: -3 }, 'C': { finances: -5 }, 'D': { family: -8, safety: -4 } }
+    'sarah_security': { 'A': { family: 6, finances: 4, community: 3 }, 'B': { family: -5, safety: -3 }, 'C': { finances: -5 }, 'D': { family: -8, safety: -4 } },
+    'sarah_gas': { 'A': { safety: 10, community: 4, finances: -3 }, 'B': { safety: -14, staff: -6 }, 'C': { safety: -10, staff: -4 }, 'D': { safety: -14, reputation: -5 } },
+    'sarah_eftpos': { 'A': { community: 8, finances: 5, reputation: 4 }, 'B': { community: -8, reputation: -4 }, 'C': { finances: -10, community: 4 }, 'D': { reputation: -8, finances: -4 } },
+    'sarah_migrant_staff': { 'A': { staff: 10, reputation: 5, community: 4 }, 'B': { staff: -6 }, 'C': { staff: -9, reputation: -4 }, 'D': { safety: -8, staff: -5 } },
+    'sarah_pooling': { 'A': { community: 9, reputation: 5, finances: 2 }, 'B': { community: -5, reputation: -3 }, 'C': { finances: -6, reputation: -3 }, 'D': { reputation: -10, community: -6 } },
+    'sarah_customer_injury': { 'A': { safety: 9, reputation: 5, finances: -2 }, 'B': { safety: -9, reputation: -4 }, 'C': { reputation: -12, community: -7 }, 'D': { community: -3, finances: -3 } },
+    'sarah_bank': { 'A': { finances: 9, reputation: 4 }, 'B': { finances: -10, reputation: -7 }, 'C': { finances: -7 }, 'D': { finances: -6, staff: -4 } },
+    'sarah_reopen': { 'A': { safety: 9, community: 4, finances: 3 }, 'B': { safety: -12, staff: -5 }, 'C': { community: -4, finances: -4 }, 'D': { safety: -10, staff: -8 } },
+    'sarah_staff_pay': { 'A': { staff: 10, reputation: 5, finances: -4 }, 'B': { staff: -4, reputation: -3 }, 'C': { staff: -12, reputation: -6 }, 'D': { staff: -9, community: -4 } },
+    'sarah_civil_defence': { 'A': { community: 8, reputation: 5, finances: 2 }, 'B': { community: -4, finances: -6 }, 'C': { community: -6, reputation: -4 }, 'D': { reputation: -10, community: -5 } }
   });
 
   Object.assign(STYLE_TAGS, {
@@ -139,7 +157,16 @@
     'sarah_employee_theft': { 'A': { decisive: 1, centralized: 1, communityTrust: 1 }, 'B': { centralized: 2, communityTrust: -2 }, 'C': { centralized: -2 }, 'D': { centralized: 2, communityTrust: -2 } },
     'sarah_social_media': { 'A': { decisive: 1, communityTrust: 1, centralized: 1 }, 'B': { communityTrust: -1 }, 'C': { decisive: -2 }, 'D': { centralized: 1, communityTrust: -1 } },
     'sarah_donate': { 'A': { decisive: 1, centralized: 1, communityTrust: 1 }, 'B': { communityTrust: 2, centralized: -1 }, 'C': { centralized: 1, communityTrust: -2 }, 'D': { centralized: 1, communityTrust: -2 } },
-    'sarah_security': { 'A': { decisive: 1, centralized: 1, communityTrust: 1 }, 'B': { centralized: 2, communityTrust: -1 }, 'C': { decisive: -1 }, 'D': { lifeSafety: -2 } }
+    'sarah_security': { 'A': { decisive: 1, centralized: 1, communityTrust: 1 }, 'B': { centralized: 2, communityTrust: -1 }, 'C': { decisive: -1 }, 'D': { lifeSafety: -2 } },
+    'sarah_gas': { 'A': { decisive: 2, lifeSafety: 2, centralized: 1 }, 'B': { decisive: 2, lifeSafety: -2 }, 'C': { decisive: 1, lifeSafety: -2 }, 'D': { decisive: -2, lifeSafety: -2 } },
+    'sarah_eftpos': { 'A': { decisive: 1, communityTrust: 2, centralized: 1 }, 'B': { decisive: 1, centralized: 2, communityTrust: -2 }, 'C': { decisive: 1, communityTrust: 2, centralized: -2 }, 'D': { decisive: -1, centralized: -1 } },
+    'sarah_migrant_staff': { 'A': { decisive: 1, lifeSafety: 1, communityTrust: 2 }, 'B': { decisive: 1, communityTrust: -1 }, 'C': { decisive: -2, communityTrust: -2 }, 'D': { decisive: 1, lifeSafety: -2 } },
+    'sarah_pooling': { 'A': { decisive: 1, centralized: 1, communityTrust: 2 }, 'B': { decisive: 1, centralized: -1, communityTrust: -1 }, 'C': { decisive: 1, communityTrust: 1, centralized: -2 }, 'D': { decisive: -1, communityTrust: -2 } },
+    'sarah_customer_injury': { 'A': { decisive: 2, lifeSafety: 2, communityTrust: 1 }, 'B': { decisive: 1, lifeSafety: -2 }, 'C': { decisive: 1, communityTrust: -2, lifeSafety: -1 }, 'D': { decisive: 1, lifeSafety: 1, communityTrust: -1 } },
+    'sarah_bank': { 'A': { decisive: 2, centralized: 1, communityTrust: 1 }, 'B': { decisive: 1, communityTrust: -2 }, 'C': { decisive: -2 }, 'D': { decisive: -1, centralized: 1 } },
+    'sarah_reopen': { 'A': { decisive: 1, lifeSafety: 2, centralized: 1 }, 'B': { decisive: 2, lifeSafety: -2 }, 'C': { decisive: -2, lifeSafety: 1 }, 'D': { decisive: 1, lifeSafety: -2 } },
+    'sarah_staff_pay': { 'A': { decisive: 1, communityTrust: 2, centralized: 1 }, 'B': { decisive: 1, centralized: 1, communityTrust: -1 }, 'C': { decisive: -1, communityTrust: -2 }, 'D': { decisive: 2, communityTrust: -2 } },
+    'sarah_civil_defence': { 'A': { decisive: 1, centralized: 1, communityTrust: 2 }, 'B': { decisive: 1, centralized: 2, communityTrust: -1 }, 'C': { decisive: 1, centralized: -2 }, 'D': { decisive: -1, communityTrust: -2 } }
   });
 
   Object.assign(CONSEQUENCE_MAP, {
@@ -153,6 +180,12 @@
             'business-continuity question has become a serious-harm one. Life had to come before the stock.',
           source: 'Shop Floor / Aftershock',
           scorePenalty: -5
+        },
+        stateChange: function () {
+          updatePanelItem('transport-section', 'Front Windows', 'Collapsed', 'failed');
+          updateCascadeItem('cascade-tracker', 'Structural', 'Extreme', 'extreme');
+          updateCascadeItem('cascade-tracker', 'Gas Leak', 'Extreme', 'extreme');
+          updateUtilityDirect('building', 5);
         }
       }
     },
@@ -166,6 +199,27 @@
             'cancelling orders, and a relationship built over 18 years is taking damage that will outlast the earthquake.',
           source: 'Main Street / Social Media',
           scorePenalty: -4
+        },
+        stateChange: function () {
+          updatePanelItem('agency-status', 'Media', '"Profiteer"', 'failed');
+          updatePanelItem('agency-status', 'Civil Defence', '"Reviewing you"', 'degraded');
+        }
+      }
+    },
+    'sarah_employee_theft': {
+      'B': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: 'The Team Watches How You Handle It',
+          body: 'Making a public example of a staff member who took supplies home to a damaged house did not deter anyone - ' +
+            'it told the rest of the team what happens if they are struggling and say nothing. Two have since stopped ' +
+            'mentioning problems at all, and you will find out about the next one late.',
+          source: 'Staff',
+          scorePenalty: -4
+        },
+        stateChange: function () {
+          updateUtilityDirect('staffing', 30);
+          updatePanelItem('cdem-groups', 'Staff On Site', '6 / 12', 'degraded');
         }
       }
     },
@@ -179,6 +233,198 @@
             'the town will remember about who you sold a life-critical item to in a disaster.',
           source: 'Community',
           scorePenalty: -4
+        },
+        stateChange: function () {
+          updatePanelItem('agency-status', 'Media', '"Sold to a tourist"', 'failed');
+          updateUtilityDirect('power', 0);
+        }
+      }
+    },
+    'sarah_gas': {
+      'B': {
+        inject: {
+          type: 'cascade', tag: 'CONSEQUENCE',
+          title: 'A Flash Fire at the Back Wall',
+          body: 'Moving damaged cylinders yourself in a confined, unventilated space, a spark from the fallen shelving found ' +
+            'the leak. You have burns to both hands and forearms, the rear of the shop is alight, and the Fire Service is ' +
+            'already committed to a collapse rescue on the other side of town.',
+          source: 'Fire and Emergency',
+          scorePenalty: -7
+        },
+        stateChange: function () {
+          updateCascadeItem('cascade-tracker', 'Gas Leak', 'Extreme', 'extreme');
+          updatePanelItem('cdem-groups', 'Building', 'Fire Damage', 'failed');
+          updateUtilityDirect('building', 0);
+        }
+      },
+      'C': {
+        inject: {
+          type: 'cascade', tag: 'CONSEQUENCE',
+          title: 'Gas Does Not Respect a Partition',
+          body: 'LPG is heavier than air and it moved along the floor under the partition into the front of the shop. Two ' +
+            'customers and a staff member are unwell, everyone has been evacuated by Fire and Emergency, and the whole ' +
+            'building is now cordoned rather than the rear alone.',
+          source: 'Fire and Emergency',
+          scorePenalty: -5
+        },
+        stateChange: function () {
+          updateCascadeItem('cascade-tracker', 'Gas Leak', 'Extreme', 'extreme');
+          updatePanelItem('cdem-groups', 'Building', 'Cordoned', 'failed');
+        }
+      }
+    },
+    'sarah_eftpos': {
+      'C': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: 'Nothing on Paper, Nothing to Claim',
+          body: 'Four hundred thousand dollars of stock left the shop today and there is no record of any of it. The insurer ' +
+            'will not accept an unevidenced business-interruption claim, the bank cannot see revenue that was never ' +
+            'recorded, and the generosity that felt right this morning has removed your ability to reopen at all.',
+          source: 'Accountant',
+          scorePenalty: -5
+        },
+        stateChange: function () {
+          updatePanelItem('cdem-groups', 'Cash Runway', '~1 week', 'failed');
+          updatePanelItem('cdem-groups', 'Stock On Hand', 'Depleted', 'failed');
+          updateUtilityDirect('cash', 8);
+        }
+      }
+    },
+    'sarah_migrant_staff': {
+      'C': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: 'They Slept in the Car',
+          body: 'Your two migrant staff spent the night in a car outside the red-stickered flat, because nobody told them the ' +
+            'welfare centre existed or how to get there. They were both back at work at seven. One of them mentioned it to ' +
+            'a customer, and the street heard about it before you did.',
+          source: 'Staff / Main Street',
+          scorePenalty: -5
+        },
+        stateChange: function () {
+          updatePanelItem('cdem-groups', 'Staff On Site', '5 / 12', 'failed');
+          updateUtilityDirect('staffing', 25);
+        }
+      }
+    },
+    'sarah_pooling': {
+      'D': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: 'Caught Holding Back',
+          body: 'The supermarket manager came to collect the pooled stock and found the good gear stacked in your rear ' +
+            'storeroom. It is around the street within the hour. The pooling arrangement has collapsed, the other three ' +
+            'businesses have pulled out, and everyone is back to four queues for the same scarce goods.',
+          source: 'Main Street Businesses',
+          scorePenalty: -6
+        },
+        stateChange: function () {
+          updatePanelItem('agency-status', 'Civil Defence', '"Not working with you"', 'failed');
+          updatePanelItem('agency-status', 'Media', '"Held stock back"', 'failed');
+        }
+      }
+    },
+    'sarah_customer_injury': {
+      'B': {
+        inject: {
+          type: 'cascade', tag: 'CONSEQUENCE',
+          title: 'The Second Bay Comes Down',
+          body: 'You patched her up and kept the queue moving past the remaining leaning bays. The next aftershock brought ' +
+            'another one down across two customers. This time there is a head injury, there is now clear evidence you knew ' +
+            'the hazard existed, and the shop is closed by the council within the hour.',
+          source: 'WorkSafe / Council',
+          scorePenalty: -7
+        },
+        stateChange: function () {
+          updatePanelItem('transport-section', 'Shelving', 'Collapsed Again', 'failed');
+          updatePanelItem('cdem-groups', 'Building', 'Closed by Council', 'failed');
+          updateUtilityDirect('building', 0);
+        }
+      },
+      'C': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: 'It Was Filmed',
+          body: 'Two people in the queue were already filming when you asked the injured woman not to make a claim. The clip ' +
+            'is on every local page by evening. The insurer has seen it, her family has a lawyer, and fifteen years of ' +
+            'community standing has gone in a ninety-second video.',
+          source: 'Social Media / Insurer',
+          scorePenalty: -7
+        },
+        stateChange: function () {
+          updatePanelItem('agency-status', 'Insurer', '"Reviewing conduct"', 'failed');
+          updatePanelItem('agency-status', 'Media', '"The video"', 'failed');
+        }
+      }
+    },
+    'sarah_bank': {
+      'B': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: 'The Numbers Arrive',
+          body: 'The bank reconciled your account against the position you described and found the gap in a fortnight. The ' +
+            'facility is frozen pending review, and the personal guarantee against your house is now the live conversation ' +
+            'instead of the working-capital one you needed.',
+          source: 'Bank',
+          scorePenalty: -6
+        },
+        stateChange: function () {
+          updatePanelItem('agency-status', 'Bank', '"Facility frozen"', 'failed');
+          updatePanelItem('cdem-groups', 'Cash Runway', 'At Risk', 'failed');
+          updateUtilityDirect('cash', 10);
+        }
+      }
+    },
+    'sarah_reopen': {
+      'B': {
+        inject: {
+          type: 'cascade', tag: 'CONSEQUENCE',
+          title: 'The Rear Wall Moves',
+          body: 'You reopened the section the engineer specifically excluded. An aftershock during the morning rush moved the ' +
+            'rear wall and brought down the ceiling grid across the back aisle. Nobody was killed, which was luck rather ' +
+            'than judgement, and the written clearance now records that you traded outside it.',
+          source: 'Building Engineer / Council',
+          scorePenalty: -7
+        },
+        stateChange: function () {
+          updateCascadeItem('cascade-tracker', 'Structural', 'Extreme', 'extreme');
+          updatePanelItem('cdem-groups', 'Building', 'Closed by Council', 'failed');
+          updateUtilityDirect('building', 0);
+        }
+      }
+    },
+    'sarah_staff_pay': {
+      'C': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: 'Four Staff Do Not Come Back',
+          body: 'Deferring wages was not something you were entitled to ask, and four staff with damaged homes and no other ' +
+            'income did not return on Monday. Two have taken work in Christchurch. You now cannot open the hours the town ' +
+            'needs, and the employment claim is in the post.',
+          source: 'Staff / Employment Advocate',
+          scorePenalty: -6
+        },
+        stateChange: function () {
+          updatePanelItem('cdem-groups', 'Staff On Site', '3 / 12', 'failed');
+          updateUtilityDirect('staffing', 15);
+        }
+      }
+    },
+    'sarah_civil_defence': {
+      'B': {
+        inject: {
+          type: 'inject', tag: 'CONSEQUENCE',
+          title: 'The Queue Goes Home Empty',
+          body: 'Everything went to the welfare centre, and the forty people who had queued on your footpath since morning ' +
+            'were sent away with nothing as the snow started. There is no record of what you handed over, no agreed terms, ' +
+            'and nothing on the shelves to sell tomorrow.',
+          source: 'Main Street / Civil Defence',
+          scorePenalty: -5
+        },
+        stateChange: function () {
+          updatePanelItem('cdem-groups', 'Stock On Hand', 'Empty', 'failed');
+          updateUtilityDirect('stock', 0);
         }
       }
     }
@@ -268,6 +514,267 @@
         'Where is the line between covering genuine replacement cost and profiteering?',
         'How does pricing today affect the business’s recovery six months from now?'
       ]
+    },
+    'sarah_family': {
+      learningObjective: 'Establish that your own family are safe before trying to lead anything else, without abandoning the site.',
+      bestPractice: 'A',
+      teachingNote: 'You cannot make good decisions for twelve staff and a shop full of customers while you do not know ' +
+        'whether your children are alive. Getting confirmation through someone else - a neighbour, the school, your ' +
+        'firefighter husband’s station - resolves the thing that would otherwise degrade every subsequent decision, without ' +
+        'walking away from a damaged building full of people.',
+      references: [
+        { label: 'Responder family readiness', desc: 'a pre-agreed check-in plan is what makes delegation possible on the day' },
+        { label: 'Decision quality', desc: 'unresolved personal fear reliably degrades judgement under load' }
+      ],
+      discussionPrompts: [
+        'Who could confirm your family are safe without you leaving?',
+        'What would you have needed to arrange before the earthquake for that to work?'
+      ]
+    },
+    'sarah_gas': {
+      learningObjective: 'Recognise an uncontrolled LPG hazard as the one thing that outranks every commercial consideration.',
+      bestPractice: 'A',
+      teachingNote: 'Twenty displaced cylinders, a damaged valve and a smell in a confined space with aftershocks continuing ' +
+        'is a mass-casualty hazard sitting in a shop full of customers. Clear and keep clear, ventilate from a distance, ' +
+        'isolate, and hand it to Fire and Emergency. Moving damaged cylinders yourself, partitioning the area, or waiting to ' +
+        'see whether the smell strengthens are all ways of staying inside the hazard.',
+      references: [
+        { label: 'LPG hazards', desc: 'heavier than air, pools at floor level and migrates under partitions' },
+        { label: 'Evacuate and isolate', desc: 'the correct first action for an uncontrolled gas release is distance, not management' }
+      ],
+      discussionPrompts: [
+        'How do you clear a shop full of people who came in for water, and keep them out?',
+        'What can you do from outside the building while you wait for Fire and Emergency?'
+      ]
+    },
+    'sarah_eftpos': {
+      learningObjective: 'Keep goods moving to people who need them while keeping the business recoverable - a written ledger does both.',
+      bestPractice: 'A',
+      teachingNote: 'With no EFTPOS and nobody carrying cash, insisting on cash means the stock sits on the shelf while the ' +
+        'town goes without. Handing everything out unrecorded is generous and closes the shop the community will need in a ' +
+        'month, because an unevidenced business-interruption claim is not payable. A signed paper ledger - name, contact, ' +
+        'items, value - serves both. Handwritten card numbers are a data-security exposure with no upside.',
+      references: [
+        { label: 'Manual trading', desc: 'a paper ledger is the standard fallback when payment systems fail' },
+        { label: 'Business interruption claims', desc: 'insurers require evidence of stock movement and revenue foregone' }
+      ],
+      discussionPrompts: [
+        'What is the minimum a ledger entry needs to be worth something to your insurer?',
+        'How do you keep a ledger moving with forty people in the queue?'
+      ]
+    },
+    'sarah_staff': {
+      learningObjective: 'Release staff to their own families and homes while keeping the site safe and covered.',
+      bestPractice: 'A',
+      teachingNote: 'Staff with children at school, elderly relatives and partners in emergency services cannot be usefully ' +
+        'held at work by instruction. Releasing those who need to go, keeping a safe minimum by agreement, and being clear ' +
+        'that jobs are not at risk gets you a team that comes back tomorrow. Requiring everyone to stay produces neither ' +
+        'safety nor productivity, and it is remembered.',
+      references: [
+        { label: 'Duty of care', desc: 'an employer cannot require staff to remain while their own families are unaccounted for' },
+        { label: 'Workforce continuity', desc: 'how staff are treated on day one determines who returns on day three' }
+      ],
+      discussionPrompts: [
+        'What is the safe minimum crew for the site, and who decides who stays?',
+        'How do you say "your job is safe" credibly when you do not know if the business is?'
+      ]
+    },
+    'sarah_migrant_staff': {
+      learningObjective: 'Identify staff with no local support network and act before they ask, because they will not ask.',
+      bestPractice: 'A',
+      teachingNote: 'Two employees with a red-stickered flat, no car, no local network and limited English have quietly kept ' +
+        'working all afternoon. The people with the least security are the least likely to raise a problem. Sorting their ' +
+        'accommodation and food tonight, connecting them to welfare and to someone who speaks their language, and saying ' +
+        'plainly that their job is safe addresses the fear they are not voicing. Letting them sleep in a damaged shop ' +
+        'solves your problem, not theirs.',
+      references: [
+        { label: 'Vulnerable workers', desc: 'migrant and seasonal staff often have no local support and no confidence to ask' },
+        { label: 'Welfare referral', desc: 'a warm handover to Civil Defence welfare, not a direction to it' }
+      ],
+      discussionPrompts: [
+        'Who on your team has no one else, and would you know?',
+        'What does a warm handover to a welfare centre actually involve?'
+      ]
+    },
+    'sarah_pooling': {
+      learningObjective: 'Cooperate with other businesses on scarce supply, with a record and an agreed allocation rule.',
+      bestPractice: 'A',
+      teachingNote: 'Pooling genuinely serves a town that cannot travel between four separate queues for the same goods. The ' +
+        'written record of contributions and an allocation rule agreed with Civil Defence are what stop it becoming a ' +
+        'month of disputes during recovery. Refusing keeps four queues running; joining on a handshake creates the dispute; ' +
+        'and being caught holding stock back destroys the trust the whole arrangement runs on.',
+      references: [
+        { label: 'Business cooperation', desc: 'informal mutual aid works when contributions and rules are written down' },
+        { label: 'Allocation transparency', desc: 'an agreed public rule protects every participant from the "why them" question' }
+      ],
+      discussionPrompts: [
+        'What does the allocation rule say, and who signs it off?',
+        'How do you record contributions when four businesses are all trading from the footpath?'
+      ]
+    },
+    'sarah_customer_injury': {
+      learningObjective: 'Care for the casualty, remove the hazard that is still standing, and record it honestly.',
+      bestPractice: 'A',
+      teachingNote: 'Three actions, in order: treat and transport her, then clear and secure every other leaning bay - because ' +
+        'the hazard that caused this is still there and the aftershocks have not stopped - then write down what happened ' +
+        'while it is fresh and notify the insurer. Patching her up and carrying on guarantees the next casualty. Pressuring ' +
+        'an injured customer out of a claim is the single most damaging thing available, legally and reputationally, and it ' +
+        'will have been filmed.',
+      references: [
+        { label: 'Hazard elimination', desc: 'after an incident, the identical hazards still present are the priority' },
+        { label: 'Incident recording', desc: 'a contemporaneous record protects the injured party as well as the business' }
+      ],
+      discussionPrompts: [
+        'What do you do about the other shelving bays in the next ten minutes?',
+        'What does an honest incident record look like when you are the one being recorded?'
+      ]
+    },
+    'sarah_credit': {
+      learningObjective: 'Extend credit on a record, to people you can identify, without either denying essentials or giving the business away.',
+      bestPractice: 'A',
+      teachingNote: 'Cash-only denies essentials to neighbours who genuinely cannot access money today, in a community you ' +
+        'will depend on for years. Giving everything away leaves no recoverable value and threatens the shop the town needs ' +
+        'tomorrow. Credit for tourists and cash for locals is exactly backwards - you will never see the tourists again, ' +
+        'while the locals are the ones you can safely extend to.',
+      references: [
+        { label: 'Emergency credit', desc: 'recorded credit to identifiable customers is recoverable; unrecorded giving is not' },
+        { label: 'Community relationships', desc: 'the customers you extend to today are the customers you have in a year' }
+      ],
+      discussionPrompts: [
+        'Who can you safely extend credit to, and how do you decide in a thirty-second transaction?',
+        'What do you do about the tourist who genuinely cannot pay?'
+      ]
+    },
+    'sarah_medical_centre': {
+      learningObjective: 'Prioritise a life-safety request from a clinical service above ordinary retail demand.',
+      bestPractice: 'A',
+      teachingNote: 'A medical centre treating mass casualties is not another customer in the queue. Supplying what it ' +
+        'critically needs, on a record and at fair terms, is both the right call and a defensible one - and it does not ' +
+        'require emptying the shop, because the clinic needs specific items rather than everything. Refusing, or treating ' +
+        'it as ordinary demand, misreads what the request is.',
+      references: [
+        { label: 'Life-safety priority', desc: 'clinical demand outranks general retail demand for the same goods' },
+        { label: 'Recorded supply', desc: 'a record at fair terms protects both parties and supports later recovery' }
+      ],
+      discussionPrompts: [
+        'What does the medical centre actually need, as opposed to what it asked for?',
+        'How do you explain to the queue why the clinic went first?'
+      ]
+    },
+    'sarah_bank': {
+      learningObjective: 'Give a lender an honest position with a specific ask, especially when the loan is personally guaranteed.',
+      bestPractice: 'A',
+      teachingNote: 'The bank is deciding today whether to extend or freeze, and it will decide on whatever information it ' +
+        'has. An honest position with the numbers you actually have, a clear statement of what you need and by when, and a ' +
+        'request for a written short-term arrangement is what gets funded. Overstating is found within a fortnight and puts ' +
+        'the guarantee against your house into play; declining to talk means the decision is made without you.',
+      references: [
+        { label: 'Lender relationships', desc: 'banks fund businesses whose position they can see clearly' },
+        { label: 'Personal guarantees', desc: 'misrepresentation is the fastest route to a guarantee being called' }
+      ],
+      discussionPrompts: [
+        'What are the three numbers you actually have right now?',
+        'What is the specific ask, and what happens if they say no?'
+      ]
+    },
+    'sarah_reopen': {
+      learningObjective: 'Operate strictly within a partial engineering clearance, and make the limit physical rather than notional.',
+      bestPractice: 'A',
+      teachingNote: 'A partial clearance is a precise instruction, not a starting position for negotiation. Trading from the ' +
+        'cleared front only, with the rear physically barriered and staff briefed on where the line is, is what stops the ' +
+        'limit eroding by mid-morning. Reopening the excluded section substitutes your judgement for the engineer’s; ' +
+        'sending staff into the rear for stock is worse, because it puts your own employees in the space you kept customers ' +
+        'out of; staying wholly closed forgoes a compliant option the town needs.',
+      references: [
+        { label: 'Building clearances', desc: 'partial clearances specify the usable area and the excluded area precisely' },
+        { label: 'Barrier controls', desc: 'a physical barrier holds a limit that a verbal instruction will not' }
+      ],
+      discussionPrompts: [
+        'How do you physically mark the line, and who checks it during the day?',
+        'What do you do when a staff member says the stock they need is just inside the rear?'
+      ]
+    },
+    'sarah_social_media': {
+      learningObjective: 'Correct a damaging false claim quickly, factually and without escalating it.',
+      bestPractice: 'A',
+      teachingNote: 'A profiteering accusation spreads faster than any correction and does lasting damage to a business that ' +
+        'depends on community standing. A prompt, factual, unemotional response with what you are actually doing - and ' +
+        'evidence where you have it - closes it down. Silence lets it set as fact; an angry public reply makes the argument ' +
+        'the story rather than the facts.',
+      references: [
+        { label: 'Rumour correction', desc: 'speed and calm factual specificity outperform volume and outrage' },
+        { label: 'Community standing', desc: 'reputation is the asset a small-town business recovers on' }
+      ],
+      discussionPrompts: [
+        'What evidence could you point to that would settle this in one post?',
+        'When is not responding the right call?'
+      ]
+    },
+    'sarah_staff_pay': {
+      learningObjective: 'Meet payroll obligations and be honest about the runway, rather than choosing between them.',
+      bestPractice: 'A',
+      teachingNote: 'Deferring wages is not something an employer is entitled to ask of staff with damaged homes and no other ' +
+        'income, and it is not lawful. Paying on time buys the loyalty required to reopen; telling the team honestly what ' +
+        'the runway is means nobody discovers in week three that it was never viable. Getting advice on wage subsidy and ' +
+        'hardship support the same day is the step most owners skip. Laying off half the team before asking about support ' +
+        'cuts the people you need to reopen.',
+      references: [
+        { label: 'Employment obligations', desc: 'wages are not deferrable at the employer’s discretion' },
+        { label: 'Disaster business support', desc: 'wage subsidy and hardship mechanisms exist and are time-limited' }
+      ],
+      discussionPrompts: [
+        'What support exists, and who would you call to find out today?',
+        'How do you tell twelve people the runway is four weeks without losing all of them?'
+      ]
+    },
+    'sarah_donate': {
+      learningObjective: 'Contribute meaningfully to the official response without destroying the business the recovery depends on.',
+      bestPractice: 'A',
+      teachingNote: 'A proportionate, recorded contribution supports the response and keeps the shop viable. Donating ' +
+        'everything empties the public supply at once and may sink the business the community will need for months; ' +
+        'refusing outright abandons the official response and the standing you will need afterwards; and quietly favouring ' +
+        'whoever can help you later is self-dealing in the middle of a disaster.',
+      references: [
+        { label: 'Proportionate contribution', desc: 'sustainable giving beats a single gesture that ends the business' },
+        { label: 'Transparent allocation', desc: 'a recorded basis is what makes the contribution defensible later' }
+      ],
+      discussionPrompts: [
+        'What proportion can you actually sustain, and for how many days?',
+        'How do you decide between Civil Defence, the clinic and the queue outside?'
+      ]
+    },
+    'sarah_security': {
+      learningObjective: 'Secure the site against loss without putting yourself or staff in the path of harm.',
+      bestPractice: 'A',
+      teachingNote: 'With alarms down, windows out and stock visible from the street, some security response is needed. ' +
+        'Practical measures - boarding, moving stock out of sight, lighting, and coordinating with Police and neighbouring ' +
+        'businesses - reduce the risk without anyone standing guard. Sleeping in a damaged building with a gas hazard, or ' +
+        'confronting anyone who turns up overnight, trades a stock loss for a serious-harm risk.',
+      references: [
+        { label: 'Site security', desc: 'physical measures and coordination beat personal presence as a control' },
+        { label: 'Confrontation risk', desc: 'property is insurable; the owner standing in the doorway is not' }
+      ],
+      discussionPrompts: [
+        'What can you do in an hour that reduces the risk most?',
+        'What is your instruction to staff if someone is inside when they arrive tomorrow?'
+      ]
+    },
+    'sarah_civil_defence': {
+      learningObjective: 'Split scarce stock between an official welfare channel and the public queue, on documented terms.',
+      bestPractice: 'A',
+      teachingNote: 'Both channels reach people who genuinely need the stock: the welfare centre shelters those least able to ' +
+        'queue, and the queue has been waiting since morning. A documented split at agreed terms, with the allocation basis ' +
+        'in writing from Civil Defence, serves both and protects you when someone later asks why they missed out. Handing ' +
+        'over everything closes the street’s only supply point; refusing abandons the people who cannot come; and agreeing ' +
+        'while holding stock back destroys the relationship you need for the whole recovery.',
+      references: [
+        { label: 'Requisition and agreement', desc: 'documented terms protect the business and the agency both' },
+        { label: 'Dual-channel distribution', desc: 'welfare centres and retail counters reach different populations' }
+      ],
+      discussionPrompts: [
+        'What terms would you want in writing before agreeing to a split?',
+        'How do you explain the split to the forty people on your footpath?'
+      ]
     }
   });
 
@@ -331,6 +838,66 @@
         { key: 'B', label: 'Refuse to comment and hang up', desc: 'A flat "no comment" reads as something to hide and lets others define your story.', effect: { score: -1 } },
         { key: 'C', label: 'Vent your frustration about the question on the record', desc: 'Hands the reporter the emotional, defensive soundbite they were hoping for.', effect: { score: -2 } }
       ]
+    },
+    {
+      tag: 'NOISE', title: 'A Regular Wants the Whole Pallet',
+      body: 'A farmer you have dealt with for a decade wants to buy every bottle of water and every gas canister you have ' +
+        'left, to take out to families on his valley road who cannot get in.',
+      source: 'Counter',
+      prompt: 'How do you handle the request?',
+      options: [
+        { key: 'A', label: 'Sell him a proportionate share on the ledger, get the names of the households he is supplying, and coordinate the rest with Civil Defence', desc: 'The need is real and so is everyone else’s. A recorded, proportionate share reaches the valley without emptying the shelf.', effect: { score: 2 } },
+        { key: 'B', label: 'Let him take the lot - he is getting it to people who cannot come in', desc: 'One customer clears the shelf and forty people in the queue outside get nothing, on his word alone.', effect: { score: -2 } },
+        { key: 'C', label: 'Limit him to the same two items as everyone else', desc: 'Fair on the face of it, and it ignores that he is supplying a dozen cut-off households rather than himself.', effect: { score: -1 } }
+      ]
+    },
+    {
+      tag: 'NOISE', title: 'A Volunteer Starts Directing Your Queue',
+      body: 'A well-meaning local has appointed himself queue marshal and is telling people what they may and may not buy, ' +
+        'in your name.',
+      source: 'Footpath',
+      prompt: 'How do you respond?',
+      options: [
+        { key: 'A', label: 'Thank him, take back the rules yourself, state them out loud to the queue, and give him a real job', desc: 'The queue needs rules and they need to be yours. Keeping a willing helper busy costs nothing.', effect: { score: 2 } },
+        { key: 'B', label: 'Leave him to it - the queue is orderly', desc: 'Someone with no authority is making allocation decisions in your name, and you will own every one of them.', effect: { score: -2 } },
+        { key: 'C', label: 'Tell him publicly to clear off', desc: 'Right call on the authority, wrong delivery in front of a queue of your customers.', effect: { score: -1 } }
+      ]
+    },
+    {
+      tag: 'NOISE', title: 'Your Children Want to Come to the Shop',
+      body: 'Your children, safe with a neighbour, are asking to come down to the shop to be with you. It is a fifteen-minute ' +
+        'drive on a road with reported slips.',
+      source: 'Family',
+      prompt: 'What do you tell them?',
+      options: [
+        { key: 'A', label: 'Keep them where they are safe, speak to them properly for two minutes, and set a time you will be home', desc: 'A damaged shop with a gas hazard is no place for them, and a concrete time is what actually settles a frightened child.', effect: { score: 2 } },
+        { key: 'B', label: 'Have the neighbour drive them down', desc: 'Puts your children on a slip-affected road and then inside the least safe building on the street.', effect: { score: -3 } },
+        { key: 'C', label: 'Tell them you are too busy to talk', desc: 'Thirty seconds now saves you a much longer conversation tonight, and they will remember which one they got.', effect: { score: -1 } }
+      ]
+    },
+    {
+      tag: 'NOISE', title: 'An Out-of-Town Trader Sets Up Outside',
+      body: 'Someone has parked a van on the footpath outside your shop selling water and torches at four times your price, ' +
+        'to your queue.',
+      source: 'Main Street',
+      prompt: 'How do you handle it?',
+      options: [
+        { key: 'A', label: 'Report it to Civil Defence and the council, tell your queue plainly what your own prices are, and leave the comparison to speak for itself', desc: 'Uses the right channel and turns his pricing into an advertisement for yours, without a scene on the footpath.', effect: { score: 2 } },
+        { key: 'B', label: 'Confront him on the street', desc: 'A public argument outside your own shop becomes the story, and your customers are the audience.', effect: { score: -2 } },
+        { key: 'C', label: 'Raise your prices to match his', desc: 'Hands the town the profiteering story about you rather than him, and forfeits the one advantage you had.', effect: { score: -3 } }
+      ]
+    },
+    {
+      tag: 'NOISE', title: 'A Staff Member Wants to Go Home',
+      body: 'One of your staff has just heard her elderly father’s street has been evacuated. She has not said anything, but ' +
+        'she has checked her phone eleven times in the last ten minutes.',
+      source: 'Shop Floor',
+      prompt: 'How do you respond?',
+      options: [
+        { key: 'A', label: 'Notice it, ask her directly, and get her out the door with your blessing and a way to get there', desc: 'She was never going to ask. Naming it yourself and removing the obstacle is the whole of the job here.', effect: { score: 2 } },
+        { key: 'B', label: 'Wait for her to ask if she needs to go', desc: 'The staff member most worried about her job security is the one least likely to ask for anything.', effect: { score: -2 } },
+        { key: 'C', label: 'Tell her to focus - the queue is out the door', desc: 'A distracted, frightened employee is neither safe nor useful, and she will remember this longer than the earthquake.', effect: { score: -3 } }
+      ]
     }
   ];
 
@@ -372,6 +939,21 @@
       ]
     },
     {
+      time: 14, type: 'decision', tag: 'OWNER',
+      title: 'The Gas Cylinders',
+      body: 'Twenty LPG cylinders came off their rack and are scattered across the rear of the shop, at least one with a ' +
+        'damaged valve. There is a smell near the back wall. Customers are already coming through the shattered front ' +
+        'windows looking for water and torches.',
+      decisionId: 'sarah_gas',
+      prompt: 'What do you do first?',
+      options: [
+        { key: 'A', label: 'Clear everyone out and keep them out, ventilate from a distance, isolate the area, and get Fire and Emergency to it before anyone goes back in', desc: 'A suspected LPG leak in a damaged building with aftershocks continuing is the one hazard that can kill everyone in the shop at once.', effect: { score: 5 } },
+        { key: 'B', label: 'Move the cylinders outside yourself so you can keep serving', desc: 'Handling damaged LPG cylinders yourself, in a confined damaged space, with a possible leak already present.', effect: { score: -6 } },
+        { key: 'C', label: 'Keep the back closed off and serve customers from the front', desc: 'A partition does not contain LPG, and you are keeping people inside a building with an uncontrolled gas hazard.', effect: { score: -5 } },
+        { key: 'D', label: 'Wait and see whether the smell gets stronger', desc: 'By the time the smell is unmistakable in a confined space, the decision has already been taken out of your hands.', effect: { score: -6 } }
+      ]
+    },
+    {
       time: 20, type: 'decision', tag: 'OWNER',
       title: 'An Unsafe Building Full of Customers',
       body: 'The building has cracked walls, fallen ceiling tiles, broken glass, leaning shelving and a possible gas leak. ' +
@@ -383,6 +965,21 @@
         { key: 'B', label: 'Keep trading inside - the community needs the supplies', desc: 'Someone has already been hurt; a gas leak plus aftershocks makes the next injury potentially fatal. No sale is worth it.', effect: { score: -6 } },
         { key: 'C', label: 'Allow controlled access, a few customers at a time', desc: 'Fewer people, but still inside an unsafe, possibly gas-leaking building. The hazard does not care how many are in the room.', effect: { score: -3 } },
         { key: 'D', label: 'Lock up entirely and turn everyone away with no supplies', desc: 'Safe, but abandons a community that genuinely needs the gear you could have passed out from the front.', effect: { score: -2 } }
+      ]
+    },
+    {
+      time: 26, type: 'decision', tag: 'OWNER',
+      title: 'No EFTPOS, No Internet',
+      body: 'Power, EFTPOS and internet are all down and the cell network is intermittent. Almost nobody in the queue is ' +
+        'carrying cash, the nearest working ATM is in a town they cannot reach, and the stock they need is sitting behind ' +
+        'you.',
+      decisionId: 'sarah_eftpos',
+      prompt: 'How do you handle payment?',
+      options: [
+        { key: 'A', label: 'Trade on a written ledger - name, contact, items and value, signed - and tell people plainly you will invoice when systems return', desc: 'A simple written record keeps goods moving to people who need them and keeps the business recoverable. Both matter.', effect: { score: 5 } },
+        { key: 'B', label: 'Cash only, no exceptions', desc: 'Nobody has cash, so the stock stays on the shelf while the town goes without - and you make no money either.', effect: { score: -4 } },
+        { key: 'C', label: 'Hand out what people need with no record at all', desc: 'Generous and unrecoverable. With four weeks of runway, this is the decision that closes the shop the town needs in a month.', effect: { score: -3 } },
+        { key: 'D', label: 'Take card numbers written on paper to process later', desc: 'Handwritten card details in a damaged shop is a data-security and fraud exposure you cannot defend to anyone.', effect: { score: -5 } }
       ]
     },
     {
@@ -400,6 +997,21 @@
       ]
     },
     {
+      time: 38, type: 'decision', tag: 'OWNER',
+      title: 'Two Staff With Nowhere to Go',
+      body: 'Two of your staff are migrant workers with no family in New Zealand. Their flat is red-stickered, they have no ' +
+        'car, no local network and limited English, and they have quietly kept working all afternoon without mentioning any ' +
+        'of it.',
+      decisionId: 'sarah_migrant_staff',
+      prompt: 'How do you support them?',
+      options: [
+        { key: 'A', label: 'Sort their accommodation and food tonight yourself, connect them to Civil Defence welfare and someone who speaks their language, and make sure they know their job is safe', desc: 'They have no other network, and you are it. Practical shelter plus a clear word on their job removes the fear they are not voicing.', effect: { score: 5 } },
+        { key: 'B', label: 'Point them to the welfare centre and get back to the shop', desc: 'A direction is not support for two people with no transport, no local knowledge and limited English.', effect: { score: -3 } },
+        { key: 'C', label: 'Say nothing - they have not asked for help', desc: 'Staff with the least security and the most to lose are precisely the ones who will not ask.', effect: { score: -4 } },
+        { key: 'D', label: 'Let them sleep in the shop overnight', desc: 'Puts two employees inside a damaged building with a gas hazard, to solve a problem the welfare system exists for.', effect: { score: -5 } }
+      ]
+    },
+    {
       time: 44, type: 'decision', tag: 'ETHICAL',
       title: 'Allocating Scarce Emergency Supplies',
       body: 'Demand explodes for water containers, batteries, torches, gas cookers, sleeping bags and first-aid kits. Stock ' +
@@ -411,6 +1023,24 @@
         { key: 'B', label: 'Sell normally, first-come first-served, until it runs out', desc: 'The early and well-off empty the shelves; the vulnerable and those still digging out their homes miss out entirely.', effect: { score: -3 } },
         { key: 'C', label: 'Reserve everything for emergency services and sell nothing to the public', desc: 'Responders matter, but the public also genuinely needs water, light and warmth tonight.', effect: { score: -2 } },
         { key: 'D', label: 'Give it all away free to whoever asks', desc: 'Generous, but empties your stock within the hour and leaves nothing for later or for the business the town needs to survive.', effect: { score: -3 } }
+      ]
+    },
+    {
+      time: 50, type: 'decision', tag: 'ETHICAL',
+      title: 'The Supermarket Proposes Pooling',
+      body: 'The supermarket manager proposes pooling emergency supplies across the four businesses still trading - one shared ' +
+        'stock list, one distribution point, one set of prices. It would stop people running between shops, and it would ' +
+        'also put your stock under someone else’s control.',
+      decisionId: 'sarah_pooling',
+      prompt: 'How do you respond to the proposal?',
+      options: [
+        { key: 'A', label: 'Join it, but insist on a written record of what each business contributes and a shared allocation rule agreed with Civil Defence', desc: 'Pooling genuinely serves the town; the written record and an agreed rule are what stop it becoming a dispute in a fortnight.', effect: { score: 5 },
+          locked: function (log) {
+            return log['sarah_supplies'] === 'D' ? 'You gave your emergency stock away free this morning - there is nothing left to pool' : false;
+          } },
+        { key: 'B', label: 'Refuse - your stock is your business’s survival', desc: 'Defensible commercially, and it keeps four separate queues running for the same scarce goods in a town that cannot travel.', effect: { score: -3 } },
+        { key: 'C', label: 'Join it on a handshake with no record of contributions', desc: 'Four businesses, no record, and a month of arguments about who put in what while everyone is trying to recover.', effect: { score: -3 } },
+        { key: 'D', label: 'Agree publicly and hold your best stock back privately', desc: 'The pooling only works on trust, and being caught holding back destroys yours for the whole recovery.', effect: { score: -5 } }
       ]
     },
     {
@@ -428,6 +1058,20 @@
       ]
     },
     {
+      time: 62, type: 'decision', tag: 'OWNER',
+      title: 'A Customer Is Injured by Falling Stock',
+      body: 'An aftershock brings a leaning shelving bay down across a customer in the aisle. She has a deep laceration to her ' +
+        'arm and is shaken but conscious. Half the queue saw it happen, and two people are already filming.',
+      decisionId: 'sarah_customer_injury',
+      prompt: 'How do you handle it?',
+      options: [
+        { key: 'A', label: 'First aid and get her to the medical centre, clear and secure every remaining shelving bay, write down what happened while it is fresh, and notify your insurer as soon as you can reach them', desc: 'Care first, then remove the hazard that is still standing, then the record - which protects her claim as much as your business.', effect: { score: 5 } },
+        { key: 'B', label: 'Patch her up, apologise, and keep the queue moving', desc: 'Leaves every other leaning bay exactly as it was, so the next aftershock produces the next casualty.', effect: { score: -5 } },
+        { key: 'C', label: 'Ask her not to make a claim, given everything you are dealing with', desc: 'Pressuring an injured customer out of a claim is the single worst thing you could do here, legally and to your reputation.', effect: { score: -6 } },
+        { key: 'D', label: 'Close the shop completely for the rest of the day', desc: 'Overcorrects: securing the shelving and trading from the front was available, and the town still needs supplies tonight.', effect: { score: -2 } }
+      ]
+    },
+    {
       time: 68, type: 'decision', tag: 'ETHICAL',
       title: 'Cash, Credit and No EFTPOS',
       body: 'With EFTPOS and banking down, many locals have no way to pay. Long-standing customers ask you to "put it on my ' +
@@ -440,6 +1084,14 @@
         { key: 'C', label: 'Give everything away to anyone who asks', desc: 'No record and no recoverable value; generous to a fault, and it threatens the business the community will need tomorrow.', effect: { score: -3 } },
         { key: 'D', label: 'Credit for tourists, cash for locals', desc: 'Backwards: you will never see the tourists again, while the locals you know are the ones you can safely extend credit to.', effect: { score: -2 } }
       ]
+    },
+    {
+      time: 74, type: 'inject', tag: 'SITUATION',
+      title: 'The Queue Down the Street',
+      body: 'Word has gone round that you still have water, torches, batteries and gas. The queue now runs past three ' +
+        'shopfronts and includes stranded tourists, farmers who have driven in on back roads, and neighbours you have known ' +
+        'for fifteen years. There are more people outside than there is stock inside.',
+      source: 'Main Street'
     },
     {
       time: 78, type: 'cascade', tag: 'AFTERSHOCK',
@@ -465,6 +1117,21 @@
       ]
     },
     {
+      time: 92, type: 'decision', tag: 'OWNER',
+      title: 'The Bank Finally Calls Back',
+      body: 'A bank representative returns your call. The business loan is personally guaranteed against your house. He wants ' +
+        'to know your trading position, your stock losses and whether you intend to keep operating - and he is deciding ' +
+        'today whether to extend or freeze your facility.',
+      decisionId: 'sarah_bank',
+      prompt: 'What do you tell the bank?',
+      options: [
+        { key: 'A', label: 'Give an honest position with the numbers you actually have, state clearly what you need and by when, and ask for a written short-term arrangement', desc: 'Banks fund businesses they can see clearly. An honest position with a specific ask survives scrutiny; an optimistic one does not.', effect: { score: 5 } },
+        { key: 'B', label: 'Overstate your position to protect the facility', desc: 'When the real numbers arrive, and they will, you have handed the bank grounds to call the guarantee against your house.', effect: { score: -6 } },
+        { key: 'C', label: 'Tell him you cannot talk about it today', desc: 'He is deciding today either way, and he will decide on no information rather than yours.', effect: { score: -4 } },
+        { key: 'D', label: 'Ask him to freeze everything until the insurance is settled', desc: 'Insurance settlement is months away, and a frozen facility means no payroll and no restock next week.', effect: { score: -3 } }
+      ]
+    },
+    {
       time: 98, type: 'decision', tag: 'ETHICAL',
       title: 'The Last Generator',
       body: 'A tourist offers you $5,000 cash on the spot for your last portable generator. Moments later a local farmer asks ' +
@@ -477,6 +1144,14 @@
         { key: 'C', label: 'Auction it to whoever pays the most', desc: 'Need-blind by design, and the most exposed way to profiteer on a life-essential item.', effect: { score: -5 } },
         { key: 'D', label: 'Refuse to sell it to either and keep it for the shop', desc: 'Hoards a critical asset the community urgently needs while people go without.', effect: { score: -3 } }
       ]
+    },
+    {
+      time: 104, type: 'cascade', tag: 'CASCADE',
+      title: 'Fuel Shortage Bites',
+      body: 'The service station has run dry and there are no deliveries while the roads are closed. Your van cannot restock ' +
+        'from the depot, the generator you are running has perhaps two days of fuel, and customers are now asking whether ' +
+        'you have petrol as well as everything else.',
+      source: 'Main Street / Fuel Supplier'
     },
     {
       time: 110, type: 'decision', tag: 'ETHICAL',
@@ -494,6 +1169,24 @@
       ]
     },
     {
+      time: 116, type: 'decision', tag: 'OWNER',
+      title: 'The Engineer Clears the Front Only',
+      body: 'A building engineer inspects and gives you a partial clearance: the front third of the shop is usable with the ' +
+        'shelving removed, the rear is not to be occupied at all. He will put it in writing, but not until tomorrow. The ' +
+        'queue outside has not shortened.',
+      decisionId: 'sarah_reopen',
+      prompt: 'How do you trade tomorrow?',
+      options: [
+        { key: 'A', label: 'Trade from the cleared front section only, exactly within the engineer’s limits, with the rear physically barriered and staff briefed on where the line is', desc: 'Takes the clearance for exactly what it says. The barrier and the briefing are what stop the limit quietly eroding by mid-morning.', effect: { score: 5 },
+          locked: function (log) {
+            return log['sarah_building'] === 'B' ? 'The council closed your building after you kept trading through the warning' : false;
+          } },
+        { key: 'B', label: 'Reopen the whole shop - the engineer is being cautious', desc: 'Substituting your judgement for the engineer’s on a rear section he specifically excluded, with staff and customers inside.', effect: { score: -6 } },
+        { key: 'C', label: 'Stay closed until the written clearance arrives', desc: 'Cautious, and it leaves the town without supplies for a day when a compliant front-of-shop operation was expressly available.', effect: { score: -2 } },
+        { key: 'D', label: 'Serve from the front but send staff into the rear for stock', desc: 'Keeps customers out of the excluded area and sends your own employees into it instead, which is worse.', effect: { score: -6 } }
+      ]
+    },
+    {
       time: 122, type: 'decision', tag: 'OWNER',
       title: 'An Employee Caught Taking Supplies',
       body: 'One of your employees is caught taking emergency supplies home without permission. They explain, quietly: "My ' +
@@ -508,6 +1201,13 @@
       ]
     },
     {
+      time: 128, type: 'inject', tag: 'SITUATION',
+      title: 'The Other Store Closes',
+      body: 'The only other general store in town has locked its doors and put up a handwritten sign. Its owners have gone to ' +
+        'family in Christchurch. Whatever demand they were absorbing is now yours, and everyone on the street knows it.',
+      source: 'Main Street'
+    },
+    {
       time: 134, type: 'decision', tag: 'OWNER',
       title: 'A Profiteering Accusation Goes Viral',
       body: 'A false social-media post accuses you of profiteering off the disaster. It is untrue, but hundreds of negative ' +
@@ -519,6 +1219,24 @@
         { key: 'B', label: 'Get into the comments and argue with your accusers', desc: 'Feeds the pile-on, keeps the story alive, and drains time and composure you need elsewhere.', effect: { score: -3 } },
         { key: 'C', label: 'Ignore it entirely', desc: 'An unanswered accusation hardens into "the truth", and the cancellations keep coming.', effect: { score: -2 } },
         { key: 'D', label: 'Publicly threaten legal action against whoever posted it', desc: 'Looks defensive and aggressive, and amplifies a story you wanted to shrink.', effect: { score: -3 } }
+      ]
+    },
+    {
+      time: 140, type: 'decision', tag: 'OWNER',
+      title: 'Friday Is Payday',
+      body: 'Twelve staff are due to be paid on Friday. Revenue has effectively stopped, the cash reserve covers roughly four ' +
+        'weeks of wages and nothing else, and you have no idea when the insurer will pay or whether the bank facility ' +
+        'holds. Two of your staff have already asked, carefully, whether their jobs are safe.',
+      decisionId: 'sarah_staff_pay',
+      prompt: 'How do you handle payroll?',
+      options: [
+        { key: 'A', label: 'Pay them on Friday, tell the whole team honestly what the runway is and what you are doing about it, and get advice on wage subsidy and hardship support the same day', desc: 'Paying on time buys the loyalty you will need, and honesty about the runway means nobody finds out in week three that it was never viable.', effect: { score: 5 },
+          locked: function (log) {
+            return log['sarah_credit'] === 'C' ? 'The cash went out this morning as unrecorded giveaways - there is no payroll left to run' : false;
+          } },
+        { key: 'B', label: 'Pay them and say nothing about the runway', desc: 'They will plan their own lives around a security you know may not last a month, and they will not forgive learning it late.', effect: { score: -3 } },
+        { key: 'C', label: 'Defer wages until the insurance pays', desc: 'Staff with damaged homes and no other income cannot lend you their wages, and legally you cannot ask them to.', effect: { score: -6 } },
+        { key: 'D', label: 'Lay off half the staff immediately to protect the runway', desc: 'Cuts the people you need to reopen, in a town with nowhere else to work, before you have even asked about support.', effect: { score: -4 } }
       ]
     },
     {
@@ -536,6 +1254,14 @@
         { key: 'C', label: 'Refuse to give anything at all', desc: 'Protects the business but abandons the official response and badly damages the reputation you will need afterwards.', effect: { score: -4 } },
         { key: 'D', label: 'Quietly favour whoever can do the most for you later', desc: 'Self-dealing - the opposite of the transparent, defensible decision-making the moment demands.', effect: { score: -5 } }
       ]
+    },
+    {
+      time: 152, type: 'inject', tag: 'WELFARE',
+      title: 'Stranded Tourists on the Footpath',
+      body: 'Around forty tourists have nowhere to go. The motels are damaged, the welfare centre is full, and the roads are ' +
+        'closed in both directions. Several are standing outside your shop because it is the only lit building on the ' +
+        'street, and snow is forecast before midnight.',
+      source: 'Civil Defence / Main Street'
     },
     {
       time: 160, type: 'cascade', tag: 'NIGHTFALL',
@@ -558,6 +1284,32 @@
         { key: 'C', label: 'Leave it wide open and go home, doing nothing to secure it', desc: 'Invites the loss of the very stock the community will need from you tomorrow.', effect: { score: -2 } },
         { key: 'D', label: 'Bring your children to the shop to help you guard it overnight', desc: 'Puts your kids in a damaged, dark, unsafe building through a freezing night. The wrong place for them.', effect: { score: -4 } }
       ]
+    },
+    {
+      time: 172, type: 'decision', tag: 'ETHICAL',
+      title: 'Civil Defence Wants Exclusive Access',
+      body: 'Civil Defence requests exclusive access to your entire remaining emergency stock for the welfare centre, to be ' +
+        'distributed under their control. It would go to people who genuinely need it. It would also close your shop to the ' +
+        'queue outside, who also genuinely need it, and who have been waiting since this morning.',
+      decisionId: 'sarah_civil_defence',
+      prompt: 'How do you answer Civil Defence?',
+      options: [
+        { key: 'A', label: 'Agree a documented split - a defined quantity to the welfare centre at agreed terms, the balance for the counter - and get the allocation basis in writing from them', desc: 'Both channels reach people who need the stock. The document is what protects you when someone later asks why they missed out.', effect: { score: 5 },
+          locked: function (log) {
+            return log['sarah_donate'] === 'B' ? 'You donated the entire emergency stock earlier today - there is nothing left to allocate' : false;
+          } },
+        { key: 'B', label: 'Hand over everything to Civil Defence', desc: 'Closes the only supply point the street has, sends the queue away empty, and leaves you with no record and no recoverable value.', effect: { score: -4 } },
+        { key: 'C', label: 'Refuse - your customers have been queuing since this morning', desc: 'The welfare centre is sheltering the people least able to queue at all, and a split was available to serve both.', effect: { score: -4 } },
+        { key: 'D', label: 'Agree, then quietly keep the best stock back for the counter', desc: 'Undermines the official response and destroys the relationship you will need through the entire recovery.', effect: { score: -5 } }
+      ]
+    },
+    {
+      time: 176, type: 'info', tag: 'NIGHT',
+      title: 'The First Night Closes In',
+      body: 'The snow arrives after dark. The generator is running the chiller and one string of lights, the ledger runs to ' +
+        'four pages, the shelving is stacked outside, and the queue has finally thinned. Your staff have gone home to ' +
+        'damaged houses, and tomorrow starts again at first light.',
+      source: 'Main Street'
     },
     {
       time: 180, type: 'info', tag: 'HANDOVER',
