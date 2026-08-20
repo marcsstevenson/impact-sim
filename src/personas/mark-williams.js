@@ -164,6 +164,29 @@
     'mark_handover': { 'A': { decisive: 1, lifeSafety: 2, centralized: 2 }, 'B': { decisive: -2, centralized: -2, lifeSafety: -2 }, 'C': { decisive: 1, centralized: 1, communityTrust: -1 }, 'D': { decisive: -1, lifeSafety: -2 } }
   });
 
+  // More than one choice on a single run can take children out of the group:
+  // mark_tunnel D strands one on the slope, mark_count C loses the two brothers
+  // to the farmhouse, mark_parent_arrives B releases three to a parent. Each of
+  // those consequences used to write a fixed count off the eight-child baseline,
+  // so any two together reported more children than Mark actually has. Derive it
+  // from the choice log instead - the current decision is already on
+  // GameState.decisions by the time its consequence fires.
+  var CHILDREN_LOST = {
+    'mark_tunnel': { 'D': 1 },
+    'mark_count': { 'C': 2 },
+    'mark_parent_arrives': { 'B': 3 }
+  };
+
+  function childrenAboard() {
+    var remaining = 8;
+    for (var i = 0; i < GameState.decisions.length; i++) {
+      var d = GameState.decisions[i];
+      var lost = CHILDREN_LOST[d.decisionId];
+      if (lost && lost[d.key]) remaining -= lost[d.key];
+    }
+    return Math.max(0, remaining) + ' / 8';
+  }
+
   Object.assign(CONSEQUENCE_MAP, {
     'mark_stay_move': {
       'B': {
@@ -262,7 +285,7 @@
           scorePenalty: -8
         },
         stateChange: function () {
-          updatePanelItem('cdem-groups', 'Children Aboard', '7 / 8', 'failed');
+          updatePanelItem('cdem-groups', 'Children Aboard', childrenAboard(), 'failed');
           updateCascadeItem('cascade-tracker', 'Rockfall', 'Extreme', 'extreme');
         }
       }
@@ -307,13 +330,13 @@
           type: 'cascade', tag: 'CONSEQUENCE',
           title: 'Two Children Unaccounted For',
           body: 'The brothers have not come back and there is no signal to reach them. It is getting dark, the slope between ' +
-            'here and the farmhouse is shedding rock, and you cannot go after them without leaving six children alone. Every ' +
+            'here and the farmhouse is shedding rock, and you cannot go after them without leaving the rest of them alone. Every ' +
             'person who reaches you tonight will ask the same first question - how many are there - and you cannot answer it.',
           source: 'Roadside',
           scorePenalty: -8
         },
         stateChange: function () {
-          updatePanelItem('cdem-groups', 'Children Aboard', '6 / 8', 'failed');
+          updatePanelItem('cdem-groups', 'Children Aboard', childrenAboard(), 'failed');
           updatePanelItem('agency-status', 'Parents', 'Two Unreachable', 'failed');
         }
       }
@@ -347,7 +370,7 @@
           scorePenalty: -7
         },
         stateChange: function () {
-          updatePanelItem('cdem-groups', 'Children Aboard', '5 / 8', 'failed');
+          updatePanelItem('cdem-groups', 'Children Aboard', childrenAboard(), 'failed');
           updatePanelItem('agency-status', 'Parents', 'Demanding Answers', 'failed');
           updatePanelItem('agency-status', 'NZ Police', '"Who took them?"', 'failed');
         }

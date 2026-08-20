@@ -55,10 +55,13 @@ function makeStubDocument(calls) {
 
 function loadContext() {
   var calls = { getElementById: {} };
+  // Off by default so loading the files does not run any scheduled work; the
+  // checks that need to drive a timer-based engine path flip it on.
+  var timers = { sync: false };
   var ctx = vm.createContext({
     console: console,
     document: makeStubDocument(calls),
-    setTimeout: function () { return 0; },
+    setTimeout: function (fn) { if (timers.sync && typeof fn === 'function') fn(); return 0; },
     clearTimeout: function () {},
     setInterval: function () { return 0; },
     clearInterval: function () {},
@@ -73,13 +76,14 @@ function loadContext() {
     vm.runInContext(fs.readFileSync(file, 'utf8'), ctx, { filename: file });
   });
   ctx.__calls = calls;
+  ctx.__timers = timers;
   return ctx;
 }
 
 function main() {
   var ctx = loadContext();
   var errors = [];
-  var stats = { stateChanges: 0, locks: 0, lockReasons: 0 };
+  var stats = { stateChanges: 0, locks: 0, lockReasons: 0, injects: 0 };
   var foreclosed = [];
 
   Object.keys(PERSONAS).forEach(function (id) {
@@ -191,7 +195,99 @@ function main() {
     });
   });
 
+  // 4. The scenario clock must never run backwards. A consequence inject
+  //    advances it before the next scripted event lands, so drive the engine's
+  //    real applyConsequences for every inject-bearing option and check the
+  //    resulting time against both the decision it followed and the event due
+  //    next. Timestamps in the feed come from the same clock.
+  var realProcessNext = ctx.processNextEvent;
+  var realAddEventToFeed = ctx.addEventToFeed;
+  var feedTimes = [];
+  ctx.processNextEvent = function () {};
+  ctx.addEventToFeed = function (event) { feedTimes.push(event.time); return realAddEventToFeed.apply(null, arguments); };
+  ctx.__timers.sync = true;
+  Object.keys(PERSONAS).forEach(function (id) {
+    ctx.GameState.scenario = id;
+    ctx.initUtilities();
+    ctx.initSoftMetrics();
+    var events = ctx.PERSONA_EVENTS[id];
+    events.forEach(function (e, i) {
+      if (e.type !== 'decision' || !e.decisionId) return;
+      var cm = ctx.CONSEQUENCE_MAP[e.decisionId];
+      if (!cm) return;
+      Object.keys(cm).forEach(function (optKey) {
+        if (!cm[optKey].inject) return;
+        var following = events[i + 1];
+        ctx.GameState.decisions = [];
+        ctx.GameState.eventIndex = i;
+        // processNextEvent sets the clock to the event time and then renders it,
+        // and rendering adds half a minute - so this is the state a decision's
+        // consequence actually starts from.
+        ctx.GameState.time = e.time + 0.5;
+        feedTimes.length = 0;
+        try {
+          ctx.applyConsequences(e.decisionId, optKey);
+        } catch (err) {
+          errors.push(id + ': applyConsequences(' + e.decisionId + ', ' + optKey + ') threw: ' + err.message);
+          return;
+        }
+        stats.injects++;
+        if (feedTimes.length !== 1) {
+          errors.push(id + ': ' + e.decisionId + '[' + optKey + '] wrote ' + feedTimes.length + ' feed entries, expected 1');
+          return;
+        }
+        var stamped = feedTimes[0];
+        if (stamped !== Math.floor(stamped)) {
+          errors.push(id + ': ' + e.decisionId + '[' + optKey + '] inject is stamped at a fractional minute (' + stamped + ')');
+        }
+        if (stamped < e.time) {
+          errors.push(id + ': ' + e.decisionId + '[' + optKey + '] inject is stamped at ' + stamped +
+            ', before the decision it follows at ' + e.time);
+        }
+        if (following && stamped > following.time) {
+          errors.push(id + ': ' + e.decisionId + '[' + optKey + '] inject is stamped at ' + stamped +
+            ', past the next event "' + (following.title || following.decisionId) + '" at ' + following.time +
+            ' - the feed would run backwards');
+        }
+      });
+    });
+  });
+  ctx.__timers.sync = false;
+  ctx.processNextEvent = realProcessNext;
+  ctx.addEventToFeed = realAddEventToFeed;
+
+  // 5. Losses that stack on one run have to compose. Mark can lose children to
+  //    three separate choices; each consequence must report what is actually
+  //    left, not the eight-child baseline minus its own loss.
+  var panelWrites = [];
+  var realUpdatePanelItem = ctx.updatePanelItem;
+  ctx.updatePanelItem = function (panelId, label, value, cls) {
+    panelWrites.push({ panelId: panelId, label: label, value: value, cls: cls });
+    return realUpdatePanelItem.apply(null, arguments);
+  };
+  ctx.GameState.scenario = 'markwilliams';
+  ctx.GameState.decisions = [];
+  [
+    { decisionId: 'mark_tunnel', key: 'D', expected: '7 / 8' },
+    { decisionId: 'mark_count', key: 'C', expected: '5 / 8' },
+    { decisionId: 'mark_parent_arrives', key: 'B', expected: '2 / 8' }
+  ].forEach(function (step) {
+    ctx.GameState.decisions.push({ decisionId: step.decisionId, key: step.key });
+    panelWrites.length = 0;
+    ctx.CONSEQUENCE_MAP[step.decisionId][step.key].stateChange();
+    var write = panelWrites.filter(function (w) { return w.label === 'Children Aboard'; }).pop();
+    if (!write) {
+      errors.push('markwilliams: ' + step.decisionId + '[' + step.key + '] no longer reports Children Aboard');
+    } else if (write.value !== step.expected) {
+      errors.push('markwilliams: after ' + step.decisionId + '[' + step.key + '] Children Aboard reads "' +
+        write.value + '", expected "' + step.expected + '"');
+    }
+  });
+  ctx.updatePanelItem = realUpdatePanelItem;
+  ctx.GameState.decisions = [];
+
   console.log('stateChange functions executed: ' + stats.stateChanges);
+  console.log('consequence injects clock-checked: ' + stats.injects);
   console.log('locked predicates exercised:    ' + stats.locks + ' (' + stats.lockReasons + ' returned a reason)');
   console.log('decisions with no positive option left if every lock triggers: ' + foreclosed.length);
   foreclosed.forEach(function (f) { console.log('  ' + f); });

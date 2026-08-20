@@ -803,7 +803,9 @@ function processNextEvent() {
 function addEventToFeed(event) {
   var feed = document.getElementById('event-feed');
   var hours = Math.floor(event.time / 60);
-  var mins = event.time % 60;
+  // Noise injects stamp themselves from the live clock, which carries the half
+  // minute updateGameClock() adds, so floor here rather than printing ":13.5".
+  var mins = Math.floor(event.time % 60);
   var entry = document.createElement('div');
   entry.className = 'event-entry';
   var tagClass = event.type;
@@ -1016,12 +1018,26 @@ function applyConsequences(decId, key) {
   // If there is a reactive inject, show it after a delay then continue
   if (consequence.inject) {
     var inj = consequence.inject;
+    // The inject represents a few minutes passing, but it cannot overshoot the
+    // next scripted event or the feed timestamps run backwards when that event
+    // lands. eventIndex still points at the decision here, so events[i + 1] is
+    // what comes next and its scripted time is the ceiling.
+    //
+    // Floor first: updateGameClock() ticks the clock by half a minute every time
+    // it renders, so working straight off GameState.time would stamp the inject
+    // on a fractional minute and print "H+00:49.5".
+    var now = Math.floor(GameState.time);
+    var following = getActiveEvents()[GameState.eventIndex + 1];
+    var injectTime = now + 5;
+    if (following && following.time < injectTime) {
+      injectTime = Math.max(now, following.time);
+    }
     eventTimer = setTimeout(function() {
-      GameState.time += 5;
+      GameState.time = injectTime;
       updateGameClock();
       if (inj.aftershock) triggerAftershock();
       addEventToFeed({
-        time: GameState.time,
+        time: injectTime,
         type: inj.type || 'inject',
         tag: inj.tag || 'CONSEQUENCE',
         title: inj.title,
