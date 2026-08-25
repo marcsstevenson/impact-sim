@@ -28,13 +28,9 @@
       studentsTotal: 420, studentsAccounted: 388, staffPresent: 24,
       reunified: 0, injuredMinor: 9, injuredSerious: 2
     },
-    statusBar: [
-      { id: 'students', label: 'Students Accounted:', value: '388/420', cls: 'warning' },
-      { id: 'staff', label: 'Staff On Site:', value: '24/26', cls: 'good' },
-      { id: 'reunified', label: 'Reunified:', value: '0', cls: 'warning' },
-      { id: 'warmth', label: 'Warmth:', value: 'Heating Out', cls: 'critical' },
-      { id: 'comms', label: 'Network:', value: 'Congested', cls: 'critical' }
-    ],
+    // No status bar: every item restated a panel row, and the strip is never
+    // re-rendered, so it went stale as soon as a consequence moved the panel.
+    statusBar: [],
     panels: {
       groupsTitle: 'Roll & Welfare',
       groups: [
@@ -57,9 +53,7 @@
       lifelinesTitle: 'Site & Utilities',
       lifelines: [
         { label: 'Power', value: 'Out', cls: 'failed' },
-        { label: 'Heating', value: 'Off', cls: 'failed' },
         { label: 'Water', value: 'Untested', cls: 'unknown' },
-        { label: 'Internet', value: 'Down', cls: 'failed' },
         { label: 'Cell Network', value: 'Congested', cls: 'degraded' },
         { label: 'Toilets', value: 'At Risk', cls: 'degraded' }
       ],
@@ -68,8 +62,6 @@
         { label: 'Main Teaching Block', value: 'Damaged', cls: 'degraded' },
         { label: 'School Hall', value: 'Moderate Damage', cls: 'degraded' },
         { label: 'Gymnasium', value: 'Usable', cls: 'good' },
-        { label: 'School Buses', value: 'Grounded', cls: 'failed' },
-        { label: 'Township Roads', value: 'Blocked', cls: 'failed' },
         { label: 'Rural Roads', value: 'Cut Off', cls: 'failed' }
       ],
       cascadeTitle: 'Emerging Risks',
@@ -79,8 +71,7 @@
         { icon: '📱', name: 'Misinformation', level: 'High', cls: 'high' },
         { icon: '👥', name: 'Crowd Pressure', level: 'Moderate', cls: 'moderate' },
         { icon: '❄️', name: 'Overnight Snow', level: 'High', cls: 'high' },
-        { icon: '🚽', name: 'Sanitation / Gastro', level: 'Moderate', cls: 'moderate' },
-        { icon: '🏗️', name: 'Structural', level: 'Moderate', cls: 'moderate' }
+        { icon: '🚽', name: 'Sanitation / Gastro', level: 'Moderate', cls: 'moderate' }
       ],
       resourcesTitle: 'Welfare Supplies'
     }

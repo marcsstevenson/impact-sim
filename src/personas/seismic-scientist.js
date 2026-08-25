@@ -28,18 +28,12 @@
       aftershockRisk: 'high', landslideDams: 3, geotechTeams: 2,
       adviceConfidence: 'low-moderate', isolatedCommunities: 12
     },
-    statusBar: [
-      { id: 'aftershock', label: 'Aftershock Risk:', value: 'High', cls: 'critical' },
-      { id: 'landslide', label: 'Landslide Dams:', value: '3 suspected', cls: 'warning' },
-      { id: 'teams', label: 'Geotech Teams:', value: '2 avail', cls: 'warning' },
-      { id: 'confidence', label: 'Advice Confidence:', value: 'Low-Mod', cls: 'warning' },
-      { id: 'isolated', label: 'Communities Isolated:', value: '12', cls: 'critical' }
-    ],
+    // No status bar: every item restated a panel row, and the strip is never
+    // re-rendered, so it went stale as soon as a consequence moved the panel.
+    statusBar: [],
     panels: {
       groupsTitle: 'Hazard Assessment',
       groups: [
-        { label: 'Aftershocks', value: 'High', cls: 'failed' },
-        { label: 'Landslide / Rockfall', value: 'High', cls: 'failed' },
         { label: 'Landslide-Dam / Flood', value: 'Suspected', cls: 'degraded' },
         { label: 'Ground Deformation', value: 'Assessing', cls: 'unknown' },
         { label: 'Road Corridors', value: 'Unstable', cls: 'failed' },
@@ -60,14 +54,12 @@
         { label: 'Aerial Imagery', value: 'Partial', cls: 'degraded' },
         { label: 'Ground Inspection', value: 'None Yet', cls: 'failed' },
         { label: 'Drone Footage', value: 'Unverified', cls: 'degraded' },
-        { label: 'Weather Model', value: 'Deteriorating', cls: 'degraded' },
         { label: 'Peer Review', value: 'Not Possible', cls: 'failed' }
       ],
       transportTitle: 'Exposed Sites',
       transport: [
         { label: 'Township Slope', value: 'High Risk', cls: 'failed' },
         { label: 'School Below Slope', value: 'High Risk', cls: 'failed' },
-        { label: 'Hospital Access Rd', value: 'Damaged', cls: 'degraded' },
         { label: 'Alpine Pass', value: 'Rockfall', cls: 'failed' },
         { label: 'Hydro Dam', value: 'Uninspected', cls: 'unknown' },
         { label: 'Tourist Centres', value: 'Cut Off', cls: 'degraded' }
@@ -78,8 +70,7 @@
         { icon: '⛰️', name: 'Landslide Dams', level: 'High', cls: 'high' },
         { icon: '🌊', name: 'Breakout Floods', level: 'Moderate', cls: 'moderate' },
         { icon: '🪨', name: 'Rockfall', level: 'High', cls: 'high' },
-        { icon: '🏔️', name: 'Slope Failure', level: 'High', cls: 'high' },
-        { icon: '🌧️', name: 'Severe Weather', level: 'Moderate', cls: 'moderate' }
+        { icon: '🏔️', name: 'Slope Failure', level: 'High', cls: 'high' }
       ],
       resourcesTitle: 'Science Capacity'
     }

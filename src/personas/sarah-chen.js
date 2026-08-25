@@ -25,13 +25,9 @@
       'and defensible decisions under extreme financial uncertainty.',
     startScore: 50,
     metrics: { stockValue: 450000, uninsured: 180000, cashWeeks: 4, staff: 12 },
-    statusBar: [
-      { id: 'stock', label: 'Emergency Stock:', value: 'Limited', cls: 'warning' },
-      { id: 'cash', label: 'Cash Runway:', value: '~4 wks', cls: 'warning' },
-      { id: 'staff', label: 'Staff On Site:', value: '7/12', cls: 'good' },
-      { id: 'building', label: 'Building:', value: 'Damaged', cls: 'critical' },
-      { id: 'power', label: 'Power/EFTPOS:', value: 'Down', cls: 'critical' }
-    ],
+    // No status bar: every item restated a panel row, and the strip is never
+    // re-rendered, so it went stale as soon as a consequence moved the panel.
+    statusBar: [],
     panels: {
       groupsTitle: 'Business Status',
       groups: [
@@ -39,14 +35,12 @@
         { label: 'Stock On Hand', value: '~$450k', cls: 'degraded' },
         { label: 'Uninsured Stock', value: '~$180k', cls: 'failed' },
         { label: 'Cash Runway', value: '~4 weeks', cls: 'degraded' },
-        { label: 'Staff On Site', value: '7 / 12', cls: 'good' },
-        { label: 'Gas Cylinders', value: 'Scattered', cls: 'failed' }
+        { label: 'Staff On Site', value: '7 / 12', cls: 'good' }
       ],
       agenciesTitle: 'Calls & Contacts',
       agencies: [
         { label: 'Bank', value: 'Unreachable', cls: 'failed' },
         { label: 'Insurer', value: 'Unreachable', cls: 'failed' },
-        { label: 'Accountant', value: 'Unreachable', cls: 'failed' },
         { label: 'Civil Defence', value: 'Activating', cls: 'degraded' },
         { label: 'Medical Centre', value: 'Requesting', cls: 'degraded' },
         { label: 'Media', value: 'Calling', cls: 'degraded' }
@@ -54,19 +48,13 @@
       lifelinesTitle: 'Shop & Utilities',
       lifelines: [
         { label: 'Power', value: 'Out', cls: 'failed' },
-        { label: 'EFTPOS', value: 'Down', cls: 'failed' },
-        { label: 'Internet', value: 'Down', cls: 'failed' },
-        { label: 'Cell Network', value: 'Intermittent', cls: 'degraded' },
-        { label: 'Water', value: 'Restrictions', cls: 'degraded' },
-        { label: 'Security Alarms', value: 'Down', cls: 'failed' }
+        { label: 'EFTPOS', value: 'Down', cls: 'failed' }
       ],
       transportTitle: 'Site Hazards',
       transport: [
         { label: 'Front Windows', value: 'Shattered', cls: 'failed' },
         { label: 'Shelving', value: 'Collapsed', cls: 'failed' },
         { label: 'Gas Cylinders', value: 'Scattered', cls: 'failed' },
-        { label: 'Walls', value: 'Cracked', cls: 'degraded' },
-        { label: 'Ceiling Tiles', value: 'Fallen', cls: 'degraded' },
         { label: 'Roads', value: 'Blocked', cls: 'failed' }
       ],
       cascadeTitle: 'Cascading Hazards',
@@ -74,8 +62,6 @@
         { icon: '🔁', name: 'Aftershocks', level: 'High', cls: 'high' },
         { icon: '⛽', name: 'Gas Leak', level: 'High', cls: 'high' },
         { icon: '🔓', name: 'Looting / Security', level: 'Moderate', cls: 'moderate' },
-        { icon: '🛢️', name: 'Fuel Shortage', level: 'Moderate', cls: 'moderate' },
-        { icon: '❄️', name: 'Overnight Snow', level: 'High', cls: 'high' },
         { icon: '🏗️', name: 'Structural', level: 'Moderate', cls: 'moderate' }
       ],
       resourcesTitle: 'Resources'

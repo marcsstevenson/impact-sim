@@ -24,13 +24,10 @@
       'under deep uncertainty.',
     startScore: 50,
     metrics: { children: 8, injured: 2, fuelHours: 6 },
-    statusBar: [
-      { id: 'children', label: 'Children:', value: '8 aboard', cls: 'good' },
-      { id: 'injured', label: 'Injured:', value: '2', cls: 'critical' },
-      { id: 'coverage', label: 'Coverage:', value: 'Patchy', cls: 'warning' },
-      { id: 'road', label: 'Road:', value: 'Blocked', cls: 'critical' },
-      { id: 'weather', label: 'Snow:', value: 'Forecast', cls: 'warning' }
-    ],
+    // No status bar: every item restated a panel row, and because the strip is
+    // never re-rendered it went stale the moment a consequence moved the panel
+    // ("Children: 8 aboard" above a roster reading 5 / 8).
+    statusBar: [],
     panels: {
       groupsTitle: 'The Children',
       groups: [
@@ -54,10 +51,7 @@
       lifelines: [
         { label: 'Cell Coverage', value: 'Patchy', cls: 'degraded' },
         { label: 'Parent Calls', value: 'Flooding', cls: 'degraded' },
-        { label: 'Social Media', value: 'Spreading', cls: 'failed' },
-        { label: 'EMA Alert', value: 'Pending', cls: 'unknown' },
-        { label: 'Phone Battery', value: 'Draining', cls: 'degraded' },
-        { label: 'Radio', value: 'None', cls: 'failed' }
+        { label: 'Social Media', value: 'Spreading', cls: 'failed' }
       ],
       transportTitle: 'Road & Terrain',
       transport: [
@@ -65,16 +59,13 @@
         { label: 'Road Behind', value: 'Rockfall', cls: 'failed' },
         { label: 'Tunnel (800m)', value: 'Unknown', cls: 'unknown' },
         { label: 'River Below', value: 'Rising', cls: 'degraded' },
-        { label: 'Steep Slopes', value: 'Unstable', cls: 'failed' },
-        { label: 'Tree Fall Risk', value: 'Moderate', cls: 'degraded' }
+        { label: 'Steep Slopes', value: 'Unstable', cls: 'failed' }
       ],
       cascadeTitle: 'Hazards',
       cascades: [
         { icon: '🔁', name: 'Aftershocks', level: 'High', cls: 'high' },
         { icon: '🪨', name: 'Rockfall', level: 'High', cls: 'high' },
-        { icon: '⛰️', name: 'Landslide / Dam', level: 'Moderate', cls: 'moderate' },
         { icon: '🌊', name: 'Tsunami (river)', level: 'Watch', cls: 'moderate' },
-        { icon: '🌲', name: 'Falling Trees', level: 'Moderate', cls: 'moderate' },
         { icon: '❄️', name: 'Overnight Snow', level: 'High', cls: 'high' }
       ],
       resourcesTitle: 'Supplies'

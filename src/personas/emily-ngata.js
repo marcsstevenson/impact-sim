@@ -25,13 +25,9 @@
       'defensible decisions that each carry moral injury.',
     startScore: 50,
     metrics: { presenting: 65, spaces: 6, doctors: 2, nurses: 2 },
-    statusBar: [
-      { id: 'casualties', label: 'Presenting:', value: '65', cls: 'critical' },
-      { id: 'spaces', label: 'Treatment Spaces:', value: '6', cls: 'warning' },
-      { id: 'clinicians', label: 'Doctors:', value: '2', cls: 'warning' },
-      { id: 'transfer', label: 'Hospital:', value: '90+ min, cut off', cls: 'critical' },
-      { id: 'power', label: 'Power:', value: 'Generator', cls: 'warning' }
-    ],
+    // No status bar: every item restated a panel row, and the strip is never
+    // re-rendered, so it went stale as soon as a consequence moved the panel.
+    statusBar: [],
     panels: {
       groupsTitle: 'Casualty Load',
       groups: [
@@ -57,26 +53,21 @@
         { label: 'Water', value: 'Disrupted', cls: 'degraded' },
         { label: 'Oxygen', value: 'Limited', cls: 'degraded' },
         { label: 'Refrigeration', value: 'At Risk', cls: 'degraded' },
-        { label: 'Telecoms', value: 'Intermittent', cls: 'degraded' },
         { label: 'Satellite Phone', value: 'Working', cls: 'good' }
       ],
       transportTitle: 'Access & Transfer',
       transport: [
         { label: 'Roads', value: 'Closed', cls: 'failed' },
-        { label: 'Ambulance', value: 'Cannot Reach', cls: 'failed' },
         { label: 'Base Hospital', value: 'Cut Off', cls: 'failed' },
         { label: 'Helicopters', value: 'Grounded', cls: 'failed' },
-        { label: 'Carpark Triage', value: 'Active', cls: 'degraded' },
-        { label: '4WD Vehicle', value: 'Available', cls: 'good' }
+        { label: 'Carpark Triage', value: 'Active', cls: 'degraded' }
       ],
       cascadeTitle: 'Hazards',
       cascades: [
         { icon: '🔁', name: 'Aftershocks', level: 'High', cls: 'high' },
         { icon: '🏗️', name: 'Clinic Structure', level: 'High', cls: 'high' },
-        { icon: '🌊', name: 'Tsunami (coastal)', level: 'Watch', cls: 'moderate' },
         { icon: '🚱', name: 'Water / Gastro', level: 'High', cls: 'high' },
-        { icon: '🧊', name: 'Refrigeration Loss', level: 'Moderate', cls: 'moderate' },
-        { icon: '❄️', name: 'Snow / Cold', level: 'High', cls: 'high' }
+        { icon: '🧊', name: 'Refrigeration Loss', level: 'Moderate', cls: 'moderate' }
       ],
       resourcesTitle: 'Clinical Resources'
     }

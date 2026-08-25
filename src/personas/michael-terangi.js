@@ -25,13 +25,9 @@
       'pressure, transparency about uncertain timelines, and financial stewardship versus community function.',
     startScore: 50,
     metrics: { customersOff: 38000, substationsOffline: 5, crews: 8 },
-    statusBar: [
-      { id: 'off', label: 'Customers Off:', value: '38,000', cls: 'critical' },
-      { id: 'subs', label: 'Substations Offline:', value: '5/18', cls: 'critical' },
-      { id: 'crews', label: 'Field Crews:', value: '8 avail', cls: 'warning' },
-      { id: 'scada', label: 'SCADA:', value: 'Degraded', cls: 'warning' },
-      { id: 'heli', label: 'Helicopters:', value: 'Grounded', cls: 'critical' }
-    ],
+    // No status bar: every item restated a panel row, and the strip is never
+    // re-rendered, so it went stale as soon as a consequence moved the panel.
+    statusBar: [],
     panels: {
       groupsTitle: 'Network Status',
       groups: [
@@ -56,14 +52,12 @@
         { label: 'Hospital', value: 'Backup ~6h', cls: 'degraded' },
         { label: 'Water Treatment', value: 'Backup ~2h', cls: 'failed' },
         { label: 'Wastewater Pumps', value: 'Failing', cls: 'failed' },
-        { label: 'Telecoms Towers', value: 'Discharging', cls: 'degraded' },
         { label: 'Fuel Terminal', value: 'Offline', cls: 'failed' },
         { label: 'Rest Homes (O2)', value: 'At Risk', cls: 'failed' }
       ],
       transportTitle: 'Field Conditions',
       transport: [
         { label: 'Mountain Towers', value: 'Unknown', cls: 'unknown' },
-        { label: 'Underground Cable', value: 'Unknown', cls: 'unknown' },
         { label: 'Roads', value: 'Landslides', cls: 'failed' },
         { label: 'Bridges', value: 'Suspect', cls: 'degraded' },
         { label: 'Helicopters', value: 'Grounded', cls: 'failed' },
@@ -75,8 +69,7 @@
         { icon: '🪨', name: 'Rockfall / Slips', level: 'High', cls: 'high' },
         { icon: '⚡', name: 'Live Lines', level: 'High', cls: 'high' },
         { icon: '🛢️', name: 'Fuel Shortage', level: 'Moderate', cls: 'moderate' },
-        { icon: '❄️', name: 'Snow', level: 'High', cls: 'high' },
-        { icon: '🌊', name: 'Tsunami (coastal)', level: 'Watch', cls: 'moderate' }
+        { icon: '❄️', name: 'Snow', level: 'High', cls: 'high' }
       ],
       resourcesTitle: 'Resources'
     }

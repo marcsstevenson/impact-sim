@@ -542,10 +542,14 @@ function startGame(scenario) {
   document.getElementById('classification-badge').className = 'classification-badge ' + config.classCSS;
 
   // Update status bar
+  // A persona may declare no status bar at all - nothing updates these items
+  // once rendered, so a persona whose facts all live in the panels leaves the
+  // strip to Effectiveness alone rather than pinning values that go stale.
   var statusBar = document.getElementById('status-bar-items');
   var statusHTML = '';
-  for (var i = 0; i < config.statusBar.length; i++) {
-    var s = config.statusBar[i];
+  var statusItems = config.statusBar || [];
+  for (var i = 0; i < statusItems.length; i++) {
+    var s = statusItems[i];
     statusHTML += '<div class="status-item"><span class="label">' + s.label + '</span> <span class="value ' + s.cls + '" id="val-' + s.id + '">' + s.value + '</span></div>';
   }
   statusHTML += '<div class="status-item"><span class="label">Effectiveness:</span> <span class="value" id="val-score" style="color:var(--accent-cyan)">' + GameState.score + '%</span></div>';
