@@ -602,6 +602,39 @@ body {
 .sit-item .sit-value.failed { color: var(--accent-red); }
 .sit-item .sit-value.unknown { color: var(--text-muted); }
 
+/* Consequence damage, posted into the feed so it is read rather than missed */
+.cop-changes {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-red);
+  border-radius: 6px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cop-change {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 12px;
+  font-family: var(--font-body);
+}
+
+.cop-change-label { flex: 1; color: var(--text-muted); }
+.cop-change-from { color: var(--text-muted); text-decoration: line-through; opacity: 0.7; }
+.cop-change-arrow { color: var(--text-muted); }
+.cop-change-to { font-weight: 600; }
+.cop-change-to.good { color: var(--accent-green); }
+.cop-change-to.degraded { color: var(--accent-amber); }
+.cop-change-to.failed { color: var(--accent-red); }
+.cop-change-to.unknown { color: var(--text-muted); }
+.cop-change-to.low { color: var(--accent-green); }
+.cop-change-to.moderate { color: var(--accent-amber); }
+.cop-change-to.high { color: var(--accent-red); }
+.cop-change-to.extreme { color: #f8bbd0; }
+
 .meter-bar {
   width: 60px;
   height: 8px;

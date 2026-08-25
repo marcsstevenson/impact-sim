@@ -1010,9 +1010,17 @@ function applyConsequences(decId, key) {
     return;
   }
 
-  // Apply state changes immediately
+  // Apply state changes immediately, recording what moved so the player sees
+  // the damage in the feed rather than only in a panel they may not be watching.
   if (consequence.stateChange) {
-    consequence.stateChange();
+    copRecorder = [];
+    try {
+      consequence.stateChange();
+    } finally {
+      var copChanges = copRecorder;
+      copRecorder = null;
+      if (copChanges.length) addCopChangesToFeed(copChanges);
+    }
   }
 
   // If there is a reactive inject, show it after a delay then continue
@@ -1355,6 +1363,55 @@ function triggerDashAnimation(el, direction) {
   setTimeout(function() { el.classList.remove(cls); el.style.borderLeftColor = 'transparent'; }, 3000);
 }
 
+// ============ COP CHANGE RECORDING ============
+// A consequence's stateChange mutates panels the player may not be looking at,
+// so the degradation it causes can pass unnoticed. While a stateChange runs the
+// mutators below record what they moved, and applyConsequences posts the list
+// into the event feed - which is where the player is already reading.
+var copRecorder = null;
+
+// Panel values carry a status glyph ("✖ Failed"); the feed prints the value.
+function stripStatusIndicator(text) {
+  return String(text == null ? '' : text).replace(/^[^A-Za-z0-9("']+/, '').trim();
+}
+
+function recordCopChange(label, from, to, cls) {
+  if (!copRecorder) return;
+  from = stripStatusIndicator(from);
+  to = stripStatusIndicator(to);
+  if (from === to) return;
+  copRecorder.push({ label: label, from: from, to: to, cls: cls });
+}
+
+// Meters use colour names; the feed chips use the status vocabulary.
+function meterClsToStatus(cls) {
+  if (cls === 'red') return 'failed';
+  if (cls === 'amber') return 'degraded';
+  return 'good';
+}
+
+function addCopChangesToFeed(changes) {
+  var feed = document.getElementById('event-feed');
+  if (!feed) return;
+  var rows = '';
+  for (var i = 0; i < changes.length; i++) {
+    var c = changes[i];
+    rows += '<div class="cop-change">' +
+      '<span class="cop-change-label">' + c.label + '</span>' +
+      '<span class="cop-change-from">' + c.from + '</span>' +
+      '<span class="cop-change-arrow">→</span>' +
+      '<span class="cop-change-to ' + c.cls + '">' + c.to + '</span>' +
+      '</div>';
+  }
+  var entry = document.createElement('div');
+  entry.className = 'event-entry';
+  entry.innerHTML =
+    '<div class="event-timestamp">SITUATION CHANGE</div>' +
+    '<div class="cop-changes">' + rows + '</div>';
+  feed.appendChild(entry);
+  feed.scrollTop = feed.scrollHeight;
+}
+
 function updatePanelItem(panelId, label, newValue, newCls) {
   var panel = document.getElementById(panelId);
   if (!panel) return;
@@ -1368,6 +1425,8 @@ function updatePanelItem(panelId, label, newValue, newCls) {
         var oldCls = val.className;
         var direction = (newCls === 'failed') ? 'down' : (newCls === 'good' ? 'up' : 'down');
         if (oldCls.indexOf('failed') > -1 && newCls !== 'failed') direction = 'up';
+
+        recordCopChange(label, val.textContent, newValue, newCls);
 
         var indicator = STATUS_INDICATORS[newCls] || '';
         val.textContent = indicator + newValue;
@@ -1392,6 +1451,8 @@ function updateMeterItem(panelId, label, newPct, newCls) {
       if (fill) {
         var oldWidth = parseFloat(fill.style.width) || 50;
         var direction = newPct < oldWidth ? 'down' : 'up';
+
+        recordCopChange(label, oldWidth + '%', newPct + '%', meterClsToStatus(newCls));
 
         fill.style.width = newPct + '%';
         fill.className = 'meter-fill ' + newCls;
@@ -1419,6 +1480,8 @@ function updateCascadeItem(trackerId, name, newLevel, newCls) {
     if (nameEl && nameEl.textContent === name) {
       var lvl = items[i].querySelector('.cascade-level');
       if (lvl) {
+        recordCopChange(name, lvl.textContent, newLevel, newCls);
+
         var indicator = CASCADE_INDICATORS[newCls] || '';
         lvl.textContent = indicator + newLevel;
         lvl.className = 'cascade-level ' + newCls;
@@ -1913,6 +1976,9 @@ function updateUtilityDirect(utilKey, newValue) {
   if (!GameState.utilities[utilKey]) return;
   var oldVal = GameState.utilities[utilKey].value;
   GameState.utilities[utilKey].value = Math.max(0, Math.min(100, newValue));
+  var clamped = GameState.utilities[utilKey].value;
+  recordCopChange(GameState.utilities[utilKey].label, oldVal + '%', clamped + '%',
+    clamped > 60 ? 'good' : (clamped > 30 ? 'degraded' : 'failed'));
   var panel = document.getElementById('resources-section');
   if (!panel) return;
   var item = panel.querySelector('[data-util="' + utilKey + '"]');
