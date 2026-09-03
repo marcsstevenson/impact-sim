@@ -753,8 +753,8 @@
       prompt: 'How do you handle the constant calls?',
       options: [
         { key: 'A', label: 'Give one clear update, agree a set check-in time, and explain you must conserve battery for emergencies', desc: 'Keeps the parent informed while protecting your battery and your attention. A predictable check-in calms most anxious parents.', effect: { score: 2 } },
-        { key: 'B', label: 'Take every call to keep them happy', desc: 'Drains the battery you need for a real emergency and pulls you off eight children for one parent.', effect: { score: -2 } },
-        { key: 'C', label: 'Stop answering that parent entirely', desc: 'Cuts off a frightened parent completely; the silence makes them more likely to drive into the zone.', effect: { score: -1 } }
+        { key: 'B', label: 'Take every call so the parent stays calm and knows their child is being looked after while you get on with everything else', desc: 'Drains the battery you need for a real emergency and pulls you off eight children for one parent.', effect: { score: -2 } },
+        { key: 'C', label: 'Stop answering that parent entirely so the battery lasts for calls that matter more than one anxious voice repeating itself', desc: 'Cuts off a frightened parent completely; the silence makes them more likely to drive into the zone.', effect: { score: -1 } }
       ]
     },
     {
@@ -765,8 +765,8 @@
       prompt: 'How do you handle the would-be vlogger?',
       options: [
         { key: 'A', label: 'Gently redirect them to a real, useful job and explain why filming injured friends is not okay', desc: 'Channels the nervous energy into help, and protects the dignity and privacy of the injured children.', effect: { score: 2 } },
-        { key: 'B', label: 'Let them film - it keeps them occupied', desc: 'Puts injured, identifiable children online in front of their parents and the world.', effect: { score: -2 } },
-        { key: 'C', label: 'Snatch the phone and shout at them', desc: 'Escalates with a frightened child and costs you composure the whole group is watching.', effect: { score: -1 } }
+        { key: 'B', label: 'Let them film - it is keeping them occupied and out of trouble for once on a day when nothing else has', desc: 'Puts injured, identifiable children online in front of their parents and the world.', effect: { score: -2 } },
+        { key: 'C', label: 'Take the phone off them and tell them sharply that this is not the time for it or for anything like it', desc: 'Escalates with a frightened child and costs you composure the whole group is watching.', effect: { score: -1 } }
       ]
     },
     {
@@ -777,8 +777,8 @@
       prompt: 'How do you respond?',
       options: [
         { key: 'A', label: 'Calmly and firmly bring both back from the edge and give them each a task close to you', desc: 'Removes the immediate fall risk and converts restless energy into something useful within arm’s reach.', effect: { score: 2 } },
-        { key: 'B', label: 'Shout at them from where you are', desc: 'A shout may startle a child near a drop into stepping the wrong way; you need to close the distance.', effect: { score: -2 } },
-        { key: 'C', label: 'Ignore it and trust they will sort themselves out', desc: 'A child near an unstable edge above a river is not something to leave to chance.', effect: { score: -2 } }
+        { key: 'B', label: 'Shout at them from where you are to get back from the edge right now', desc: 'A shout may startle a child near a drop into stepping the wrong way; you need to close the distance.', effect: { score: -2 } },
+        { key: 'C', label: 'Ignore it and trust that they will sort themselves out the way siblings do', desc: 'A child near an unstable edge above a river is not something to leave to chance.', effect: { score: -2 } }
       ]
     },
     {
@@ -789,8 +789,8 @@
       prompt: 'How do you respond to the offer?',
       options: [
         { key: 'A', label: 'Decline - keep all the children with you, but take the motorist’s details and ask them to pass a message to authorities', desc: 'You cannot hand children to an unknown adult, but you can use them to get word out. Keep the group together.', effect: { score: 2 } },
-        { key: 'B', label: 'Send two children with them to reduce numbers', desc: 'Handing children to a stranger you cannot verify is the safeguarding failure an emergency tempts you into.', effect: { score: -3 } },
-        { key: 'C', label: 'Wave them on without a word', desc: 'Misses a chance to get a verified message out to authorities through a willing passer-by.', effect: { score: 0 } }
+        { key: 'B', label: 'Send two of the children with them to cut the numbers you are trying to keep warm and accounted for through a night like this one', desc: 'Handing children to a stranger you cannot verify is the safeguarding failure an emergency tempts you into.', effect: { score: -3 } },
+        { key: 'C', label: 'Wave the motorist on without a word and keep all eight of them together exactly where they are', desc: 'Misses a chance to get a verified message out to authorities through a willing passer-by.', effect: { score: 0 } }
       ]
     },
     {
@@ -801,8 +801,8 @@
       prompt: 'How do you handle the snack dispute?',
       options: [
         { key: 'A', label: 'Set a simple visible rule - equal shares, extra fluids for the injured child - and explain it out loud', desc: 'A clear, transparent fairness rule defuses the squabble and models the need-based fairness you are trying to hold.', effect: { score: 2 } },
-        { key: 'B', label: 'Give the loudest children more to quiet them', desc: 'Rewards the squabbling and teaches the group that complaining works.', effect: { score: -2 } },
-        { key: 'C', label: 'Take all the snacks back until they stop arguing', desc: 'Punishes hungry, frightened children collectively and raises the tension rather than lowering it.', effect: { score: -1 } }
+        { key: 'B', label: 'Give the loudest children more so they settle down and the rest of them stop arguing about it and settle down too', desc: 'Rewards the squabbling and teaches the group that complaining works.', effect: { score: -2 } },
+        { key: 'C', label: 'Take all of the snacks back off them until they stop arguing about it entirely and can be trusted to share', desc: 'Punishes hungry, frightened children collectively and raises the tension rather than lowering it.', effect: { score: -1 } }
       ]
     },
     {
@@ -813,8 +813,8 @@
       prompt: 'How do you respond?',
       options: [
         { key: 'A', label: 'Stop the livestream, explain that parents should not learn where their child is from a video, and use the battery to contact the parents directly instead', desc: 'A livestream reaches strangers before parents and burns the battery you need for the calls that matter.', effect: { score: 2 } },
-        { key: 'B', label: 'Let them post it - visibility might bring help', desc: 'Footage of frightened, injured children reaching their parents through social media before you do is a harm you cannot undo.', effect: { score: -3 } },
-        { key: 'C', label: 'Confiscate the phone without explanation', desc: 'Right instinct, and taking a child’s only link to their parents without a word makes the group harder to hold.', effect: { score: -2 } }
+        { key: 'B', label: 'Let them post it, since visibility might be what brings help to this stretch of road faster than any call you can make from a signal that keeps dropping', desc: 'Footage of frightened, injured children reaching their parents through social media before you do is a harm you cannot undo.', effect: { score: -3 } },
+        { key: 'C', label: 'Confiscate the phone without going into the reasons, so the stream stops immediately and the others do not start one', desc: 'Right instinct, and taking a child’s only link to their parents without a word makes the group harder to hold.', effect: { score: -2 } }
       ]
     },
     {
@@ -825,8 +825,8 @@
       prompt: 'How do you handle it?',
       options: [
         { key: 'A', label: 'Split them up calmly, give each one a separate task, and get the group focused on something with a purpose', desc: 'Fear coming out sideways. Separation plus a job resolves it faster than any conversation about the jacket.', effect: { score: 2 } },
-        { key: 'B', label: 'Shout at both of them in front of the group', desc: 'Raises the temperature for everyone and tells eight frightened children the adult has lost his grip.', effect: { score: -2 } },
-        { key: 'C', label: 'Ignore it and let them work it out', desc: 'A scuffle on a wet slope above a river is not something to let run its course.', effect: { score: -2 } }
+        { key: 'B', label: 'Shout at both of them in front of the whole group so that it stops immediately', desc: 'Raises the temperature for everyone and tells eight frightened children the adult has lost his grip.', effect: { score: -2 } },
+        { key: 'C', label: 'Ignore it entirely and let the two of them work it out between themselves the way they would at training', desc: 'A scuffle on a wet slope above a river is not something to let run its course.', effect: { score: -2 } }
       ]
     },
     {
@@ -837,8 +837,8 @@
       prompt: 'How do you handle the call?',
       options: [
         { key: 'A', label: 'Give him ninety seconds with her, explain the battery situation to her plainly, and agree one contact point for updates', desc: 'Meets the real need on both ends and protects the battery every other family also depends on.', effect: { score: 2 } },
-        { key: 'B', label: 'Hand the phone over and let them talk as long as they need', desc: 'One family gets the battery that seven others and every emergency call depend on.', effect: { score: -2 } },
-        { key: 'C', label: 'Refuse and hang up', desc: 'A mother who cannot reach her child will assume the worst and ring everyone else instead.', effect: { score: -2 } }
+        { key: 'B', label: 'Hand the phone over and let the two of them talk for as long as she needs to hear his voice and settle down again', desc: 'One family gets the battery that seven others and every emergency call depend on.', effect: { score: -2 } },
+        { key: 'C', label: 'Refuse the request and hang up, because that battery has to last the whole night for all eight of them and for all of their parents', desc: 'A mother who cannot reach her child will assume the worst and ring everyone else instead.', effect: { score: -2 } }
       ]
     },
     {
@@ -849,8 +849,8 @@
       prompt: 'How do you respond?',
       options: [
         { key: 'A', label: 'Decline to send children with an unknown adult, take his details and route, and ask him to carry a written message out to Police and the parents', desc: 'Turns an unusable offer into a genuinely useful one - a message getting out is worth more than three unsupervised seats.', effect: { score: 2 } },
-        { key: 'B', label: 'Send the three youngest with him to get them warm', desc: 'Handing children to an unvetted stranger is the decision no explanation afterwards will survive.', effect: { score: -3 } },
-        { key: 'C', label: 'Wave him on without speaking to him', desc: 'Declining is right; losing the chance to send a message out with him is a wasted opportunity.', effect: { score: -1 } }
+        { key: 'B', label: 'Send the three youngest off with him so that they at least get warm and out of the rain before it gets properly dark tonight and colder than it already is', desc: 'Handing children to an unvetted stranger is the decision no explanation afterwards will survive.', effect: { score: -3 } },
+        { key: 'C', label: 'Wave him on without speaking to him at all, and keep every one of the children exactly where they are until somebody official arrives', desc: 'Declining is right; losing the chance to send a message out with him is a wasted opportunity.', effect: { score: -1 } }
       ]
     },
     {
@@ -861,8 +861,8 @@
       prompt: 'How do you handle it?',
       options: [
         { key: 'A', label: 'Tell her both of you are safe in thirty seconds, ask her to start ringing the other parents for you, and get back to the queue', desc: 'Settles her, and turns your own family call into the extra communication channel the group badly needs.', effect: { score: 2 } },
-        { key: 'B', label: 'Stay on the line as long as she needs', desc: 'Understandable, and it spends the battery three other families are waiting on.', effect: { score: -2 } },
-        { key: 'C', label: 'Decline the call to keep the phone free', desc: 'Thirty seconds would have settled her and gained you a second person making calls from a place with power.', effect: { score: -1 } }
+        { key: 'B', label: 'Stay on the line with her for as long as she needs, because she has been frantic for the past hour', desc: 'Understandable, and it spends the battery three other families are waiting on.', effect: { score: -2 } },
+        { key: 'C', label: 'Decline the call entirely to keep the phone free for the parents who are still trying to get through to reach their own children tonight', desc: 'Thirty seconds would have settled her and gained you a second person making calls from a place with power.', effect: { score: -1 } }
       ]
     }
   ];
@@ -942,7 +942,7 @@
       prompt: 'How do you manage the head injury?',
       options: [
         { key: 'A', label: 'Keep him still and warm, do not let him sleep unmonitored, write down the time and what changes, and make him the single thing you escalate on every call that connects', desc: 'You cannot treat him, but you can observe, record and escalate - and a written deterioration record is what gets him prioritised the moment anyone reaches you.', effect: { score: 5 } },
-        { key: 'B', label: 'Let him sleep it off somewhere warm and quiet, on the basis that rest is what a knock on the head needs and he has had a long and frightening day', desc: 'Declining consciousness after a head injury is the sign that matters, and sleep is exactly how it goes unnoticed.', effect: { score: -6 } },
+        { key: 'B', label: 'Let him sleep it off somewhere warm and quiet, on the basis that rest is what a knock on the head needs and he has had a long and frightening day behind him on the road already', desc: 'Declining consciousness after a head injury is the sign that matters, and sleep is exactly how it goes unnoticed.', effect: { score: -6 } },
         { key: 'C', label: 'Carry him up the road toward the roadblock to find help, on the basis that he needs a hospital and nobody appears to be coming down to you', desc: 'Moving a deteriorating head injury along an unstable slope, while abandoning seven children, risks both him and them.', effect: { score: -5 } },
         { key: 'D', label: 'Ask two of the older children to sit with him and call you if anything changes, so you are free to keep working across the rest of the group', desc: 'Hands responsibility for the most serious casualty to frightened children, and the change you need to notice is subtle.', effect: { score: -4 } }
       ]
@@ -987,7 +987,7 @@
         { key: 'A', label: 'Use one phone for controlled contact, ask the others to stop posting and lend their phones for one accurate group message, and give the hysterical child a job and reassurance', desc: 'One calm, accurate channel out, the rumours slowed, and the hysterical child anchored with a role. Controlled, not chaotic.', effect: { score: 5 } },
         { key: 'B', label: 'Leave them their phones and let them talk to whoever they want, since contact with their parents is the one thing currently steadying any of them', desc: 'Panic messages and a livestream of injured kids send parents racing into the zone and strip the children’s privacy.', effect: { score: -3 } },
         { key: 'C', label: 'Collect every phone and hold them yourself, so the livestream of the injured children stops and the panic messaging cannot spread any further', desc: 'Cuts your only link to the outside world and escalates fear in already frightened children, though the intent is understandable.', effect: { score: -2 } },
-        { key: 'D', label: 'Leave the phones alone entirely and put your attention on the injured children, on the basis that the medical problem is the one only you can work', desc: 'Leaves misinformation and the livestream running, and parents self-deploying onto dangerous roads.', effect: { score: -3 } }
+        { key: 'D', label: 'Leave the phones alone entirely and put your attention on the injured children, on the basis that the medical problem is the one only you can work, and nobody else standing here can do any of it', desc: 'Leaves misinformation and the livestream running, and parents self-deploying onto dangerous roads.', effect: { score: -3 } }
       ]
     },
     {
@@ -1087,7 +1087,7 @@
       options: [
         { key: 'A', label: 'Keep the children as your first duty - do what you safely can for the adults from nearby (pass water, brief them, get word out) without leaving the children unsupervised', desc: 'Your duty of care is the eight children; you help within that limit rather than abandoning them or doing nothing.', effect: { score: 5 } },
         { key: 'B', label: 'Leave the children by the van for a few minutes and go fully to the adults, on the basis that they are the ones bleeding and calling out for help', desc: 'Leaves eight children you are responsible for unsupervised by a hazardous road to help others.', effect: { score: -4 } },
-        { key: 'C', label: 'Keep your distance from the other vehicle entirely and say nothing to the children about it, so that your attention never leaves the eight you brought', desc: 'Your priority is right, but a flat refusal when some safe help was possible is harder to defend than partial aid.', effect: { score: -2 } },
+        { key: 'C', label: 'Keep your distance from the other vehicle entirely and say nothing to the children about it, so that your attention never leaves the eight you brought out of the school car park this morning', desc: 'Your priority is right, but a flat refusal when some safe help was possible is harder to defend than partial aid.', effect: { score: -2 } },
         { key: 'D', label: 'Send the two oldest across to the other vehicle to help, since they are capable, keen to be useful, and you cannot be in both places at once', desc: 'Sends children into a trauma and hazard scene that is not theirs to manage.', effect: { score: -5 } }
       ]
     },
@@ -1245,8 +1245,8 @@
             return log['mark_count'] === 'C' ? 'You cannot allocate places for a group you can no longer count - two are still out there' : false;
           } },
         { key: 'B', label: 'Send your own daughter and her friends on the first run, so the children who have been closest to you all night stay together for the trip out', desc: 'Favouritism that you could never justify to the parents of the children left behind in the cold.', effect: { score: -6 } },
-        { key: 'C', label: 'Let the eight of them work out among themselves who takes the six seats, so the decision is theirs and no adult is blamed for choosing', desc: 'Abandons your accountability for the decision; the most frightened and least assertive lose out.', effect: { score: -4 } },
-        { key: 'D', label: 'Refuse to split the group and wait for a vehicle that can take all eight, so that you can hand over one complete group exactly as you were given it', desc: 'Keeps injured and vulnerable children in the cold when six could already be safe and warm.', effect: { score: -3 } }
+        { key: 'C', label: 'Let the eight of them work out among themselves who takes the six seats, so the decision is theirs and no adult is blamed for choosing between them', desc: 'Abandons your accountability for the decision; the most frightened and least assertive lose out.', effect: { score: -4 } },
+        { key: 'D', label: 'Refuse to split the group and wait for a vehicle that can take all eight, so that you can hand over one complete group exactly as you were given it, and every parent gets the same answer from you', desc: 'Keeps injured and vulnerable children in the cold when six could already be safe and warm.', effect: { score: -3 } }
       ]
     },
     {
@@ -1262,9 +1262,9 @@
           locked: function (log) {
             return log['mark_parent_arrives'] === 'B' ? 'You released two children without their parents’ consent hours ago - there is no consistent process left to run' : false;
           } },
-        { key: 'B', label: 'Let the adults sort it out among themselves, since it is a small town, they all know each other, and every one of them is trying to get a child home', desc: 'A crowded, shouting reunification point is exactly where a child leaves with the wrong adult and nobody notices for an hour.', effect: { score: -6 } },
-        { key: 'C', label: 'Hand all eight over to Police and leave, on the basis that formal custody of children belongs with the agency that has the authority and the records', desc: 'Police have no relationship with these children and no idea who is authorised; you are the person who does.', effect: { score: -4 } },
-        { key: 'D', label: 'Release the ones you are certain about and leave the last child with an adult at the point who offers to wait, so the rest get home before dark', desc: 'The child nobody has come for is the one who most needs you to stay, and the last five minutes is not the place to stop.', effect: { score: -6 } }
+        { key: 'B', label: 'Let the adults sort it out among themselves, since it is a small town, they all know each other, and every one of them is trying to get a child home, and none of them is a stranger to any of these children', desc: 'A crowded, shouting reunification point is exactly where a child leaves with the wrong adult and nobody notices for an hour.', effect: { score: -6 } },
+        { key: 'C', label: 'Hand all eight over to Police and leave, on the basis that formal custody of children belongs with the agency that has the authority and the records to go with it', desc: 'Police have no relationship with these children and no idea who is authorised; you are the person who does.', effect: { score: -4 } },
+        { key: 'D', label: 'Release the ones you are certain about and leave the last child with an adult at the point who offers to wait, so the rest get home before dark and out of the weather', desc: 'The child nobody has come for is the one who most needs you to stay, and the last five minutes is not the place to stop.', effect: { score: -6 } }
       ]
     },
     {

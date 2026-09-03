@@ -889,8 +889,8 @@
       prompt: 'How do you handle the board chair?',
       options: [
         { key: 'A', label: 'Give a 60-second factual update, promise a fuller brief once students are safe, end the call', desc: 'Maintains the relationship without surrendering scarce attention to a running commentary while you run a life-safety response.', effect: { score: 2 } },
-        { key: 'B', label: 'Stop and give a full detailed briefing now', desc: 'Every minute narrating to the board is a minute not spent on accounting and reunification. The detail does not exist yet anyway.', effect: { score: -1 } },
-        { key: 'C', label: 'Ignore the call entirely', desc: 'The board is a governance partner you will need for the recovery. A flat no-contact breeds rumour and undermines you later.', effect: { score: 0 } }
+        { key: 'B', label: 'Stop what you are doing and give him the full detailed briefing now, since he chairs the board and will have to answer for today', desc: 'Every minute narrating to the board is a minute not spent on accounting and reunification. The detail does not exist yet anyway.', effect: { score: -1 } },
+        { key: 'C', label: 'Ignore the call entirely and deal with governance once every student is accounted for and off the site', desc: 'The board is a governance partner you will need for the recovery. A flat no-contact breeds rumour and undermines you later.', effect: { score: 0 } }
       ]
     },
     {
@@ -901,8 +901,8 @@
       prompt: 'How do you handle the conspiracy claims?',
       options: [
         { key: 'A', label: 'Calmly restate what you know and do not know, and what you will share and when, to the wider group', desc: 'Anchors the listening parents to your steady, factual message rather than the loudest voice. You cannot convince the believer, but you can hold the audience.', effect: { score: 2 } },
-        { key: 'B', label: 'Argue with the parent to shut the claims down', desc: 'A public argument elevates the conspiracy and burns time you do not have. You will not win it and the audience sees a fight, not facts.', effect: { score: -2 } },
-        { key: 'C', label: 'Ignore it entirely', desc: 'Unchallenged, the claims harden into "what the school will not admit" among the very parents you need to keep calm.', effect: { score: 0 } }
+        { key: 'B', label: 'Argue it out with the parent at the fence until the claim is dead, so that nobody else waiting at the gate picks it up', desc: 'A public argument elevates the conspiracy and burns time you do not have. You will not win it and the audience sees a fight, not facts.', effect: { score: -2 } },
+        { key: 'C', label: 'Ignore it entirely and let the other parents make up their own minds about what he is shouting', desc: 'Unchallenged, the claims harden into "what the school will not admit" among the very parents you need to keep calm.', effect: { score: 0 } }
       ]
     },
     {
@@ -913,8 +913,8 @@
       prompt: 'How do you use the volunteer parents?',
       options: [
         { key: 'A', label: 'Sign them in, badge them, and give them defined tasks away from the student area', desc: 'Turns goodwill into useful capacity while keeping the safeguarding line clean. Known adults, named tasks, clear boundary.', effect: { score: 2 } },
-        { key: 'B', label: 'Let them help wherever they see a need', desc: 'Unscreened, unbadged adults moving freely among children is exactly the safeguarding gap an emergency creates.', effect: { score: -2 } },
-        { key: 'C', label: 'Thank them and ask them all to leave', desc: 'Wastes willing hands you are short of, and pushes goodwill away at the moment you need the community most.', effect: { score: 0 } }
+        { key: 'B', label: 'Let them help wherever they can see a need, since you are desperately short of adults today', desc: 'Unscreened, unbadged adults moving freely among children is exactly the safeguarding gap an emergency creates.', effect: { score: -2 } },
+        { key: 'C', label: 'Thank them warmly and ask all of them to leave the school grounds today', desc: 'Wastes willing hands you are short of, and pushes goodwill away at the moment you need the community most.', effect: { score: 0 } }
       ]
     },
     {
@@ -925,8 +925,8 @@
       prompt: 'How do you handle the reporter?',
       options: [
         { key: 'A', label: 'Hold one calm factual line, protect student privacy, and direct them to Civil Defence for the wider picture', desc: 'Controls the narrative without feeding speculation or breaching the privacy of injured children in front of an anxious crowd.', effect: { score: 2 } },
-        { key: 'B', label: 'Let staff answer questions freely - transparency is good', desc: 'Unmanaged comments create contradictory, alarming coverage and can name or identify injured students.', effect: { score: -2 } },
-        { key: 'C', label: 'Have them removed and say nothing', desc: 'A vacuum fills itself: "school refused to comment while a child was missing" writes its own headline.', effect: { score: 0 } }
+        { key: 'B', label: 'Let staff answer questions freely, since transparency is better than looking as though the school has something to hide', desc: 'Unmanaged comments create contradictory, alarming coverage and can name or identify injured students.', effect: { score: -2 } },
+        { key: 'C', label: 'Have the reporter removed from the school grounds and decline to give them anything at all today', desc: 'A vacuum fills itself: "school refused to comment while a child was missing" writes its own headline.', effect: { score: 0 } }
       ]
     },
     {
@@ -937,8 +937,8 @@
       prompt: 'How do you respond to the gas smell?',
       options: [
         { key: 'A', label: 'Isolate the area, shut the gas at the main, keep everyone clear until it is checked', desc: 'Correct and immediate. A suspected gas leak after a quake is a life-safety issue that outranks meal planning.', effect: { score: 2 } },
-        { key: 'B', label: 'Carry on - you need the kitchen for food', desc: 'Cooking next to a possible gas leak risks turning a welfare problem into a fire or explosion.', effect: { score: -3 } },
-        { key: 'C', label: 'Send the caretaker in alone to investigate', desc: 'Sending one person into a suspected gas hazard is the wrong call; isolate and keep clear instead.', effect: { score: -1 } }
+        { key: 'B', label: 'Carry on as normal - you need that kitchen working to feed four hundred people tonight', desc: 'Cooking next to a possible gas leak risks turning a welfare problem into a fire or explosion.', effect: { score: -3 } },
+        { key: 'C', label: 'Send the caretaker in on his own to find out where the smell is actually coming from', desc: 'Sending one person into a suspected gas hazard is the wrong call; isolate and keep clear instead.', effect: { score: -1 } }
       ]
     },
     {
@@ -949,8 +949,8 @@
       prompt: 'How do you handle it?',
       options: [
         { key: 'A', label: 'Ask her to take it down, explain why identifiable images of students go out only through the school channel, and get an official reassurance message out instead', desc: 'The instinct is right and the channel is wrong. An official message does the same job without publishing children.', effect: { score: 2 } },
-        { key: 'B', label: 'Leave it - parents are desperate for reassurance', desc: 'Identifiable images of students, including any subject to a protection order, published outside your control.', effect: { score: -3 } },
-        { key: 'C', label: 'Reprimand her in front of the staff group', desc: 'Right call, wrong delivery, to an exhausted teacher who was trying to help.', effect: { score: -1 } }
+        { key: 'B', label: 'Leave the photo up, because parents are desperate for reassurance and a picture of their children safe is worth more than any notice', desc: 'Identifiable images of students, including any subject to a protection order, published outside your control.', effect: { score: -3 } },
+        { key: 'C', label: 'Reprimand her in front of the whole staff group, so that nobody else on your team makes the same mistake while students are still on site and the roll has not closed', desc: 'Right call, wrong delivery, to an exhausted teacher who was trying to help.', effect: { score: -1 } }
       ]
     },
     {
@@ -961,8 +961,8 @@
       prompt: 'How do you respond?',
       options: [
         { key: 'A', label: 'Send the staff member she trusts most, talk to her through the door without a crowd, and treat it as distress rather than defiance', desc: 'A frightened child in an unchecked building needs one calm familiar adult, not an audience or an instruction.', effect: { score: 2 } },
-        { key: 'B', label: 'Leave her - she will come out when she is ready', desc: 'She is alone in a building flagged for structural checks while aftershocks continue.', effect: { score: -3 } },
-        { key: 'C', label: 'Have the caretaker force the door', desc: 'Turns a distressed student into a spectacle and a confrontation, in front of everyone.', effect: { score: -2 } }
+        { key: 'B', label: 'Leave her where she is - she will come out when she is ready, and forcing it will only make the whole thing worse for her than it already is right now', desc: 'She is alone in a building flagged for structural checks while aftershocks continue.', effect: { score: -3 } },
+        { key: 'C', label: 'Have the caretaker force the door open, because you cannot account for a student you are not able to see or speak to through a locked door', desc: 'Turns a distressed student into a spectacle and a confrontation, in front of everyone.', effect: { score: -2 } }
       ]
     },
     {
@@ -973,8 +973,8 @@
       prompt: 'How do you respond?',
       options: [
         { key: 'A', label: 'Thank her, and release the other three only once you have reached each of their parents and recorded the agreement', desc: 'A good offer, and it becomes safe only with parental agreement and a written record of who went where.', effect: { score: 2 } },
-        { key: 'B', label: 'Let her take them - it is three fewer children to shelter', desc: 'Three children released without their parents knowing, to an address you have not recorded.', effect: { score: -3 } },
-        { key: 'C', label: 'Refuse outright without explaining', desc: 'The offer is genuinely useful once verified, and a flat refusal turns a helpful parent into an angry one.', effect: { score: -1 } }
+        { key: 'B', label: 'Let her take all four - it is three fewer children to shelter tonight and she is a parent you have known for years', desc: 'Three children released without their parents knowing, to an address you have not recorded.', effect: { score: -3 } },
+        { key: 'C', label: 'Refuse outright without going into the reasons, since the queue of parents behind her is not getting any shorter', desc: 'The offer is genuinely useful once verified, and a flat refusal turns a helpful parent into an angry one.', effect: { score: -1 } }
       ]
     },
     {
@@ -985,8 +985,8 @@
       prompt: 'How do you respond?',
       options: [
         { key: 'A', label: 'Agree a short verbal update now, tell him operational messages go out without pre-approval while students are still on site, and offer a written brief tomorrow', desc: 'Keeps governance informed without inserting an approval step between you and 420 families tonight.', effect: { score: 2 } },
-        { key: 'B', label: 'Route every message through him for approval', desc: 'Adds a delay to time-critical safety messaging while children are still unaccounted for.', effect: { score: -2 } },
-        { key: 'C', label: 'Tell him you have no time for governance tonight', desc: 'You will need the Board behind you for weeks; two minutes now buys that.', effect: { score: -1 } }
+        { key: 'B', label: 'Route every operational message through him for approval, so that nothing leaves the school today that the board chair has not seen first and signed off on personally', desc: 'Adds a delay to time-critical safety messaging while children are still unaccounted for.', effect: { score: -2 } },
+        { key: 'C', label: 'Tell him plainly that you have no time for governance tonight and that it will have to wait until the last student is collected', desc: 'You will need the Board behind you for weeks; two minutes now buys that.', effect: { score: -1 } }
       ]
     },
     {
@@ -997,8 +997,8 @@
       prompt: 'How do you handle it?',
       options: [
         { key: 'A', label: 'Thank them privately, ask them to remove the school name and crest, and point any genuine donations to the official Civil Defence or school channel', desc: 'Well-intentioned, and the school cannot vouch for funds it does not control or a use of its name it did not approve.', effect: { score: 2 } },
-        { key: 'B', label: 'Leave it - the community wants to help', desc: 'The school’s name is on an account it cannot see, and the school will own whatever happens to that money.', effect: { score: -2 } },
-        { key: 'C', label: 'Publicly denounce it', desc: 'A public denunciation of a parent trying to help costs far more goodwill than a private ask would.', effect: { score: -2 } }
+        { key: 'B', label: 'Leave it alone - the community wants to help, and publicly shutting down a fundraiser makes the school look ungrateful and secretive', desc: 'The school’s name is on an account it cannot see, and the school will own whatever happens to that money.', effect: { score: -2 } },
+        { key: 'C', label: 'Publicly denounce it as unauthorised, so that nobody donates money the school will never see and could never account for', desc: 'A public denunciation of a parent trying to help costs far more goodwill than a private ask would.', effect: { score: -2 } }
       ]
     }
   ];
@@ -1053,8 +1053,8 @@
       prompt: 'How do you handle the international students?',
       options: [
         { key: 'A', label: 'Hold all eleven at school under supervision, verify each host family before releasing anyone, and start notifying overseas guardians and your Code of Practice contact now', desc: 'The school carries pastoral responsibility for them. Verifying hosts before release, and notifying guardians early, is exactly what that means.', effect: { score: 5 } },
-        { key: 'B', label: 'Release them to their host families exactly as they would go on a normal school day, since those are the adults the school placed them with', desc: 'Two host homes are in the worst-hit street and three families are unreachable. "As normal" is not available today.', effect: { score: -5 } },
-        { key: 'C', label: 'Treat them the same as every other student and handle them at reunification along with everyone else, rather than run a separate process for eleven', desc: 'Their guardians are overseas and cannot come to a reunification point; they need a different process, started now.', effect: { score: -4 } },
+        { key: 'B', label: 'Release them to their host families exactly as they would go on a normal school day, since those are the adults the school itself placed them with at the start of the year', desc: 'Two host homes are in the worst-hit street and three families are unreachable. "As normal" is not available today.', effect: { score: -5 } },
+        { key: 'C', label: 'Treat them the same as every other student and handle them at reunification along with everyone else, rather than run a separate process for eleven of them while four hundred others are waiting at the gate', desc: 'Their guardians are overseas and cannot come to a reunification point; they need a different process, started now.', effect: { score: -4 } },
         { key: 'D', label: 'Wait until the overseas guardians make contact before releasing anyone, so nobody moves until the people legally responsible have been heard from', desc: 'It is the middle of the night where most of them are. Waiting to be contacted leaves eleven students in limbo for hours.', effect: { score: -3 } }
       ]
     },
@@ -1084,9 +1084,9 @@
       prompt: 'How do you reach every family?',
       options: [
         { key: 'A', label: 'Get the same message out in the community’s main languages using your own bilingual staff and community leaders, and use word of mouth and a physical noticeboard at the gate for families with no data', desc: 'One message in one language reaches some of your community. The channel matters as much as the words for the families who most need it.', effect: { score: 5 } },
-        { key: 'B', label: 'Resend the English message more often and more simply, on the basis that repetition and plainer wording will get it through to everyone eventually', desc: 'Volume does not solve comprehension, and it does nothing at all for families with no data.', effect: { score: -4 } },
-        { key: 'C', label: 'Put the message through an automatic translation tool and send it straight out, so that families have something in their own language within minutes', desc: 'An unchecked machine translation of safety-critical information about children is how a reassurance becomes an alarm.', effect: { score: -3 } },
-        { key: 'D', label: 'Rely on those families hearing it from other parents in the community, who will pass it on faster and more naturally than any notice from the school', desc: 'The families with the least connection to the school network are precisely the ones the grapevine misses.', effect: { score: -4 } }
+        { key: 'B', label: 'Resend the English message more often and more simply, on the basis that repetition and plainer wording will get it through to everyone eventually if you keep at it', desc: 'Volume does not solve comprehension, and it does nothing at all for families with no data.', effect: { score: -4 } },
+        { key: 'C', label: 'Put the message through an automatic translation tool and send it straight out, so that families have something in their own language within minutes rather than wait on staff who are already stretched across the whole site', desc: 'An unchecked machine translation of safety-critical information about children is how a reassurance becomes an alarm.', effect: { score: -3 } },
+        { key: 'D', label: 'Rely on those families hearing it from other parents in the community, who will pass it on faster and far more naturally than any notice from the school ever could', desc: 'The families with the least connection to the school network are precisely the ones the grapevine misses.', effect: { score: -4 } }
       ]
     },
     {
@@ -1204,9 +1204,9 @@
       prompt: 'How do you cover high-needs students with limited adults?',
       options: [
         { key: 'A', label: 'Name a specific adult to each high-needs student now (insulin, epilepsy, mobility, autism, acute anxiety)', desc: 'These students have the smallest margin for error. A named adult per student beats hoping general supervision catches a crisis in time.', effect: { score: 5 } },
-        { key: 'B', label: 'Keep all staff on general supervision and respond to medical issues as they arise', desc: 'Treats every student as equally robust. The insulin-dependent or epileptic student cannot afford a delayed response.', effect: { score: -4 } },
-        { key: 'C', label: 'Move high-needs students to the warmer, quieter space with a dedicated aide', desc: 'Reduces sensory load and cold for the most vulnerable and concentrates support, at the cost of one adult and a managed move.', effect: { score: 3 } },
-        { key: 'D', label: 'Ask reliable senior students to buddy high-needs peers so staff stay on the wider group', desc: 'Stretches coverage but places medical and safeguarding responsibility on frightened minors. A support, not a substitute.', effect: { score: -2 } }
+        { key: 'B', label: 'Keep all staff on general supervision and respond to medical issues as they arise, since you cannot predict which student will need help first', desc: 'Treats every student as equally robust. The insulin-dependent or epileptic student cannot afford a delayed response.', effect: { score: -4 } },
+        { key: 'C', label: 'Move the high-needs students to the warmer, quieter space with a dedicated aide who knows their plans and can watch all of them together', desc: 'Reduces sensory load and cold for the most vulnerable and concentrates support, at the cost of one adult and a managed move.', effect: { score: 3 } },
+        { key: 'D', label: 'Ask reliable senior students to buddy the high-needs peers they already know, so that staff stay spread across the wider group', desc: 'Stretches coverage but places medical and safeguarding responsibility on frightened minors. A support, not a substitute.', effect: { score: -2 } }
       ]
     },
     {
@@ -1259,7 +1259,7 @@
         { key: 'A', label: 'One staffed entry point, a written visitor log, visible identification for anyone approved, and a standing rule that no unaccompanied adult is in a student area', desc: 'Turns willing help into safe help. The visitor log and the no-unaccompanied-adult rule are the whole of the safeguarding control.', effect: { score: 5 } },
         { key: 'B', label: 'Accept the help and put them straight to work - you are desperately short of adults, these are local people, and several are parents you know', desc: 'Unscreened adults moving freely among 380 frightened children is the safeguarding failure the day will be remembered for.', effect: { score: -7 } },
         { key: 'C', label: 'Let the volunteers move around freely and ask staff to keep an eye out, so that willing help is not slowed down by paperwork at the gate', desc: 'Exhausted staff managing 380 students cannot also run an informal vetting system, and everyone will assume someone else checked.', effect: { score: -6 } },
-        { key: 'D', label: 'Turn every volunteer away at the gate, on the basis that an unchecked adult standing in a student area is a risk the school cannot carry today', desc: 'Safeguarding holds, and you lose badly needed adults when a controlled entry process was available.', effect: { score: -2 } }
+        { key: 'D', label: 'Turn every volunteer away at the gate, on the basis that an unchecked adult standing in a student area is a risk the school cannot carry today with students still unaccounted for', desc: 'Safeguarding holds, and you lose badly needed adults when a controlled entry process was available.', effect: { score: -2 } }
       ]
     },
     {
@@ -1273,7 +1273,7 @@
       options: [
         { key: 'A', label: 'Calmly ask students to stop filming injured peers and explain why, move the injured out of view, and escalate removal of the viral video via the platform/Police', desc: 'Protects the dignity and privacy of injured children, and gets their families informed before the public - without an unwinnable confiscation battle.', effect: { score: 5 } },
         { key: 'B', label: 'Confiscate the phones of everyone filming immediately, so the footage stops spreading while you work out what to do about what is already out', desc: 'Defensible on privacy, but escalates with frightened students, you cannot catch every device, and it raises evidence/footage questions.', effect: { score: -2 } },
-        { key: 'C', label: 'Leave the filming alone entirely and put every adult onto life safety, on the basis that injured students matter more than who is recording them', desc: 'Injured, identifiable children are broadcast to the world and their families blindsided. A clear safeguarding failure.', effect: { score: -4 } },
+        { key: 'C', label: 'Leave the filming alone entirely and put every adult onto life safety, on the basis that injured students matter more than who is recording them while the roll is still open', desc: 'Injured, identifiable children are broadcast to the world and their families blindsided. A clear safeguarding failure.', effect: { score: -4 } },
         { key: 'D', label: 'Speak directly into the livestream to control the message, on the basis that the audience is already there and a calm adult voice will steady it', desc: 'Well-meant, but it legitimises the stream and keeps injured children on camera while you talk.', effect: { score: -1 } }
       ]
     },
@@ -1345,7 +1345,7 @@
         { key: 'A', label: 'Close the affected toilets, set up a designated alternative with supervision and separate arrangements for staff and students, get hand sanitiser to every entry, and escalate to Civil Defence for portable units tonight', desc: 'A designated, supervised alternative plus hand hygiene is what stops a sanitation failure becoming a gastro outbreak among 300 people in one room.', effect: { score: 5 } },
         { key: 'B', label: 'Keep the toilets open and ask everyone to be careful and wash their hands, on the basis that closing the only facilities on site creates a worse problem than it solves', desc: 'Backed-up toilets with no handwashing, feeding 300 people in the same building, is a gastro outbreak with a start time.', effect: { score: -7 } },
         { key: 'C', label: 'Close every toilet on the site and direct people to the treeline behind the field, which at least keeps the contamination well away from the buildings and the food', desc: 'Unsupervised, unlit toileting for 380 children in the dark is both a safeguarding and a public-health failure at once.', effect: { score: -6 } },
-        { key: 'D', label: 'Wait for Civil Defence to solve it, since portable toilets and clean water are exactly what a welfare response is meant to bring, and you have four hundred other problems', desc: 'The portable units will not arrive for hours, and the problem is happening now with children already unwell.', effect: { score: -4 } }
+        { key: 'D', label: 'Wait for Civil Defence to solve it, since portable toilets and clean water are exactly what a welfare response is meant to bring, and you have four hundred other problems and no way of sourcing units yourself before dark', desc: 'The portable units will not arrive for hours, and the problem is happening now with children already unwell.', effect: { score: -4 } }
       ]
     },
     {

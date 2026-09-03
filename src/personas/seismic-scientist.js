@@ -898,8 +898,8 @@
       prompt: 'How do you handle the junior’s post?',
       options: [
         { key: 'A', label: 'Channel their energy into the official briefing line instead of a personal post', desc: 'Keeps a single authoritative voice and protects them from carrying institutional risk on a personal account. The instinct is good; the channel is wrong.', effect: { score: 2 } },
-        { key: 'B', label: 'Let them post — more voices counter misinformation', desc: 'An unreviewed personal take with implied institutional authority is exactly how the next "scientists disagree" story is born.', effect: { score: -2 } },
-        { key: 'C', label: 'Tell them to stay off social media entirely and drop it', desc: 'Shuts down a motivated team member without redirecting the energy. The misinformation still needs an answer.', effect: { score: 0 } }
+        { key: 'B', label: 'Let them post it - more credible voices in the feed is how misinformation gets crowded out', desc: 'An unreviewed personal take with implied institutional authority is exactly how the next "scientists disagree" story is born.', effect: { score: -2 } },
+        { key: 'C', label: 'Tell them to stay off social media entirely and leave it there, without going into the reasoning', desc: 'Shuts down a motivated team member without redirecting the energy. The misinformation still needs an answer.', effect: { score: 0 } }
       ]
     },
     {
@@ -910,8 +910,8 @@
       prompt: 'How do you respond to the vendor?',
       options: [
         { key: 'A', label: 'Decline to rely on it now; offer to evaluate it properly after the response', desc: 'An unvalidated tool cited in life-safety advice is a liability, however good the demo. Evaluation belongs after the crisis, not in it.', effect: { score: 2 } },
-        { key: 'B', label: 'Use it — any extra signal helps right now', desc: 'Citing an unvalidated black box as a basis for evacuation advice stakes lives and your credibility on a sales claim.', effect: { score: -2 } },
-        { key: 'C', label: 'Forward it to officials and let them decide', desc: 'Passes a procurement distraction into the decision chain mid-crisis instead of simply parking it.', effect: { score: 0 } }
+        { key: 'B', label: 'Use it - any extra signal is worth having when you are this short of ground data', desc: 'Citing an unvalidated black box as a basis for evacuation advice stakes lives and your credibility on a sales claim.', effect: { score: -2 } },
+        { key: 'C', label: 'Forward it to officials and let them decide whether it is worth anything to them', desc: 'Passes a procurement distraction into the decision chain mid-crisis instead of simply parking it.', effect: { score: 0 } }
       ]
     },
     {
@@ -922,8 +922,8 @@
       prompt: 'How do you handle the live-cross request?',
       options: [
         { key: 'A', label: 'Decline now; have the media liaison schedule it after the Controller briefing', desc: 'Your first duty is decision-ready advice to the people running the response. Global TV can wait 30 minutes.', effect: { score: 2 } },
-        { key: 'B', label: 'Do the live cross now — the profile is valuable', desc: 'Trading the Controllers’ briefing for a TV hit puts your visibility ahead of the decisions that actually save lives.', effect: { score: -2 } },
-        { key: 'C', label: 'Send the junior scientist to do it instead', desc: 'Hands a high-stakes global interview to your least experienced person under time pressure. Risky.', effect: { score: -1 } }
+        { key: 'B', label: 'Do the live cross now - the international profile is genuinely valuable to the agency', desc: 'Trading the Controllers’ briefing for a TV hit puts your visibility ahead of the decisions that actually save lives.', effect: { score: -2 } },
+        { key: 'C', label: 'Send the junior scientist to do the interview in your place instead', desc: 'Hands a high-stakes global interview to your least experienced person under time pressure. Risky.', effect: { score: -1 } }
       ]
     },
     {
@@ -934,8 +934,8 @@
       prompt: 'How do you respond to the misquote?',
       options: [
         { key: 'A', label: 'Issue a prompt, factual correction of the specific claim without attacking the politician', desc: 'A misstatement about stability is a life-safety problem, not just a PR one. Correct the claim fast and plainly before people act on "stable".', effect: { score: 2 } },
-        { key: 'B', label: 'Let it go to avoid a public clash', desc: 'Leaving "the area is now stable" uncorrected may send people back into a hazard zone on your implied authority.', effect: { score: -3 } },
-        { key: 'C', label: 'Call the politician privately and ask them to fix it', desc: 'Right instinct, but the clip is already spreading; a private call alone will not catch up with it.', effect: { score: 0 } }
+        { key: 'B', label: 'Let it go rather than pick a public fight with a minister mid-response that is still very much running', desc: 'Leaving "the area is now stable" uncorrected may send people back into a hazard zone on your implied authority.', effect: { score: -3 } },
+        { key: 'C', label: 'Call the politician privately and ask them to correct it themselves without turning it into a public dispute', desc: 'Right instinct, but the clip is already spreading; a private call alone will not catch up with it.', effect: { score: 0 } }
       ]
     },
     {
@@ -946,8 +946,8 @@
       prompt: 'How do you handle the meeting request?',
       options: [
         { key: 'A', label: 'Send a delegate with your current advice and protect the analysis window', desc: 'Your scarcest contribution is the analysis only you can do. Represented, not absent — and the imagery gets reviewed.', effect: { score: 2 } },
-        { key: 'B', label: 'Attend personally to keep everyone aligned', desc: 'Being in every meeting is how the expert stops doing the expert work. The imagery sits unreviewed while you align.', effect: { score: -1 } },
-        { key: 'C', label: 'Skip it and send nothing', desc: 'Protects your time but leaves a coordination gap and a frustrated partner agency. A delegate was the better answer.', effect: { score: 0 } }
+        { key: 'B', label: 'Attend personally to keep every agency aligned on one picture', desc: 'Being in every meeting is how the expert stops doing the expert work. The imagery sits unreviewed while you align.', effect: { score: -1 } },
+        { key: 'C', label: 'Skip it entirely and send nobody, since the analysis window matters more', desc: 'Protects your time but leaves a coordination gap and a frustrated partner agency. A delegate was the better answer.', effect: { score: 0 } }
       ]
     },
     {
@@ -958,8 +958,8 @@
       prompt: 'How do you respond?',
       options: [
         { key: 'A', label: 'Share what is already public now, agree data-sharing terms for the rest through the proper channel, and keep your team focused on the response', desc: 'Real analytical help is worth having, and it cannot come at the cost of response bandwidth or unagreed data terms.', effect: { score: 2 } },
-        { key: 'B', label: 'Send everything immediately - more eyes is better', desc: 'Unagreed release of field data mid-response creates competing public analyses of your own hazard picture.', effect: { score: -2 } },
-        { key: 'C', label: 'Ignore the request', desc: 'A two-line reply keeps a useful relationship alive at no cost to the response.', effect: { score: -1 } }
+        { key: 'B', label: 'Send everything immediately, on the basis that more eyes on this dataset can only improve the assessment and speed is what matters now', desc: 'Unagreed release of field data mid-response creates competing public analyses of your own hazard picture.', effect: { score: -2 } },
+        { key: 'C', label: 'Ignore the request until the response is over and there is time to deal with it properly and set proper terms', desc: 'A two-line reply keeps a useful relationship alive at no cost to the response.', effect: { score: -1 } }
       ]
     },
     {
@@ -970,8 +970,8 @@
       prompt: 'How do you handle it?',
       options: [
         { key: 'A', label: 'Decline access to the operations room, and offer a short structured interview at a set time instead', desc: 'A camera in the room changes how people speak about uncertainty, which is the one thing you cannot afford right now.', effect: { score: 2 } },
-        { key: 'B', label: 'Let them film - transparency is good', desc: 'Analysts hedging their language because a camera is present is a subtle and serious degradation of the work.', effect: { score: -2 } },
-        { key: 'C', label: 'Have them removed from the building', desc: 'Declining is right; making it a confrontation gives them a better story than the filming would have.', effect: { score: -1 } }
+        { key: 'B', label: 'Let them film - public transparency about how the science actually works is worth the disruption', desc: 'Analysts hedging their language because a camera is present is a subtle and serious degradation of the work.', effect: { score: -2 } },
+        { key: 'C', label: 'Have them removed from the building entirely and decline any further contact with them', desc: 'Declining is right; making it a confrontation gives them a better story than the filming would have.', effect: { score: -1 } }
       ]
     },
     {
@@ -982,8 +982,8 @@
       prompt: 'How do you respond?',
       options: [
         { key: 'A', label: 'Offer to state precisely what you can support - which areas, on what evidence, with what caveats - and explain why you cannot use the word he wants', desc: 'Gives him something real and usable, and holds the line on a word your evidence does not support.', effect: { score: 2 } },
-        { key: 'B', label: 'Say it - the risk in most of the town genuinely is low', desc: '"Safe" is heard as an all-clear across the whole township, including the parts your assessment excludes.', effect: { score: -3 } },
-        { key: 'C', label: 'Refuse and end the conversation', desc: 'The refusal is right and leaves a mayor with nothing to tell his residents, which he will fill himself.', effect: { score: -1 } }
+        { key: 'B', label: 'Say it - the risk across most of his town genuinely is low and he needs to be able to tell people something, and he is the one who has to stand in front of them tonight', desc: '"Safe" is heard as an all-clear across the whole township, including the parts your assessment excludes.', effect: { score: -3 } },
+        { key: 'C', label: 'Refuse and end the conversation there, rather than be drawn into wording somebody else will use politically for the rest of the response', desc: 'The refusal is right and leaves a mayor with nothing to tell his residents, which he will fill himself.', effect: { score: -1 } }
       ]
     },
     {
@@ -994,8 +994,8 @@
       prompt: 'How do you respond?',
       options: [
         { key: 'A', label: 'Take the challenge seriously on the spot, say what would settle it, and thank them for raising it', desc: 'The junior analyst may be right, and how you respond determines whether anyone challenges you again tonight.', effect: { score: 2 } },
-        { key: 'B', label: 'Shut it down and discuss it privately afterwards', desc: 'Controllers saw the disagreement and now have no idea how it resolved, and your team learned not to speak up.', effect: { score: -2 } },
-        { key: 'C', label: 'Concede the point immediately to avoid a scene', desc: 'Conceding on the spot without testing it is as bad as dismissing it, and it confuses the controllers who need a position.', effect: { score: -2 } }
+        { key: 'B', label: 'Shut it down now and discuss it with them privately once the room has cleared and the immediate pressure has come off', desc: 'Controllers saw the disagreement and now have no idea how it resolved, and your team learned not to speak up.', effect: { score: -2 } },
+        { key: 'C', label: 'Concede the point immediately to avoid a scene in front of the whole room in the middle of a live response', desc: 'Conceding on the spot without testing it is as bad as dismissing it, and it confuses the controllers who need a position.', effect: { score: -2 } }
       ]
     },
     {
@@ -1006,8 +1006,8 @@
       prompt: 'How do you respond?',
       options: [
         { key: 'A', label: 'Correct it directly and plainly: what stress transfer does and does not mean, what the actual change in probability is, and what people should do about it', desc: 'A specific, numerate correction that respects the underlying science displaces the rumour better than a denial does.', effect: { score: 2 } },
-        { key: 'B', label: 'Dismiss it as scaremongering and move on', desc: 'It cites a real paper, so a flat dismissal reads as the establishment brushing off inconvenient science.', effect: { score: -2 } },
-        { key: 'C', label: 'Ignore it - you have real hazards to advise on', desc: 'People are making evacuation and travel decisions on it, which makes it one of your real hazards.', effect: { score: -2 } }
+        { key: 'B', label: 'Dismiss it as scaremongering and move on, since the claim has no scientific basis and repeating it only spreads it further than any correction from you ever would', desc: 'It cites a real paper, so a flat dismissal reads as the establishment brushing off inconvenient science.', effect: { score: -2 } },
+        { key: 'C', label: 'Ignore it entirely - you have real hazards to advise on and no time to chase every rumour circulating online about faults that have not moved', desc: 'People are making evacuation and travel decisions on it, which makes it one of your real hazards.', effect: { score: -2 } }
       ]
     }
   ];
@@ -1107,7 +1107,7 @@
       prompt: 'How do you prioritise the two geotechnical teams?',
       options: [
         { key: 'A', label: 'Triage by life exposure and consequence: township slope above homes and the school below the slope first; cover dam, hospital road and pass with remote/rapid methods', desc: 'Puts scarce expert effort where people are most exposed, and uses remote assessment to keep eyes on the rest. Defensible and transparent.', effect: { score: 5 } },
-        { key: 'B', label: 'Send both teams to the alpine pass and the hospital access road, on the basis that restoring access unlocks every other response that is waiting', desc: 'Prioritises economic and logistical access over life exposure — the slopes sitting above a township and a school go unassessed.', effect: { score: -3 } },
+        { key: 'B', label: 'Send both teams to the alpine pass and the hospital access road, on the basis that restoring access unlocks every other response that is waiting on both of those corridors', desc: 'Prioritises economic and logistical access over life exposure — the slopes sitting above a township and a school go unassessed.', effect: { score: -3 } },
         { key: 'C', label: 'Split the two teams thinly across all five sites so that every location gets some coverage and nobody can say they were left out entirely', desc: 'Spreads them so thin that no site gets a proper assessment — the appearance of coverage without the substance.', effect: { score: -2 } },
         { key: 'D', label: 'Hold both teams until you can properly scope all five demands, rather than commit your only field capability before you understand the problem', desc: 'Delay while unstable slopes sit above people. Perfect scoping is the enemy of timely life-safety advice here.', effect: { score: -4 } }
       ]
@@ -1167,7 +1167,7 @@
           } },
         { key: 'B', label: 'Advise waiting until you can bound the timing properly, so that the Controller is given a window to act on rather than an open-ended warning', desc: 'The data that would bound it needs a team on the ground and a weather window you do not have, and the dam does not wait for either.', effect: { score: -5 } },
         { key: 'C', label: 'Tell the Controller that evacuating a township is an operational decision rather than a science one, and give him the data to make it himself', desc: 'The Controller needs your hazard judgement to make that decision. Handing it back without a position is not neutrality, it is abdication.', effect: { score: -5 } },
-        { key: 'D', label: 'Recommend evacuation and present it as a certainty rather than a probability, because hedged advice is exactly what gets ignored under pressure', desc: 'Overstating certainty to force the right action works once, and destroys the credibility every later warning depends on.', effect: { score: -4 } }
+        { key: 'D', label: 'Recommend evacuation and present it as a certainty rather than a probability, because hedged advice is exactly what gets ignored under pressure in a room full of competing demands', desc: 'Overstating certainty to force the right action works once, and destroys the credibility every later warning depends on.', effect: { score: -4 } }
       ]
     },
     {

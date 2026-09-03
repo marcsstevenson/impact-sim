@@ -868,8 +868,8 @@
       prompt: 'How do you handle the shareholder?',
       options: [
         { key: 'A', label: 'Acknowledge the concern, explain the priority is safe restoration and you will provide figures once the damage is assessed, and refer them to the Board channel', desc: 'Honest and bounded: you cannot cost an unassessed network, and your attention belongs on safety and restoration right now.', effect: { score: 2 } },
-        { key: 'B', label: 'Make up a cost figure to satisfy them', desc: 'A guessed number on an unassessed network will be wrong and will follow you; it is worse than "we do not know yet".', effect: { score: -2 } },
-        { key: 'C', label: 'Refuse to take shareholder calls at all', desc: 'Shareholders are a legitimate stakeholder; a flat refusal breeds exactly the panic and rumour you do not need.', effect: { score: 0 } }
+        { key: 'B', label: 'Give them a figure off the top of your head to satisfy them, since they will keep calling until somebody puts a number on it', desc: 'A guessed number on an unassessed network will be wrong and will follow you; it is worse than "we do not know yet".', effect: { score: -2 } },
+        { key: 'C', label: 'Refuse to take shareholder calls at all while the restoration is running, and let the Board explain the position to them instead once there is actually something to explain', desc: 'Shareholders are a legitimate stakeholder; a flat refusal breeds exactly the panic and rumour you do not need.', effect: { score: 0 } }
       ]
     },
     {
@@ -880,8 +880,8 @@
       prompt: 'How do you respond?',
       options: [
         { key: 'A', label: 'Give a clear commitment within your delegated authority, document it, and escalate anything beyond it to the Board', desc: 'Keeps crews moving with a commitment you can actually stand behind, while protecting the company from open-ended exposure.', effect: { score: 2 } },
-        { key: 'B', label: 'Promise them anything to get the crews moving now', desc: 'Open-ended guarantees you have no authority for create a financial and legal mess that outlasts the earthquake.', effect: { score: -2 } },
-        { key: 'C', label: 'Refuse any commitment and lose the crews', desc: 'Loses extra restoration capacity you badly need over a commitment you could have scoped within your authority.', effect: { score: -1 } }
+        { key: 'B', label: 'Promise them whatever it takes to get the crews moving now, and work out afterwards whether the company can actually honour it', desc: 'Open-ended guarantees you have no authority for create a financial and legal mess that outlasts the earthquake.', effect: { score: -2 } },
+        { key: 'C', label: 'Refuse to commit to anything beyond your delegated authority, even though it means the contractor takes the crews elsewhere', desc: 'Loses extra restoration capacity you badly need over a commitment you could have scoped within your authority.', effect: { score: -1 } }
       ]
     },
     {
@@ -892,8 +892,8 @@
       prompt: 'How do you respond to the accusation?',
       options: [
         { key: 'A', label: 'Publish your prioritisation criteria plainly - life safety and critical services first - and show what is being done for rural and vulnerable communities', desc: 'Transparency about the actual basis for restoration order is the strongest answer to a "favouring the rich" narrative.', effect: { score: 2 } },
-        { key: 'B', label: 'Argue with individual posters online', desc: 'Feeds the pile-on and drags your scarce attention into the comments instead of the response.', effect: { score: -2 } },
-        { key: 'C', label: 'Ignore it and hope it passes', desc: 'An unanswered "abandoning rural communities" claim hardens into accepted truth and erodes trust where you need it.', effect: { score: -1 } }
+        { key: 'B', label: 'Argue it out with individual posters online, since leaving the accusation unanswered lets it settle into something people believe that people eventually just accept', desc: 'Feeds the pile-on and drags your scarce attention into the comments instead of the response.', effect: { score: -2 } },
+        { key: 'C', label: 'Ignore it entirely and hope it passes, because a lines company arguing on social media mid-restoration never ends well', desc: 'An unanswered "abandoning rural communities" claim hardens into accepted truth and erodes trust where you need it.', effect: { score: -1 } }
       ]
     },
     {
@@ -904,8 +904,8 @@
       prompt: 'How do you respond?',
       options: [
         { key: 'A', label: 'Arrange cover and a short, staggered release for staff to get word on their families, and check welfare across the room', desc: 'Staff who know their families are safe work better and stay longer; getting ahead of it prevents a cascade of departures.', effect: { score: 2 } },
-        { key: 'B', label: 'Refuse - the control room cannot lose anyone right now', desc: 'A control-room operator sick with worry about their damaged home is error-prone, and refusal breeds resentment and walkouts.', effect: { score: -2 } },
-        { key: 'C', label: 'Let everyone go at once to be fair', desc: 'Emptying the control room at the same moment loses the network visibility you need to restore safely.', effect: { score: -1 } }
+        { key: 'B', label: 'Refuse the request - the control room cannot lose a single person right now, and everybody in it has family somewhere too', desc: 'A control-room operator sick with worry about their damaged home is error-prone, and refusal breeds resentment and walkouts.', effect: { score: -2 } },
+        { key: 'C', label: 'Let everybody go at once so that nobody is treated differently, and pick the room back up when they return', desc: 'Emptying the control room at the same moment loses the network visibility you need to restore safely.', effect: { score: -1 } }
       ]
     },
     {
@@ -916,8 +916,8 @@
       prompt: 'How do you respond to the misquote?',
       options: [
         { key: 'A', label: 'Issue a prompt, factual correction of the timeline without attacking the politician, and restate what you can actually commit to', desc: 'Corrects a false expectation fast before it sets, and protects your credibility for the genuinely hard days ahead.', effect: { score: 2 } },
-        { key: 'B', label: 'Let it stand to avoid a public clash with a politician', desc: 'An uncorrected "back on by tonight" becomes the promise you are blamed for breaking when the lights stay off.', effect: { score: -2 } },
-        { key: 'C', label: 'Publicly attack the politician for lying', desc: 'Turns a correction into a feud that becomes the story, instead of the accurate timeline you needed to land.', effect: { score: -1 } }
+        { key: 'B', label: 'Let the misquote stand rather than pick a public clash with a politician in the middle of a restoration', desc: 'An uncorrected "back on by tonight" becomes the promise you are blamed for breaking when the lights stay off.', effect: { score: -2 } },
+        { key: 'C', label: 'Publicly attack the politician for misrepresenting your advice, so that nobody is in any doubt about where the timeline came from', desc: 'Turns a correction into a feud that becomes the story, instead of the accurate timeline you needed to land.', effect: { score: -1 } }
       ]
     },
     {
@@ -928,8 +928,8 @@
       prompt: 'How do you handle the call?',
       options: [
         { key: 'A', label: 'Treat it as an immediate public-safety job: tell him to stay well clear, treat it as live, and get a crew or a standby there', desc: 'A member of the public about to cut a conductor is a life-safety call that outranks the restoration queue.', effect: { score: 2 } },
-        { key: 'B', label: 'Tell him it is in the queue like everything else', desc: 'The queue does not apply to someone about to be electrocuted by your asset in the next hour.', effect: { score: -3 } },
-        { key: 'C', label: 'Tell him to cut it if he is sure it is dead', desc: 'You cannot confirm it is dead, and telling a farmer to make that call himself is how this becomes a fatality.', effect: { score: -3 } }
+        { key: 'B', label: 'Tell him the line is in the queue like everything else and that a crew will get to it when one becomes available', desc: 'The queue does not apply to someone about to be electrocuted by your asset in the next hour.', effect: { score: -3 } },
+        { key: 'C', label: 'Tell him to go ahead and cut it if he is genuinely sure it is dead, since he knows his own farm and the stock cannot wait', desc: 'You cannot confirm it is dead, and telling a farmer to make that call himself is how this becomes a fatality.', effect: { score: -3 } }
       ]
     },
     {
@@ -940,8 +940,8 @@
       prompt: 'How do you respond?',
       options: [
         { key: 'A', label: 'Take the crews if you genuinely need them, but on a written scope and rate you can defend to the Board and the regulator afterwards', desc: 'Surge capacity is worth paying for; a handshake with no scope is what turns a defensible emergency spend into an audit finding.', effect: { score: 2 } },
-        { key: 'B', label: 'Refuse - the rate is exploitative', desc: 'Turning down needed crews on principle costs restoration days you cannot buy back.', effect: { score: -2 } },
-        { key: 'C', label: 'Accept immediately on the handshake', desc: 'An unbounded verbal commitment at four times the rate is the invoice that ends up in front of a select committee.', effect: { score: -2 } }
+        { key: 'B', label: 'Refuse the offer outright - the rate is plainly exploitative and agreeing to it sets a precedent for every other contractor', desc: 'Turning down needed crews on principle costs restoration days you cannot buy back.', effect: { score: -2 } },
+        { key: 'C', label: 'Accept immediately on a handshake, because crews on the ground tonight are worth more than a contract argued over for a week', desc: 'An unbounded verbal commitment at four times the rate is the invoice that ends up in front of a select committee.', effect: { score: -2 } }
       ]
     },
     {
@@ -952,8 +952,8 @@
       prompt: 'How do you handle it?',
       options: [
         { key: 'A', label: 'Stop the live posting from worksites, explain why, and set up a proper channel for the imagery people actually want', desc: 'Uncontrolled worksite footage creates safety and legal exposure; a sanctioned channel meets the same public appetite safely.', effect: { score: 2 } },
-        { key: 'B', label: 'Leave it - the public likes seeing the crews working', desc: 'Unvetted footage of damaged assets and unguarded commentary will be the clip played back at the inquiry.', effect: { score: -2 } },
-        { key: 'C', label: 'Discipline the crew publicly', desc: 'A public reprimand of exhausted crews doing their best costs you far more goodwill than the clip ever would.', effect: { score: -2 } }
+        { key: 'B', label: 'Leave it alone - the public likes seeing crews working, and it is the only good coverage the company has had all week', desc: 'Unvetted footage of damaged assets and unguarded commentary will be the clip played back at the inquiry.', effect: { score: -2 } },
+        { key: 'C', label: 'Discipline the crew publicly, so that every other crew on the network understands the rule without needing to be told twice', desc: 'A public reprimand of exhausted crews doing their best costs you far more goodwill than the clip ever would.', effect: { score: -2 } }
       ]
     },
     {
@@ -964,8 +964,8 @@
       prompt: 'How do you respond?',
       options: [
         { key: 'A', label: 'Decline access to live worksites, and offer a properly escorted visit to a safe location with a real briefing', desc: 'Keeps an unqualified visitor away from live conductors while still giving her the visibility she legitimately needs.', effect: { score: 2 } },
-        { key: 'B', label: 'Take her to the worksite - the relationship matters', desc: 'An unqualified visitor at a live worksite is a hazard to herself and a distraction to the crew working the line.', effect: { score: -3 } },
-        { key: 'C', label: 'Refuse and say nothing further', desc: 'Correct on the safety point, and it hands her a story about a company with something to hide.', effect: { score: -1 } }
+        { key: 'B', label: 'Take her out to the live worksite - the relationship with the council matters and she will see what the crews are up against', desc: 'An unqualified visitor at a live worksite is a hazard to herself and a distraction to the crew working the line.', effect: { score: -3 } },
+        { key: 'C', label: 'Refuse the request and say nothing further about it, since explaining the safety case simply invites a negotiation you will lose', desc: 'Correct on the safety point, and it hands her a story about a company with something to hide.', effect: { score: -1 } }
       ]
     },
     {
@@ -976,8 +976,8 @@
       prompt: 'How do you respond?',
       options: [
         { key: 'A', label: 'Leave your own feeder exactly where the priority list puts it, and say so openly if anyone asks', desc: 'The credibility of the whole restoration order depends on it applying to you too - and being seen to.', effect: { score: 2 } },
-        { key: 'B', label: 'Quietly ask the depot to bring your street forward', desc: 'The single fastest way to destroy every argument you have made about a defensible priority list.', effect: { score: -3 } },
-        { key: 'C', label: 'Snap at your partner and hang up', desc: 'Understandable at hour twenty, and it costs you the support at home you are going to need for a fortnight.', effect: { score: -1 } }
+        { key: 'B', label: 'Quietly ask the depot to bring your own street forward in the schedule, since nobody would ever notice one feeder moving a few places', desc: 'The single fastest way to destroy every argument you have made about a defensible priority list.', effect: { score: -3 } },
+        { key: 'C', label: 'Snap at your partner and hang up, because you have been in this room for nineteen hours and cannot have this conversation now', desc: 'Understandable at hour twenty, and it costs you the support at home you are going to need for a fortnight.', effect: { score: -1 } }
       ]
     }
   ];
@@ -1054,7 +1054,7 @@
       options: [
         { key: 'A', label: 'Restore water treatment first (shortest runway, town-wide consequence), then the hospital within its window - and chase generator fuel for both in parallel', desc: 'Sequences by time-to-failure and breadth of consequence: water is about to go and affects everyone, the hospital still has hours.', effect: { score: 5 } },
         { key: 'B', label: 'Restore the hospital first, since it is the most visible life-safety site in the district and the one everybody will ask about by morning', desc: 'Defaults to profile over runway; the hospital still had six hours while the water plant fails in two, risking the town’s drinking water.', effect: { score: -3 } },
-        { key: 'C', label: 'Restore the wastewater pumps first to stop sewage backing up into the streets, because that becomes a public health emergency within hours', desc: 'An environmental problem is real but ranks below safe drinking water and the hospital for immediate life safety.', effect: { score: -4 } },
+        { key: 'C', label: 'Restore the wastewater pumps first to stop sewage backing up into the streets, because that becomes a public health emergency within hours, and within hours of that', desc: 'An environmental problem is real but ranks below safe drinking water and the hospital for immediate life safety.', effect: { score: -4 } },
         { key: 'D', label: 'Wait until you have the crews and switching to restore both together, rather than commit to one and leave the other waiting on a promise', desc: 'Holding the one substation for a both-at-once solution lets the water plant fail while you wait.', effect: { score: -3 } }
       ]
     },
@@ -1083,7 +1083,7 @@
       options: [
         { key: 'A', label: 'Apply a transparent, published prioritisation framework - life safety, then critical infrastructure, then economic - and explain the same basis to all three', desc: 'An objective framework applied consistently protects both the decisions and your credibility, and gives everyone the same honest answer.', effect: { score: 5 } },
         { key: 'B', label: 'Do what the Board Chair is asking and protect the major industrial customers, because they are the revenue that keeps the company solvent', desc: 'Lets commercial power jump the queue ahead of life safety and critical services. Indefensible when the public sees it.', effect: { score: -5 } },
-        { key: 'C', label: 'Do what the Mayor is asking and restore the town centre first, since that is where the shops, the fuel and the visible signs of recovery are', desc: 'Political profile, not need, drives the order; the hospital, water and vulnerable wait behind the visible town centre.', effect: { score: -4 } },
+        { key: 'C', label: 'Do what the Mayor is asking and restore the town centre first, since that is where the shops, the fuel and the visible signs of recovery are going to actually start from', desc: 'Political profile, not need, drives the order; the hospital, water and vulnerable wait behind the visible town centre.', effect: { score: -4 } },
         { key: 'D', label: 'Try to give every caller something so that nobody comes away empty-handed, and the pressure from all three directions eases off at once', desc: 'Fragmenting scarce crews to placate everyone restores nothing critical fully and satisfies no one.', effect: { score: -2 } }
       ]
     },
@@ -1100,7 +1100,7 @@
           locked: function (log) {
             return log['terangi_eoc_priority'] === 'B' ? 'Your portable generation is committed to the EOC under the exclusive-priority agreement' : false;
           } },
-        { key: 'B', label: 'Tell them to call an ambulance if any resident deteriorates, since acute clinical need is a health system problem rather than a lines company one', desc: 'Pushes a foreseeable, preventable failure onto an ambulance service that cannot reach them on closed roads.', effect: { score: -6 } },
+        { key: 'B', label: 'Tell them to call an ambulance if any resident deteriorates, since acute clinical need is a health system problem rather than a lines company one for somebody else to be solving', desc: 'Pushes a foreseeable, preventable failure onto an ambulance service that cannot reach them on closed roads.', effect: { score: -6 } },
         { key: 'C', label: 'Add all three homes to the critical-customer list but do nothing further tonight, so the record is right and the work is scheduled properly', desc: 'Fixes the paperwork for next time and leaves oxygen-dependent residents to get through this night on a dying battery.', effect: { score: -4 } },
         { key: 'D', label: 'Send your one available generator to whichever home is worst off and leave the other two, so at least some of the residents are covered', desc: 'Three homes have the same need; picking one without a stated basis is an arbitrary decision you cannot defend.', effect: { score: -3 } }
       ]
@@ -1114,7 +1114,7 @@
       prompt: 'Which repair do you make?',
       options: [
         { key: 'A', label: 'Restore the 9,000 now for the greatest function, commit the vulnerable rural feeder as the very next task, and arrange interim welfare/generation for them in the meantime', desc: 'Maximises restored function without abandoning the vulnerable: greatest good now, the rural feeder scheduled next, interim support bridging the gap.', effect: { score: 5 } },
-        { key: 'B', label: 'Restore the six hundred rural customers first because they are older, more isolated, and have no realistic way of getting themselves to town', desc: 'Compassionate, but leaving 9,000 (including their own critical services) off for a much smaller group is hard to defend without an interim option.', effect: { score: -2 } },
+        { key: 'B', label: 'Restore the six hundred rural customers first because they are older, more isolated, and have no realistic way of getting themselves to town if the power stays off much longer', desc: 'Compassionate, but leaving 9,000 (including their own critical services) off for a much smaller group is hard to defend without an interim option.', effect: { score: -2 } },
         { key: 'C', label: 'Refuse to choose between them and split the crew across both jobs, so that neither community is told it came second to the other', desc: 'Splitting the repair crew likely restores neither group promptly and wastes scarce capacity.', effect: { score: -4 } },
         { key: 'D', label: 'Make the call quietly and avoid explaining the basis to anyone, since publishing a priority order simply invites everybody to argue with it', desc: 'Whatever you choose, doing it opaquely invites the "abandoned the rural communities" narrative and erodes trust.', effect: { score: -2 } }
       ]
@@ -1129,7 +1129,7 @@
       prompt: 'How do you handle the back-feed?',
       options: [
         { key: 'A', label: 'Stop all work on that feeder immediately, treat every conductor in the area as live, locate and isolate the source, and get a public safety message out about generator back-feed', desc: 'One back-feed means there are others. Stop work, re-treat the area as live, and warn the public - the message is as urgent as the isolation.', effect: { score: 5 } },
-        { key: 'B', label: 'Isolate that one transformer and carry on working elsewhere on the feeder, so the hazard is contained without stopping the whole restoration', desc: 'Fixes the one you found and leaves your crews working a network where any house could be doing the same thing.', effect: { score: -4 } },
+        { key: 'B', label: 'Isolate that one transformer and carry on working elsewhere on the feeder, so the hazard is contained without stopping the whole restoration while a separate crew finds the source', desc: 'Fixes the one you found and leaves your crews working a network where any house could be doing the same thing.', effect: { score: -4 } },
         { key: 'C', label: 'Have the crew disconnect the resident’s generator and carry on with the work, since removing the source deals with the problem at its root', desc: 'Deals with the hazard in front of them but skips the warning that stops the next three residents doing it tonight.', effect: { score: -3 } },
         { key: 'D', label: 'Note it in the log and keep working, since every crew tests before touching and back-feed from a domestic generator is a known hazard', desc: 'Relies on perfect individual practice to survive a systemic hazard. This is precisely how lineworkers are electrocuted.', effect: { score: -6 } }
       ]
@@ -1144,7 +1144,7 @@
       options: [
         { key: 'A', label: 'Restore life-safety and critical residential loads first, schedule the dairy as soon as it does not delay those, and be transparent with the processor about why', desc: 'Community function and life safety outrank a commercial loss, but the economic harm is real and gets a fair, scheduled place - explained openly.', effect: { score: 5 } },
         { key: 'B', label: 'Restore the dairy first to save the milk in the vats and protect one of the largest customers on the network from a very public loss', desc: 'Puts a commercial loss ahead of residential life safety and critical services. The wrong order, and a damaging look.', effect: { score: -5 } },
-        { key: 'C', label: 'Refuse the dairy any priority at all and tell them to wait their turn, because commercial loss does not outrank anything on a life-safety list', desc: 'The economic damage to a major employer is real; a flat "wait indefinitely" with no schedule is neither fair nor necessary.', effect: { score: -2 } },
+        { key: 'C', label: 'Refuse the dairy any priority at all and tell them to wait their turn, because commercial loss does not outrank anything on a life-safety list, however large the customer is', desc: 'The economic damage to a major employer is real; a flat "wait indefinitely" with no schedule is neither fair nor necessary.', effect: { score: -2 } },
         { key: 'D', label: 'Promise the dairy a restoration slot you already know you cannot honour, so the calls stop and you can get on with the work that matters', desc: 'A false commitment to placate a big customer destroys trust the moment it is missed.', effect: { score: -2 } }
       ]
     },
@@ -1225,7 +1225,7 @@
         { key: 'A', label: 'Decline the private queue-jump, but assess the supermarket on its merits as the town’s food distribution and place it on the published priority list where that justifies', desc: 'The supermarket may well deserve priority - as a food-distribution load, on a published basis, not because it offered money.', effect: { score: 5 } },
         { key: 'B', label: 'Accept the funding and restore their feeder today, since the money would pay for crew hours you cannot otherwise afford to put on', desc: 'The day your restoration order can be bought is the day every other customer stops believing the list means anything.', effect: { score: -5 } },
         { key: 'C', label: 'Refuse the offer outright and decline to discuss it any further, so there is no possibility of the conversation being misread later', desc: 'Right instinct on the money, but it also refuses to consider a genuine community food-distribution need on its merits.', effect: { score: -2 } },
-        { key: 'D', label: 'Accept the money and quietly put them in the normal queue anyway, so the company is better off and the priority order stays untouched', desc: 'Taking payment for something you are not providing, and concealing it, is worse than either honest answer.', effect: { score: -6 } }
+        { key: 'D', label: 'Accept the money and quietly put them in the normal queue anyway, so the company is better off and the priority order stays untouched, and nobody outside this office is any the wiser', desc: 'Taking payment for something you are not providing, and concealing it, is worse than either honest answer.', effect: { score: -6 } }
       ]
     },
     {
@@ -1283,7 +1283,7 @@
       prompt: 'What position do you take to the Board?',
       options: [
         { key: 'A', label: 'Argue for life-safety and community-function priority, propose a scoped emergency spending envelope with regulator and Government cost-recovery engagement, and get it in the minutes', desc: 'Gives the Board the financial control it is entitled to without letting revenue set the restoration order - and records the basis.', effect: { score: 5 } },
-        { key: 'B', label: 'Accept the Board resolution restricting emergency spending, since the directors carry the financial duty and it is not your money to commit', desc: 'Hands the restoration order to the balance sheet at the exact moment the community needs it set by life safety.', effect: { score: -5 } },
+        { key: 'B', label: 'Accept the Board resolution restricting emergency spending, since the directors carry the financial duty and it is not your money to commit on behalf of the shareholders who appointed them', desc: 'Hands the restoration order to the balance sheet at the exact moment the community needs it set by life safety.', effect: { score: -5 } },
         { key: 'C', label: 'Ignore the Board resolution and spend whatever the response requires, on the basis that life safety cannot wait for a governance process', desc: 'The Board’s financial oversight is legitimate; going around it loses you the authority you will need for the recovery.', effect: { score: -4 } },
         { key: 'D', label: 'Agree to prioritise industrial customers by revenue, so the company protects the income it will need to fund the whole recovery afterwards', desc: 'Restoring by who pays most, while a hospital and three rest homes wait, is the decision that ends careers and licences.', effect: { score: -6 } }
       ]
@@ -1325,7 +1325,7 @@
           } },
         { key: 'B', label: 'Refuse the expense to protect the company’s finances, since nobody has yet confirmed who is paying and the Board has restricted your spending', desc: 'Saving money while critical services lose power for seven days trades community lives and function for the balance sheet.', effect: { score: -5 } },
         { key: 'C', label: 'Hire generation for everything regardless of cost on a whatever-it-takes basis, and argue about who pays for it once the lights are back on', desc: 'Unscoped, open-ended hire may bankrupt the company the community needs for its long recovery; "whatever it takes" still needs targeting.', effect: { score: -2 } },
-        { key: 'D', label: 'Defer the decision until you have full costings and a funding commitment, so that nothing is committed without knowing where the money comes from', desc: 'Critical loads are failing now; waiting for perfect costings before protecting the hospital and water is too slow.', effect: { score: -3 } }
+        { key: 'D', label: 'Defer the decision until you have full costings and a funding commitment, so that nothing is committed without knowing where the money comes from or who is going to sign it off', desc: 'Critical loads are failing now; waiting for perfect costings before protecting the hospital and water is too slow.', effect: { score: -3 } }
       ]
     },
     {

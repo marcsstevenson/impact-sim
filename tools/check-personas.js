@@ -22,6 +22,28 @@ var PERSONAS = {
   terangi: 'michael-terangi.js'
 };
 
+// Shortest option label must be at least this fraction of the longest in the
+// same decision, so length cannot signal which answer is the right one.
+var LABEL_RATIO_FLOOR = 0.7;
+
+// The best answer used to carry all the nuance while the distractors were
+// one-line strawmen - 143 characters against 55 - so it could be picked out
+// without being read. Shuffling the options fixed position and letter; this
+// stops length from simply replacing them. Applies to noise as well, which had
+// exactly the same shape.
+// fail() is per-persona scope, so it is passed in rather than closed over.
+function checkLabelSpread(where, options, fail) {
+  var lens = (options || []).map(function (o) { return (o.label || '').length; });
+  if (!lens.length) return;
+  var longest = Math.max.apply(null, lens);
+  var shortest = Math.min.apply(null, lens);
+  if (longest && shortest / longest < LABEL_RATIO_FLOOR) {
+    fail(where + ' option labels range ' + shortest + '-' + longest +
+      ' characters (ratio ' + (shortest / longest).toFixed(2) + ', floor ' +
+      LABEL_RATIO_FLOOR + ') - the shortest option is identifiable as wrong without reading it');
+  }
+}
+
 var FLOORS = {
   events: 30,
   decisions: 20,
@@ -75,6 +97,9 @@ function checkPersona(ctx, id, errors, counts) {
     ['learningObjective', 'bestPractice', 'teachingNote', 'references', 'discussionPrompts'].forEach(function (f) {
       if (!n[f]) fail('FACILITATOR_NOTES["' + d.decisionId + '"] missing ' + f);
     });
+    // 2b. Option labels must be of comparable length - see checkLabelSpread.
+    checkLabelSpread(d.decisionId, d.options, fail);
+
     // 2a. bestPractice must be the highest-scoring option, or the guide teaches
     //     one answer while the score rewards another - prin_food taught A at 4
     //     points while D scored 5.
@@ -183,6 +208,11 @@ function checkPersona(ctx, id, errors, counts) {
   });
 
   // 6. Depth counts.
+  // Noise interrupts are decisions too, and had the same length tell.
+  (ctx.NOISE_POOL[id] || []).forEach(function (n) {
+    checkLabelSpread('noise "' + (n.title || '') + '"', n.options, fail);
+  });
+
   var consequenceIds = Object.keys(ctx.CONSEQUENCE_MAP).filter(function (k) {
     return prefix && k.indexOf(prefix) === 0;
   });

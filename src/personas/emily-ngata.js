@@ -806,8 +806,8 @@
       prompt: 'How do you handle the demand?',
       options: [
         { key: 'A', label: 'Calmly explain the triage system, direct the child to reassurance/first-aid support, and keep the farmer in the priority queue', desc: 'Holds the triage line that keeps the sickest alive, while still meeting the child’s real (non-clinical) need for reassurance.', effect: { score: 2 } },
-        { key: 'B', label: 'See the child now to quiet the parent', desc: 'Rewards the loudest voice over clinical need; the farmer with internal bleeding pays for it.', effect: { score: -2 } },
-        { key: 'C', label: 'Dismiss the parent sharply', desc: 'Holds the queue but needlessly burns trust with a frightened family in front of the whole waiting room.', effect: { score: 0 } }
+        { key: 'B', label: 'See the child now to quiet the parent down, since it will take two minutes and the shouting is upsetting everyone else waiting', desc: 'Rewards the loudest voice over clinical need; the farmer with internal bleeding pays for it.', effect: { score: -2 } },
+        { key: 'C', label: 'Dismiss the parent sharply and move on, because there is a farmer with a crush injury who has been waiting longer', desc: 'Holds the queue but needlessly burns trust with a frightened family in front of the whole waiting room.', effect: { score: 0 } }
       ]
     },
     {
@@ -818,8 +818,8 @@
       prompt: 'How do you respond?',
       options: [
         { key: 'A', label: 'Explain the risks clearly, document the conversation, and support a safe decision either way', desc: 'Respects family autonomy with informed consent and a record, rather than a rushed yes or a flat no.', effect: { score: 2 } },
-        { key: 'B', label: 'Send her home immediately to free the space', desc: 'Frees a space by discharging a frail oxygen-dependent patient into a cold, powerless home without proper assessment.', effect: { score: -2 } },
-        { key: 'C', label: 'Refuse to discuss it - you are too busy', desc: 'Misses a chance to safely free a space and leaves the family feeling shut out.', effect: { score: 0 } }
+        { key: 'B', label: 'Send her home immediately to free up the space, since there are casualties in the carpark who have nowhere at all to be treated', desc: 'Frees a space by discharging a frail oxygen-dependent patient into a cold, powerless home without proper assessment.', effect: { score: -2 } },
+        { key: 'C', label: 'Refuse to discuss it at all - you are too busy, and a conversation about discharge is not one to have standing in a corridor', desc: 'Misses a chance to safely free a space and leaves the family feeling shut out.', effect: { score: 0 } }
       ]
     },
     {
@@ -830,8 +830,8 @@
       prompt: 'How do you respond to the accusation?',
       options: [
         { key: 'A', label: 'Explain plainly that treatment order follows injury severity, not who someone is or where they are from', desc: 'Defends the principle that triage is need-based and blind to status or origin - the ethical core of the response.', effect: { score: 2 } },
-        { key: 'B', label: 'Quietly move locals up the queue to keep the peace', desc: 'Abandons need-based triage for local politics; the most injured patient, whoever they are, pays for it.', effect: { score: -3 } },
-        { key: 'C', label: 'Ignore the complaint', desc: 'Lets a corrosive "us vs them" narrative grow unchecked in a crowded, frightened room.', effect: { score: -1 } }
+        { key: 'B', label: 'Quietly move the locals up the queue to keep the peace, since these are the people you will still be treating in a year’s time', desc: 'Abandons need-based triage for local politics; the most injured patient, whoever they are, pays for it.', effect: { score: -3 } },
+        { key: 'C', label: 'Ignore the complaint entirely and carry on, because explaining triage to an angry waiting room costs time you do not have', desc: 'Lets a corrosive "us vs them" narrative grow unchecked in a crowded, frightened room.', effect: { score: -1 } }
       ]
     },
     {
@@ -842,8 +842,8 @@
       prompt: 'How do you handle the offer?',
       options: [
         { key: 'A', label: 'Thank them, decline using unverified/expired medication clinically, and redirect their goodwill to a useful task', desc: 'Avoids the patient-safety and governance risk of unverified drugs while keeping a willing helper onside.', effect: { score: 2 } },
-        { key: 'B', label: 'Use it - any medication is better than none', desc: 'Unverified, expired medication is a clinical-governance and patient-safety hazard, not a stopgap.', effect: { score: -3 } },
-        { key: 'C', label: 'Brush them off curtly', desc: 'Declining is right, but a curt brush-off needlessly bruises community goodwill you will rely on.', effect: { score: 0 } }
+        { key: 'B', label: 'Use it - any medication is better than none when you are rationing what little you have left on the shelf', desc: 'Unverified, expired medication is a clinical-governance and patient-safety hazard, not a stopgap.', effect: { score: -3 } },
+        { key: 'C', label: 'Brush them off curtly and get back to the floor, because you have no time to explain drug expiry to a well-meaning stranger', desc: 'Declining is right, but a curt brush-off needlessly bruises community goodwill you will rely on.', effect: { score: 0 } }
       ]
     },
     {
@@ -854,8 +854,8 @@
       prompt: 'How do you support her?',
       options: [
         { key: 'A', label: 'Give her two minutes to get word on her family, then bring her back focused - and check the rest of the team', desc: 'A brief, humane release valve keeps a distracted clinician safe to practise and signals you see your staff as people.', effect: { score: 2 } },
-        { key: 'B', label: 'Tell her to switch the phone off and keep working', desc: 'A clinician sick with worry about her family is distracted and error-prone; ignoring it does not make it go away.', effect: { score: -1 } },
-        { key: 'C', label: 'Send her home for the rest of the day', desc: 'Overcorrects - you lose a needed nurse when two minutes and a check-in would have settled her.', effect: { score: 0 } }
+        { key: 'B', label: 'Tell her to switch the phone off and keep working, since the interruptions are pulling her out of a resuscitation every few minutes', desc: 'A clinician sick with worry about her family is distracted and error-prone; ignoring it does not make it go away.', effect: { score: -1 } },
+        { key: 'C', label: 'Send her home for the rest of the day, because a nurse who cannot stop thinking about her own family is not safe on this floor', desc: 'Overcorrects - you lose a needed nurse when two minutes and a check-in would have settled her.', effect: { score: 0 } }
       ]
     },
     {
@@ -866,8 +866,8 @@
       prompt: 'How do you handle it?',
       options: [
         { key: 'A', label: 'Stop the photography of patients immediately, explain why, and offer a non-identifying alternative', desc: 'Patient dignity and privacy do not suspend in a disaster, and a clear reason keeps a willing volunteer onside.', effect: { score: 2 } },
-        { key: 'B', label: 'Let them carry on - the country should see this', desc: 'Identifiable images of injured patients, shared before families have been told, is a harm you cannot take back.', effect: { score: -3 } },
-        { key: 'C', label: 'Confiscate the phone', desc: 'The instinct is right but the method is not yours to use, and it turns a supporter into an adversary.', effect: { score: -1 } }
+        { key: 'B', label: 'Let them carry on - the country should see what a rural centre is dealing with, and the images may bring help faster', desc: 'Identifiable images of injured patients, shared before families have been told, is a harm you cannot take back.', effect: { score: -3 } },
+        { key: 'C', label: 'Confiscate the phone on the spot, so that no more images of identifiable patients leave this building tonight', desc: 'The instinct is right but the method is not yours to use, and it turns a supporter into an adversary.', effect: { score: -1 } }
       ]
     },
     {
@@ -878,8 +878,8 @@
       prompt: 'How do you deal with the request?',
       options: [
         { key: 'A', label: 'Route them to a separate, simple medication process away from the treatment area', desc: 'Real need, wrong queue. Separating routine dispensing from trauma keeps both moving.', effect: { score: 2 } },
-        { key: 'B', label: 'Stop and write the prescription now', desc: 'Pulls the clinical lead out of a mass-casualty floor for a task that could wait or be delegated.', effect: { score: -2 } },
-        { key: 'C', label: 'Tell them to come back next week', desc: 'For a cardiac or psychiatric medication, next week is not a safe answer - and the roads may still be closed.', effect: { score: -2 } }
+        { key: 'B', label: 'Stop and write the prescription now, since it will take ninety seconds and they have walked a long way to get here', desc: 'Pulls the clinical lead out of a mass-casualty floor for a task that could wait or be delegated.', effect: { score: -2 } },
+        { key: 'C', label: 'Tell them to come back next week, because a repeat prescription is not what a mass casualty triage area is for', desc: 'For a cardiac or psychiatric medication, next week is not a safe answer - and the roads may still be closed.', effect: { score: -2 } }
       ]
     },
     {
@@ -890,8 +890,8 @@
       prompt: 'How do you respond?',
       options: [
         { key: 'A', label: 'Coordinate one accurate appeal through Civil Defence rather than an unmanaged public post', desc: 'Gets the same reach without publishing your vulnerabilities or triggering an unusable flood of donations.', effect: { score: 2 } },
-        { key: 'B', label: 'Let them post it now - you need the help', desc: 'An unmanaged appeal brings crowds, unusable donations and traffic you cannot handle, and advertises exactly what you lack.', effect: { score: -2 } },
-        { key: 'C', label: 'Ban all staff from posting anything', desc: 'A blanket ban with no alternative channel means the rumours fill the gap instead.', effect: { score: -1 } }
+        { key: 'B', label: 'Let them post the appeal now, since you genuinely need the help and an unmanaged post will still reach people who can give it', desc: 'An unmanaged appeal brings crowds, unusable donations and traffic you cannot handle, and advertises exactly what you lack.', effect: { score: -2 } },
+        { key: 'C', label: 'Ban all staff from posting anything at all, so that nothing goes out about this centre that has not been checked first', desc: 'A blanket ban with no alternative channel means the rumours fill the gap instead.', effect: { score: -1 } }
       ]
     },
     {
@@ -901,9 +901,9 @@
       source: 'Carpark Triage',
       prompt: 'How do you intervene?',
       options: [
-        { key: 'A', label: 'Step in, name who is running the queue, give each a specific task, and move on', desc: 'Ambiguous authority is what caused it; naming one person and giving both a job ends it in thirty seconds.', effect: { score: 2 } },
-        { key: 'B', label: 'Ignore it - you have patients to treat', desc: 'A public argument among your helpers corrodes confidence in the whole operation in front of the people waiting.', effect: { score: -2 } },
-        { key: 'C', label: 'Send both volunteers away', desc: 'Solves the noise by losing two pairs of hands you cannot spare.', effect: { score: -1 } }
+        { key: 'A', label: 'Step in, name plainly who is running the queue, give each of them a specific task, and get back to the floor', desc: 'Ambiguous authority is what caused it; naming one person and giving both a job ends it in thirty seconds.', effect: { score: 2 } },
+        { key: 'B', label: 'Ignore the argument entirely - you have eighty patients to treat and two volunteers disagreeing is not the most urgent thing', desc: 'A public argument among your helpers corrodes confidence in the whole operation in front of the people waiting.', effect: { score: -2 } },
+        { key: 'C', label: 'Send both volunteers away from the site, so that the corridor is clear and nobody has to referee it again later', desc: 'Solves the noise by losing two pairs of hands you cannot spare.', effect: { score: -1 } }
       ]
     },
     {
@@ -914,8 +914,8 @@
       prompt: 'How do you respond?',
       options: [
         { key: 'A', label: 'Recover the patient to where they can be observed, explain why placement is clinical, and thank the family for the instinct', desc: 'Placement is a clinical decision. Correcting it while acknowledging the kindness keeps the family working with you.', effect: { score: 2 } },
-        { key: 'B', label: 'Leave the patient where they are - at least they are warm', desc: 'An unobserved elderly patient in a side room is exactly how a quiet deterioration becomes a death nobody noticed.', effect: { score: -3 } },
-        { key: 'C', label: 'Reprimand the family in front of the waiting room', desc: 'Right call, wrong delivery - a public dressing-down for an act of kindness costs you goodwill you need.', effect: { score: -1 } }
+        { key: 'B', label: 'Leave the patient where the family has moved them - at least they are warm and out of the wind, which is more than the carpark offers', desc: 'An unobserved elderly patient in a side room is exactly how a quiet deterioration becomes a death nobody noticed.', effect: { score: -3 } },
+        { key: 'C', label: 'Reprimand the family in front of the whole waiting room, so that nobody else decides to move a patient wherever they think best', desc: 'Right call, wrong delivery - a public dressing-down for an act of kindness costs you goodwill you need.', effect: { score: -1 } }
       ]
     }
   ];
@@ -952,7 +952,7 @@
       prompt: 'How do you prioritise treatment?',
       options: [
         { key: 'A', label: 'Run a structured triage by clinical urgency and survivability - treat those who die without immediate care but can survive with it, hold the walking wounded, recognise the expectant', desc: 'The disaster-medicine standard: a transparent, consistent system that saves the most lives, however hard the categories feel.', effect: { score: 5 } },
-        { key: 'B', label: 'Treat the most seriously injured first regardless of their survival odds, because the sickest person in the room has the strongest claim on you', desc: 'Pouring scarce effort into the unsurvivable means the salvageable patients next to them die waiting.', effect: { score: -2 } },
+        { key: 'B', label: 'Treat the most seriously injured first regardless of their survival odds, because the sickest person in the room has the strongest claim on you as the person meant to be their doctor', desc: 'Pouring scarce effort into the unsurvivable means the salvageable patients next to them die waiting.', effect: { score: -2 } },
         { key: 'C', label: 'Treat all of the children first, on the basis that they have the most life ahead of them and no parent in that carpark would argue otherwise', desc: 'Humane by instinct, but age is not urgency; a child with a sprain ahead of an adult who is bleeding out costs lives.', effect: { score: -3 } },
         { key: 'D', label: 'See people strictly in the order they arrived, so the process is transparently fair and nobody has to be told that somebody else came first', desc: 'First-come-first-served abandons triage entirely; the sickest, who often cannot queue, die in the carpark.', effect: { score: -5 } }
       ]
@@ -1008,7 +1008,7 @@
         { key: 'A', label: 'Allocate to those most likely to benefit and survive with it and be weaned (e.g. the reversible asthma), reassess continually, and be transparent about the basis', desc: 'Crisis standards of care: scarce, life-sustaining oxygen goes where it does the most good, reviewed as patients change.', effect: { score: 5 } },
         { key: 'B', label: 'Give the oxygen to the sickest patients first regardless of survivability, because need is the only basis you are willing to be judged on', desc: 'Spends a finite resource on those least likely to survive while reversible patients deteriorate without it.', effect: { score: -3 } },
         { key: 'C', label: 'Allocate first-come first-served in the order they were carried in, so that no clinician has to rank one patient above another by hand', desc: 'Order of arrival has nothing to do with who will live or die; it just removes clinical judgement.', effect: { score: -3 } },
-        { key: 'D', label: 'Hold off deciding while you gather more information, because choosing which of them breathes is not a call anyone should make in ninety seconds', desc: 'Indecision is itself a decision, and the patients who needed oxygen now are the ones it fails.', effect: { score: -4 } }
+        { key: 'D', label: 'Hold off deciding while you gather more information, because choosing which of them breathes is not a call anyone should make in ninety seconds while standing in a carpark', desc: 'Indecision is itself a decision, and the patients who needed oxygen now are the ones it fails.', effect: { score: -4 } }
       ]
     },
     {
@@ -1022,7 +1022,7 @@
       options: [
         { key: 'A', label: 'Start conservative management now - fluid and potassium restriction, monitoring and bloods where you can - and put them on the transfer priority list with a named clinical deadline', desc: 'Buys real days for patients on a slower clock, and puts a date on the transfer so they are not forgotten behind the trauma.', effect: { score: 5 } },
         { key: 'B', label: 'Do nothing for them until they become acutely unwell, since the crush injuries in front of you will die today and dialysis patients have days', desc: 'By the time a missed-dialysis patient is acutely unwell you have lost the window where simple measures would have worked.', effect: { score: -4 } },
-        { key: 'C', label: 'Use your scarce transfer capacity on them straight away, ahead of the acute casualties, because without a machine they have no local option at all', desc: 'Spends a rare transfer window on patients with days in hand, while a patient with hours does not get it.', effect: { score: -3 } },
+        { key: 'C', label: 'Use your scarce transfer capacity on them straight away, ahead of the acute casualties, because without a machine they have no local option at all available to them anywhere in the district', desc: 'Spends a rare transfer window on patients with days in hand, while a patient with hours does not get it.', effect: { score: -3 } },
         { key: 'D', label: 'Tell the families honestly that there is nothing you can do for them here, so that nobody is given false hope about a machine you do not have', desc: 'Untrue - conservative management and a place on the transfer list are both available, and both matter.', effect: { score: -4 } }
       ]
     },
@@ -1051,7 +1051,7 @@
         { key: 'A', label: 'Ration deliberately: reserve opioids for severe pain and procedures, use every other analgesic you have for the rest, and tell patients honestly what they are getting and why', desc: 'A stated rule applied consistently, with honest explanation - the only way scarce analgesia reaches the pain that most needs it.', effect: { score: 5 } },
         { key: 'B', label: 'Give everyone adequate pain relief now and deal with resupply when it becomes a problem, because people are screaming in a carpark tonight', desc: 'Empties the supply within hours, so tonight’s fracture reductions and tomorrow’s casualties get nothing at all.', effect: { score: -4 } },
         { key: 'C', label: 'Withhold morphine almost entirely so it is preserved for a surgical emergency, and manage everything else with whatever else is on the shelf', desc: 'Leaves patients in severe, treatable pain for a hypothetical case, which is its own kind of harm.', effect: { score: -4 } },
-        { key: 'D', label: 'Let each clinician use their own judgement with no shared rule, since they are all experienced and know their own patients better than you do', desc: 'Without a shared rule the supply drains unevenly and two patients with identical injuries get very different care.', effect: { score: -3 } }
+        { key: 'D', label: 'Let each clinician use their own judgement with no shared rule, since they are all experienced and know their own patients better than you do from any blanket rule written tonight', desc: 'Without a shared rule the supply drains unevenly and two patients with identical injuries get very different care.', effect: { score: -3 } }
       ]
     },
     {
@@ -1077,7 +1077,7 @@
       prompt: 'How do you care for the expectant patients?',
       options: [
         { key: 'A', label: 'Move them to comfort-focused care with pain relief, dignity, privacy and someone with them, document the decision, and redirect active treatment to the salvageable', desc: 'Expectant is a care category, not abandonment. Comfort, dignity and company are owed; the active effort goes where it changes an outcome.', effect: { score: 5 } },
-        { key: 'B', label: 'Continue full active treatment on both of them regardless of the odds, because withdrawing care is not a decision to make in a carpark', desc: 'Consumes the staff and supplies that would save other patients, without changing what happens to these two.', effect: { score: -4 } },
+        { key: 'B', label: 'Continue full active treatment on both of them regardless of the odds, because withdrawing care is not a decision to make in a carpark with the family standing right there', desc: 'Consumes the staff and supplies that would save other patients, without changing what happens to these two.', effect: { score: -4 } },
         { key: 'C', label: 'Withdraw everything from them including pain relief, so that the drugs and staff time go to patients who can still be saved tonight', desc: 'Expectant care still means analgesia and dignity. Withdrawing comfort is not resource stewardship, it is abandonment.', effect: { score: -6 } },
         { key: 'D', label: 'Leave them in the corridor without a decision either way, since something may change and nobody has to be the person who called it', desc: 'The worst of both: they get neither comfort nor cure, in public, while your team improvises around them.', effect: { score: -5 } }
       ]
@@ -1132,7 +1132,7 @@
         { key: 'A', label: 'Send a small, capable team with a triage kit only if the centre can survive it, coordinate with Civil Defence/first-aiders, and push for any available transport', desc: 'A targeted forward response that does not collapse the casualty hub, while mobilising other help. Balances both life-safety needs.', effect: { score: 5 } },
         { key: 'B', label: 'Send most of your clinical staff to the school, since there are children trapped there and you have two doctors standing in a carpark', desc: 'Stripping the centre to respond to the school abandons 80+ casualties who have nowhere else to go.', effect: { score: -6 } },
         { key: 'C', label: 'Refuse to send anyone at all and hold every clinician at the centre, because the eighty casualties already here are your responsibility', desc: 'Defensible as triage, but sending nothing to five dying children when a small team could have gone is hard to justify.', effect: { score: -2 } },
-        { key: 'D', label: 'Go to the school yourself, because your own children are there and you are the most experienced clinician available to the ones who are trapped', desc: 'Removes the clinical lead from the casualty hub, and lets your personal stake override the population decision.', effect: { score: -4 } }
+        { key: 'D', label: 'Go to the school yourself, because your own children are there and you are the most experienced clinician available to the ones who are trapped under that building', desc: 'Removes the clinical lead from the casualty hub, and lets your personal stake override the population decision.', effect: { score: -4 } }
       ]
     },
     {
@@ -1144,7 +1144,7 @@
       prompt: 'What do you do?',
       options: [
         { key: 'A', label: 'Take sixty seconds to hold them, hand them to a trusted staff member or family friend with something useful to do, and go straight to the incoming patient', desc: 'Sixty seconds settles your child and settles you. Giving them a job and a safe adult keeps them out of the resus room without sending them away.', effect: { score: 5 } },
-        { key: 'B', label: 'Leave with your child now and get them somewhere safe, because you are their mother before you are anybody else’s clinical lead tonight', desc: 'Your child is safe and uninjured; the patient coming through the door is neither. Walking out now abandons the whole response.', effect: { score: -6 } },
+        { key: 'B', label: 'Leave with your child now and get them somewhere safe, because you are their mother before you are anybody else’s clinical lead tonight or anyone else in this carpark', desc: 'Your child is safe and uninjured; the patient coming through the door is neither. Walking out now abandons the whole response.', effect: { score: -6 } },
         { key: 'C', label: 'Send them away with whoever brought them without stopping what you are doing, so the resuscitation in front of you is never interrupted', desc: 'Defensible under pressure, but a frightened child turned away at the door is a wound you will both carry, and it takes no longer to do it kindly.', effect: { score: -2 } },
         { key: 'D', label: 'Keep them at your side through the resuscitation, so you can see they are safe and they can see that you have not disappeared on them', desc: 'Exposes your child to a traumatic death and divides your attention at the exact moment the patient needs all of it.', effect: { score: -3 } }
       ]
@@ -1253,7 +1253,7 @@
             return log['ngata_oxygen'] === 'B' ? 'Nothing can be spared - your oxygen is committed to patients who cannot be weaned off it' : false;
           } },
         { key: 'B', label: 'Keep all of the oxygen here for your current patients, because you can see them and you cannot see whoever the welfare centre is worried about', desc: 'Defensible for the patients you can see, but writes off vulnerable evacuees you could have helped with a managed share.', effect: { score: -2 } },
-        { key: 'C', label: 'Send all the oxygen to the welfare centre, since there are more people there and the greater number has the stronger claim on a scarce resource', desc: 'Leaves your current oxygen-dependent critical patients without the resource keeping them alive right now.', effect: { score: -5 } },
+        { key: 'C', label: 'Send all the oxygen to the welfare centre, since there are more people there and the greater number has the stronger claim on a scarce resource that is this short in supply', desc: 'Leaves your current oxygen-dependent critical patients without the resource keeping them alive right now.', effect: { score: -5 } },
         { key: 'D', label: 'Refuse to decide and tell Civil Defence to sort the allocation out themselves, since coordinating scarce resources is precisely their job', desc: 'Punts a clinical-ethical allocation you are best placed to make, and helps no one while you defer.', effect: { score: -3 } }
       ]
     },
@@ -1268,7 +1268,7 @@
       options: [
         { key: 'A', label: 'Treat him as a patient, then stand up a supervised dispensing process under your clinical authority with a nurse and the practice manager, recording everything issued', desc: 'Uses the authority you do have, keeps a governance trail, and treats the collapsed pharmacist as the patient he now is.', effect: { score: 5 } },
         { key: 'B', label: 'Stop all dispensing until he recovers, because medication issued without a pharmacist is exactly the sort of thing that ends careers', desc: 'A town-wide medication gap of unknown length, when a supervised process under your authority was available.', effect: { score: -4 } },
-        { key: 'C', label: 'Let residents help themselves from the pharmacy under loose supervision, since most of them know their own repeats better than anyone here does', desc: 'An unsupervised open pharmacy is a controlled-drug and patient-safety catastrophe you will never be able to account for.', effect: { score: -6 } },
+        { key: 'C', label: 'Let residents help themselves from the pharmacy under loose supervision, since most of them know their own repeats better than anyone here does standing behind that counter', desc: 'An unsupervised open pharmacy is a controlled-drug and patient-safety catastrophe you will never be able to account for.', effect: { score: -6 } },
         { key: 'D', label: 'Wake him and get him back on his feet with strong coffee, because he is the only person in the district licensed to do the job', desc: 'Sends a collapsed clinician back to dispense controlled medication - unsafe for him and for everyone he serves.', effect: { score: -5 } }
       ]
     },
