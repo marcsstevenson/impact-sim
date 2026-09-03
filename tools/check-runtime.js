@@ -142,7 +142,7 @@ function loadContext() {
 function main() {
   var ctx = loadContext();
   var errors = [];
-  var stats = { stateChanges: 0, locks: 0, lockReasons: 0, injects: 0, announced: 0 };
+  var stats = { stateChanges: 0, locks: 0, lockReasons: 0, injects: 0, announced: 0, clockTicks: 0 };
   var foreclosed = [];
 
   Object.keys(PERSONAS).forEach(function (id) {
@@ -435,7 +435,44 @@ function main() {
   ctx.__timers.sync = false;
   ctx.processNextEvent = realProcessNext;
 
+  // 7. The header clock must stay between the event that has landed and the one
+  //    still to come. It used to free-run past the script and get snapped back,
+  //    so the header read H+01:09 while the feed was at H+00:18. Tick it hard
+  //    between every pair of events and check it never overshoots or reverses.
+  Object.keys(PERSONAS).forEach(function (id) {
+    ctx.GameState.scenario = id;
+    var events = ctx.PERSONA_EVENTS[id];
+    ctx.GameState.time = 0;
+    ctx.GameState.eventIndex = 0;
+    var previous = 0;
+    for (var i = 0; i < events.length; i++) {
+      ctx.GameState.eventIndex = i;
+      // Mirror what processNextEvent does as it shows event i.
+      ctx.GameState.time = Math.max(ctx.GameState.time, events[i].time);
+      ctx.GameState.clockCeiling = events[i + 1] ? events[i + 1].time : null;
+      previous = ctx.GameState.time;
+      // Far more ticks than the 2-4s between events allows, standing in for a
+      // player sitting on a decision.
+      for (var t = 0; t < 200; t++) {
+        ctx.tickClock();
+        if (ctx.GameState.time < previous) {
+          errors.push(id + ': clock ran backwards (' + previous + ' -> ' + ctx.GameState.time + ') before event ' + i);
+          return;
+        }
+        previous = ctx.GameState.time;
+      }
+      var upcoming = events[i + 1];
+      if (upcoming && ctx.GameState.time > upcoming.time) {
+        errors.push(id + ': clock reached ' + ctx.GameState.time + ' while event ' + i +
+          ' at ' + events[i].time + ' was showing, overshooting the next event at ' + upcoming.time);
+        return;
+      }
+      stats.clockTicks += 200;
+    }
+  });
+
   console.log('stateChange functions executed: ' + stats.stateChanges);
+  console.log('clock ticks checked:            ' + stats.clockTicks);
   console.log('consequences announcing COP damage: ' + stats.announced);
   console.log('consequence injects clock-checked: ' + stats.injects);
   console.log('locked predicates exercised:    ' + stats.locks + ' (' + stats.lockReasons + ' returned a reason)');

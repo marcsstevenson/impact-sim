@@ -1150,7 +1150,7 @@
       source: 'Civil Defence / School Command'
     },
     {
-      time: 64, type: 'inject', tag: 'SITUATION',
+      time: 74, type: 'inject', tag: 'SITUATION',
       title: 'The Gymnasium Fills',
       body: 'With the teaching block off limits and the hall damaged, 380 students, 24 staff and a growing number of adults ' +
         'are now in the gymnasium. It is the only usable building on site, the heating is off, and it is the same room ' +

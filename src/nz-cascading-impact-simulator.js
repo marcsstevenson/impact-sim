@@ -527,6 +527,8 @@ function startGame(scenario) {
   var facToggle = document.getElementById('facilitator-toggle');
   GameState.facilitatorMode = facToggle ? facToggle.checked : false;
   GameState.time = 0;
+  // Nothing has been shown yet, so the clock holds at zero until the first event.
+  GameState.clockCeiling = null;
   currentDecision = null;
 
   var config = SCENARIO_CONFIGS[scenario];
@@ -583,7 +585,7 @@ function startGame(scenario) {
   document.getElementById('game-screen').classList.add('active');
 
   processNextEvent();
-  gameInterval = setInterval(updateGameClock, 1000);
+  gameInterval = setInterval(tickClock, 1000);
 }
 
 var STATUS_INDICATORS = { good: '\u25CF ', degraded: '\u25B2 ', failed: '\u2716 ', unknown: '\u25CB ' };
@@ -745,8 +747,26 @@ function configureAF8Panels() {
   // Resources section is populated by renderUtilityPanel()
 }
 
+// Advance the clock toward the next scripted event and hold there. The clock
+// used to free-run past the script and get snapped back by processNextEvent, so
+// the header read H+01:09 while the feed was still at H+00:18. Creeping up to
+// the next event keeps it live while the player reads without ever overshooting
+// the feed or moving backwards.
+//
+// The ceiling has to be the event that will actually fire next - set by
+// processNextEvent as each event is shown - not "the next event later than now".
+// Deriving it from the clock lets it slide forward one event at a time, so a
+// player sitting on a decision would watch the clock walk away from the feed.
+function tickClock() {
+  var ceiling = GameState.clockCeiling;
+  if (ceiling != null && GameState.time < ceiling) {
+    GameState.time = Math.min(GameState.time + 0.5, ceiling);
+  }
+  updateGameClock();
+}
+
+// Pure render - advancing the clock is tickClock's job.
 function updateGameClock() {
-  GameState.time += 0.5;
   var hours = Math.floor(GameState.time / 60);
   var mins = Math.floor(GameState.time % 60);
   document.getElementById('game-time').textContent =
@@ -768,8 +788,14 @@ function processNextEvent() {
   var prevTime = GameState.eventIndex > 0 ? events[GameState.eventIndex - 1].time : 0;
   var delay = GameState.eventIndex === 0 ? 1000 : Math.min(4000, Math.max(2000, (event.time - prevTime) * 200));
 
+  var shownIndex = GameState.eventIndex;
+
   eventTimer = setTimeout(function() {
-    GameState.time = event.time;
+    // Forward only - the tick may already have crept to this event's time.
+    GameState.time = Math.max(GameState.time, event.time);
+    // The clock may now creep as far as whatever lands next, and no further.
+    var upcoming = events[shownIndex + 1];
+    GameState.clockCeiling = upcoming ? upcoming.time : null;
     updateGameClock();
     if (event.aftershock) triggerAftershock();
     addEventToFeed(event);
@@ -808,8 +834,8 @@ function processNextEvent() {
 function addEventToFeed(event) {
   var feed = document.getElementById('event-feed');
   var hours = Math.floor(event.time / 60);
-  // Noise injects stamp themselves from the live clock, which carries the half
-  // minute updateGameClock() adds, so floor here rather than printing ":13.5".
+  // Floored defensively: the clock advances in half minutes, so anything that
+  // ever takes a timestamp from it would otherwise print ":13.5".
   var mins = Math.floor(event.time % 60);
   var entry = document.createElement('div');
   entry.className = 'event-entry';
@@ -1031,12 +1057,9 @@ function applyConsequences(decId, key) {
   // If there is a reactive inject, show it after a delay then continue
   if (consequence.inject) {
     var inj = consequence.inject;
-    // There are two clocks. GameState.time free-runs - updateGameClock() is on a
-    // 1s interval and adds half a minute each tick - while the feed is stamped
-    // from the scripted event times, which processNextEvent snaps the clock back
-    // to as each event lands. Stamping an inject from the live clock mixes the
-    // two and the feed jumps (H+00:15, then H+00:13, then H+00:56), so derive it
-    // from the scripted timeline only.
+    // Derive the timestamp from the scripted timeline, never from GameState.time.
+    // The clock ticks between events while the player reads, so stamping an inject
+    // from it made the feed jump (H+00:15, then H+00:13, then H+00:56).
     //
     // eventIndex still points at the decision here, so events[i] is the decision
     // just answered and events[i + 1] is what lands next - and that next event's
@@ -1047,8 +1070,8 @@ function applyConsequences(decId, key) {
     var injectTime = (current ? current.time : Math.floor(GameState.time)) + 5;
     if (following && following.time < injectTime) injectTime = following.time;
     eventTimer = setTimeout(function() {
-      // Deliberately not assigning GameState.time: the live clock is ahead of the
-      // script by now, and pulling it back would jump the header backwards.
+      // Forward only, so the header never trails the entry just posted to the feed.
+      GameState.time = Math.max(GameState.time, injectTime);
       updateGameClock();
       if (inj.aftershock) triggerAftershock();
       addEventToFeed({
@@ -1525,7 +1548,7 @@ function triggerSBT() {
 
 function closeSBT() {
   document.getElementById('sbt-overlay').style.display = 'none';
-  gameInterval = setInterval(updateGameClock, 1000);
+  gameInterval = setInterval(tickClock, 1000);
   if (GameState.eventIndex < getActiveEvents().length && !currentDecision) {
     processNextEvent();
   }
