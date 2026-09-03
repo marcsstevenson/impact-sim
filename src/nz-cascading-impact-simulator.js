@@ -525,6 +525,34 @@ function switchPersona(id) {
   startGame(id);
 }
 
+// Back to the scenario picker from anywhere in a run, including the debrief.
+// Nothing is saved, so this only has to stop the clock and clear away whatever
+// is on screen - startGame() resets the rest of GameState on the way back in.
+function goHome() {
+  clearTimeout(eventTimer);
+  clearInterval(gameInterval);
+  eventTimer = null;
+  gameInterval = null;
+  currentDecision = null;
+
+  // The breathe prompt is the static overlay; the debrief is built and appended
+  // to the body at the end of a run, so it has to be removed rather than hidden.
+  var overlays = document.querySelectorAll('.sbt-overlay');
+  for (var i = 0; i < overlays.length; i++) {
+    if (overlays[i].id === 'sbt-overlay') overlays[i].style.display = 'none';
+    else if (overlays[i].parentNode) overlays[i].parentNode.removeChild(overlays[i]);
+  }
+
+  var panel = document.getElementById('decision-panel');
+  if (panel) panel.style.display = 'none';
+  var feed = document.getElementById('event-feed');
+  if (feed) feed.innerHTML = '';
+
+  document.getElementById('game-screen').classList.remove('active');
+  document.getElementById('title-screen').classList.add('active');
+  window.scrollTo(0, 0);
+}
+
 function startGame(scenario) {
   // Clear any timers from a prior run (e.g. switching persona mid-game).
   clearTimeout(eventTimer);

@@ -358,6 +358,30 @@ body {
   gap: 16px;
 }
 
+/* Leave the scenario. Sits ahead of the logo so it reads as "out of here". */
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  flex: none;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.home-btn:hover,
+.home-btn:focus-visible {
+  color: var(--accent-red);
+  border-color: var(--accent-red);
+  background: rgba(240, 98, 146, 0.08);
+  outline: none;
+}
+
 .game-logo {
   font-family: var(--font-display);
   font-weight: 700;
@@ -949,6 +973,13 @@ body {
   <!-- Header -->
   <div class="game-header">
     <div class="game-header-left">
+      <button class="home-btn" onclick="goHome()" title="Leave this scenario and return to the picker" aria-label="Leave this scenario and return to the picker">
+        <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" focusable="false">
+          <path d="M3 11.4 12 4l9 7.4V20a1 1 0 0 1-1 1h-5.5v-6h-5v6H4a1 1 0 0 1-1-1z"
+                fill="none" stroke="currentColor" stroke-width="1.9"
+                stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+      </button>
       <span class="game-logo" id="game-logo">AF8 SIMULATOR</span>
       <select id="persona-select" onchange="switchPersona(this.value)" title="Switch persona / scenario (restarts the sim)"
         style="background:var(--bg-card);color:var(--text-secondary);border:1px solid var(--border);border-radius:4px;font-family:var(--font-body);font-size:11px;padding:3px 6px;cursor:pointer;max-width:230px;">
