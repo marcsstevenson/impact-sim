@@ -47,12 +47,6 @@
         { label: 'Passing Truckie', value: '"Bridge open"', cls: 'unknown' },
         { label: 'Local Farmer', value: '"Follow me"', cls: 'unknown' }
       ],
-      lifelinesTitle: 'Comms & Phones',
-      lifelines: [
-        { label: 'Cell Coverage', value: 'Patchy', cls: 'degraded' },
-        { label: 'Parent Calls', value: 'Flooding', cls: 'degraded' },
-        { label: 'Social Media', value: 'Spreading', cls: 'failed' }
-      ],
       transportTitle: 'Road & Terrain',
       transport: [
         { label: 'Road Ahead', value: 'Bridge Damaged', cls: 'failed' },
@@ -379,7 +373,6 @@
           scorePenalty: -5
         },
         stateChange: function () {
-          updatePanelItem('lifelines-section', 'Parent Calls', 'Cut Off', 'failed');
           updatePanelItem('agency-status', 'Parents', 'Calling Police', 'failed');
         }
       }

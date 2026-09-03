@@ -35,7 +35,9 @@
         { label: 'Stock On Hand', value: '~$450k', cls: 'degraded' },
         { label: 'Uninsured Stock', value: '~$180k', cls: 'failed' },
         { label: 'Cash Runway', value: '~4 weeks', cls: 'degraded' },
-        { label: 'Staff On Site', value: '7 / 12', cls: 'good' }
+        { label: 'Staff On Site', value: '7 / 12', cls: 'good' },
+        { label: 'Power', value: 'Out', cls: 'failed' },
+        { label: 'EFTPOS', value: 'Down', cls: 'failed' }
       ],
       agenciesTitle: 'Calls & Contacts',
       agencies: [
@@ -44,11 +46,6 @@
         { label: 'Civil Defence', value: 'Activating', cls: 'degraded' },
         { label: 'Medical Centre', value: 'Requesting', cls: 'degraded' },
         { label: 'Media', value: 'Calling', cls: 'degraded' }
-      ],
-      lifelinesTitle: 'Shop & Utilities',
-      lifelines: [
-        { label: 'Power', value: 'Out', cls: 'failed' },
-        { label: 'EFTPOS', value: 'Down', cls: 'failed' }
       ],
       transportTitle: 'Site Hazards',
       transport: [

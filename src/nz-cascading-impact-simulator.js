@@ -630,24 +630,76 @@ function setPanelTitle(id, text) {
 // their SCENARIO_CONFIGS entry render through here; af8/local keep their
 // existing hand-written functions.
 function configurePanels() {
+  // Switching persona reuses the same DOM, so start from every panel visible -
+  // otherwise one hidden by a persona that omits it would stay hidden for the
+  // af8/local scenarios, which write their panels directly.
+  showAllPanels();
   var config = SCENARIO_CONFIGS[GameState.scenario];
   if (config && config.panels) { renderPanels(config.panels); return; }
   if (GameState.scenario === 'local') { configureLocalPanels(); } else { configureAF8Panels(); }
 }
 
+var PANEL_ELEMENT_IDS = [
+  ['cdem-groups-title', 'cdem-groups'],
+  ['agency-title', 'agency-status'],
+  ['lifelines-title', 'lifelines-section'],
+  ['transport-title', 'transport-section'],
+  ['cascade-title', 'cascade-tracker'],
+  ['resources-title', 'resources-section']
+];
+
+// The titles in index.html are the af8 defaults. Captured on first use so a
+// scenario that does not set a title gets the default back rather than keeping
+// the last persona's - af8 was showing ngata's "Advice & Liaison" heading.
+var DEFAULT_PANEL_TITLES = null;
+
+function showAllPanels() {
+  if (!DEFAULT_PANEL_TITLES) {
+    DEFAULT_PANEL_TITLES = {};
+    for (var d = 0; d < PANEL_ELEMENT_IDS.length; d++) {
+      var titleId = PANEL_ELEMENT_IDS[d][0];
+      var el0 = document.getElementById(titleId);
+      DEFAULT_PANEL_TITLES[titleId] = el0 ? el0.textContent : '';
+    }
+  }
+  for (var i = 0; i < PANEL_ELEMENT_IDS.length; i++) {
+    for (var j = 0; j < 2; j++) {
+      var el = document.getElementById(PANEL_ELEMENT_IDS[i][j]);
+      if (el) el.style.display = '';
+    }
+    var t = document.getElementById(PANEL_ELEMENT_IDS[i][0]);
+    if (t) t.textContent = DEFAULT_PANEL_TITLES[PANEL_ELEMENT_IDS[i][0]];
+  }
+}
+
+// Render one panel, or hide it when this persona does not use it.
+//
+// This used to write a panel only when the array existed, and leave it untouched
+// otherwise - so an omitted panel kept whatever the DOM already held. Switching
+// persona mid-session then showed the previous persona's rows under the new
+// persona's title. Absent now means hidden, and empty counts as absent.
+function renderPanel(titleId, containerId, title, items, build) {
+  var titleEl = document.getElementById(titleId);
+  var container = document.getElementById(containerId);
+  var show = !!(items && items.length);
+  if (titleEl) {
+    titleEl.style.display = show ? '' : 'none';
+    if (show && title) titleEl.textContent = title;
+  }
+  if (container) {
+    container.style.display = show ? '' : 'none';
+    container.innerHTML = show ? build(items) : '';
+  }
+}
+
 function renderPanels(p) {
-  setPanelTitle('cdem-groups-title', p.groupsTitle);
-  setPanelTitle('agency-title', p.agenciesTitle);
-  setPanelTitle('lifelines-title', p.lifelinesTitle);
-  setPanelTitle('transport-title', p.transportTitle);
-  setPanelTitle('cascade-title', p.cascadeTitle);
-  setPanelTitle('resources-title', p.resourcesTitle);
-  if (p.groups) document.getElementById('cdem-groups').innerHTML = buildSitItems(p.groups);
-  if (p.agencies) document.getElementById('agency-status').innerHTML = buildSitItems(p.agencies);
-  if (p.lifelines) document.getElementById('lifelines-section').innerHTML = buildSitItems(p.lifelines);
-  if (p.transport) document.getElementById('transport-section').innerHTML = buildSitItems(p.transport);
-  if (p.cascades) document.getElementById('cascade-tracker').innerHTML = buildCascadeItems(p.cascades);
+  renderPanel('cdem-groups-title', 'cdem-groups', p.groupsTitle, p.groups, buildSitItems);
+  renderPanel('agency-title', 'agency-status', p.agenciesTitle, p.agencies, buildSitItems);
+  renderPanel('lifelines-title', 'lifelines-section', p.lifelinesTitle, p.lifelines, buildSitItems);
+  renderPanel('transport-title', 'transport-section', p.transportTitle, p.transport, buildSitItems);
+  renderPanel('cascade-title', 'cascade-tracker', p.cascadeTitle, p.cascades, buildCascadeItems);
   // resources-section is populated by renderUtilityPanel()
+  setPanelTitle('resources-title', p.resourcesTitle);
 }
 
 function configureLocalPanels() {

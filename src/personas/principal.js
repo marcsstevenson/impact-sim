@@ -50,19 +50,14 @@
         { label: 'Min. of Education', value: 'Notified', cls: 'unknown' },
         { label: 'Media', value: 'Converging', cls: 'failed' }
       ],
-      lifelinesTitle: 'Site & Utilities',
-      lifelines: [
-        { label: 'Power', value: 'Out', cls: 'failed' },
-        { label: 'Water', value: 'Untested', cls: 'unknown' },
-        { label: 'Cell Network', value: 'Congested', cls: 'degraded' },
-        { label: 'Toilets', value: 'At Risk', cls: 'degraded' }
-      ],
       transportTitle: 'Buildings & Access',
       transport: [
         { label: 'Main Teaching Block', value: 'Damaged', cls: 'degraded' },
         { label: 'School Hall', value: 'Moderate Damage', cls: 'degraded' },
         { label: 'Gymnasium', value: 'Usable', cls: 'good' },
-        { label: 'Rural Roads', value: 'Cut Off', cls: 'failed' }
+        { label: 'Rural Roads', value: 'Cut Off', cls: 'failed' },
+        { label: 'Water', value: 'Untested', cls: 'unknown' },
+        { label: 'Toilets', value: 'At Risk', cls: 'degraded' }
       ],
       cascadeTitle: 'Emerging Risks',
       cascades: [
@@ -450,7 +445,7 @@
         },
         stateChange: function () {
           updateCascadeItem('cascade-tracker', 'Sanitation / Gastro', 'Extreme', 'extreme');
-          updatePanelItem('lifelines-section', 'Toilets', 'Contaminated', 'failed');
+          updatePanelItem('transport-section', 'Toilets', 'Contaminated', 'failed');
           updatePanelItem('cdem-groups', 'Injured (minor)', '28', 'failed');
           updateUtilityDirect('sanitation', 0);
         }
