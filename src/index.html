@@ -496,6 +496,19 @@ body {
   border-left: 3px solid var(--border);
 }
 
+/* Context plate on the opening entry. Bleeds to the card edges, so it cancels
+   the card's 12px/14px padding and sits under the rounded top corners. */
+.event-shot {
+  display: block;
+  width: calc(100% + 28px);
+  margin: -12px -14px 12px;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 4px 4px 0 0;
+  filter: saturate(0.9) brightness(0.88);
+}
+
 .event-card.inject { border-left-color: var(--accent-red); }
 .event-card.info { border-left-color: var(--accent-blue); }
 .event-card.decision { border-left-color: var(--accent-amber); }

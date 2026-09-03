@@ -907,9 +907,19 @@ function addEventToFeed(event) {
   if (event.type === 'info' && event.tag === 'SUCCESS') tagClass = 'success';
   if (event.tag === 'NOISE') tagClass = 'noise';
   if (event.tag === 'PIM') tagClass = 'info';
+
+  // The scenario's context plate rides on the opening entry, so the run starts
+  // with a picture of where you are. Keyed off an empty feed rather than the
+  // event index, so consequence and noise injects can never pick it up.
+  var sceneCard = SCENARIO_CONFIGS[GameState.scenario] && SCENARIO_CONFIGS[GameState.scenario].card;
+  var shot = (!feed.children.length && sceneCard && sceneCard.image)
+    ? '<img class="event-shot" src="' + sceneCard.image + '" alt="">'
+    : '';
+
   entry.innerHTML =
     '<div class="event-timestamp">H+' + String(hours).padStart(2,'0') + ':' + String(mins).padStart(2,'0') + ' \u2014 ' + getPhaseLabel(event.time) + '</div>' +
     '<div class="event-card ' + event.type + '">' +
+      shot +
       '<span class="event-tag ' + tagClass + '">' + event.tag + '</span>' +
       '<div class="event-title">' + event.title + '</div>' +
       '<div class="event-body">' + event.body + '</div>' +
