@@ -14,6 +14,11 @@
 
   SCENARIO_CONFIGS.sarahchen = {
     label: 'BUSINESS OWNER',
+    card: {
+      title: 'Business Owner',
+      sub: 'A damaged hardware store and a town at the door',
+      image: 'img/06-sarahchen-store.jpg'
+    },
     actorTitle: 'Owner',
     classification: 'L2',
     classCSS: 'l2',

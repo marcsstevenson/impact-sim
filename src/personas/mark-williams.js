@@ -13,6 +13,11 @@
 
   SCENARIO_CONFIGS.markwilliams = {
     label: 'PARENT MANAGER',
+    card: {
+      title: 'Parent Manager',
+      sub: 'Eight children, one van, a highway blocked both ways',
+      image: 'img/05-markwilliams-van.jpg'
+    },
     actorTitle: 'Mark',
     classification: 'R3',
     classCSS: 'r3',

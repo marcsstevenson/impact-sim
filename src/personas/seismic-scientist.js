@@ -14,6 +14,11 @@
   // ---- Config: header, status bar, classification, dashboards ---------------
   SCENARIO_CONFIGS.seismic = {
     label: 'SCIENCE ADVISOR',
+    card: {
+      title: 'Seismic Science Advisor',
+      sub: 'Advice a nation will act on, under deep uncertainty',
+      image: 'img/04-seismic-advisor.jpg'
+    },
     actorTitle: 'Science Advisor',
     classification: 'R3',
     classCSS: 'r3',

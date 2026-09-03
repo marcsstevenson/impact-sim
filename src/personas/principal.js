@@ -14,6 +14,11 @@
   // ---- Config: header, status bar, classification, dashboards ---------------
   SCENARIO_CONFIGS.principal = {
     label: 'SCHOOL PRINCIPAL',
+    card: {
+      title: 'School Principal',
+      sub: '420 students, no power, parents at the gate',
+      image: 'img/03-principal-school.jpg'
+    },
     actorTitle: 'Principal',
     classification: 'L2',
     classCSS: 'l2',

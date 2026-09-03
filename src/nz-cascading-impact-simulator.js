@@ -19,6 +19,11 @@ var GameState = {
 var SCENARIO_CONFIGS = {
   af8: {
     label: 'AF8 SIMULATOR',
+    card: {
+      title: 'AF8 National Response',
+      sub: 'CDEM Controller for the South Island response',
+      image: 'img/01-af8-national.jpg'
+    },
     classification: 'R3',
     classCSS: 'r3',
     classText: 'R3 \u25B2',
@@ -39,6 +44,11 @@ var SCENARIO_CONFIGS = {
   },
   local: {
     label: 'AF8 \u2014 CANTERBURY LOCAL',
+    card: {
+      title: 'Canterbury Local Response',
+      sub: 'Controller for Christchurch and the plains',
+      image: 'img/02-local-canterbury.jpg'
+    },
     classification: 'R3',
     classCSS: 'r3',
     classText: 'R3 \u25B2',
@@ -3132,3 +3142,37 @@ function applySoftMetricEffects(decId, key) {
   }
 }
 
+
+// ============ SCENARIO PICKER ============
+// Built from SCENARIO_CONFIGS rather than written into index.html, so a persona
+// that registers itself also appears on the title screen. Object key order is
+// insertion order, which is the order the script tags load the personas in.
+function renderScenarioGrid() {
+  var grid = document.getElementById('scenario-grid');
+  if (!grid) return;
+  var html = '';
+  Object.keys(SCENARIO_CONFIGS).forEach(function (id) {
+    var card = SCENARIO_CONFIGS[id] && SCENARIO_CONFIGS[id].card;
+    if (!card) return;
+    html +=
+      '<button class="scenario-card" onclick="startGame(\'' + id + '\')">' +
+        '<img class="scenario-shot" src="' + card.image + '" alt="" width="900" height="506">' +
+        '<span class="scenario-body">' +
+          '<span class="scenario-title">' + card.title + '</span>' +
+          '<span class="scenario-sub">' + card.sub + '</span>' +
+        '</span>' +
+      '</button>';
+  });
+  grid.innerHTML = html;
+}
+
+// The engine loads before the persona files, so wait for all of them. Guarded on
+// `document` because the checkers evaluate this file in a bare context with no
+// DOM at all - nothing here may touch the document at load time.
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderScenarioGrid);
+  } else {
+    renderScenarioGrid();
+  }
+}

@@ -14,6 +14,11 @@
 
   SCENARIO_CONFIGS.terangi = {
     label: 'UTILITY MD',
+    card: {
+      title: 'Utility MD',
+      sub: '38,000 customers off and crews cut off in the field',
+      image: 'img/08-terangi-network.jpg'
+    },
     actorTitle: 'Michael',
     classification: 'R3',
     classCSS: 'r3',

@@ -67,7 +67,10 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+  /* The scenario grid makes this taller than the viewport, so it has to scroll
+     rather than clip - and the footer sits in flow rather than pinned. */
+  overflow: visible;
+  padding: 3rem 0 1rem;
 }
 
 .title-bg {
@@ -112,6 +115,104 @@ body {
   text-align: center;
   padding: 2rem;
   animation: fadeInUp 1s ease-out;
+}
+
+/* Scenario picker. Cards are built by renderScenarioGrid() from SCENARIO_CONFIGS. */
+.scenario-lede {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 28px 0 14px;
+}
+
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(232px, 1fr));
+  gap: 14px;
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.scenario-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  /* Buttons carry a UA text-align: center that beats the grid's rule. */
+  text-align: left;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+.scenario-card:hover,
+.scenario-card:focus-visible {
+  background: var(--bg-card-hover);
+  border-color: var(--accent-pink);
+  transform: translateY(-2px);
+  outline: none;
+}
+.scenario-card:focus-visible { box-shadow: 0 0 0 2px var(--accent-pink); }
+
+.scenario-shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  /* The plates are printed on a pale stock; settle them into the dark console. */
+  filter: saturate(0.85) brightness(0.82);
+  transition: filter 0.2s ease;
+}
+.scenario-card:hover .scenario-shot,
+.scenario-card:focus-visible .scenario-shot { filter: none; }
+
+.scenario-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 11px 13px 13px;
+}
+.scenario-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+.scenario-sub {
+  font-family: var(--font-body);
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.facilitator-row {
+  margin: 26px auto 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  max-width: 1060px;
+}
+.facilitator-row label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.facilitator-row input { accent-color: var(--accent-blue); width: 16px; height: 16px; }
+.fac-hint { color: var(--text-muted); font-size: 10px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .scenario-card { transition: none; }
+  .scenario-card:hover, .scenario-card:focus-visible { transform: none; }
 }
 
 @keyframes fadeInUp {
@@ -228,8 +329,8 @@ body {
 }
 
 .title-footer {
-  position: absolute;
-  bottom: 2rem;
+  margin-top: 2.5rem;
+  text-align: center;
   font-size: 11px;
   color: var(--text-muted);
   letter-spacing: 1px;
@@ -811,22 +912,14 @@ body {
     <p class="title-desc">
       Step into the role of a CDEM Controller coordinating the South Island response to a magnitude 8 rupture of the Alpine Fault. Manage cascading hazards, coordinate across six CDEM Groups, and make decisions that determine outcomes for over a million people.
     </p>
-    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-      <button class="btn btn-primary" onclick="startGame('af8')">▶ Begin AF8 Scenario</button>
-      <button class="btn btn-secondary" onclick="startGame('local')">Canterbury Local Response</button>
-      <button class="btn btn-secondary" onclick="startGame('principal')">School Principal (Alpine Fault)</button>
-      <button class="btn btn-secondary" onclick="startGame('seismic')">Seismic Science Advisor</button>
-      <button class="btn btn-secondary" onclick="startGame('markwilliams')">Parent Manager (Team Van)</button>
-      <button class="btn btn-secondary" onclick="startGame('sarahchen')">Business Owner (Hardware Store)</button>
-      <button class="btn btn-secondary" onclick="startGame('ngata')">Clinical Director (Medical Centre)</button>
-      <button class="btn btn-secondary" onclick="startGame('terangi')">Utility MD (Power Network)</button>
-      <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);">
-        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:12px;color:var(--text-secondary);justify-content:center;">
-          <input type="checkbox" id="facilitator-toggle" style="accent-color:var(--accent-blue);width:16px;height:16px;" />
-          <span>Facilitator Mode</span>
-          <span style="color:var(--text-muted);font-size:10px;">(shows teaching notes, doctrine links, discussion prompts)</span>
-        </label>
-      </div>
+    <p class="scenario-lede">Choose a role. Each puts you somewhere different in the same rupture.</p>
+    <div class="scenario-grid" id="scenario-grid"></div>
+    <div class="facilitator-row">
+      <label>
+        <input type="checkbox" id="facilitator-toggle" />
+        <span>Facilitator Mode</span>
+        <span class="fac-hint">(shows teaching notes, doctrine links, discussion prompts)</span>
+      </label>
     </div>
   </div>
   <div class="title-footer">

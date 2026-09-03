@@ -14,6 +14,11 @@
 
   SCENARIO_CONFIGS.ngata = {
     label: 'CLINICAL DIRECTOR',
+    card: {
+      title: 'Clinical Director',
+      sub: 'Eighty casualties, two doctors, one ambulance',
+      image: 'img/07-ngata-clinic.jpg'
+    },
     actorTitle: 'Dr Ngata',
     classification: 'R3',
     classCSS: 'r3',
