@@ -2407,7 +2407,7 @@ var FACILITATOR_NOTES = {
   'eoc_level': {
     learningObjective: 'Understanding EOC activation levels and the tension between co-location and independence in a dual-role scenario.',
     references: [
-      { label: 'CIMS 3rd Ed, Section 4.3', desc: 'EOC/ECC establishment and activation levels' },
+      { label: 'CIMS 3rd Ed, Section 3.1', desc: 'Response levels and their coordination centres: NCC, ECC, EOC, ICP' },
       { label: 'CCC EQ Plan Part B, Section 3.1', desc: 'EOC operational modes: JESP vs Hereford Street' },
       { label: 'SAFER Framework, Section 3.3.1', desc: 'CDEM Group pairing and support obligations' }
     ],
@@ -2424,7 +2424,7 @@ var FACILITATOR_NOTES = {
     references: [
       { label: 'CDEM Act 2002, Section 60', desc: 'Lifeline utilities and strategic infrastructure obligations' },
       { label: 'SAFER Framework, Section 3.6.3', desc: 'Air transport priorities and staging requirements' },
-      { label: 'CIMS 3rd Ed, Section 5.2', desc: 'Logistics function: transport and staging management' }
+      { label: 'CIMS 3rd Ed, Section 4.9', desc: 'Logistics function: transport and staging management' }
     ],
     teachingNote: 'Christchurch Airport is designated strategic lifeline infrastructure. Full commercial reopening (Option B) creates an airspace management crisis that is entirely predictable and avoidable. The key teaching point is that "projecting normalcy" is not a valid emergency management objective when it conflicts with response operations. Emergency-only operations (Option A) is doctrinally correct but Option C (phased) is the most operationally realistic.',
     discussionPrompts: [
@@ -2439,7 +2439,7 @@ var FACILITATOR_NOTES = {
     references: [
       { label: 'SAFER Framework, Section 3.4.2b', desc: '"No regrets" rapid relief approach' },
       { label: 'CCC EQ Plan Part B, Section 5.3', desc: 'Community Emergency Hubs and self-activation' },
-      { label: 'CIMS 3rd Ed, Section 6.1', desc: 'Welfare function: community-led response integration' }
+      { label: 'CIMS 3rd Ed, Section 4.11', desc: 'Welfare function: integrating community-led response' }
     ],
     teachingNote: 'This is the central tension of the Canterbury Scenario 2. The "right" answer (Option C) requires trusting community self-organisation, which runs against the instinct to control everything from the EOC. Players who choose 70/30 support role (Option A) are technically correct about the greater need but will face political backlash. The discussion should focus on how institutional support enables rather than replaces community-led response.',
     discussionPrompts: [
@@ -2452,7 +2452,7 @@ var FACILITATOR_NOTES = {
   'evacuee_reception': {
     learningObjective: 'Mass evacuation reception planning and multi-agency welfare coordination.',
     references: [
-      { label: 'CIMS 3rd Ed, Section 6.2', desc: 'Welfare function: registration and needs assessment' },
+      { label: 'CIMS 3rd Ed, Section 4.11', desc: 'Welfare function: registration and needs assessment' },
       { label: 'CDEM Act 2002, Section 85', desc: 'Welfare in emergencies provisions' },
       { label: 'MFAT Consular Response Framework', desc: 'International visitor welfare obligations' }
     ],
@@ -2469,7 +2469,7 @@ var FACILITATOR_NOTES = {
     references: [
       { label: 'CDEM Act 2002, Section 28', desc: 'National Controller powers and direction-setting' },
       { label: 'SAFER Framework, Section 3.6.4', desc: 'Fuel and energy coordination' },
-      { label: 'CIMS 3rd Ed, Section 5.3', desc: 'Logistics function: supply chain management' }
+      { label: 'CIMS 3rd Ed, Section 4.9', desc: 'Logistics function: supply chain management' }
     ],
     teachingNote: 'This decision tests whether players understand the limits of their authority. Canterbury is a distribution node, not the decision-maker on inter-regional fuel allocation. Option B (National Controller decides) is correct because it reflects the CDEM Act hierarchy. Players who self-prioritise (Option A) are overstepping their role in a national emergency.',
     discussionPrompts: [
@@ -2482,7 +2482,7 @@ var FACILITATOR_NOTES = {
   'psychosocial': {
     learningObjective: 'Integrating psychosocial response into a primarily physical-damage response framework.',
     references: [
-      { label: 'CIMS 3rd Ed, Section 6.3', desc: 'Welfare function: psychosocial support' },
+      { label: 'CIMS 3rd Ed, Section 4.11', desc: 'Welfare function: psychosocial support' },
       { label: 'CCC EQ Plan Part B, Section 5.5', desc: 'Community wellbeing and psychosocial recovery' },
       { label: 'Canterbury DHB Psychosocial Plan', desc: 'Mental health surge response protocols' }
     ],
@@ -2512,7 +2512,7 @@ var FACILITATOR_NOTES = {
   'nzdf_staging': {
     learningObjective: 'Civil-military coordination within the CDEM framework.',
     references: [
-      { label: 'CIMS 3rd Ed, Section 3.5', desc: 'Military integration in civil emergencies' },
+      { label: 'CIMS 3rd Ed, Section 2.3', desc: 'Lead and support agencies: NZDF in support of the lead agency' },
       { label: 'NZDF DACC Protocols', desc: 'Defence Assistance to the Civil Community framework' },
       { label: 'SAFER Framework, Section 3.6.5', desc: 'Military asset coordination requirements' }
     ],
@@ -2527,7 +2527,7 @@ var FACILITATOR_NOTES = {
   'accommodation': {
     learningObjective: 'Mass accommodation planning using distributed community capacity.',
     references: [
-      { label: 'CIMS 3rd Ed, Section 6.4', desc: 'Welfare function: shelter and accommodation' },
+      { label: 'CIMS 3rd Ed, Section 4.11', desc: 'Welfare function: shelter and accommodation' },
       { label: 'CCC EQ Plan Part B, Section 5.4', desc: 'Civil Defence Centres and welfare registration' },
       { label: 'SPHERE Standards, Section 4', desc: 'Shelter and settlement minimum standards' }
     ],
@@ -2544,7 +2544,7 @@ var FACILITATOR_NOTES = {
     references: [
       { label: 'CDEM Act 2002, Section 86-88', desc: 'Emergency powers: evacuation, entry, movement control' },
       { label: 'NZBORA 1990, Section 18', desc: 'Freedom of movement provisions' },
-      { label: 'CIMS 3rd Ed, Section 4.6', desc: 'Operations function: movement management' }
+      { label: 'CIMS 3rd Ed, Section 4.8', desc: 'Operations function: movement management' }
     ],
     teachingNote: 'Canterbury is not the disaster zone \u2014 it\u2019s the logistics hub. Full movement control (Option B) is disproportionate and will generate backlash. No control (Option C) allows response convoys to be delayed by civilian traffic. Dedicated response corridors (Option A) is the proportionate middle ground that keeps logistics flowing without restricting civilian movement unnecessarily.',
     discussionPrompts: [
@@ -2557,7 +2557,7 @@ var FACILITATOR_NOTES = {
   'media_management': {
     learningObjective: 'PIM function management under competing stakeholder pressures.',
     references: [
-      { label: 'CIMS 3rd Ed, Section 7', desc: 'Public Information Management function' },
+      { label: 'CIMS 3rd Ed, Section 4.10', desc: 'Public Information Management function' },
       { label: 'SAFER Framework, Section 3.6.1', desc: 'Communications and public information priorities' },
       { label: 'MCDEM PIM Guide', desc: 'Media management in civil defence emergencies' }
     ],
@@ -2589,7 +2589,7 @@ var FACILITATOR_NOTES = {
     references: [
       { label: 'CDEM Act 2002, Section 68-69', desc: 'Declaration of state of local emergency' },
       { label: 'CDEM Act 2002, Section 66', desc: 'National vs local declaration relationships' },
-      { label: 'CIMS 3rd Ed, Section 2.4', desc: 'Declaration decision-making framework' }
+      { label: 'CIMS 3rd Ed, Section 3.2', desc: 'Incident classifications: sizing the response proportionately' }
     ],
     teachingNote: 'This is a nuanced legal question. The national declaration already covers Canterbury. A separate local declaration is legally valid but may be unnecessary. Option B (operate under national) is arguably the most legally sound. Option A gives additional local powers but risks community alarm. The discussion should focus on proportionality and whether additional powers are actually needed.',
     discussionPrompts: [
@@ -2605,7 +2605,7 @@ var FACILITATOR_NOTES = {
     references: [
       { label: 'CDEM Act 2002, Section 68', desc: 'Declaration of state of local emergency' },
       { label: 'SAFER Framework, Section 1.5', desc: 'Activation triggers and immediate actions' },
-      { label: 'CIMS 3rd Ed, Section 2.4', desc: 'Declaration authority and process' }
+      { label: 'CIMS 3rd Ed, Section 3.1', desc: 'Response levels: how local escalates to regional and national' }
     ],
     teachingNote: 'Waiting for national declaration (Option B) is the classic failure of an AF8 response. The SAFER Framework assumes local declarations happen immediately. NCMC may take hours to process a national declaration. Every hour without emergency powers is an hour without the legal authority to requisition resources, control movement, or compel evacuations.',
     discussionPrompts: [
@@ -2620,7 +2620,7 @@ var FACILITATOR_NOTES = {
     references: [
       { label: 'SAFER Framework, Section 3.4.1', desc: 'Cascading hazard identification and response' },
       { label: 'SAFER Framework, Section 3.3.1', desc: 'CDEM Group pairing: Canterbury supports West Coast' },
-      { label: 'CIMS 3rd Ed, Section 4.5', desc: 'Operations function: resource allocation under scarcity' }
+      { label: 'CIMS 3rd Ed, Section 4.8', desc: 'Operations function: resource allocation under scarcity' }
     ],
     teachingNote: 'This tests resource discipline. Option A (all helicopters) saves Franz Josef but leaves zero capacity for everything else. Option B (PIM only) is reckless because degraded comms make broadcast unreliable. Option C (combined) is the balanced approach that uses limited helicopters for vulnerable populations while leveraging community self-evacuation for the able-bodied. The consequence for Option A is brutal but realistic \u2014 fleet exhaustion from a single commitment.',
     discussionPrompts: [
@@ -2635,7 +2635,7 @@ var FACILITATOR_NOTES = {
     references: [
       { label: 'SAFER Framework, Section 3.6.1', desc: 'Telecommunications plan implementation within 6 hours' },
       { label: 'SAFER Framework, Section 3.3.1', desc: 'Canterbury-West Coast pairing obligations' },
-      { label: 'CIMS 3rd Ed, Section 8', desc: 'Intelligence function: information flow management' }
+      { label: 'CIMS 3rd Ed, Section 4.6', desc: 'Intelligence function: information flow management' }
     ],
     teachingNote: 'Canterbury\u2019s primary obligation under SAFER is to its paired region (West Coast), not to NCMC. Option A (Canterbury-to-NCMC) is the institutional default but wrong \u2014 you cannot support the West Coast if you cannot talk to them. Wellington can wait; Greymouth cannot. This tests understanding of the SAFER pairing model versus the hierarchical instinct to report upward.',
     discussionPrompts: [
@@ -2650,7 +2650,7 @@ var FACILITATOR_NOTES = {
     references: [
       { label: 'SAFER Framework, Section 3.4.2b', desc: '"No regrets" rapid relief: push supplies based on estimated need' },
       { label: 'SAFER Framework, Section 3.3.1', desc: 'Queenstown Lakes: Otago-Southland pairing, Canterbury support' },
-      { label: 'CIMS 3rd Ed, Section 5.2', desc: 'Logistics function: supply chain under degraded conditions' }
+      { label: 'CIMS 3rd Ed, Section 4.9', desc: 'Logistics function: supply chain under degraded conditions' }
     ],
     teachingNote: 'This is the defining SAFER Framework decision. "No regrets" means pushing supplies before you have confirmed assessments. Option C (wait for airport) is exactly the kind of cautious, assessment-driven approach that the SAFER Framework was designed to overcome. The fatal consequence for Option C is intentionally severe because it demonstrates why "no regrets" exists \u2014 people die while you are optimising logistics.',
     discussionPrompts: [
@@ -2680,7 +2680,7 @@ var FACILITATOR_NOTES = {
     references: [
       { label: 'SAFER Framework, Section 3.6.2', desc: 'Regional reconnaissance within 48 hours' },
       { label: 'SAFER Framework, Priority 9.a', desc: 'SAR priorities for reconnaissance' },
-      { label: 'CIMS 3rd Ed, Section 8.3', desc: 'Intelligence function: reconnaissance coordination' }
+      { label: 'CIMS 3rd Ed, Appendix B', desc: 'The Intelligence Cycle: direction, collection, processing, dissemination' }
     ],
     teachingNote: 'Zero-contact communities are the highest reconnaissance priority because you cannot assess their needs without reaching them. Infrastructure reconnaissance (Option B) enables planning but does not save lives today. Option A is correct because the SAFER Framework explicitly prioritises community contact over infrastructure assessment in the first 48 hours.',
     discussionPrompts: [
@@ -2695,7 +2695,7 @@ var FACILITATOR_NOTES = {
     references: [
       { label: 'NZ Mass Casualty Plan', desc: 'Patient evacuation and triage protocols' },
       { label: 'Canterbury DHB Surge Capacity Plan', desc: 'Hospital system mutual support arrangements' },
-      { label: 'CIMS 3rd Ed, Section 6.5', desc: 'Health emergency coordination' }
+      { label: 'CIMS 3rd Ed, Section 2.3', desc: 'Lead and support agencies: health as lead for the health response' }
     ],
     teachingNote: 'The belt-and-suspenders approach (Option C) is correct because it protects against single-point failure. Fuel delivery alone (Option A) leaves you with no backup if delivery fails. Evacuation alone (Option B) is high-risk for ventilator patients in helicopter transport. The combined approach costs more resources but ensures patient survival under multiple failure scenarios.',
     discussionPrompts: [
@@ -2708,7 +2708,7 @@ var FACILITATOR_NOTES = {
   'af8_evacuation': {
     learningObjective: 'Mass evacuation flow management and welfare registration under surge conditions.',
     references: [
-      { label: 'CIMS 3rd Ed, Section 6.2', desc: 'Welfare function: registration and tracking' },
+      { label: 'CIMS 3rd Ed, Section 4.11', desc: 'Welfare function: registration and tracking' },
       { label: 'CDEM Act 2002, Section 86', desc: 'Evacuation powers and responsibilities' },
       { label: 'MFAT Consular Framework', desc: 'International visitor welfare during emergencies' }
     ],
@@ -2725,7 +2725,7 @@ var FACILITATOR_NOTES = {
     references: [
       { label: 'INSARAG Guidelines', desc: 'International USAR coordination and deployment' },
       { label: 'MCDEM International Assistance Framework', desc: 'Receiving and deploying international teams' },
-      { label: 'CIMS 3rd Ed, Section 4.5', desc: 'Operations: specialist resource deployment' }
+      { label: 'CIMS 3rd Ed, Section 4.8', desc: 'Operations function: specialist resource deployment' }
     ],
     teachingNote: 'Holding USAR at the airport (Option C) is the worst answer because survivability curves for trapped persons are steep \u2014 every hour of delay reduces survival probability. Greymouth (Option A) is the strongest choice because it has the largest affected population and confirmed collapses. The frustrated USAR commander consequence for Option C is based on real incidents where deployment delays generated international diplomatic friction.',
     discussionPrompts: [
@@ -2740,7 +2740,7 @@ var FACILITATOR_NOTES = {
     references: [
       { label: 'SAFER Framework, Section 3.4.3', desc: 'Weather contingency planning' },
       { label: 'MetService Severe Weather Protocols', desc: 'Aviation weather advisory and grounding procedures' },
-      { label: 'CIMS 3rd Ed, Section 5.4', desc: 'Logistics: pre-positioning and forward staging' }
+      { label: 'CIMS 3rd Ed, Section 4.9', desc: 'Logistics function: pre-positioning and forward staging' }
     ],
     teachingNote: 'Option C (pre-positioning) is the most strategic choice because it positions resources where they will be needed during the weather window. Communities with supplies can shelter in place during bad weather. Option A (all evacuation) is tempting but leaves nothing in position for the 12-18 hours when helicopters are grounded. This tests whether players can think beyond the immediate and plan for the next operational period.',
     discussionPrompts: [
@@ -2753,7 +2753,7 @@ var FACILITATOR_NOTES = {
   'af8_transition': {
     learningObjective: 'Operational continuity and staff welfare during sustained emergency response.',
     references: [
-      { label: 'CIMS 3rd Ed, Section 3.8', desc: 'Shift management and operational periods' },
+      { label: 'CIMS 3rd Ed, Appendix E', desc: 'Handovers between shifts and operational periods' },
       { label: 'CDEM Staff Welfare Guidelines', desc: 'Fatigue management and duty hour limits' },
       { label: 'SAFER Framework, Section 3.5', desc: 'Sustained operations planning' }
     ],

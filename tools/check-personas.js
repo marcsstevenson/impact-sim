@@ -239,6 +239,87 @@ function checkPersona(ctx, id, errors, counts) {
   });
 }
 
+// Every numbered heading in CIMS 3rd edition (August 2019), plus its appendices.
+// The document has five sections; it has no Section 6, 7 or 8. Every CIMS
+// citation in the facilitator guide once pointed at a section that either did
+// not exist or covered a different topic - Welfare was cited as "Section 6"
+// when it is 4.11, Operations as 4.5 when 4.5 is Safety.
+var CIMS_SECTIONS = {
+  '1.1': 'Purpose - A common and modular framework',
+  '2.1': 'CIMS in the context of the 4Rs',
+  '2.2': 'CIMS principles and characteristics',
+  '2.3': 'Lead agencies and support agencies',
+  '2.4': 'Engaging iwi/Maori',
+  '2.5': 'Doctrine, training and development',
+  '2.6': 'Command, control and coordination',
+  '2.7': 'Unified Control',
+  '2.8': 'Holistic and integrated response and recovery',
+  '2.9': 'The incident management structure',
+  '3.1': 'Response levels',
+  '3.2': 'Incident classifications',
+  '3.3': 'Governance',
+  '4.1': 'Introduction',
+  '4.2': 'Function colours and responsibilities',
+  '4.3': 'A networked hierarchy',
+  '4.4': 'Control',
+  '4.5': 'Safety',
+  '4.6': 'Intelligence',
+  '4.7': 'Planning',
+  '4.8': 'Operations',
+  '4.9': 'Logistics',
+  '4.10': 'Public Information Management',
+  '4.11': 'Welfare',
+  '4.12': 'Recovery (in Response)',
+  '5.1': 'Incident level response',
+  '5.2': 'Local or regional level response',
+  '5.3': 'National level response'
+};
+var CIMS_APPENDICES = {
+  'A': 'The full CIMS Hierarchy', 'B': 'The Intelligence Cycle', 'C': 'The Planning Process',
+  'D': 'The National Security System', 'E': 'Handovers', 'F': 'Demobilisation',
+  'G': 'Recommended Template Content', 'H': 'Glossary and Acronyms'
+};
+
+// Which CIMS function each citation is allowed to claim, so a reference cannot
+// name the right topic against the wrong number.
+var CIMS_TOPIC_SECTION = {
+  'welfare': '4.11', 'logistics': '4.9', 'operations': '4.8',
+  'intelligence': '4.6', 'planning': '4.7', 'safety': '4.5', 'control': '4.4',
+  'public information management': '4.10'
+};
+
+function checkCimsCitations(ctx, errors) {
+  Object.keys(ctx.FACILITATOR_NOTES).forEach(function (decId) {
+    var refs = ctx.FACILITATOR_NOTES[decId].references || [];
+    refs.forEach(function (r) {
+      var label = r.label || '';
+      if (label.indexOf('CIMS 3rd Ed') !== 0) return;
+
+      var sec = /^CIMS 3rd Ed, Section ([0-9]+(?:\.[0-9]+)?)$/.exec(label);
+      var app = /^CIMS 3rd Ed, Appendix ([A-H])$/.exec(label);
+      if (!sec && !app) {
+        errors.push(decId + ': reference "' + label + '" is not a citable CIMS heading');
+        return;
+      }
+      if (app) return;
+      if (!CIMS_SECTIONS[sec[1]]) {
+        errors.push(decId + ': cites CIMS Section ' + sec[1] + ', which does not exist in the 3rd edition');
+        return;
+      }
+      // The description must not name a function that lives somewhere else.
+      var desc = (r.desc || '').toLowerCase();
+      Object.keys(CIMS_TOPIC_SECTION).forEach(function (topic) {
+        if (desc.indexOf(topic + ' function') === -1) return;
+        var expected = CIMS_TOPIC_SECTION[topic];
+        if (sec[1] !== expected) {
+          errors.push(decId + ': cites Section ' + sec[1] + ' (' + CIMS_SECTIONS[sec[1]] +
+            ') for the ' + topic + ' function, which is Section ' + expected);
+        }
+      });
+    });
+  });
+}
+
 function main() {
   var args = process.argv.slice(2);
   var countsOnly = args.indexOf('--counts') !== -1;
@@ -252,6 +333,10 @@ function main() {
     if (!PERSONAS[id]) { errors.push('unknown persona "' + id + '"'); return; }
     checkPersona(ctx, id, errors, counts);
   });
+
+  // Doctrine citations span the built-in af8/local notes as well as the
+  // personas, so this runs once over every note rather than per persona.
+  checkCimsCitations(ctx, errors);
 
   console.log(['persona', 'events', 'decisions', 'noise', 'conseq', 'stateChg', 'locks'].join('\t'));
   Object.keys(counts).forEach(function (id) {
