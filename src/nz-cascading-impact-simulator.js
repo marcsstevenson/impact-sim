@@ -782,8 +782,9 @@ function processNextEvent() {
         var noise = getNextNoise();
         if (noise && noise.options) {
           eventTimer = setTimeout(function() {
-            // Show noise as a decision event
-            noise.time = GameState.time;
+            // Show noise as a decision event, stamped from the scripted event it
+            // interrupts - the live clock has drifted ahead of the feed.
+            noise.time = event.time;
             noise.type = 'decision';
             noise.isNoise = true;
             addEventToFeed({
@@ -1030,22 +1031,24 @@ function applyConsequences(decId, key) {
   // If there is a reactive inject, show it after a delay then continue
   if (consequence.inject) {
     var inj = consequence.inject;
-    // The inject represents a few minutes passing, but it cannot overshoot the
-    // next scripted event or the feed timestamps run backwards when that event
-    // lands. eventIndex still points at the decision here, so events[i + 1] is
-    // what comes next and its scripted time is the ceiling.
+    // There are two clocks. GameState.time free-runs - updateGameClock() is on a
+    // 1s interval and adds half a minute each tick - while the feed is stamped
+    // from the scripted event times, which processNextEvent snaps the clock back
+    // to as each event lands. Stamping an inject from the live clock mixes the
+    // two and the feed jumps (H+00:15, then H+00:13, then H+00:56), so derive it
+    // from the scripted timeline only.
     //
-    // Floor first: updateGameClock() ticks the clock by half a minute every time
-    // it renders, so working straight off GameState.time would stamp the inject
-    // on a fractional minute and print "H+00:49.5".
-    var now = Math.floor(GameState.time);
-    var following = getActiveEvents()[GameState.eventIndex + 1];
-    var injectTime = now + 5;
-    if (following && following.time < injectTime) {
-      injectTime = Math.max(now, following.time);
-    }
+    // eventIndex still points at the decision here, so events[i] is the decision
+    // just answered and events[i + 1] is what lands next - and that next event's
+    // scripted time is the ceiling, or the feed would run backwards when it lands.
+    var events = getActiveEvents();
+    var current = events[GameState.eventIndex];
+    var following = events[GameState.eventIndex + 1];
+    var injectTime = (current ? current.time : Math.floor(GameState.time)) + 5;
+    if (following && following.time < injectTime) injectTime = following.time;
     eventTimer = setTimeout(function() {
-      GameState.time = injectTime;
+      // Deliberately not assigning GameState.time: the live clock is ahead of the
+      // script by now, and pulling it back would jump the header backwards.
       updateGameClock();
       if (inj.aftershock) triggerAftershock();
       addEventToFeed({

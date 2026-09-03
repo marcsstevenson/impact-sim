@@ -279,10 +279,12 @@ function main() {
         var following = events[i + 1];
         ctx.GameState.decisions = [];
         ctx.GameState.eventIndex = i;
-        // processNextEvent sets the clock to the event time and then renders it,
-        // and rendering adds half a minute - so this is the state a decision's
-        // consequence actually starts from.
-        ctx.GameState.time = e.time + 0.5;
+        // GameState.time free-runs on a 1s interval while the player reads and
+        // decides, so by the time a consequence fires the live clock is well
+        // ahead of the scripted event. Model that drift - assuming the clock
+        // still equalled the event time is what let a real feed regression
+        // (H+00:15, H+00:13, H+00:56 in the browser) pass this check.
+        ctx.GameState.time = e.time + 40.5;
         feedTimes.length = 0;
         try {
           ctx.applyConsequences(e.decisionId, optKey);
