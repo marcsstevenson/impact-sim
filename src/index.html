@@ -115,6 +115,13 @@ body {
   text-align: center;
   padding: 2rem;
   animation: fadeInUp 1s ease-out;
+  /* #title-screen is a flex column with align-items:center, so children are
+     shrink-to-fit. Without a definite width the scenario grid resolves to its
+     max-content - four 232px columns - and blows the page out sideways on a
+     phone. Giving the container a real width is what makes auto-fit collapse. */
+  width: 100%;
+  max-width: 1124px;
+  margin: 0 auto;
 }
 
 /* Scenario picker. Cards are built by renderScenarioGrid() from SCENARIO_CONFIGS. */
@@ -278,7 +285,7 @@ body {
 }
 
 .title-desc {
-  max-width: 600px;
+  max-width: min(600px, 100%);
   margin: 0 auto 2.5rem;
   color: var(--text-secondary);
   font-size: 13px;
@@ -923,6 +930,41 @@ body {
   .panel-left { display: none; }
   .panel-right { max-height: 200px; overflow-y: auto; border-right: none; border-top: 1px solid var(--border); }
   .status-bar { flex-wrap: wrap; }
+}
+
+/* Tablet: two columns of scenarios rather than four squeezed ones. */
+@media (max-width: 900px) {
+  .scenario-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Phone. The title screen had no breakpoint at all before this. */
+@media (max-width: 620px) {
+  #title-screen { padding: 1.5rem 0 0.5rem; }
+  .title-content { padding: 1.25rem 1rem; }
+
+  .title-badge {
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 5px 12px;
+    margin-bottom: 1.25rem;
+  }
+  .title-main { font-size: clamp(1.85rem, 8.5vw, 2.5rem); letter-spacing: -0.5px; }
+  .title-sub { font-size: 0.95rem; }
+  .title-framework { font-size: 10px; letter-spacing: 1.5px; margin-bottom: 1.75rem; }
+  .title-desc { font-size: 12px; line-height: 1.7; margin-bottom: 1.75rem; }
+
+  .scenario-lede { margin: 20px 0 12px; }
+  .scenario-grid { grid-template-columns: 1fr; gap: 12px; }
+
+  /* The hint runs to its own line rather than squeezing the label. */
+  .facilitator-row label { flex-wrap: wrap; row-gap: 4px; }
+  .fac-hint { flex-basis: 100%; }
+
+  .title-footer { margin-top: 1.75rem; letter-spacing: 0.5px; }
+
+  /* The game header wraps instead of pushing the persona select off-screen. */
+  .game-header { flex-wrap: wrap; row-gap: 8px; }
+  .game-header-left { flex-wrap: wrap; gap: 10px; }
 }
 </style>
 </head>
