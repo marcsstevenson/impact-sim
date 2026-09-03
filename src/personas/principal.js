@@ -827,15 +827,17 @@
       ]
     },
     'prin_food': {
-      learningObjective: 'Ration limited food by need across an uncertain night, with a register and a reserve.',
-      bestPractice: 'A',
+      learningObjective: 'Ration limited food by need across an uncertain night, and get resupply moving before dark.',
+      bestPractice: 'D',
       teachingNote: 'One meal’s worth of food and an unknown number of hours means small portions, youngest and high-needs ' +
-        'students first, a register of who has eaten, and a held reserve. The failure modes are serving everything at once ' +
-        'because people are hungry now, and treating equal portions as fair when a diabetic student needs food on a ' +
-        'schedule.',
+        'students first, a register of who has eaten, and a held reserve. Rationing well is only half of it: the supply ' +
+        'you hold is fixed, so the request to the EOC and the community has to go while there is still light to move food ' +
+        'in. The failure modes are serving everything at once because people are hungry now, treating equal portions as ' +
+        'fair when a diabetic student needs food on a schedule, and rationing carefully while never asking anyone for more.',
       references: [
         { label: 'Rationing under uncertainty', desc: 'hold a reserve when you do not know how long the event runs' },
-        { label: 'Need-based distribution', desc: 'clinical need and age take priority over equal shares' }
+        { label: 'Need-based distribution', desc: 'clinical need and age take priority over equal shares' },
+        { label: 'Escalate early', desc: 'request resupply while access and daylight still allow it' }
       ],
       discussionPrompts: [
         'How long do you plan the food to last, and on what basis?',

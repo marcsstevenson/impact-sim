@@ -524,6 +524,8 @@ function startGame(scenario) {
   GameState.eventIndex = 0;
   GameState.decisions = [];
   GameState.choiceLog = {};
+  // Fresh option order for this run.
+  seedOptionOrder();
   var facToggle = document.getElementById('facilitator-toggle');
   GameState.facilitatorMode = facToggle ? facToggle.checked : false;
   GameState.time = 0;
@@ -914,6 +916,70 @@ function getPhaseLabel(time) {
   return 'Day 2+';
 }
 
+// ============ OPTION ORDER ============
+// The best answer was authored first in every decision, so it always rendered as
+// option A - 131 of 132 scenario decisions and all 60 noise decisions. Trainees
+// could score well on position alone, and one participant saying so out loud
+// ended the exercise for a whole room.
+//
+// The stored key stays the identity used for scoring, consequences, locks, style
+// tags and the choice log. Only the presented order and the letter beside it are
+// shuffled, and the letter is assigned by position, so no downstream lookup has
+// to change. The shuffle is seeded once per session: stable for a whole run, and
+// different between runs and between participants.
+var optionRng = null;
+
+function seedOptionOrder() {
+  var seed = (Date.now() ^ Math.floor(Math.random() * 0x7fffffff)) >>> 0;
+  optionRng = function () {
+    // mulberry32 - small, deterministic from the session seed.
+    seed = (seed + 0x6D2B79F5) >>> 0;
+    var t = seed;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  GameState.optionOrder = {};
+}
+
+function decisionKeyFor(event) {
+  return event.decisionId || ('noise:' + (event.title || ''));
+}
+
+// Display order for a decision, created once per session and reused so the
+// letters never move under the player if the panel is re-rendered.
+function displayOrderFor(event) {
+  if (!GameState.optionOrder) seedOptionOrder();
+  var id = decisionKeyFor(event);
+  if (GameState.optionOrder[id]) return GameState.optionOrder[id];
+  var order = event.options.map(function (o) { return o.key; });
+  if (optionRng) {
+    for (var i = order.length - 1; i > 0; i--) {
+      var j = Math.floor(optionRng() * (i + 1));
+      var tmp = order[i]; order[i] = order[j]; order[j] = tmp;
+    }
+  }
+  GameState.optionOrder[id] = order;
+  return order;
+}
+
+var DISPLAY_LETTERS = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+// The letter this session showed against an option, for the feed and debrief.
+function displayLetterFor(event, internalKey) {
+  var order = displayOrderFor(event);
+  var i = order.indexOf(internalKey);
+  return i === -1 ? internalKey : (DISPLAY_LETTERS[i] || internalKey);
+}
+
+// Same, for a decision already recorded in GameState.decisions.
+function displayLetterForRecorded(decisionId, internalKey) {
+  var order = GameState.optionOrder && GameState.optionOrder[decisionId];
+  if (!order) return internalKey;
+  var i = order.indexOf(internalKey);
+  return i === -1 ? internalKey : (DISPLAY_LETTERS[i] || internalKey);
+}
+
 function showDecision(event) {
   currentDecision = event;
   var panel = document.getElementById('decision-panel');
@@ -922,18 +988,25 @@ function showDecision(event) {
   panel.style.display = 'block';
   prompt.textContent = '\u26A1 ' + event.prompt;
   var html = '';
-  for (var i = 0; i < event.options.length; i++) {
-    var opt = event.options[i];
+  var order = displayOrderFor(event);
+  for (var i = 0; i < order.length; i++) {
+    var opt = null;
+    for (var oi = 0; oi < event.options.length; oi++) {
+      if (event.options[oi].key === order[i]) { opt = event.options[oi]; break; }
+    }
+    if (!opt) continue;
+    // Letter comes from the position on screen; the click still carries the key.
+    var letter = DISPLAY_LETTERS[i] || opt.key;
     var locked = opt.locked && opt.locked(GameState.choiceLog);
     if (locked) {
       html += '<button class="decision-btn" disabled style="opacity:0.4;cursor:not-allowed;border-color:var(--accent-red);">' +
-        '<span class="opt-key" style="background:rgba(240,98,146,0.15);color:var(--accent-red);">' + opt.key + '</span>' +
+        '<span class="opt-key" style="background:rgba(240,98,146,0.15);color:var(--accent-red);">' + letter + '</span>' +
         '<div class="opt-text"><div class="opt-label" style="text-decoration:line-through;color:var(--text-muted);">' + opt.label + '</div>' +
         '<div style="font-size:11px;color:var(--accent-red);margin-top:4px;">' + (typeof locked === 'string' ? locked : 'Unavailable due to prior decisions') + '</div>' +
         '</div></button>';
     } else {
       html += '<button class="decision-btn" onclick="makeDecision(\'' + opt.key + '\')">' +
-        '<span class="opt-key">' + opt.key + '</span>' +
+        '<span class="opt-key">' + letter + '</span>' +
         '<div class="opt-text"><div class="opt-label">' + opt.label + '</div>' +
         '</div></button>';
     }
@@ -1006,7 +1079,10 @@ function makeDecision(key) {
     }
   }
 
-  GameState.decisions.push({ decisionId: decId, time: currentDecision.time, key: key, label: option.label, desc: option.desc || '', title: currentDecision.title, score: option.effect ? (option.effect.score || 0) : 0, isNoise: currentDecision.isNoise || false });
+  // key is the identity everything downstream looks up; displayKey is only what
+  // this session happened to show, for the feed and the debrief.
+  var displayKey = displayLetterFor(currentDecision, key);
+  GameState.decisions.push({ decisionId: decId, time: currentDecision.time, key: key, displayKey: displayKey, label: option.label, desc: option.desc || '', title: currentDecision.title, score: option.effect ? (option.effect.score || 0) : 0, isNoise: currentDecision.isNoise || false });
 
   var feed = document.getElementById('event-feed');
   var resultEntry = document.createElement('div');
@@ -1014,7 +1090,7 @@ function makeDecision(key) {
   resultEntry.innerHTML =
     '<div class="event-timestamp">DECISION MADE</div>' +
     '<div class="event-card success"><span class="event-tag success">DECISION</span>' +
-    '<div class="event-title">' + getActorTitle() + ' Decision: Option ' + key + '</div>' +
+    '<div class="event-title">' + getActorTitle() + ' Decision: Option ' + displayKey + '</div>' +
     '<div class="event-body">' + option.label + '</div></div>';
   feed.appendChild(resultEntry);
   feed.scrollTop = feed.scrollHeight;
@@ -1753,6 +1829,9 @@ function showDebrief() {
       var fHours = Math.floor(fd.time / 60);
       var fMins = fd.time % 60;
       var wasCorrect = fd.key === fn.bestPractice;
+      // Letters were shuffled for this session, so report the ones the player saw.
+      var choseLetter = fd.displayKey || fd.key;
+      var bestLetter = displayLetterForRecorded(fd.decisionId, fn.bestPractice);
       var fIcon = wasCorrect ? '\u2705' : '\u26A0\uFE0F';
 
       facGuideHTML += '<div style="padding:12px 0;border-bottom:1px solid var(--border);">' +
@@ -1761,7 +1840,7 @@ function showDebrief() {
           fIcon + ' <strong style="font-size:12px;">' + fd.title + '</strong></div>' +
           '<span style="font-size:10px;padding:2px 8px;border-radius:3px;' +
           (wasCorrect ? 'background:rgba(79,195,247,0.1);color:var(--accent-green);' : 'background:rgba(255,183,77,0.1);color:var(--accent-amber);') +
-          '">Chose ' + fd.key + ' / Best: ' + fn.bestPractice + '</span>' +
+          '">Chose ' + choseLetter + ' / Best: ' + bestLetter + '</span>' +
         '</div>' +
         '<div style="font-size:11px;color:var(--text-primary);margin-bottom:4px;">Chose: ' + fd.label + '</div>' +
         '<div style="font-size:11px;color:var(--accent-blue);margin-bottom:6px;font-weight:500;">\uD83C\uDFAF ' + fn.learningObjective + '</div>' +

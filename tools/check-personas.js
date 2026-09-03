@@ -75,6 +75,22 @@ function checkPersona(ctx, id, errors, counts) {
     ['learningObjective', 'bestPractice', 'teachingNote', 'references', 'discussionPrompts'].forEach(function (f) {
       if (!n[f]) fail('FACILITATOR_NOTES["' + d.decisionId + '"] missing ' + f);
     });
+    // 2a. bestPractice must be the highest-scoring option, or the guide teaches
+    //     one answer while the score rewards another - prin_food taught A at 4
+    //     points while D scored 5.
+    if (n.bestPractice && optionKeys(d).indexOf(n.bestPractice) !== -1) {
+      var top = -Infinity, topKeys = [];
+      d.options.forEach(function (o) {
+        var sc = (o.effect && o.effect.score) || 0;
+        if (sc > top) { top = sc; topKeys = [o.key]; }
+        else if (sc === top) topKeys.push(o.key);
+      });
+      if (topKeys.indexOf(n.bestPractice) === -1) {
+        fail('FACILITATOR_NOTES["' + d.decisionId + '"].bestPractice is "' + n.bestPractice +
+          '" but the highest score (' + top + ') belongs to ' + topKeys.join('/'));
+      }
+    }
+
     // 2. bestPractice names a real option key.
     if (n.bestPractice && optionKeys(d).indexOf(n.bestPractice) === -1) {
       fail('FACILITATOR_NOTES["' + d.decisionId + '"].bestPractice "' + n.bestPractice + '" is not an option key');
