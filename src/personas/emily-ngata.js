@@ -952,9 +952,9 @@
       prompt: 'How do you prioritise treatment?',
       options: [
         { key: 'A', label: 'Run a structured triage by clinical urgency and survivability - treat those who die without immediate care but can survive with it, hold the walking wounded, recognise the expectant', desc: 'The disaster-medicine standard: a transparent, consistent system that saves the most lives, however hard the categories feel.', effect: { score: 5 } },
-        { key: 'B', label: 'Treat the most seriously injured first, regardless of survival odds', desc: 'Pouring scarce effort into the unsurvivable means the salvageable patients next to them die waiting.', effect: { score: -2 } },
-        { key: 'C', label: 'Treat all children first', desc: 'Humane by instinct, but age is not urgency; a child with a sprain ahead of an adult who is bleeding out costs lives.', effect: { score: -3 } },
-        { key: 'D', label: 'See people in the order they arrived to be fair', desc: 'First-come-first-served abandons triage entirely; the sickest, who often cannot queue, die in the carpark.', effect: { score: -5 } }
+        { key: 'B', label: 'Treat the most seriously injured first regardless of their survival odds, because the sickest person in the room has the strongest claim on you', desc: 'Pouring scarce effort into the unsurvivable means the salvageable patients next to them die waiting.', effect: { score: -2 } },
+        { key: 'C', label: 'Treat all of the children first, on the basis that they have the most life ahead of them and no parent in that carpark would argue otherwise', desc: 'Humane by instinct, but age is not urgency; a child with a sprain ahead of an adult who is bleeding out costs lives.', effect: { score: -3 } },
+        { key: 'D', label: 'See people strictly in the order they arrived, so the process is transparently fair and nobody has to be told that somebody else came first', desc: 'First-come-first-served abandons triage entirely; the sickest, who often cannot queue, die in the carpark.', effect: { score: -5 } }
       ]
     },
     {
@@ -969,9 +969,9 @@
       prompt: 'How do you handle the conflicting advice?',
       options: [
         { key: 'A', label: 'Take what is useful from each, decide locally against what you can actually see, and tell each channel plainly what you are doing and why', desc: 'Remote advisers cannot see your carpark. Local clinical judgement, openly explained, keeps every channel useful instead of paralysing.', effect: { score: 5 } },
-        { key: 'B', label: 'Follow the regional hospital - they are the senior clinical authority', desc: '"Transfer all" is undeliverable on closed roads; you spend the morning organising transfers that cannot happen while patients wait.', effect: { score: -4 } },
-        { key: 'C', label: 'Follow whichever advice arrived most recently', desc: 'Lets the order of the phone queue set your clinical policy, so the plan reverses every time the sat phone rings.', effect: { score: -3 } },
-        { key: 'D', label: 'Stop answering the sat phone until the surge is under control', desc: 'Cuts you off from resupply, transfer windows and the one link that still works - the advice was conflicting, not worthless.', effect: { score: -3 } }
+        { key: 'B', label: 'Follow the regional hospital in every case, since they are the senior clinical authority and the one that will be reviewing your decisions later', desc: '"Transfer all" is undeliverable on closed roads; you spend the morning organising transfers that cannot happen while patients wait.', effect: { score: -4 } },
+        { key: 'C', label: 'Follow whichever advice arrived most recently, on the basis that the latest message is likely to reflect the most current picture', desc: 'Lets the order of the phone queue set your clinical policy, so the plan reverses every time the sat phone rings.', effect: { score: -3 } },
+        { key: 'D', label: 'Stop answering the satellite phone until the surge is under control, so that four competing voices stop pulling clinicians off the floor', desc: 'Cuts you off from resupply, transfer windows and the one link that still works - the advice was conflicting, not worthless.', effect: { score: -3 } }
       ]
     },
     {
@@ -984,9 +984,9 @@
       prompt: 'Do you stay or go to find your family?',
       options: [
         { key: 'A', label: 'Stay and lead, and send the 4WD and a sat-phone message to check on your family and get word back', desc: 'As one of two doctors, your presence is itself a critical resource. Delegate the check, stay and lead, and name the cost.', effect: { score: 5 } },
-        { key: 'B', label: 'Leave now to find your family yourself', desc: 'Removing the clinical lead from a mass-casualty scene collapses the response for 65 people who have no one else.', effect: { score: -6 } },
-        { key: 'C', label: 'Stay, but say nothing and push the fear down', desc: 'Suppressed, unaddressed terror about your own children quietly degrades the very judgement the team depends on.', effect: { score: -3 } },
-        { key: 'D', label: 'Send a nurse to the school to check on your children', desc: 'Pulls a needed clinician off the floor for your personal worry when the 4WD and a message could do it.', effect: { score: -2 } }
+        { key: 'B', label: 'Leave now and go and find your family yourself, because nobody else can identify your children and you cannot work while you do not know', desc: 'Removing the clinical lead from a mass-casualty scene collapses the response for 65 people who have no one else.', effect: { score: -6 } },
+        { key: 'C', label: 'Stay and lead, but say nothing to anyone and push the fear down, so the team never sees that their clinical lead is frightened', desc: 'Suppressed, unaddressed terror about your own children quietly degrades the very judgement the team depends on.', effect: { score: -3 } },
+        { key: 'D', label: 'Send one of your two nurses to the school to check on your children, since they can be there and back in twenty minutes on the 4WD', desc: 'Pulls a needed clinician off the floor for your personal worry when the 4WD and a message could do it.', effect: { score: -2 } }
       ]
     },
     {
@@ -1006,9 +1006,9 @@
       prompt: 'How do you allocate the oxygen?',
       options: [
         { key: 'A', label: 'Allocate to those most likely to benefit and survive with it and be weaned (e.g. the reversible asthma), reassess continually, and be transparent about the basis', desc: 'Crisis standards of care: scarce, life-sustaining oxygen goes where it does the most good, reviewed as patients change.', effect: { score: 5 } },
-        { key: 'B', label: 'Give oxygen to the sickest, lowest-survivability patients first', desc: 'Spends a finite resource on those least likely to survive while reversible patients deteriorate without it.', effect: { score: -3 } },
-        { key: 'C', label: 'First-come, first-served as they were brought in', desc: 'Order of arrival has nothing to do with who will live or die; it just removes clinical judgement.', effect: { score: -3 } },
-        { key: 'D', label: 'Freeze - the choice is unbearable, so you delay deciding', desc: 'Indecision is itself a decision, and the patients who needed oxygen now are the ones it fails.', effect: { score: -4 } }
+        { key: 'B', label: 'Give the oxygen to the sickest patients first regardless of survivability, because need is the only basis you are willing to be judged on', desc: 'Spends a finite resource on those least likely to survive while reversible patients deteriorate without it.', effect: { score: -3 } },
+        { key: 'C', label: 'Allocate first-come first-served in the order they were carried in, so that no clinician has to rank one patient above another by hand', desc: 'Order of arrival has nothing to do with who will live or die; it just removes clinical judgement.', effect: { score: -3 } },
+        { key: 'D', label: 'Hold off deciding while you gather more information, because choosing which of them breathes is not a call anyone should make in ninety seconds', desc: 'Indecision is itself a decision, and the patients who needed oxygen now are the ones it fails.', effect: { score: -4 } }
       ]
     },
     {
@@ -1021,9 +1021,9 @@
       prompt: 'How do you manage the dialysis patients?',
       options: [
         { key: 'A', label: 'Start conservative management now - fluid and potassium restriction, monitoring and bloods where you can - and put them on the transfer priority list with a named clinical deadline', desc: 'Buys real days for patients on a slower clock, and puts a date on the transfer so they are not forgotten behind the trauma.', effect: { score: 5 } },
-        { key: 'B', label: 'Do nothing until they become acutely unwell - the trauma casualties come first', desc: 'By the time a missed-dialysis patient is acutely unwell you have lost the window where simple measures would have worked.', effect: { score: -4 } },
-        { key: 'C', label: 'Use your scarce transfer capacity on them immediately, ahead of the acute casualties', desc: 'Spends a rare transfer window on patients with days in hand, while a patient with hours does not get it.', effect: { score: -3 } },
-        { key: 'D', label: 'Tell the families there is nothing you can do', desc: 'Untrue - conservative management and a place on the transfer list are both available, and both matter.', effect: { score: -4 } }
+        { key: 'B', label: 'Do nothing for them until they become acutely unwell, since the crush injuries in front of you will die today and dialysis patients have days', desc: 'By the time a missed-dialysis patient is acutely unwell you have lost the window where simple measures would have worked.', effect: { score: -4 } },
+        { key: 'C', label: 'Use your scarce transfer capacity on them straight away, ahead of the acute casualties, because without a machine they have no local option at all', desc: 'Spends a rare transfer window on patients with days in hand, while a patient with hours does not get it.', effect: { score: -3 } },
+        { key: 'D', label: 'Tell the families honestly that there is nothing you can do for them here, so that nobody is given false hope about a machine you do not have', desc: 'Untrue - conservative management and a place on the transfer list are both available, and both matter.', effect: { score: -4 } }
       ]
     },
     {
@@ -1035,9 +1035,9 @@
       prompt: 'How do you use the scarce blood?',
       options: [
         { key: 'A', label: 'Use it decisively on the most salvageable immediate life-threat (the haemorrhaging mother), with stewardship and a clear record, and request urgent resupply', desc: 'Blood saves the life in front of you that is most salvageable now; stewardship and a resupply request manage the future risk.', effect: { score: 5 } },
-        { key: 'B', label: 'Spread small amounts across all three to be fair', desc: 'Sub-therapeutic transfusion helps no one fully and may waste a resource that could have saved one life outright.', effect: { score: -2 } },
-        { key: 'C', label: 'Hold all the blood back for casualties who might arrive later', desc: 'Lets a salvageable mother haemorrhage now on the chance of a future patient who may never come.', effect: { score: -5 } },
-        { key: 'D', label: 'Give it to the farmer because he is the most visibly distressed', desc: 'Distress is not the clinical question; this allocates a life-saving resource on the wrong basis.', effect: { score: -3 } }
+        { key: 'B', label: 'Spread small amounts of blood across all three patients, so that each of them gets something and no family is told their relative got nothing', desc: 'Sub-therapeutic transfusion helps no one fully and may waste a resource that could have saved one life outright.', effect: { score: -2 } },
+        { key: 'C', label: 'Hold all four units back for casualties who may still arrive, since the roads are being cleared and worse injuries could come through the door', desc: 'Lets a salvageable mother haemorrhage now on the chance of a future patient who may never come.', effect: { score: -5 } },
+        { key: 'D', label: 'Give it to the farmer, who is the most visibly distressed and whose family is standing in the corridor watching everything you do', desc: 'Distress is not the clinical question; this allocates a life-saving resource on the wrong basis.', effect: { score: -3 } }
       ]
     },
     {
@@ -1049,9 +1049,9 @@
       prompt: 'How do you manage the pain relief?',
       options: [
         { key: 'A', label: 'Ration deliberately: reserve opioids for severe pain and procedures, use every other analgesic you have for the rest, and tell patients honestly what they are getting and why', desc: 'A stated rule applied consistently, with honest explanation - the only way scarce analgesia reaches the pain that most needs it.', effect: { score: 5 } },
-        { key: 'B', label: 'Give everyone adequate pain relief now and worry about resupply later', desc: 'Empties the supply within hours, so tonight’s fracture reductions and tomorrow’s casualties get nothing at all.', effect: { score: -4 } },
-        { key: 'C', label: 'Withhold morphine almost entirely to preserve it for a surgical emergency', desc: 'Leaves patients in severe, treatable pain for a hypothetical case, which is its own kind of harm.', effect: { score: -4 } },
-        { key: 'D', label: 'Let each clinician use their own judgement with no shared rule', desc: 'Without a shared rule the supply drains unevenly and two patients with identical injuries get very different care.', effect: { score: -3 } }
+        { key: 'B', label: 'Give everyone adequate pain relief now and deal with resupply when it becomes a problem, because people are screaming in a carpark tonight', desc: 'Empties the supply within hours, so tonight’s fracture reductions and tomorrow’s casualties get nothing at all.', effect: { score: -4 } },
+        { key: 'C', label: 'Withhold morphine almost entirely so it is preserved for a surgical emergency, and manage everything else with whatever else is on the shelf', desc: 'Leaves patients in severe, treatable pain for a hypothetical case, which is its own kind of harm.', effect: { score: -4 } },
+        { key: 'D', label: 'Let each clinician use their own judgement with no shared rule, since they are all experienced and know their own patients better than you do', desc: 'Without a shared rule the supply drains unevenly and two patients with identical injuries get very different care.', effect: { score: -3 } }
       ]
     },
     {
@@ -1063,9 +1063,9 @@
       prompt: 'Who gets the ventilator?',
       options: [
         { key: 'A', label: 'Allocate by best survival chance with ventilation, document the rationale, and reassess if a patient deteriorates beyond saving', desc: 'A single ventilator goes to the patient most likely to survive because of it - a transparent, reviewable clinical judgement.', effect: { score: 5 } },
-        { key: 'B', label: 'Give it to the most critically deteriorating patient regardless of odds', desc: 'Tying up the only ventilator on the least survivable patient lets a salvageable one die.', effect: { score: -3 } },
-        { key: 'C', label: 'Give it to the elderly patient because they arrived first', desc: 'Arrival order is not survivability; this is not how a single life-support device should be allocated.', effect: { score: -3 } },
-        { key: 'D', label: 'Refuse to choose and hand-ventilate all three by rotation', desc: 'Manual rotation across three patients with two doctors and 65 casualties is unsustainable and fails all of them.', effect: { score: -5 } }
+        { key: 'B', label: 'Give the ventilator to the most critically deteriorating patient regardless of the odds, because the sickest person has the greatest need', desc: 'Tying up the only ventilator on the least survivable patient lets a salvageable one die.', effect: { score: -3 } },
+        { key: 'C', label: 'Give it to the elderly patient on the grounds that they arrived first, so the allocation rests on something nobody can argue was a judgement', desc: 'Arrival order is not survivability; this is not how a single life-support device should be allocated.', effect: { score: -3 } },
+        { key: 'D', label: 'Refuse to choose and hand-ventilate all three in rotation, so that every one of them gets a share and no single patient is written off', desc: 'Manual rotation across three patients with two doctors and 65 casualties is unsustainable and fails all of them.', effect: { score: -5 } }
       ]
     },
     {
@@ -1077,9 +1077,9 @@
       prompt: 'How do you care for the expectant patients?',
       options: [
         { key: 'A', label: 'Move them to comfort-focused care with pain relief, dignity, privacy and someone with them, document the decision, and redirect active treatment to the salvageable', desc: 'Expectant is a care category, not abandonment. Comfort, dignity and company are owed; the active effort goes where it changes an outcome.', effect: { score: 5 } },
-        { key: 'B', label: 'Continue full active treatment on both regardless', desc: 'Consumes the staff and supplies that would save other patients, without changing what happens to these two.', effect: { score: -4 } },
-        { key: 'C', label: 'Withdraw everything, including pain relief, to conserve supplies', desc: 'Expectant care still means analgesia and dignity. Withdrawing comfort is not resource stewardship, it is abandonment.', effect: { score: -6 } },
-        { key: 'D', label: 'Avoid the decision and leave them in the corridor untreated', desc: 'The worst of both: they get neither comfort nor cure, in public, while your team improvises around them.', effect: { score: -5 } }
+        { key: 'B', label: 'Continue full active treatment on both of them regardless of the odds, because withdrawing care is not a decision to make in a carpark', desc: 'Consumes the staff and supplies that would save other patients, without changing what happens to these two.', effect: { score: -4 } },
+        { key: 'C', label: 'Withdraw everything from them including pain relief, so that the drugs and staff time go to patients who can still be saved tonight', desc: 'Expectant care still means analgesia and dignity. Withdrawing comfort is not resource stewardship, it is abandonment.', effect: { score: -6 } },
+        { key: 'D', label: 'Leave them in the corridor without a decision either way, since something may change and nobody has to be the person who called it', desc: 'The worst of both: they get neither comfort nor cure, in public, while your team improvises around them.', effect: { score: -5 } }
       ]
     },
     {
@@ -1091,9 +1091,9 @@
       prompt: 'Do you continue CPR or redirect the team?',
       options: [
         { key: 'A', label: 'Stop prolonged CPR and redirect the team to the three salvageable children, document the decision, and support the staff through it', desc: 'In a mass-casualty event effort follows survivability. It is moral injury, but it gives three children the chance the arrest cannot use.', effect: { score: 5 } },
-        { key: 'B', label: 'Continue full CPR on the 79-year-old and have the children wait', desc: 'Ties up scarce staff in a low-survivability resuscitation while three salvageable children deteriorate untreated.', effect: { score: -5 } },
-        { key: 'C', label: 'Split the team - half on CPR, half on the children', desc: 'Halves the team on both, likely failing the arrest anyway and slowing care to the children who could be saved.', effect: { score: -3 } },
-        { key: 'D', label: 'Hand the decision to a junior nurse and step away', desc: 'Offloads the hardest call of the day onto someone without the authority or support to carry it.', effect: { score: -4 } }
+        { key: 'B', label: 'Continue full CPR on the 79-year-old and have the children wait, because stopping resuscitation on somebody with a rhythm is not something you do', desc: 'Ties up scarce staff in a low-survivability resuscitation while three salvageable children deteriorate untreated.', effect: { score: -5 } },
+        { key: 'C', label: 'Split the team so half stay on the CPR and half go to the children, and nobody has to be abandoned while there is still anything to try', desc: 'Halves the team on both, likely failing the arrest anyway and slowing care to the children who could be saved.', effect: { score: -3 } },
+        { key: 'D', label: 'Hand the decision to the junior nurse running the bay and step away, so the call is made by whoever is closest to the patient', desc: 'Offloads the hardest call of the day onto someone without the authority or support to carry it.', effect: { score: -4 } }
       ]
     },
     {
@@ -1106,9 +1106,9 @@
       prompt: 'Whose wishes prevail?',
       options: [
         { key: 'A', label: 'Confirm he has capacity, check the refusal is informed rather than despairing, honour it, document it, and support the family through it', desc: 'A competent adult’s informed refusal stands, even when the family disagrees - but only after you have checked it is a real choice and not despair.', effect: { score: 5 } },
-        { key: 'B', label: 'Treat him anyway because the family insists', desc: 'Treating a competent adult against his stated wishes to satisfy his relatives is assault, however kindly meant.', effect: { score: -4 } },
-        { key: 'C', label: 'Accept the refusal immediately without checking capacity or exploring it', desc: 'A refusal driven by guilt or despair is not an informed one; accepting it unexamined is not respecting autonomy.', effect: { score: -3 } },
-        { key: 'D', label: 'Let the family argue it out and treat whoever they settle on', desc: 'Hands a clinical and legal decision that is yours to a distressed family in a corridor.', effect: { score: -4 } }
+        { key: 'B', label: 'Treat him anyway because his family is insisting and they will have to live with the outcome long after tonight is over', desc: 'Treating a competent adult against his stated wishes to satisfy his relatives is assault, however kindly meant.', effect: { score: -4 } },
+        { key: 'C', label: 'Accept the refusal immediately without checking capacity or exploring it further, because a competent adult refusing treatment is his right', desc: 'A refusal driven by guilt or despair is not an informed one; accepting it unexamined is not respecting autonomy.', effect: { score: -3 } },
+        { key: 'D', label: 'Let the family argue it out among themselves and act on whatever they settle on, since they know him and you have eighty other patients', desc: 'Hands a clinical and legal decision that is yours to a distressed family in a corridor.', effect: { score: -4 } }
       ]
     },
     {
@@ -1130,9 +1130,9 @@
       prompt: 'How do you respond to the school’s call?',
       options: [
         { key: 'A', label: 'Send a small, capable team with a triage kit only if the centre can survive it, coordinate with Civil Defence/first-aiders, and push for any available transport', desc: 'A targeted forward response that does not collapse the casualty hub, while mobilising other help. Balances both life-safety needs.', effect: { score: 5 } },
-        { key: 'B', label: 'Send most of your clinical staff to the school', desc: 'Stripping the centre to respond to the school abandons 80+ casualties who have nowhere else to go.', effect: { score: -6 } },
-        { key: 'C', label: 'Refuse to send anyone and keep all staff at the centre', desc: 'Defensible as triage, but sending nothing to five dying children when a small team could have gone is hard to justify.', effect: { score: -2 } },
-        { key: 'D', label: 'Go to the school yourself because your own children are there', desc: 'Removes the clinical lead from the casualty hub, and lets your personal stake override the population decision.', effect: { score: -4 } }
+        { key: 'B', label: 'Send most of your clinical staff to the school, since there are children trapped there and you have two doctors standing in a carpark', desc: 'Stripping the centre to respond to the school abandons 80+ casualties who have nowhere else to go.', effect: { score: -6 } },
+        { key: 'C', label: 'Refuse to send anyone at all and hold every clinician at the centre, because the eighty casualties already here are your responsibility', desc: 'Defensible as triage, but sending nothing to five dying children when a small team could have gone is hard to justify.', effect: { score: -2 } },
+        { key: 'D', label: 'Go to the school yourself, because your own children are there and you are the most experienced clinician available to the ones who are trapped', desc: 'Removes the clinical lead from the casualty hub, and lets your personal stake override the population decision.', effect: { score: -4 } }
       ]
     },
     {
@@ -1144,9 +1144,9 @@
       prompt: 'What do you do?',
       options: [
         { key: 'A', label: 'Take sixty seconds to hold them, hand them to a trusted staff member or family friend with something useful to do, and go straight to the incoming patient', desc: 'Sixty seconds settles your child and settles you. Giving them a job and a safe adult keeps them out of the resus room without sending them away.', effect: { score: 5 } },
-        { key: 'B', label: 'Leave with your child now', desc: 'Your child is safe and uninjured; the patient coming through the door is neither. Walking out now abandons the whole response.', effect: { score: -6 } },
-        { key: 'C', label: 'Send them away without stopping', desc: 'Defensible under pressure, but a frightened child turned away at the door is a wound you will both carry, and it takes no longer to do it kindly.', effect: { score: -2 } },
-        { key: 'D', label: 'Keep them at your side through the resuscitation', desc: 'Exposes your child to a traumatic death and divides your attention at the exact moment the patient needs all of it.', effect: { score: -3 } }
+        { key: 'B', label: 'Leave with your child now and get them somewhere safe, because you are their mother before you are anybody else’s clinical lead tonight', desc: 'Your child is safe and uninjured; the patient coming through the door is neither. Walking out now abandons the whole response.', effect: { score: -6 } },
+        { key: 'C', label: 'Send them away with whoever brought them without stopping what you are doing, so the resuscitation in front of you is never interrupted', desc: 'Defensible under pressure, but a frightened child turned away at the door is a wound you will both carry, and it takes no longer to do it kindly.', effect: { score: -2 } },
+        { key: 'D', label: 'Keep them at your side through the resuscitation, so you can see they are safe and they can see that you have not disappeared on them', desc: 'Exposes your child to a traumatic death and divides your attention at the exact moment the patient needs all of it.', effect: { score: -3 } }
       ]
     },
     {
@@ -1159,9 +1159,9 @@
       prompt: 'Who gets the one transfer?',
       options: [
         { key: 'A', label: 'Transfer the patient who is salvageable but will die without the definitive care only the hospital can give', desc: 'The transfer goes where it changes survival - clinical benefit and time-criticality, not occupation or sympathy.', effect: { score: 5 } },
-        { key: 'B', label: 'Transfer the most critically injured patient regardless of whether transfer can save them', desc: 'Spends the one transfer on someone it likely cannot save, while a patient it could save stays behind.', effect: { score: -3 } },
-        { key: 'C', label: 'Transfer the firefighter or Police officer to get an essential worker back on duty', desc: 'Status and utility are not the triage question for a clinical transfer; it should follow medical benefit.', effect: { score: -3 } },
-        { key: 'D', label: 'Delay the ambulance until you are completely sure', desc: 'A rare transfer window sits idle while you deliberate, and the patient who needed it loses the chance.', effect: { score: -4 } }
+        { key: 'B', label: 'Transfer the most critically injured patient regardless of whether the transfer can save them, because the sickest person gets the only vehicle', desc: 'Spends the one transfer on someone it likely cannot save, while a patient it could save stays behind.', effect: { score: -3 } },
+        { key: 'C', label: 'Transfer the firefighter or the Police officer, on the basis that getting an essential worker back on duty helps everybody still trapped out there', desc: 'Status and utility are not the triage question for a clinical transfer; it should follow medical benefit.', effect: { score: -3 } },
+        { key: 'D', label: 'Hold the ambulance until you are completely sure of the right choice, rather than commit your only transfer to the wrong patient', desc: 'A rare transfer window sits idle while you deliberate, and the patient who needed it loses the chance.', effect: { score: -4 } }
       ]
     },
     {
@@ -1181,9 +1181,9 @@
       prompt: 'How do you respond to the structural warning?',
       options: [
         { key: 'A', label: 'Safely complete or pause the critical procedures while beginning a controlled, staged evacuation of everyone else to an alternative space', desc: 'Takes the structural warning seriously without abandoning surgical patients - stage the move, protect the sickest, stand up an alternative.', effect: { score: 5 } },
-        { key: 'B', label: 'Evacuate immediately, including stopping the procedures and moving everyone at once', desc: 'A panicked all-at-once evacuation that interrupts surgery can kill the very patients you are moving.', effect: { score: -3 } },
-        { key: 'C', label: 'Ignore the engineer and keep operating - you cannot move 80 casualties', desc: 'Overriding a structural-safety warning gambles every life in the building on the next aftershock missing.', effect: { score: -6 } },
-        { key: 'D', label: 'Wait for a second engineer to confirm before doing anything', desc: 'Delays acting on a clear safety warning while patients and staff remain in a building flagged as unsafe.', effect: { score: -2 } }
+        { key: 'B', label: 'Evacuate immediately, stopping the procedures mid-way and moving everybody at once, because a building the engineer will not sign off is not one to argue in', desc: 'A panicked all-at-once evacuation that interrupts surgery can kill the very patients you are moving.', effect: { score: -3 } },
+        { key: 'C', label: 'Ignore the engineer and keep operating, because you cannot move eighty casualties into a carpark in the dark on one person’s opinion', desc: 'Overriding a structural-safety warning gambles every life in the building on the next aftershock missing.', effect: { score: -6 } },
+        { key: 'D', label: 'Wait for a second engineer to confirm the assessment before doing anything, so that eighty people are not moved twice on a contested judgement', desc: 'Delays acting on a clear safety warning while patients and staff remain in a building flagged as unsafe.', effect: { score: -2 } }
       ]
     },
     {
@@ -1196,12 +1196,12 @@
       prompt: 'What stays powered?',
       options: [
         { key: 'A', label: 'Power life support and the resuscitation room first, then the fridge, and drop lighting and everything else to torches and head lamps', desc: 'A stated priority order that protects life support and the cold chain, and accepts working by torchlight as the cost.', effect: { score: 5 } },
-        { key: 'B', label: 'Keep the ventilator and concentrator running and let the fridge go', desc: 'Life support is the right first call, but writing off the fridge outright loses the insulin and vaccines when a few hours of cycling would have saved them.', effect: { score: -3 },
+        { key: 'B', label: 'Keep the ventilator and the oxygen concentrator running and let the fridge go, since a patient breathing now outranks medication for next week', desc: 'Life support is the right first call, but writing off the fridge outright loses the insulin and vaccines when a few hours of cycling would have saved them.', effect: { score: -3 },
           locked: function (log) {
             return log['ngata_ventilator'] === 'D' ? 'No patient is on the ventilator - you chose to hand-ventilate by rotation' : false;
           } },
-        { key: 'C', label: 'Keep everything running and hope the fuel lasts', desc: 'Runs the tank dry hours early and takes life support down with it, with no warning and nothing prioritised.', effect: { score: -5 } },
-        { key: 'D', label: 'Shut the generator down entirely to save fuel for the night', desc: 'Saves fuel by switching off the ventilator and the cold chain now - the thing the fuel exists to protect.', effect: { score: -4 } }
+        { key: 'C', label: 'Keep everything running as it is and hope the fuel lasts until morning, rather than start switching off equipment somebody may need', desc: 'Runs the tank dry hours early and takes life support down with it, with no warning and nothing prioritised.', effect: { score: -5 } },
+        { key: 'D', label: 'Shut the generator down entirely to save every litre for the night ahead, when the cold and the dark will make everything harder', desc: 'Saves fuel by switching off the ventilator and the cold chain now - the thing the fuel exists to protect.', effect: { score: -4 } }
       ]
     },
     {
@@ -1217,9 +1217,9 @@
           locked: function (log) {
             return log['ngata_morphine'] === 'B' ? 'There is nothing left to split - the pain relief was used up hours ago' : false;
           } },
-        { key: 'B', label: 'Hand over everything they ask for - trapped people come first', desc: 'Empties the casualty-clearing hub of the supplies it needs to keep clearing casualties, including the next surge.', effect: { score: -4 } },
-        { key: 'C', label: 'Refuse - your patients come first, full stop', desc: 'Leaves a rescue of trapped, dying people without the supplies you could have shared from a managed split.', effect: { score: -2 } },
-        { key: 'D', label: 'Tell them to source it from the regional hospital instead', desc: 'The hospital is 90 minutes away and cut off; this is a non-answer dressed up as a referral.', effect: { score: -2 } }
+        { key: 'B', label: 'Hand over everything they ask for, because people trapped under a building will die tonight and your patients are at least under a roof', desc: 'Empties the casualty-clearing hub of the supplies it needs to keep clearing casualties, including the next surge.', effect: { score: -4 } },
+        { key: 'C', label: 'Refuse the request outright - your eighty patients come first, and every dressing that leaves this building is one you cannot replace', desc: 'Leaves a rescue of trapped, dying people without the supplies you could have shared from a managed split.', effect: { score: -2 } },
+        { key: 'D', label: 'Tell them to source it from the regional hospital instead, since that is where the supply chain sits and you are already running on fumes', desc: 'The hospital is 90 minutes away and cut off; this is a non-answer dressed up as a referral.', effect: { score: -2 } }
       ]
     },
     {
@@ -1252,9 +1252,9 @@
           locked: function (log) {
             return log['ngata_oxygen'] === 'B' ? 'Nothing can be spared - your oxygen is committed to patients who cannot be weaned off it' : false;
           } },
-        { key: 'B', label: 'Keep all the oxygen for your current patients', desc: 'Defensible for the patients you can see, but writes off vulnerable evacuees you could have helped with a managed share.', effect: { score: -2 } },
-        { key: 'C', label: 'Send all the oxygen to the welfare centre for the greater number', desc: 'Leaves your current oxygen-dependent critical patients without the resource keeping them alive right now.', effect: { score: -5 } },
-        { key: 'D', label: 'Refuse to decide and tell Civil Defence to sort it out', desc: 'Punts a clinical-ethical allocation you are best placed to make, and helps no one while you defer.', effect: { score: -3 } }
+        { key: 'B', label: 'Keep all of the oxygen here for your current patients, because you can see them and you cannot see whoever the welfare centre is worried about', desc: 'Defensible for the patients you can see, but writes off vulnerable evacuees you could have helped with a managed share.', effect: { score: -2 } },
+        { key: 'C', label: 'Send all the oxygen to the welfare centre, since there are more people there and the greater number has the stronger claim on a scarce resource', desc: 'Leaves your current oxygen-dependent critical patients without the resource keeping them alive right now.', effect: { score: -5 } },
+        { key: 'D', label: 'Refuse to decide and tell Civil Defence to sort the allocation out themselves, since coordinating scarce resources is precisely their job', desc: 'Punts a clinical-ethical allocation you are best placed to make, and helps no one while you defer.', effect: { score: -3 } }
       ]
     },
     {
@@ -1267,9 +1267,9 @@
       prompt: 'How do you keep medication moving?',
       options: [
         { key: 'A', label: 'Treat him as a patient, then stand up a supervised dispensing process under your clinical authority with a nurse and the practice manager, recording everything issued', desc: 'Uses the authority you do have, keeps a governance trail, and treats the collapsed pharmacist as the patient he now is.', effect: { score: 5 } },
-        { key: 'B', label: 'Stop dispensing until he recovers', desc: 'A town-wide medication gap of unknown length, when a supervised process under your authority was available.', effect: { score: -4 } },
-        { key: 'C', label: 'Let residents help themselves from the pharmacy under loose supervision', desc: 'An unsupervised open pharmacy is a controlled-drug and patient-safety catastrophe you will never be able to account for.', effect: { score: -6 } },
-        { key: 'D', label: 'Wake him and put him back on his feet', desc: 'Sends a collapsed clinician back to dispense controlled medication - unsafe for him and for everyone he serves.', effect: { score: -5 } }
+        { key: 'B', label: 'Stop all dispensing until he recovers, because medication issued without a pharmacist is exactly the sort of thing that ends careers', desc: 'A town-wide medication gap of unknown length, when a supervised process under your authority was available.', effect: { score: -4 } },
+        { key: 'C', label: 'Let residents help themselves from the pharmacy under loose supervision, since most of them know their own repeats better than anyone here does', desc: 'An unsupervised open pharmacy is a controlled-drug and patient-safety catastrophe you will never be able to account for.', effect: { score: -6 } },
+        { key: 'D', label: 'Wake him and get him back on his feet with strong coffee, because he is the only person in the district licensed to do the job', desc: 'Sends a collapsed clinician back to dispense controlled medication - unsafe for him and for everyone he serves.', effect: { score: -5 } }
       ]
     },
     {
@@ -1281,9 +1281,9 @@
       prompt: 'How do you handle your exhausted team?',
       options: [
         { key: 'A', label: 'Enforce mandatory rest and rotation, reduce to essential services, and rest yourself too - a fatigued team is a patient-safety hazard', desc: 'Protects both staff and patients: a brief, structured rest prevents the errors that fatigue is already starting to cause.', effect: { score: 5 } },
-        { key: 'B', label: 'Push everyone through - the patients cannot wait', desc: 'Fatigued clinicians making errors harm the very patients you are trying to save; "push through" is how the next error reaches someone.', effect: { score: -5 } },
-        { key: 'C', label: 'Let staff rest only if they ask, otherwise keep going', desc: 'The most exhausted and committed never ask; leaving rest to self-report fails exactly the people most at risk.', effect: { score: -1 } },
-        { key: 'D', label: 'Send the most upset staff home and work the rest harder', desc: 'Loses people you need and overloads the remainder, accelerating the fatigue spiral rather than breaking it.', effect: { score: -3 } }
+        { key: 'B', label: 'Push everyone through the night, because the patients cannot wait and there is nobody coming to relieve any of you before morning', desc: 'Fatigued clinicians making errors harm the very patients you are trying to save; "push through" is how the next error reaches someone.', effect: { score: -5 } },
+        { key: 'C', label: 'Let staff rest only if they ask for it, so that nobody is stood down who still has something left and the willing keep working', desc: 'The most exhausted and committed never ask; leaving rest to self-report fails exactly the people most at risk.', effect: { score: -1 } },
+        { key: 'D', label: 'Send the most visibly upset staff home and work the rest harder, so the people still holding together are not slowed down by distress', desc: 'Loses people you need and overloads the remainder, accelerating the fatigue spiral rather than breaking it.', effect: { score: -3 } }
       ]
     },
     {
@@ -1304,9 +1304,9 @@
       prompt: 'How do you answer the journalist?',
       options: [
         { key: 'A', label: 'Be honest about the uncertainty: give what you can confirm, decline to invent a toll, and state plainly what the centre is doing and needs', desc: 'Honest, bounded and decision-useful - it builds trust and quietly corrects the rumours without a number you cannot stand behind.', effect: { score: 5 } },
-        { key: 'B', label: 'Give an off-the-cuff estimate to satisfy them', desc: 'A guessed death toll, wrong in either direction, becomes "fact" and detonates trust when the real numbers emerge.', effect: { score: -4 } },
-        { key: 'C', label: 'Refuse to say anything at all', desc: 'A flat no-comment cedes the story to the "people are dying in corridors" rumour already filling the gap.', effect: { score: -3 } },
-        { key: 'D', label: 'Downplay it to keep the community calm', desc: 'Minimising the truth buys quiet now and costs you all credibility the moment the scale becomes clear.', effect: { score: -3 } }
+        { key: 'B', label: 'Give an off-the-cuff estimate to satisfy them and get them off the phone, because a number now buys you a clear run at the floor', desc: 'A guessed death toll, wrong in either direction, becomes "fact" and detonates trust when the real numbers emerge.', effect: { score: -4 } },
+        { key: 'C', label: 'Refuse to say anything at all until the situation is clearer, so that nothing you say tonight has to be corrected publicly tomorrow', desc: 'A flat no-comment cedes the story to the "people are dying in corridors" rumour already filling the gap.', effect: { score: -3 } },
+        { key: 'D', label: 'Downplay the scale of it to keep the community calm, since a frightened district converging on this building helps nobody at all', desc: 'Minimising the truth buys quiet now and costs you all credibility the moment the scale becomes clear.', effect: { score: -3 } }
       ]
     },
     {
@@ -1322,9 +1322,9 @@
           locked: function (log) {
             return log['ngata_school'] === 'B' ? 'Most of your clinical staff are still at the school - there is no one to hand clinical lead to' : false;
           } },
-        { key: 'B', label: 'Refuse outright and stay on the floor', desc: 'Understandable, but it leaves the district’s health response without the one clinician who has seen what this looks like from the inside.', effect: { score: -2 } },
-        { key: 'C', label: 'Accept fully and leave the clinical floor immediately', desc: 'Walking off the floor mid-response with no handover repeats the mistake of abandoning the casualty hub, just with better paperwork.', effect: { score: -4 } },
-        { key: 'D', label: 'Try to do both jobs at once without handing anything over', desc: 'Half a clinical lead and half a medical advisor - the failure mode that produces missed patients and bad district advice at the same time.', effect: { score: -5 } }
+        { key: 'B', label: 'Refuse the role outright and stay on the clinical floor, where you can see patients and where two doctors are already doing the work of six', desc: 'Understandable, but it leaves the district’s health response without the one clinician who has seen what this looks like from the inside.', effect: { score: -2 } },
+        { key: 'C', label: 'Accept the role fully and leave the clinical floor immediately, because the decisions made at the Civil Defence table will affect far more people', desc: 'Walking off the floor mid-response with no handover repeats the mistake of abandoning the casualty hub, just with better paperwork.', effect: { score: -4 } },
+        { key: 'D', label: 'Try to hold both roles at once without handing anything over, so that neither the centre nor the coordination table loses its clinical lead', desc: 'Half a clinical lead and half a medical advisor - the failure mode that produces missed patients and bad district advice at the same time.', effect: { score: -5 } }
       ]
     },
     {

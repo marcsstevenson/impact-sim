@@ -898,9 +898,9 @@
       prompt: 'Do you keep everyone in the van or get them out?',
       options: [
         { key: 'A', label: 'Move everyone a short distance to the most sheltered spot clear of the rockfall path, keeping the group tight together', desc: 'Gets the group out from under the active rockfall onto the van without scattering them far into the cold and slopes. Reads the dominant threat.', effect: { score: 5 } },
-        { key: 'B', label: 'Keep everyone in the van and hope the rockfall misses', desc: 'A stationary van under an active rockfall is the acute danger; shelter from weather does not help if the roof comes in.', effect: { score: -4 } },
-        { key: 'C', label: 'Evacuate everyone and start walking away from the area immediately', desc: 'Moving far exposes injured and cold children to the slopes and weather, and splits your attention across a strung-out group.', effect: { score: -2 } },
-        { key: 'D', label: 'Send the older children to scout a safer spot while you stay with the injured', desc: 'Splits the group and sends children into the exact rockfall and slope hazard you are trying to escape.', effect: { score: -3 } }
+        { key: 'B', label: 'Keep everyone inside the van where they are dry and accounted for, on the basis that a metal roof is better than standing in the open', desc: 'A stationary van under an active rockfall is the acute danger; shelter from weather does not help if the roof comes in.', effect: { score: -4 } },
+        { key: 'C', label: 'Get everyone up and walking out of the valley straight away, on the basis that distance from the slope is worth whatever the walk costs you', desc: 'Moving far exposes injured and cold children to the slopes and weather, and splits your attention across a strung-out group.', effect: { score: -2 } },
+        { key: 'D', label: 'Send the two oldest ahead to find a sheltered spot and report back, so the injured child only has to be moved once and only when you know where to', desc: 'Splits the group and sends children into the exact rockfall and slope hazard you are trying to escape.', effect: { score: -3 } }
       ]
     },
     {
@@ -913,9 +913,9 @@
       prompt: 'Do you move the group to the tunnel?',
       options: [
         { key: 'A', label: 'Stay near the van for now, but walk the route yourself with one older child to see whether the tunnel is sound and reachable before the light goes', desc: 'Keeps the group where rescuers will look and where the supplies are, while finding out whether the tunnel is a real option before you need it in the dark.', effect: { score: 5 } },
-        { key: 'B', label: 'Move everyone to the tunnel now', desc: 'Walks injured children along an unstable slope to an unassessed structure, away from the vehicle rescuers are looking for and everything you have.', effect: { score: -4 } },
-        { key: 'C', label: 'Rule the tunnel out entirely and stop thinking about it', desc: 'Closes off your only hard-shelter option before you know anything about it, with snow forecast and hours of daylight left.', effect: { score: -2 } },
-        { key: 'D', label: 'Send two older children ahead to check the tunnel', desc: 'Sends unaccompanied children along an active rockfall slope to assess a structure they have no way of assessing.', effect: { score: -5 } }
+        { key: 'B', label: 'Move the whole group to the tunnel now while there is still light, on the basis that hard shelter beats another night under an active slope', desc: 'Walks injured children along an unstable slope to an unassessed structure, away from the vehicle rescuers are looking for and everything you have.', effect: { score: -4 } },
+        { key: 'C', label: 'Rule the tunnel out and commit to the roadside, rather than march eight children 800 metres toward a structure nobody has been inside', desc: 'Closes off your only hard-shelter option before you know anything about it, with snow forecast and hours of daylight left.', effect: { score: -2 } },
+        { key: 'D', label: 'Send the two oldest ahead to look at the tunnel and wave back, since they move quickly and you cannot leave the injured child to walk it yourself', desc: 'Sends unaccompanied children along an active rockfall slope to assess a structure they have no way of assessing.', effect: { score: -5 } }
       ]
     },
     {
@@ -927,9 +927,9 @@
       prompt: 'How do you handle the seriously injured child?',
       options: [
         { key: 'A', label: 'Stabilise and protect them in place, keep them still and monitored for drowsiness, and shield the spot - move only if the rockfall forces it', desc: 'A head/spinal injury should not be moved unless the danger forces it. Keep them still, warm and watched.', effect: { score: 5 } },
-        { key: 'B', label: 'Move the whole group including the injured child now to escape the rockfall', desc: 'Sometimes the hazard forces a move, but moving a possible head/spinal injury when not strictly necessary risks worsening it.', effect: { score: -2 } },
-        { key: 'C', label: 'Leave the injured child in the van and move the others to safety', desc: 'Abandons the most vulnerable child, unsupervised, as their condition worsens. The decision that will haunt you.', effect: { score: -5 } },
-        { key: 'D', label: 'Wait for an ambulance to take charge of the injured child', desc: 'No ambulance is coming for a long time, and the child is getting drowsier. Waiting is not a plan.', effect: { score: -4 } }
+        { key: 'B', label: 'Move the whole group including the injured child now, treating the rockfall overhead as the larger of the two risks you are being asked to hold', desc: 'Sometimes the hazard forces a move, but moving a possible head/spinal injury when not strictly necessary risks worsening it.', effect: { score: -2 } },
+        { key: 'C', label: 'Leave the injured child sheltered in the van and walk the other seven clear of the slope, then come back for her once the rest are somewhere safe', desc: 'Abandons the most vulnerable child, unsupervised, as their condition worsens. The decision that will haunt you.', effect: { score: -5 } },
+        { key: 'D', label: 'Hold position and wait for an ambulance to take charge of her, on the basis that a head injury needs hands considerably better trained than yours', desc: 'No ambulance is coming for a long time, and the child is getting drowsier. Waiting is not a plan.', effect: { score: -4 } }
       ]
     },
     {
@@ -942,9 +942,9 @@
       prompt: 'How do you manage the head injury?',
       options: [
         { key: 'A', label: 'Keep him still and warm, do not let him sleep unmonitored, write down the time and what changes, and make him the single thing you escalate on every call that connects', desc: 'You cannot treat him, but you can observe, record and escalate - and a written deterioration record is what gets him prioritised the moment anyone reaches you.', effect: { score: 5 } },
-        { key: 'B', label: 'Let him sleep - he is exhausted and it will pass', desc: 'Declining consciousness after a head injury is the sign that matters, and sleep is exactly how it goes unnoticed.', effect: { score: -6 } },
-        { key: 'C', label: 'Carry him toward the roadblock to find help', desc: 'Moving a deteriorating head injury along an unstable slope, while abandoning seven children, risks both him and them.', effect: { score: -5 } },
-        { key: 'D', label: 'Ask the other children to keep an eye on him', desc: 'Hands responsibility for the most serious casualty to frightened children, and the change you need to notice is subtle.', effect: { score: -4 } }
+        { key: 'B', label: 'Let him sleep it off somewhere warm and quiet, on the basis that rest is what a knock on the head needs and he has had a long and frightening day', desc: 'Declining consciousness after a head injury is the sign that matters, and sleep is exactly how it goes unnoticed.', effect: { score: -6 } },
+        { key: 'C', label: 'Carry him up the road toward the roadblock to find help, on the basis that he needs a hospital and nobody appears to be coming down to you', desc: 'Moving a deteriorating head injury along an unstable slope, while abandoning seven children, risks both him and them.', effect: { score: -5 } },
+        { key: 'D', label: 'Ask two of the older children to sit with him and call you if anything changes, so you are free to keep working across the rest of the group', desc: 'Hands responsibility for the most serious casualty to frightened children, and the change you need to notice is subtle.', effect: { score: -4 } }
       ]
     },
     {
@@ -956,9 +956,9 @@
       prompt: 'Where do you put yourself?',
       options: [
         { key: 'A', label: 'Go to the most injured child, and settle your daughter with a calm task and a trusted older buddy beside her', desc: 'Deliberately prioritises greatest need over instinct, while keeping your daughter supported. The fair, child-centred call.', effect: { score: 5 } },
-        { key: 'B', label: 'Stay with your daughter - she needs you most', desc: 'Understandable as a parent, but the injured child needs you more right now, and the other parents trusted you to protect every child.', effect: { score: -4 } },
-        { key: 'C', label: 'Try to do both at once, moving between them', desc: 'Split between two children, neither the injured one nor your daughter gets what they actually need.', effect: { score: -2 } },
-        { key: 'D', label: 'Tell your daughter to toughen up and deal with it on her own', desc: 'Harsh on a frightened child and corrosive to the calm leadership the whole group is reading off you.', effect: { score: -3 } }
+        { key: 'B', label: 'Stay beside your daughter until she settles, on the basis that a terrified child who trusts you should not be handed off to somebody else', desc: 'Understandable as a parent, but the injured child needs you more right now, and the other parents trusted you to protect every child.', effect: { score: -4 } },
+        { key: 'C', label: 'Work between the two of them, holding your daughter’s hand while you check the injured child, so that neither of them is ever left without you', desc: 'Split between two children, neither the injured one nor your daughter gets what they actually need.', effect: { score: -2 } },
+        { key: 'D', label: 'Tell your daughter firmly that she is unhurt and needs to manage on her own, so the other seven can see that nobody is getting special treatment', desc: 'Harsh on a frightened child and corrosive to the calm leadership the whole group is reading off you.', effect: { score: -3 } }
       ]
     },
     {
@@ -970,9 +970,9 @@
       prompt: 'How do you manage her asthma?',
       options: [
         { key: 'A', label: 'Get her out of the dust, sit her upright, calm the panic that is driving the attack, and use the remaining doses deliberately rather than continuously', desc: 'Dust and fear are both making it worse and both are things you can change. That is what makes the last few doses last.', effect: { score: 5 } },
-        { key: 'B', label: 'Let her take the inhaler whenever she feels she needs it', desc: 'Panic-driven use empties the inhaler within the hour, and the attack that genuinely needs it will come later tonight.', effect: { score: -4 } },
-        { key: 'C', label: 'Hold the inhaler back entirely for a serious attack', desc: 'A worsening asthma attack in a cold, dusty environment is the serious attack; withholding is how it becomes an emergency.', effect: { score: -5 } },
-        { key: 'D', label: 'Tell her to calm down and breathe normally', desc: 'Telling a frightened child with a genuine airway problem to calm down treats the symptom as behaviour.', effect: { score: -4 } }
+        { key: 'B', label: 'Leave the inhaler with her to use whenever she feels she needs it, on the basis that she has lived with this since she was five and you have not', desc: 'Panic-driven use empties the inhaler within the hour, and the attack that genuinely needs it will come later tonight.', effect: { score: -4 } },
+        { key: 'C', label: 'Hold the inhaler back entirely and save every remaining dose for a serious attack later tonight, when help is still likely to be hours away', desc: 'A worsening asthma attack in a cold, dusty environment is the serious attack; withholding is how it becomes an emergency.', effect: { score: -5 } },
+        { key: 'D', label: 'Talk her through slowing her breathing and calming down, on the basis that it is the panic driving the attack and the inhaler will not fix fear', desc: 'Telling a frightened child with a genuine airway problem to calm down treats the symptom as behaviour.', effect: { score: -4 } }
       ]
     },
     {
@@ -985,9 +985,9 @@
       prompt: 'How do you manage the phones and the panic?',
       options: [
         { key: 'A', label: 'Use one phone for controlled contact, ask the others to stop posting and lend their phones for one accurate group message, and give the hysterical child a job and reassurance', desc: 'One calm, accurate channel out, the rumours slowed, and the hysterical child anchored with a role. Controlled, not chaotic.', effect: { score: 5 } },
-        { key: 'B', label: 'Let the children keep using their phones freely', desc: 'Panic messages and a livestream of injured kids send parents racing into the zone and strip the children’s privacy.', effect: { score: -3 } },
-        { key: 'C', label: 'Collect all the phones to stop the panic', desc: 'Cuts your only link to the outside world and escalates fear in already frightened children, though the intent is understandable.', effect: { score: -2 } },
-        { key: 'D', label: 'Ignore the phones and focus only on the injuries', desc: 'Leaves misinformation and the livestream running, and parents self-deploying onto dangerous roads.', effect: { score: -3 } }
+        { key: 'B', label: 'Leave them their phones and let them talk to whoever they want, since contact with their parents is the one thing currently steadying any of them', desc: 'Panic messages and a livestream of injured kids send parents racing into the zone and strip the children’s privacy.', effect: { score: -3 } },
+        { key: 'C', label: 'Collect every phone and hold them yourself, so the livestream of the injured children stops and the panic messaging cannot spread any further', desc: 'Cuts your only link to the outside world and escalates fear in already frightened children, though the intent is understandable.', effect: { score: -2 } },
+        { key: 'D', label: 'Leave the phones alone entirely and put your attention on the injured children, on the basis that the medical problem is the one only you can work', desc: 'Leaves misinformation and the livestream running, and parents self-deploying onto dangerous roads.', effect: { score: -3 } }
       ]
     },
     {
@@ -999,9 +999,9 @@
       prompt: 'How do you handle it?',
       options: [
         { key: 'A', label: 'Keep all eight together, say plainly why nobody leaves the group, and give the two brothers a real job so they are contributing instead of leaving', desc: 'An intact group of eight is the only thing you can actually guarantee. Two teenagers with a purpose stop being a flight risk.', effect: { score: 5 } },
-        { key: 'B', label: 'Go with them yourself and leave the other six', desc: 'Leaves six children, including a head injury and an asthmatic, with no adult at all.', effect: { score: -6 } },
-        { key: 'C', label: 'Let the two brothers go - they are nearly adults and it might bring help faster', desc: 'You now have two unaccounted-for children on unstable ground and no way to reach or count them. Every rescuer’s first question is how many, and you no longer know where two of them are.', effect: { score: -6 } },
-        { key: 'D', label: 'Refuse without explaining and hope they drop it', desc: 'A flat no with no reason to two determined teenagers means they go anyway, and you find out later.', effect: { score: -3 } }
+        { key: 'B', label: 'Walk to the farmhouse yourself with the two brothers, leaving the other six together at the van with a job each until you get back', desc: 'Leaves six children, including a head injury and an asthmatic, with no adult at all.', effect: { score: -6 } },
+        { key: 'C', label: 'Let the two brothers go with a time to be back, since they are nearly adults and a working landline at that farmhouse changes your whole situation', desc: 'You now have two unaccounted-for children on unstable ground and no way to reach or count them. Every rescuer’s first question is how many, and you no longer know where two of them are.', effect: { score: -6 } },
+        { key: 'D', label: 'Tell them flatly that nobody is leaving the group and leave it there, rather than open a negotiation with two determined teenagers you cannot outrun', desc: 'A flat no with no reason to two determined teenagers means they go anyway, and you find out later.', effect: { score: -3 } }
       ]
     },
     {
@@ -1021,9 +1021,9 @@
       prompt: 'Do you retrieve the insulin?',
       options: [
         { key: 'A', label: 'Carefully retrieve it yourself with the children clear and braced, working fast but watching the load', desc: 'The insulin is life-critical; you take the calculated risk, not a child, and manage it. The right hands on the hazard.', effect: { score: 5 } },
-        { key: 'B', label: 'Leave it - retrieving it is too risky', desc: 'A diabetic child without insulin is a life-threatening countdown that outweighs the manageable risk of a careful retrieval.', effect: { score: -4 } },
-        { key: 'C', label: 'Send an older, lighter child in to grab it quickly', desc: 'Puts a child under the unstable load you were unwilling to risk yourself. Never delegate that hazard to a child.', effect: { score: -5 } },
-        { key: 'D', label: 'Wait until rescuers arrive to retrieve it safely', desc: 'Rescue could be many hours away; the child may need the insulin long before then.', effect: { score: -3 } }
+        { key: 'B', label: 'Leave the insulin where it is until the load is stable, on the basis that a second casualty pinned under the luggage helps nobody in this group', desc: 'A diabetic child without insulin is a life-threatening countdown that outweighs the manageable risk of a careful retrieval.', effect: { score: -4 } },
+        { key: 'C', label: 'Send the lightest of the older children in to grab it, since they can reach the gap far faster than you can and put less weight on the load', desc: 'Puts a child under the unstable load you were unwilling to risk yourself. Never delegate that hazard to a child.', effect: { score: -5 } },
+        { key: 'D', label: 'Wait for rescuers with proper lifting gear to recover it safely, and keep her going on food and sugary drink from the van in the meantime', desc: 'Rescue could be many hours away; the child may need the insulin long before then.', effect: { score: -3 } }
       ]
     },
     {
@@ -1039,9 +1039,9 @@
           locked: function (log) {
             return log['mark_count'] === 'C' ? 'You cannot ration for a group of eight when two of them walked out an hour ago' : false;
           } },
-        { key: 'B', label: 'Share everything out equally now so nobody feels hard done by', desc: 'Equal is not fair here - the diabetic child needs food on a schedule, and nothing is left for tonight.', effect: { score: -4 } },
-        { key: 'C', label: 'Hold all the food and water back for the night', desc: 'A diabetic child cannot wait for a rationing plan that starts at nightfall, and eight hungry children get harder to manage, not easier.', effect: { score: -4 } },
-        { key: 'D', label: 'Deal with food when someone complains and let them sort out toileting themselves', desc: 'Children who wander off alone to find a toilet on an unstable slope in the rain is exactly the incident you cannot afford.', effect: { score: -5 } }
+        { key: 'B', label: 'Split the four bottles and eight bars evenly between all eight of them now, so that nobody can say another child was given more than they were', desc: 'Equal is not fair here - the diabetic child needs food on a schedule, and nothing is left for tonight.', effect: { score: -4 } },
+        { key: 'C', label: 'Hold every bottle and bar back until nightfall, when the cold sets in and eight children will need the calories far more than they do standing here', desc: 'A diabetic child cannot wait for a rationing plan that starts at nightfall, and eight hungry children get harder to manage, not easier.', effect: { score: -4 } },
+        { key: 'D', label: 'Deal with food when somebody actually asks for it, and let the two who need a toilet sort themselves out privately rather than make it a group matter', desc: 'Children who wander off alone to find a toilet on an unstable slope in the rain is exactly the incident you cannot afford.', effect: { score: -5 } }
       ]
     },
     {
@@ -1054,9 +1054,9 @@
       prompt: 'Whose advice do you act on?',
       options: [
         { key: 'A', label: 'Weigh it against what you can see, act on the official agencies and the safest verifiable option, and refuse any route you cannot confirm is safe', desc: 'Official advice plus your own eyes, and a hard no to unverified routes with eight children aboard. Defensible under pressure.', effect: { score: 5 } },
-        { key: 'B', label: 'Do what the parents demand and drive around the closure now', desc: 'Driving an unstable, unconfirmed route under parental pressure is exactly how you strand or hurt the whole group.', effect: { score: -6 } },
-        { key: 'C', label: 'Follow the farmer across private land because it sounds fastest', desc: 'An unverified route across unknown ground; "fastest" is not "safest" with this cargo.', effect: { score: -3 } },
-        { key: 'D', label: 'Freeze - there are too many conflicting voices to choose', desc: 'Paralysis is itself a decision, and the children need you to make a call.', effect: { score: -4 } }
+        { key: 'B', label: 'Do what the parents on the phone are demanding and drive around the closure now, since they are the ones who put their children in your van this morning', desc: 'Driving an unstable, unconfirmed route under parental pressure is exactly how you strand or hurt the whole group.', effect: { score: -6 } },
+        { key: 'C', label: 'Take the farmer up on his offer and follow him out across his land, on the basis that he knows this country better than anyone on the end of a phone', desc: 'An unverified route across unknown ground; "fastest" is not "safest" with this cargo.', effect: { score: -3 } },
+        { key: 'D', label: 'Hold everything where it is until the agencies agree on one instruction, rather than pick between four people who are all contradicting each other', desc: 'Paralysis is itself a decision, and the children need you to make a call.', effect: { score: -4 } }
       ]
     },
     {
@@ -1069,12 +1069,12 @@
       prompt: 'How do you keep eight children warm?',
       options: [
         { key: 'A', label: 'Get everyone out of the wind and off the wet ground, layer whatever dry kit bags contain onto the coldest children first, and keep the group physically close together', desc: 'Insulation from the ground and the wind, and shared body heat, do more than anything else available to you - and cost no fuel.', effect: { score: 5 } },
-        { key: 'B', label: 'Put everyone back in the van with the heater running', desc: 'The most effective option you have, if the van is still an option and the rockfall risk has genuinely eased.', effect: { score: 2 },
+        { key: 'B', label: 'Put everyone back in the van with the heater running, accepting the fuel it costs to get eight soaked children out of the wind for an hour', desc: 'The most effective option you have, if the van is still an option and the rockfall risk has genuinely eased.', effect: { score: 2 },
           locked: function (log) {
             return log['mark_tunnel'] === 'B' ? 'The van is 800 metres back down the road - you moved the group to the tunnel' : false;
           } },
-        { key: 'C', label: 'Get them moving and running around to warm up', desc: 'Exercise on a wet, unstable slope with a head injury and an asthmatic in the group, burning the energy from food you do not have.', effect: { score: -4 } },
-        { key: 'D', label: 'Tell them to tough it out - it is only a few hours', desc: 'The child who has stopped complaining is the one already in trouble. Cold children stop asking for help before they stop needing it.', effect: { score: -6 } }
+        { key: 'C', label: 'Get them up and moving around to generate some heat of their own, on the basis that standing still in wet kit is what is making the shivering worse', desc: 'Exercise on a wet, unstable slope with a head injury and an asthmatic in the group, burning the energy from food you do not have.', effect: { score: -4 } },
+        { key: 'D', label: 'Tell them to tough it out for a few more hours, on the basis that help is coming and letting them dwell on the cold will only frighten the younger ones', desc: 'The child who has stopped complaining is the one already in trouble. Cold children stop asking for help before they stop needing it.', effect: { score: -6 } }
       ]
     },
     {
@@ -1086,9 +1086,9 @@
       prompt: 'Where does your priority lie?',
       options: [
         { key: 'A', label: 'Keep the children as your first duty - do what you safely can for the adults from nearby (pass water, brief them, get word out) without leaving the children unsupervised', desc: 'Your duty of care is the eight children; you help within that limit rather than abandoning them or doing nothing.', effect: { score: 5 } },
-        { key: 'B', label: 'Leave the children and go fully assist the injured adults', desc: 'Leaves eight children you are responsible for unsupervised by a hazardous road to help others.', effect: { score: -4 } },
-        { key: 'C', label: 'Ignore the adults entirely and keep your distance', desc: 'Your priority is right, but a flat refusal when some safe help was possible is harder to defend than partial aid.', effect: { score: -2 } },
-        { key: 'D', label: 'Send the older children over to help the injured adults', desc: 'Sends children into a trauma and hazard scene that is not theirs to manage.', effect: { score: -5 } }
+        { key: 'B', label: 'Leave the children by the van for a few minutes and go fully to the adults, on the basis that they are the ones bleeding and calling out for help', desc: 'Leaves eight children you are responsible for unsupervised by a hazardous road to help others.', effect: { score: -4 } },
+        { key: 'C', label: 'Keep your distance from the other vehicle entirely and say nothing to the children about it, so that your attention never leaves the eight you brought', desc: 'Your priority is right, but a flat refusal when some safe help was possible is harder to defend than partial aid.', effect: { score: -2 } },
+        { key: 'D', label: 'Send the two oldest across to the other vehicle to help, since they are capable, keen to be useful, and you cannot be in both places at once', desc: 'Sends children into a trauma and hazard scene that is not theirs to manage.', effect: { score: -5 } }
       ]
     },
     {
@@ -1110,9 +1110,9 @@
       prompt: 'How do you respond to the tsunami alert?',
       options: [
         { key: 'A', label: 'Move the group to the nearest higher ground on foot now, away from the river, keeping everyone together - do not wait for confirmation', desc: 'An EMA and a strong coastal quake are the warning. Get off the low river ground to high ground immediately, as one group.', effect: { score: 5 } },
-        { key: 'B', label: 'Stay put and wait to confirm whether the warning applies to you', desc: 'With a tsunami the instruction is do not wait, and you are on low ground by a river to the coast - the exact danger.', effect: { score: -6 } },
-        { key: 'C', label: 'Drive fast along the river road to try to outrun it', desc: 'The road may be blocked or damaged, and staying low along the river is the risk, not the escape.', effect: { score: -3 } },
-        { key: 'D', label: 'Let the children decide based on what their phones are saying', desc: 'Contradictory posts fragment the group at the moment you most need everyone moving the same way.', effect: { score: -4 } }
+        { key: 'B', label: 'Stay where you are until you can confirm the warning applies this far up the river, rather than move injured children on the strength of a mass alert', desc: 'With a tsunami the instruction is do not wait, and you are on low ground by a river to the coast - the exact danger.', effect: { score: -6 } },
+        { key: 'C', label: 'Get everyone into the van and drive hard along the river road to outrun it, on the basis that wheels will always beat eight children on foot', desc: 'The road may be blocked or damaged, and staying low along the river is the risk, not the escape.', effect: { score: -3 } },
+        { key: 'D', label: 'Let the children work out from their own phones whether this applies to you, since between eight of them they have more information than you do', desc: 'Contradictory posts fragment the group at the moment you most need everyone moving the same way.', effect: { score: -4 } }
       ]
     },
     {
@@ -1125,9 +1125,9 @@
       prompt: 'How do you handle it?',
       options: [
         { key: 'A', label: 'Release his own daughter to him with her name, his name and the time written down, and only send other children if you can reach their parents and get agreement first', desc: 'A parent may take their own child. Other people’s children go only with their parents’ consent, and every release gets recorded.', effect: { score: 5 } },
-        { key: 'B', label: 'Let him take his daughter and two others to get them out of the cold', desc: 'Handing children to a man their parents have not agreed to, with no record, is the thing you will not be able to explain to anyone.', effect: { score: -6 } },
-        { key: 'C', label: 'Refuse to release any child, including his own daughter', desc: 'A parent collecting their own child is exactly what should happen; refusing is neither lawful nor sensible.', effect: { score: -4 } },
-        { key: 'D', label: 'Ask him to take the two injured children instead of his daughter', desc: 'Sends the head injury and the broken arm away with an adult nobody has authorised, and their parents find out afterwards.', effect: { score: -5 } }
+        { key: 'B', label: 'Let him take his daughter and two others to get them warm and home, on the basis that three fewer children in the cold is three fewer to keep alive tonight', desc: 'Handing children to a man their parents have not agreed to, with no record, is the thing you will not be able to explain to anyone.', effect: { score: -6 } },
+        { key: 'C', label: 'Refuse to release any child at all, including his own daughter, until you can account for all eight to one person in one place at one time', desc: 'A parent collecting their own child is exactly what should happen; refusing is neither lawful nor sensible.', effect: { score: -4 } },
+        { key: 'D', label: 'Ask him to take the head injury and the broken arm instead of his daughter, on the basis that the two who most need a hospital should have the seats', desc: 'Sends the head injury and the broken arm away with an adult nobody has authorised, and their parents find out afterwards.', effect: { score: -5 } }
       ]
     },
     {
@@ -1139,9 +1139,9 @@
       prompt: 'How do you answer them?',
       options: [
         { key: 'A', label: 'Be honest but calm: it is scary and serious, you do not have every answer, but your job is to keep them safe and here is exactly what you are all going to do next', desc: 'Honesty plus reassurance plus a plan, pitched for their age. It steadies the group without a promise you cannot keep.', effect: { score: 5 } },
-        { key: 'B', label: 'Promise them nothing bad will happen and everything is fine', desc: 'A promise you cannot guarantee; if it breaks, so does their trust in everything else you tell them.', effect: { score: -3 } },
-        { key: 'C', label: 'Tell them the full grim truth of every hazard you are worried about', desc: 'Accurate but terrifying and not age-appropriate; it floods frightened children with fear they cannot act on.', effect: { score: -3 } },
-        { key: 'D', label: 'Refuse to answer and tell them to stop asking', desc: 'Leaves them more frightened and alone, and reads as you not coping either.', effect: { score: -2 } }
+        { key: 'B', label: 'Promise them plainly that nothing bad is going to happen and everything is fine, because eight frightened children need certainty more than accuracy', desc: 'A promise you cannot guarantee; if it breaks, so does their trust in everything else you tell them.', effect: { score: -3 } },
+        { key: 'C', label: 'Set out the full picture of every hazard you are worried about, on the basis that they will trust you later only if you are straight with them now', desc: 'Accurate but terrifying and not age-appropriate; it floods frightened children with fear they cannot act on.', effect: { score: -3 } },
+        { key: 'D', label: 'Tell them that is not a helpful question and ask them to stop, so the fear does not spread from the one who asked it to the seven who are listening', desc: 'Leaves them more frightened and alone, and reads as you not coping either.', effect: { score: -2 } }
       ]
     },
     {
@@ -1162,9 +1162,9 @@
       prompt: 'What do you do about the child who ran?',
       options: [
         { key: 'A', label: 'Keep the whole group together and move them as one toward the child while calling them back, never splitting off alone or losing sight of either', desc: 'As the only adult, you cannot abandon seven to chase one - so you move everyone together and never lose line of sight.', effect: { score: 5 } },
-        { key: 'B', label: 'Run after the child alone, leaving the other seven unsupervised by the road', desc: 'Abandons seven children beside rockfall and slopes to recover one. Trades one risk for a bigger one.', effect: { score: -4 } },
-        { key: 'C', label: 'Let the child go - chasing risks everyone', desc: 'Leaves a frightened child to run toward a damaged road and the river. Abandonment, not prioritisation.', effect: { score: -5 } },
-        { key: 'D', label: 'Send another child to fetch them', desc: 'Sends a second child toward the same hazard. Two children at risk instead of one.', effect: { score: -3 } }
+        { key: 'B', label: 'Run after the child on your own and bring her straight back, leaving the other seven by the van for the two or three minutes it should take', desc: 'Abandons seven children beside rockfall and slopes to recover one. Trades one risk for a bigger one.', effect: { score: -4 } },
+        { key: 'C', label: 'Let her go and stay with the seven, on the basis that you cannot put the whole group onto a damaged road to recover one who chose to run', desc: 'Leaves a frightened child to run toward a damaged road and the river. Abandonment, not prioritisation.', effect: { score: -5 } },
+        { key: 'D', label: 'Send one of the older children after her while you hold the group together, since they can run faster than you and know her better than you do', desc: 'Sends a second child toward the same hazard. Two children at risk instead of one.', effect: { score: -3 } }
       ]
     },
     {
@@ -1176,9 +1176,9 @@
       prompt: 'How do you handle the alert?',
       options: [
         { key: 'A', label: 'Read it properly yourself, tell them plainly what it does and does not mean for where you are standing, and say what you are going to do about it', desc: 'Eight children have already read it. The only thing you control is whether they understand it - and a plan attached to the news is what stops the panic.', effect: { score: 5 } },
-        { key: 'B', label: 'Tell them to put their phones away and not to worry about it', desc: 'They have already read it, and being told not to worry by the adult who will not discuss it confirms that it is worse than they thought.', effect: { score: -4 } },
-        { key: 'C', label: 'Read it aloud to the group exactly as written and let them draw their own conclusions', desc: 'Official alert wording is written for the whole region, not for eight frightened children on one road, and it will be read at its worst.', effect: { score: -3 } },
-        { key: 'D', label: 'Collect the phones so they cannot see any more alerts', desc: 'Takes away their only contact with their parents, in exchange for information they have already seen.', effect: { score: -5 } }
+        { key: 'B', label: 'Tell them to put their phones away and not to worry about it, so that the alert stops being read aloud and the group settles back down', desc: 'They have already read it, and being told not to worry by the adult who will not discuss it confirms that it is worse than they thought.', effect: { score: -4 } },
+        { key: 'C', label: 'Read the alert aloud exactly as written and let them draw their own conclusions, rather than be the adult who softened an official warning', desc: 'Official alert wording is written for the whole region, not for eight frightened children on one road, and it will be read at its worst.', effect: { score: -3 } },
+        { key: 'D', label: 'Collect the phones so no more alerts land in front of them tonight, and take on passing any news to the group yourself as it comes in', desc: 'Takes away their only contact with their parents, in exchange for information they have already seen.', effect: { score: -5 } }
       ]
     },
     {
@@ -1190,9 +1190,9 @@
       prompt: 'Who goes on the helicopter first?',
       options: [
         { key: 'A', label: 'The three with the greatest medical need - the head-injured, the diabetic without insulin, and the asthmatic running low - regardless of whose child they are', desc: 'Need-based triage, applied without favour to your own child. The fair and defensible allocation of a life-saving seat.', effect: { score: 5 } },
-        { key: 'B', label: 'Your own daughter and her two closest friends', desc: 'Favouring your own child over more injured children is the bias the situation is built to test, and the hardest to defend to the other parents.', effect: { score: -6 } },
-        { key: 'C', label: 'The three youngest children', desc: 'Age is a weak proxy when other children are medically critical right now.', effect: { score: -2 } },
-        { key: 'D', label: 'Refuse to choose and send no one until everyone can go together', desc: 'Wastes a life-saving flight while critically injured children stay on the mountainside.', effect: { score: -4 } }
+        { key: 'B', label: 'Your own daughter and her two closest friends, so that at least three of them travel with people they know and one family stops worrying tonight', desc: 'Favouring your own child over more injured children is the bias the situation is built to test, and the hardest to defend to the other parents.', effect: { score: -6 } },
+        { key: 'C', label: 'The three youngest, on the basis that they are least able to cope with a night in the cold and will be hardest to keep calm if this runs on', desc: 'Age is a weak proxy when other children are medically critical right now.', effect: { score: -2 } },
+        { key: 'D', label: 'Refuse to split the group and send nobody until an aircraft can take all eight, so that no child is left watching the others fly out without them', desc: 'Wastes a life-saving flight while critically injured children stay on the mountainside.', effect: { score: -4 } }
       ]
     },
     {
@@ -1219,9 +1219,9 @@
       prompt: 'How do you get everyone through the night?',
       options: [
         { key: 'A', label: 'Shelter in the van, run the engine briefly and intermittently for heat with a window cracked, huddle for warmth, and conserve fuel and battery for morning', desc: 'Shelter-in-place, manage the carbon-monoxide risk, share body heat, and keep a reserve. The survivable plan.', effect: { score: 5 } },
-        { key: 'B', label: 'Keep everyone walking through the night to reach help', desc: 'Marching eight cold, injured children through snow and hazards in the dark invites hypothermia and falls.', effect: { score: -5 } },
-        { key: 'C', label: 'Run the engine continuously all night for maximum heat', desc: 'Burns the fuel you need and risks carbon-monoxide build-up in a stationary vehicle.', effect: { score: -3 } },
-        { key: 'D', label: 'Light a fire right beside the van', desc: 'A fire next to a possibly leaking vehicle and dry brush, in a child-filled spot, trades cold for burn and CO risk.', effect: { score: -3 } }
+        { key: 'B', label: 'Keep everyone walking through the night toward the township, on the basis that movement generates heat and standing still in snow is how people die', desc: 'Marching eight cold, injured children through snow and hazards in the dark invites hypothermia and falls.', effect: { score: -5 } },
+        { key: 'C', label: 'Run the engine continuously through the night for maximum heat, on the basis that eight cold children matter more than the fuel left in the tank', desc: 'Burns the fuel you need and risks carbon-monoxide build-up in a stationary vehicle.', effect: { score: -3 } },
+        { key: 'D', label: 'Light a fire beside the van from what you can gather, so there is real warmth and light and something for the children to gather around', desc: 'A fire next to a possibly leaking vehicle and dry brush, in a child-filled spot, trades cold for burn and CO risk.', effect: { score: -3 } }
       ]
     },
     {
@@ -1244,9 +1244,9 @@
           locked: function (log) {
             return log['mark_count'] === 'C' ? 'You cannot allocate places for a group you can no longer count - two are still out there' : false;
           } },
-        { key: 'B', label: 'Send your own daughter and her friends first', desc: 'Favouritism that you could never justify to the parents of the children left behind in the cold.', effect: { score: -6 } },
-        { key: 'C', label: 'Let the children decide among themselves who stays', desc: 'Abandons your accountability for the decision; the most frightened and least assertive lose out.', effect: { score: -4 } },
-        { key: 'D', label: 'Refuse to split the group - everyone waits for a vehicle that can take all eight', desc: 'Keeps injured and vulnerable children in the cold when six could already be safe and warm.', effect: { score: -3 } }
+        { key: 'B', label: 'Send your own daughter and her friends on the first run, so the children who have been closest to you all night stay together for the trip out', desc: 'Favouritism that you could never justify to the parents of the children left behind in the cold.', effect: { score: -6 } },
+        { key: 'C', label: 'Let the eight of them work out among themselves who takes the six seats, so the decision is theirs and no adult is blamed for choosing', desc: 'Abandons your accountability for the decision; the most frightened and least assertive lose out.', effect: { score: -4 } },
+        { key: 'D', label: 'Refuse to split the group and wait for a vehicle that can take all eight, so that you can hand over one complete group exactly as you were given it', desc: 'Keeps injured and vulnerable children in the cold when six could already be safe and warm.', effect: { score: -3 } }
       ]
     },
     {
@@ -1262,9 +1262,9 @@
           locked: function (log) {
             return log['mark_parent_arrives'] === 'B' ? 'You released two children without their parents’ consent hours ago - there is no consistent process left to run' : false;
           } },
-        { key: 'B', label: 'Let the adults sort it out among themselves - they all know each other', desc: 'A crowded, shouting reunification point is exactly where a child leaves with the wrong adult and nobody notices for an hour.', effect: { score: -6 } },
-        { key: 'C', label: 'Hand every child to Police and leave', desc: 'Police have no relationship with these children and no idea who is authorised; you are the person who does.', effect: { score: -4 } },
-        { key: 'D', label: 'Release the ones you are sure about and leave the last child with a stranger', desc: 'The child nobody has come for is the one who most needs you to stay, and the last five minutes is not the place to stop.', effect: { score: -6 } }
+        { key: 'B', label: 'Let the adults sort it out among themselves, since it is a small town, they all know each other, and every one of them is trying to get a child home', desc: 'A crowded, shouting reunification point is exactly where a child leaves with the wrong adult and nobody notices for an hour.', effect: { score: -6 } },
+        { key: 'C', label: 'Hand all eight over to Police and leave, on the basis that formal custody of children belongs with the agency that has the authority and the records', desc: 'Police have no relationship with these children and no idea who is authorised; you are the person who does.', effect: { score: -4 } },
+        { key: 'D', label: 'Release the ones you are certain about and leave the last child with an adult at the point who offers to wait, so the rest get home before dark', desc: 'The child nobody has come for is the one who most needs you to stay, and the last five minutes is not the place to stop.', effect: { score: -6 } }
       ]
     },
     {

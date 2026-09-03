@@ -1015,9 +1015,9 @@
       prompt: 'How do you manage the crews in the field?',
       options: [
         { key: 'A', label: 'Risk-assess each task: stand down genuinely unsafe work, and continue safe work with hazard controls, spotters and clear stop-work authority', desc: 'Restoration as fast as safety allows, not faster. Safe tasks proceed; live-conductor and unstable-slope work waits.', effect: { score: 5 } },
-        { key: 'B', label: 'Push all crews to restore as fast as possible - the town needs power', desc: 'Driving crews into uncontrolled live-line, rockfall and aftershock hazards is how a restoration becomes a fatality.', effect: { score: -5 } },
-        { key: 'C', label: 'Stand all crews down completely until everything is assessed', desc: 'A blanket stop protects crews but needlessly delays power to tens of thousands, including critical services, where safe work was possible.', effect: { score: -2 } },
-        { key: 'D', label: 'Leave it to each crew to decide for themselves', desc: 'No coordinated risk picture means inconsistent calls and crews making safety decisions without the information you hold.', effect: { score: -2 } }
+        { key: 'B', label: 'Push all crews to restore as fast as they possibly can, because thirty-eight thousand customers are off and the town needs power tonight', desc: 'Driving crews into uncontrolled live-line, rockfall and aftershock hazards is how a restoration becomes a fatality.', effect: { score: -5 } },
+        { key: 'C', label: 'Stand every crew down completely until the whole network has been assessed, so that nobody is working near live conductors on guesswork', desc: 'A blanket stop protects crews but needlessly delays power to tens of thousands, including critical services, where safe work was possible.', effect: { score: -2 } },
+        { key: 'D', label: 'Leave it to each crew to decide for themselves what is safe, since they are the ones standing in front of the hazard and you are not', desc: 'No coordinated risk picture means inconsistent calls and crews making safety decisions without the information you hold.', effect: { score: -2 } }
       ]
     },
     {
@@ -1030,9 +1030,9 @@
       prompt: 'How do you operate without visibility?',
       options: [
         { key: 'A', label: 'Switch only on positive confirmation from a person on the ground, under a written safe-switching rule agreed before anyone touches a breaker', desc: 'Without telemetry, a human confirmation and a written rule are the only things standing between a switching operation and an electrocution.', effect: { score: 5 } },
-        { key: 'B', label: 'Switch from the last known SCADA state and correct as you go', desc: 'Re-energising from stale telemetry onto a fault - or onto crews who are working the line - is how lineworkers are killed.', effect: { score: -5 } },
-        { key: 'C', label: 'Freeze all switching until SCADA is restored', desc: 'Safe, and it also stops restoration entirely for a comms fix that may take days. Confirmed manual switching was available.', effect: { score: -3 } },
-        { key: 'D', label: 'Let each depot switch its own area independently', desc: 'Three depots switching a shared network without a common picture will eventually energise each other’s crews.', effect: { score: -4 } }
+        { key: 'B', label: 'Switch from the last known SCADA state and correct as you go, since the picture was accurate an hour ago and the crews are waiting on you', desc: 'Re-energising from stale telemetry onto a fault - or onto crews who are working the line - is how lineworkers are killed.', effect: { score: -5 } },
+        { key: 'C', label: 'Freeze all switching until SCADA visibility is restored, so that nobody operates a breaker without knowing the true state of the network', desc: 'Safe, and it also stops restoration entirely for a comms fix that may take days. Confirmed manual switching was available.', effect: { score: -3 } },
+        { key: 'D', label: 'Let each depot switch its own area independently, since local crews know their own feeders better than anyone reading a screen in the control room', desc: 'Three depots switching a shared network without a common picture will eventually energise each other’s crews.', effect: { score: -4 } }
       ]
     },
     {
@@ -1053,9 +1053,9 @@
       prompt: 'Which critical load do you restore first?',
       options: [
         { key: 'A', label: 'Restore water treatment first (shortest runway, town-wide consequence), then the hospital within its window - and chase generator fuel for both in parallel', desc: 'Sequences by time-to-failure and breadth of consequence: water is about to go and affects everyone, the hospital still has hours.', effect: { score: 5 } },
-        { key: 'B', label: 'Restore the hospital first - it is the highest-profile life-safety site', desc: 'Defaults to profile over runway; the hospital still had six hours while the water plant fails in two, risking the town’s drinking water.', effect: { score: -3 } },
-        { key: 'C', label: 'Restore the wastewater pumps first to stop the sewage', desc: 'An environmental problem is real but ranks below safe drinking water and the hospital for immediate life safety.', effect: { score: -4 } },
-        { key: 'D', label: 'Wait until you can restore both together', desc: 'Holding the one substation for a both-at-once solution lets the water plant fail while you wait.', effect: { score: -3 } }
+        { key: 'B', label: 'Restore the hospital first, since it is the most visible life-safety site in the district and the one everybody will ask about by morning', desc: 'Defaults to profile over runway; the hospital still had six hours while the water plant fails in two, risking the town’s drinking water.', effect: { score: -3 } },
+        { key: 'C', label: 'Restore the wastewater pumps first to stop sewage backing up into the streets, because that becomes a public health emergency within hours', desc: 'An environmental problem is real but ranks below safe drinking water and the hospital for immediate life safety.', effect: { score: -4 } },
+        { key: 'D', label: 'Wait until you have the crews and switching to restore both together, rather than commit to one and leave the other waiting on a promise', desc: 'Holding the one substation for a both-at-once solution lets the water plant fail while you wait.', effect: { score: -3 } }
       ]
     },
     {
@@ -1068,9 +1068,9 @@
       prompt: 'How do you answer the EOC?',
       options: [
         { key: 'A', label: 'Restore the EOC as one critical load among several on a published priority list you can defend, and offer interim generation sized to its actual need', desc: 'The EOC earns a high place on the list, not the whole list. A published basis is what lets you say no to the next exclusive request.', effect: { score: 5 } },
-        { key: 'B', label: 'Give the EOC exclusive priority and commit your portable generation to it', desc: 'Ties up the generation that the hospital, water plant and rest homes need, on the say-so of whoever asked first and loudest.', effect: { score: -4 } },
-        { key: 'C', label: 'Refuse - the EOC can run on its own generator like everyone else', desc: 'The coordination centre for the whole district is a genuine critical load; treating it as ordinary is its own failure.', effect: { score: -3 } },
-        { key: 'D', label: 'Agree verbally and quietly do something else', desc: 'Buys peace for an hour and destroys the working relationship you will depend on for the next fortnight.', effect: { score: -5 } }
+        { key: 'B', label: 'Give the EOC exclusive priority and commit your portable generation to it, since every other decision in the district is being made from that room', desc: 'Ties up the generation that the hospital, water plant and rest homes need, on the say-so of whoever asked first and loudest.', effect: { score: -4 } },
+        { key: 'C', label: 'Refuse the request - the EOC has its own generator and its own fuel, and can run on them like every other critical site in the district', desc: 'The coordination centre for the whole district is a genuine critical load; treating it as ordinary is its own failure.', effect: { score: -3 } },
+        { key: 'D', label: 'Agree verbally to keep the Controller off your back, then quietly work to your own priority list, since arguing costs time you do not have', desc: 'Buys peace for an hour and destroys the working relationship you will depend on for the next fortnight.', effect: { score: -5 } }
       ]
     },
     {
@@ -1082,9 +1082,9 @@
       prompt: 'How do you set restoration priorities?',
       options: [
         { key: 'A', label: 'Apply a transparent, published prioritisation framework - life safety, then critical infrastructure, then economic - and explain the same basis to all three', desc: 'An objective framework applied consistently protects both the decisions and your credibility, and gives everyone the same honest answer.', effect: { score: 5 } },
-        { key: 'B', label: 'Do what the Board Chair wants - protect the major industrial customers', desc: 'Lets commercial power jump the queue ahead of life safety and critical services. Indefensible when the public sees it.', effect: { score: -5 } },
-        { key: 'C', label: 'Do what the Mayor wants - restore the town centre first', desc: 'Political profile, not need, drives the order; the hospital, water and vulnerable wait behind the visible town centre.', effect: { score: -4 } },
-        { key: 'D', label: 'Try to give every caller something to keep them all happy', desc: 'Fragmenting scarce crews to placate everyone restores nothing critical fully and satisfies no one.', effect: { score: -2 } }
+        { key: 'B', label: 'Do what the Board Chair is asking and protect the major industrial customers, because they are the revenue that keeps the company solvent', desc: 'Lets commercial power jump the queue ahead of life safety and critical services. Indefensible when the public sees it.', effect: { score: -5 } },
+        { key: 'C', label: 'Do what the Mayor is asking and restore the town centre first, since that is where the shops, the fuel and the visible signs of recovery are', desc: 'Political profile, not need, drives the order; the hospital, water and vulnerable wait behind the visible town centre.', effect: { score: -4 } },
+        { key: 'D', label: 'Try to give every caller something so that nobody comes away empty-handed, and the pressure from all three directions eases off at once', desc: 'Fragmenting scarce crews to placate everyone restores nothing critical fully and satisfies no one.', effect: { score: -2 } }
       ]
     },
     {
@@ -1100,9 +1100,9 @@
           locked: function (log) {
             return log['terangi_eoc_priority'] === 'B' ? 'Your portable generation is committed to the EOC under the exclusive-priority agreement' : false;
           } },
-        { key: 'B', label: 'Tell them to call an ambulance if residents deteriorate', desc: 'Pushes a foreseeable, preventable failure onto an ambulance service that cannot reach them on closed roads.', effect: { score: -6 } },
-        { key: 'C', label: 'Add them to the list but do nothing tonight', desc: 'Fixes the paperwork for next time and leaves oxygen-dependent residents to get through this night on a dying battery.', effect: { score: -4 } },
-        { key: 'D', label: 'Send generation to one home and leave the other two', desc: 'Three homes have the same need; picking one without a stated basis is an arbitrary decision you cannot defend.', effect: { score: -3 } }
+        { key: 'B', label: 'Tell them to call an ambulance if any resident deteriorates, since acute clinical need is a health system problem rather than a lines company one', desc: 'Pushes a foreseeable, preventable failure onto an ambulance service that cannot reach them on closed roads.', effect: { score: -6 } },
+        { key: 'C', label: 'Add all three homes to the critical-customer list but do nothing further tonight, so the record is right and the work is scheduled properly', desc: 'Fixes the paperwork for next time and leaves oxygen-dependent residents to get through this night on a dying battery.', effect: { score: -4 } },
+        { key: 'D', label: 'Send your one available generator to whichever home is worst off and leave the other two, so at least some of the residents are covered', desc: 'Three homes have the same need; picking one without a stated basis is an arbitrary decision you cannot defend.', effect: { score: -3 } }
       ]
     },
     {
@@ -1114,9 +1114,9 @@
       prompt: 'Which repair do you make?',
       options: [
         { key: 'A', label: 'Restore the 9,000 now for the greatest function, commit the vulnerable rural feeder as the very next task, and arrange interim welfare/generation for them in the meantime', desc: 'Maximises restored function without abandoning the vulnerable: greatest good now, the rural feeder scheduled next, interim support bridging the gap.', effect: { score: 5 } },
-        { key: 'B', label: 'Restore the 600 rural customers first because they are more vulnerable', desc: 'Compassionate, but leaving 9,000 (including their own critical services) off for a much smaller group is hard to defend without an interim option.', effect: { score: -2 } },
-        { key: 'C', label: 'Refuse to choose and split the crew across both', desc: 'Splitting the repair crew likely restores neither group promptly and wastes scarce capacity.', effect: { score: -4 } },
-        { key: 'D', label: 'Decide quietly and avoid explaining the basis', desc: 'Whatever you choose, doing it opaquely invites the "abandoned the rural communities" narrative and erodes trust.', effect: { score: -2 } }
+        { key: 'B', label: 'Restore the six hundred rural customers first because they are older, more isolated, and have no realistic way of getting themselves to town', desc: 'Compassionate, but leaving 9,000 (including their own critical services) off for a much smaller group is hard to defend without an interim option.', effect: { score: -2 } },
+        { key: 'C', label: 'Refuse to choose between them and split the crew across both jobs, so that neither community is told it came second to the other', desc: 'Splitting the repair crew likely restores neither group promptly and wastes scarce capacity.', effect: { score: -4 } },
+        { key: 'D', label: 'Make the call quietly and avoid explaining the basis to anyone, since publishing a priority order simply invites everybody to argue with it', desc: 'Whatever you choose, doing it opaquely invites the "abandoned the rural communities" narrative and erodes trust.', effect: { score: -2 } }
       ]
     },
     {
@@ -1129,9 +1129,9 @@
       prompt: 'How do you handle the back-feed?',
       options: [
         { key: 'A', label: 'Stop all work on that feeder immediately, treat every conductor in the area as live, locate and isolate the source, and get a public safety message out about generator back-feed', desc: 'One back-feed means there are others. Stop work, re-treat the area as live, and warn the public - the message is as urgent as the isolation.', effect: { score: 5 } },
-        { key: 'B', label: 'Isolate that transformer and carry on working elsewhere on the feeder', desc: 'Fixes the one you found and leaves your crews working a network where any house could be doing the same thing.', effect: { score: -4 } },
-        { key: 'C', label: 'Have the crew disconnect the resident’s generator and continue', desc: 'Deals with the hazard in front of them but skips the warning that stops the next three residents doing it tonight.', effect: { score: -3 } },
-        { key: 'D', label: 'Note it and keep working - the crews know to test before touching', desc: 'Relies on perfect individual practice to survive a systemic hazard. This is precisely how lineworkers are electrocuted.', effect: { score: -6 } }
+        { key: 'B', label: 'Isolate that one transformer and carry on working elsewhere on the feeder, so the hazard is contained without stopping the whole restoration', desc: 'Fixes the one you found and leaves your crews working a network where any house could be doing the same thing.', effect: { score: -4 } },
+        { key: 'C', label: 'Have the crew disconnect the resident’s generator and carry on with the work, since removing the source deals with the problem at its root', desc: 'Deals with the hazard in front of them but skips the warning that stops the next three residents doing it tonight.', effect: { score: -3 } },
+        { key: 'D', label: 'Note it in the log and keep working, since every crew tests before touching and back-feed from a domestic generator is a known hazard', desc: 'Relies on perfect individual practice to survive a systemic hazard. This is precisely how lineworkers are electrocuted.', effect: { score: -6 } }
       ]
     },
     {
@@ -1143,9 +1143,9 @@
       prompt: 'How do you weigh the dairy processor?',
       options: [
         { key: 'A', label: 'Restore life-safety and critical residential loads first, schedule the dairy as soon as it does not delay those, and be transparent with the processor about why', desc: 'Community function and life safety outrank a commercial loss, but the economic harm is real and gets a fair, scheduled place - explained openly.', effect: { score: 5 } },
-        { key: 'B', label: 'Restore the dairy first to save the milk and protect a major customer', desc: 'Puts a commercial loss ahead of residential life safety and critical services. The wrong order, and a damaging look.', effect: { score: -5 } },
-        { key: 'C', label: 'Refuse the dairy any priority and tell them to wait indefinitely', desc: 'The economic damage to a major employer is real; a flat "wait indefinitely" with no schedule is neither fair nor necessary.', effect: { score: -2 } },
-        { key: 'D', label: 'Promise the dairy a slot you know you cannot honour', desc: 'A false commitment to placate a big customer destroys trust the moment it is missed.', effect: { score: -2 } }
+        { key: 'B', label: 'Restore the dairy first to save the milk in the vats and protect one of the largest customers on the network from a very public loss', desc: 'Puts a commercial loss ahead of residential life safety and critical services. The wrong order, and a damaging look.', effect: { score: -5 } },
+        { key: 'C', label: 'Refuse the dairy any priority at all and tell them to wait their turn, because commercial loss does not outrank anything on a life-safety list', desc: 'The economic damage to a major employer is real; a flat "wait indefinitely" with no schedule is neither fair nor necessary.', effect: { score: -2 } },
+        { key: 'D', label: 'Promise the dairy a restoration slot you already know you cannot honour, so the calls stop and you can get on with the work that matters', desc: 'A false commitment to placate a big customer destroys trust the moment it is missed.', effect: { score: -2 } }
       ]
     },
     {
@@ -1158,9 +1158,9 @@
       prompt: 'What do you do with the finding?',
       options: [
         { key: 'A', label: 'Escalate immediately to the Board, National Grid, Civil Defence and Government, and re-plan the whole restoration around long-term islanded supply', desc: 'A weeks-long transmission outage changes every other plan in the district. The value of the finding is entirely in how fast it travels.', effect: { score: 5 } },
-        { key: 'B', label: 'Hold the finding until you have a verified estimate', desc: 'Everyone else is planning against days, not weeks. Every hour you hold it is an hour of plans built on a number you know is wrong.', effect: { score: -4 } },
-        { key: 'C', label: 'Tell Civil Defence but keep it from the Board and Government for now', desc: 'Selective disclosure of material information to some stakeholders and not the Board is a governance failure as well as a practical one.', effect: { score: -5 } },
-        { key: 'D', label: 'Keep pushing the existing restoration plan and hope the corridor is repairable sooner', desc: 'Spends your crews on a plan you now know cannot work, and delays the islanded-supply strategy that could.', effect: { score: -5 } }
+        { key: 'B', label: 'Hold the finding until you have a verified repair estimate, so that nobody is given a timeframe that has to be corrected in forty-eight hours', desc: 'Everyone else is planning against days, not weeks. Every hour you hold it is an hour of plans built on a number you know is wrong.', effect: { score: -4 } },
+        { key: 'C', label: 'Tell Civil Defence but keep it from the Board and Government for now, so the operational response can be planned before the politics arrive', desc: 'Selective disclosure of material information to some stakeholders and not the Board is a governance failure as well as a practical one.', effect: { score: -5 } },
+        { key: 'D', label: 'Keep pushing the existing restoration plan and hope the corridor proves repairable sooner than the first assessment suggests it will be', desc: 'Spends your crews on a plan you now know cannot work, and delays the islanded-supply strategy that could.', effect: { score: -5 } }
       ]
     },
     {
@@ -1172,9 +1172,9 @@
       prompt: 'How do you respond to the trapped crew?',
       options: [
         { key: 'A', label: 'Prioritise getting your people to safety - coordinate the rescue with emergency services and account for every crew before pushing restoration there', desc: 'Worker life safety comes first; a trapped crew is a rescue, and your people have to be able to trust that you will come for them.', effect: { score: 5 } },
-        { key: 'B', label: 'Press on with restoration and let the crew sit tight until it is convenient', desc: 'Treating a trapped crew as a lower priority than feeders tells every lineworker their safety is negotiable.', effect: { score: -5 } },
-        { key: 'C', label: 'Send another crew in immediately by the same unstable route', desc: 'Rushing a second crew into the same active rockfall risks turning one trapped crew into two.', effect: { score: -3 } },
-        { key: 'D', label: 'Wait for the crew to find their own way out', desc: 'Leaves your people to self-rescue from an active hazard with no coordinated support - an abdication of duty of care.', effect: { score: -3 } }
+        { key: 'B', label: 'Press on with the restoration and let the crew sit tight until it is convenient to reach them, since they are uninjured and have shelter', desc: 'Treating a trapped crew as a lower priority than feeders tells every lineworker their safety is negotiable.', effect: { score: -5 } },
+        { key: 'C', label: 'Send another crew in immediately by the same route, because your own people are cut off and nobody else is going to go and get them', desc: 'Rushing a second crew into the same active rockfall risks turning one trapped crew into two.', effect: { score: -3 } },
+        { key: 'D', label: 'Wait for the crew to find their own way out, since they are experienced field staff who know that country better than any rescue team would', desc: 'Leaves your people to self-rescue from an active hazard with no coordinated support - an abdication of duty of care.', effect: { score: -3 } }
       ]
     },
     {
@@ -1187,9 +1187,9 @@
       prompt: 'How do you allocate the fuel?',
       options: [
         { key: 'A', label: 'Ration to a stated split - enough fleet fuel to keep crews productive, the balance reserved for life-safety generation - and review it every shift', desc: 'A stated, reviewed split keeps both restoration and life support running, and makes the trade-off visible instead of accidental.', effect: { score: 5 } },
-        { key: 'B', label: 'Put the fuel into the crew fleet - restoration ends the generator problem fastest', desc: 'Restoration is days away; the water plant and the rest homes need power tonight. This bets lives on an optimistic schedule.', effect: { score: -5 } },
-        { key: 'C', label: 'Put everything into the generators and stand the crews down', desc: 'Keeps life support alive tonight by guaranteeing there is no restoration to end the problem - the generators then run dry anyway.', effect: { score: -4 } },
-        { key: 'D', label: 'Let depots draw as needed until it runs out', desc: 'Whoever draws first gets the fuel, and the last critical load to ask is the one that goes without.', effect: { score: -5 } }
+        { key: 'B', label: 'Put the fuel into the crew fleet, because finishing the restoration is what ends the generator problem permanently rather than deferring it', desc: 'Restoration is days away; the water plant and the rest homes need power tonight. This bets lives on an optimistic schedule.', effect: { score: -5 } },
+        { key: 'C', label: 'Put everything into the critical-load generators and stand the crews down, so that hospitals and water treatment are guaranteed through the night', desc: 'Keeps life support alive tonight by guaranteeing there is no restoration to end the problem - the generators then run dry anyway.', effect: { score: -4 } },
+        { key: 'D', label: 'Let the depots draw fuel as they need it until it runs out, since the people closest to the work know best what their day requires', desc: 'Whoever draws first gets the fuel, and the last critical load to ask is the one that goes without.', effect: { score: -5 } }
       ]
     },
     {
@@ -1201,13 +1201,13 @@
       decisionId: 'terangi_helicopter',
       prompt: 'What is the one helicopter mission?',
       options: [
-        { key: 'A', label: 'Rescue the trapped workers - a life-safety mission outranks inspection or restoration', desc: 'With your own people in danger, the single flight goes to getting them out. Worker life safety first, every time.', effect: { score: 5 } },
-        { key: 'B', label: 'Deliver crews to the remote fault to speed restoration', desc: 'Valuable for restoration, but choosing feeders over your trapped people when both are on the list is the wrong order.', effect: { score: -2 },
+        { key: 'A', label: 'Rescue the trapped workers first, because a life-safety mission for your own people outranks both inspection and restoration however urgent they are', desc: 'With your own people in danger, the single flight goes to getting them out. Worker life safety first, every time.', effect: { score: 5 } },
+        { key: 'B', label: 'Deliver crews to the remote fault to speed up restoration, since the aircraft is the only way of reaching it and every hour counts', desc: 'Valuable for restoration, but choosing feeders over your trapped people when both are on the list is the wrong order.', effect: { score: -2 },
           locked: function (log) {
             return log['terangi_fuel_logistics'] === 'B' ? 'No aviation fuel was reserved - the airframe has one short mission in it, not a crew shuttle' : false;
           } },
-        { key: 'C', label: 'Fly a generator to the hospital to protect its power', desc: 'A genuine life-safety mission - but the hospital still has backup, while the trapped crew’s safety is immediate.', effect: { score: 1 } },
-        { key: 'D', label: 'Use it to inspect the transmission towers for the big picture', desc: 'Situational awareness matters, but it does not save a life today the way the rescue does.', effect: { score: -1 },
+        { key: 'C', label: 'Fly a generator out to the hospital to protect its power supply, so the most critical site in the district is covered before anything else', desc: 'A genuine life-safety mission - but the hospital still has backup, while the trapped crew’s safety is immediate.', effect: { score: 1 } },
+        { key: 'D', label: 'Use the aircraft to inspect the transmission towers, because until you know the state of that corridor every plan you make is guesswork', desc: 'Situational awareness matters, but it does not save a life today the way the rescue does.', effect: { score: -1 },
           locked: function (log) {
             return log['terangi_fuel_logistics'] === 'B' ? 'No aviation fuel was reserved - a long inspection sortie is out of range' : false;
           } }
@@ -1223,9 +1223,9 @@
       prompt: 'How do you handle the offer?',
       options: [
         { key: 'A', label: 'Decline the private queue-jump, but assess the supermarket on its merits as the town’s food distribution and place it on the published priority list where that justifies', desc: 'The supermarket may well deserve priority - as a food-distribution load, on a published basis, not because it offered money.', effect: { score: 5 } },
-        { key: 'B', label: 'Accept the funding and restore their feeder today', desc: 'The day your restoration order can be bought is the day every other customer stops believing the list means anything.', effect: { score: -5 } },
-        { key: 'C', label: 'Refuse outright and refuse to discuss it', desc: 'Right instinct on the money, but it also refuses to consider a genuine community food-distribution need on its merits.', effect: { score: -2 } },
-        { key: 'D', label: 'Accept the money and put them in the normal queue without telling them', desc: 'Taking payment for something you are not providing, and concealing it, is worse than either honest answer.', effect: { score: -6 } }
+        { key: 'B', label: 'Accept the funding and restore their feeder today, since the money would pay for crew hours you cannot otherwise afford to put on', desc: 'The day your restoration order can be bought is the day every other customer stops believing the list means anything.', effect: { score: -5 } },
+        { key: 'C', label: 'Refuse the offer outright and decline to discuss it any further, so there is no possibility of the conversation being misread later', desc: 'Right instinct on the money, but it also refuses to consider a genuine community food-distribution need on its merits.', effect: { score: -2 } },
+        { key: 'D', label: 'Accept the money and quietly put them in the normal queue anyway, so the company is better off and the priority order stays untouched', desc: 'Taking payment for something you are not providing, and concealing it, is worse than either honest answer.', effect: { score: -6 } }
       ]
     },
     {
@@ -1237,9 +1237,9 @@
       prompt: 'Do you authorise work beneath the rock faces?',
       options: [
         { key: 'A', label: 'Back the Health & Safety stop - no work beneath uncontrolled unstable rock faces - and task the crews to a safer method or sequence', desc: 'An uncontrolled serious hazard is not a "calculated risk" to delegate to crews. The safety stop holds, and you find another way.', effect: { score: 5 } },
-        { key: 'B', label: 'Override H&S and send the crews in - the restoration is too important', desc: 'Sending crews under unstable rock faces over an explicit safety objection is how lineworkers are killed, and it is on you.', effect: { score: -6 } },
-        { key: 'C', label: 'Let the supervisor and crew decide on the spot', desc: 'Pushes an unacceptable, contested hazard decision down onto the people most exposed to it.', effect: { score: -3 } },
-        { key: 'D', label: 'Delay any decision and leave the fault unaddressed', desc: 'Avoids the unsafe work but also abandons the restoration entirely, when a safer method or sequence was the answer.', effect: { score: -2 } }
+        { key: 'B', label: 'Override the Health and Safety advice and send the crews in, because this feeder carries the hospital and the restoration cannot wait for geology', desc: 'Sending crews under unstable rock faces over an explicit safety objection is how lineworkers are killed, and it is on you.', effect: { score: -6 } },
+        { key: 'C', label: 'Let the supervisor and the crew make the call on the spot, since they can see the rock face and the H&S adviser is working from photographs', desc: 'Pushes an unacceptable, contested hazard decision down onto the people most exposed to it.', effect: { score: -3 } },
+        { key: 'D', label: 'Delay any decision and leave the fault unaddressed for now, rather than either override a safety stop or formally abandon the repair', desc: 'Avoids the unsafe work but also abandons the restoration entirely, when a safer method or sequence was the answer.', effect: { score: -2 } }
       ]
     },
     {
@@ -1268,9 +1268,9 @@
       prompt: 'How do you treat the marae feeder?',
       options: [
         { key: 'A', label: 'Treat the marae as a critical life-safety load - prioritise its feeder or provide interim generation - and explain the basis to the urban customers waiting', desc: '350 vulnerable people sheltering overnight is a life-safety load, not a customer count. Restore or bridge it, transparently.', effect: { score: 5 } },
-        { key: 'B', label: 'Restore the 5,000 urban homes first - the numbers are clear', desc: 'A raw customer-count rule abandons 350 vulnerable evacuees in the cold; numbers alone are not the priority basis.', effect: { score: -4 } },
-        { key: 'C', label: 'Decide quietly for the urban homes and avoid explaining it', desc: 'Even if the call were defensible, doing it opaquely guarantees the "rural communities abandoned" story.', effect: { score: -3 } },
-        { key: 'D', label: 'Defer the decision to Civil Defence entirely', desc: 'The feeder allocation is yours to make with Civil Defence’s welfare input - handing it off wholesale just stalls help.', effect: { score: -2 } }
+        { key: 'B', label: 'Restore the five thousand urban homes first, because the numbers are unambiguous and the greatest good is served by the largest restoration', desc: 'A raw customer-count rule abandons 350 vulnerable evacuees in the cold; numbers alone are not the priority basis.', effect: { score: -4 } },
+        { key: 'C', label: 'Decide quietly in favour of the urban homes and avoid explaining the basis, since any published reasoning will be picked apart either way', desc: 'Even if the call were defensible, doing it opaquely guarantees the "rural communities abandoned" story.', effect: { score: -3 } },
+        { key: 'D', label: 'Defer the decision to Civil Defence entirely and restore whatever they nominate, so the prioritisation sits with the agency coordinating welfare', desc: 'The feeder allocation is yours to make with Civil Defence’s welfare input - handing it off wholesale just stalls help.', effect: { score: -2 } }
       ]
     },
     {
@@ -1283,9 +1283,9 @@
       prompt: 'What position do you take to the Board?',
       options: [
         { key: 'A', label: 'Argue for life-safety and community-function priority, propose a scoped emergency spending envelope with regulator and Government cost-recovery engagement, and get it in the minutes', desc: 'Gives the Board the financial control it is entitled to without letting revenue set the restoration order - and records the basis.', effect: { score: 5 } },
-        { key: 'B', label: 'Accept the resolution restricting emergency spending', desc: 'Hands the restoration order to the balance sheet at the exact moment the community needs it set by life safety.', effect: { score: -5 } },
-        { key: 'C', label: 'Ignore the Board and spend what you like', desc: 'The Board’s financial oversight is legitimate; going around it loses you the authority you will need for the recovery.', effect: { score: -4 } },
-        { key: 'D', label: 'Agree to prioritise industrial customers by revenue', desc: 'Restoring by who pays most, while a hospital and three rest homes wait, is the decision that ends careers and licences.', effect: { score: -6 } }
+        { key: 'B', label: 'Accept the Board resolution restricting emergency spending, since the directors carry the financial duty and it is not your money to commit', desc: 'Hands the restoration order to the balance sheet at the exact moment the community needs it set by life safety.', effect: { score: -5 } },
+        { key: 'C', label: 'Ignore the Board resolution and spend whatever the response requires, on the basis that life safety cannot wait for a governance process', desc: 'The Board’s financial oversight is legitimate; going around it loses you the authority you will need for the recovery.', effect: { score: -4 } },
+        { key: 'D', label: 'Agree to prioritise industrial customers by revenue, so the company protects the income it will need to fund the whole recovery afterwards', desc: 'Restoring by who pays most, while a hospital and three rest homes wait, is the decision that ends careers and licences.', effect: { score: -6 } }
       ]
     },
     {
@@ -1297,9 +1297,9 @@
       prompt: 'How much uncertainty do you disclose?',
       options: [
         { key: 'A', label: 'Be transparent: give what you genuinely know, honest ranges, what you are doing and the next update time - no restoration date you cannot stand behind', desc: 'Honest uncertainty, clearly framed, builds the trust you need for the hard days ahead and survives contact with reality.', effect: { score: 5 } },
-        { key: 'B', label: 'Give a confident, optimistic restoration timeline to reassure the public', desc: 'A reassuring date you cannot meet destroys trust in every message that follows when the lights stay off.', effect: { score: -5 } },
-        { key: 'C', label: 'Refuse to give any information until you know more', desc: 'A vacuum at a national briefing fills with rumour; you can be honest about uncertainty without going silent.', effect: { score: -3 } },
-        { key: 'D', label: 'Downplay the damage to avoid alarming people', desc: 'Minimising a seven-day transmission problem buys calm now and costs all credibility when the scale emerges.', effect: { score: -3 } }
+        { key: 'B', label: 'Give a confident, optimistic restoration timeline to reassure a frightened public, because uncertainty from the network operator reads as chaos', desc: 'A reassuring date you cannot meet destroys trust in every message that follows when the lights stay off.', effect: { score: -5 } },
+        { key: 'C', label: 'Refuse to give any information at all until you know more, so that nothing said tonight has to be walked back in front of the country', desc: 'A vacuum at a national briefing fills with rumour; you can be honest about uncertainty without going silent.', effect: { score: -3 } },
+        { key: 'D', label: 'Downplay the extent of the damage to avoid alarming people further, since there is nothing the public can do about a transmission corridor', desc: 'Minimising a seven-day transmission problem buys calm now and costs all credibility when the scale emerges.', effect: { score: -3 } }
       ]
     },
     {
@@ -1323,9 +1323,9 @@
           locked: function (log) {
             return log['terangi_board'] === 'B' ? 'The Board resolution you accepted this afternoon bars unbudgeted emergency hire' : false;
           } },
-        { key: 'B', label: 'Refuse the expense to protect the company’s finances', desc: 'Saving money while critical services lose power for seven days trades community lives and function for the balance sheet.', effect: { score: -5 } },
-        { key: 'C', label: 'Hire generation for everything regardless of cost - "whatever it takes"', desc: 'Unscoped, open-ended hire may bankrupt the company the community needs for its long recovery; "whatever it takes" still needs targeting.', effect: { score: -2 } },
-        { key: 'D', label: 'Defer the decision until you have full costings', desc: 'Critical loads are failing now; waiting for perfect costings before protecting the hospital and water is too slow.', effect: { score: -3 } }
+        { key: 'B', label: 'Refuse the expense to protect the company’s finances, since nobody has yet confirmed who is paying and the Board has restricted your spending', desc: 'Saving money while critical services lose power for seven days trades community lives and function for the balance sheet.', effect: { score: -5 } },
+        { key: 'C', label: 'Hire generation for everything regardless of cost on a whatever-it-takes basis, and argue about who pays for it once the lights are back on', desc: 'Unscoped, open-ended hire may bankrupt the company the community needs for its long recovery; "whatever it takes" still needs targeting.', effect: { score: -2 } },
+        { key: 'D', label: 'Defer the decision until you have full costings and a funding commitment, so that nothing is committed without knowing where the money comes from', desc: 'Critical loads are failing now; waiting for perfect costings before protecting the hospital and water is too slow.', effect: { score: -3 } }
       ]
     },
     {
@@ -1345,9 +1345,9 @@
       prompt: 'How do you handle the refusal?',
       options: [
         { key: 'A', label: 'Back the crew leader’s stop-work right, reassess the hazard together with them and H&S, and only proceed if it can be genuinely controlled', desc: 'The person at the hazard has the right to stop, and protecting that right is what keeps your whole workforce safe and willing.', effect: { score: 5 } },
-        { key: 'B', label: 'Direct them to do the task - operations says the risk is acceptable', desc: 'Overriding a frontline safety refusal from the office is how you get someone hurt and destroy stop-work culture.', effect: { score: -5 } },
-        { key: 'C', label: 'Replace them with a crew that will not argue', desc: 'Punishing a safety refusal by swapping in a more compliant crew is both dangerous and a signal no lineworker forgets.', effect: { score: -4 } },
-        { key: 'D', label: 'Leave operations and the crew to fight it out', desc: 'Ducking the call leaves a safety dispute unresolved at an active worksite, with no one backing the person at the hazard.', effect: { score: -3 } }
+        { key: 'B', label: 'Direct them to do the task as instructed, since the operations manager has assessed the risk as acceptable and somebody has to make the call', desc: 'Overriding a frontline safety refusal from the office is how you get someone hurt and destroy stop-work culture.', effect: { score: -5 } },
+        { key: 'C', label: 'Replace them with a crew that will get on with it, because you cannot run a restoration where every task is open to negotiation', desc: 'Punishing a safety refusal by swapping in a more compliant crew is both dangerous and a signal no lineworker forgets.', effect: { score: -4 } },
+        { key: 'D', label: 'Leave the operations manager and the crew leader to fight it out between them, since they are both experienced and closer to it than you are', desc: 'Ducking the call leaves a safety dispute unresolved at an active worksite, with no one backing the person at the hazard.', effect: { score: -3 } }
       ]
     },
     {
@@ -1359,9 +1359,9 @@
       prompt: 'What do you publish?',
       options: [
         { key: 'A', label: 'Publish the honest range with the reasons, what would narrow it, and a fixed next-update time - and hold to that update schedule', desc: 'People can plan around an honest range with a known update time. They cannot plan around a confident date that moves every day.', effect: { score: 5 } },
-        { key: 'B', label: 'Publish the optimistic end of the range', desc: 'Five days becomes the promise, and every day past it is a broken one. Optimism published as fact is the fastest way to lose the town.', effect: { score: -5 } },
-        { key: 'C', label: 'Publish nothing until the range narrows', desc: 'The silence gets filled with worse numbers than yours, and people make decisions on rumour instead of a range.', effect: { score: -3 } },
-        { key: 'D', label: 'Publish a different date to each audience', desc: 'They talk to each other. The moment the versions collide you have no credibility left with any of them.', effect: { score: -6 } }
+        { key: 'B', label: 'Publish the optimistic end of the range, because a district that has been dark for two days needs something to hold on to tonight', desc: 'Five days becomes the promise, and every day past it is a broken one. Optimism published as fact is the fastest way to lose the town.', effect: { score: -5 } },
+        { key: 'C', label: 'Publish nothing at all until the range narrows, so that the first number the public hears from you is one you can actually stand behind', desc: 'The silence gets filled with worse numbers than yours, and people make decisions on rumour instead of a range.', effect: { score: -3 } },
+        { key: 'D', label: 'Publish a different date to each audience according to what they most need to hear, so every group gets an answer suited to their situation', desc: 'They talk to each other. The moment the versions collide you have no credibility left with any of them.', effect: { score: -6 } }
       ]
     },
     {
@@ -1373,9 +1373,9 @@
       prompt: 'Do you rest the crews or push on?',
       options: [
         { key: 'A', label: 'Enforce mandatory rest and rotation - exhausted crews near live conductors are a fatality waiting to happen', desc: 'The near-miss is the warning. Rested crews restore safely; pushing fatigued lineworkers around live lines is how the near-miss becomes a death.', effect: { score: 5 } },
-        { key: 'B', label: 'Push the crews on through - Civil Defence needs power restored faster', desc: 'After a near-electrocution, driving exhausted crews on around live conductors gambles a lineworker’s life for hours of restoration.', effect: { score: -5 } },
-        { key: 'C', label: 'Let crews rest only if they ask to', desc: 'The most committed crews never ask; leaving rest to self-report fails exactly the people most at risk of the next near-miss.', effect: { score: -1 } },
-        { key: 'D', label: 'Keep the most experienced crews working and rest the rest', desc: 'Experience does not make a fatigued lineworker safe near live lines; it just changes who has the accident.', effect: { score: -3 } }
+        { key: 'B', label: 'Push the crews on through another shift, because Civil Defence is asking for faster restoration and every hour off is an hour the town stays dark', desc: 'After a near-electrocution, driving exhausted crews on around live conductors gambles a lineworker’s life for hours of restoration.', effect: { score: -5 } },
+        { key: 'C', label: 'Let crews rest only if they ask for it themselves, so that nobody is stood down while they still have something left in the tank', desc: 'The most committed crews never ask; leaving rest to self-report fails exactly the people most at risk of the next near-miss.', effect: { score: -1 } },
+        { key: 'D', label: 'Keep the most experienced crews working and rest the others, since the difficult switching needs the people who have done it before', desc: 'Experience does not make a fatigued lineworker safe near live lines; it just changes who has the accident.', effect: { score: -3 } }
       ]
     },
     {

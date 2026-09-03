@@ -400,7 +400,7 @@
         inject: {
           type: 'inject', tag: 'CONSEQUENCE',
           title: 'The Operator Finds Damage It Missed',
-          body: 'Nine days later the operator\u2019s own follow-up inspection finds abutment damage its initial assessment did '
+          body: 'Nine days later the operator’s own follow-up inspection finds abutment damage its initial assessment did '
             + 'not pick up. Your advice adopted their conclusion without independent data, so the record shows the science '
             + 'advisor endorsed it. Two settlements sat below that structure for nine days on your endorsement.',
           source: 'Hydro Operator / Regulator',
@@ -1054,9 +1054,9 @@
       prompt: 'What do you advise on responder access to unstable areas?',
       options: [
         { key: 'A', label: 'Risk-tier the zones: no-entry where collapse or slope failure is credible, controlled access elsewhere with stand-off triggers and a spotter', desc: 'Decision-ready and proportionate. Protects responders where the hazard is real without freezing every rescue. States the trigger that would change the advice.', effect: { score: 5 } },
-        { key: 'B', label: 'Blanket "no entry" to all damaged buildings and landslide zones until full assessment', desc: 'Safe for responders but over-cautious — full assessment is hours or days away, and people who are still alive may not have that long.', effect: { score: -2 } },
-        { key: 'C', label: 'Decline to advise — responder access is an operational call, not a science one', desc: 'Abdication. The Controllers need your hazard read to make that call safely; "not my job" leaves them blind.', effect: { score: -4 } },
-        { key: 'D', label: 'Advise it is broadly safe to continue so rescues are not delayed', desc: 'False reassurance during an active aftershock sequence in landslide terrain. If the ground moves again, your advice killed responders.', effect: { score: -6 } }
+        { key: 'B', label: 'Apply a blanket no-entry rule to every damaged building and landslide zone until each has been fully assessed, and hold that line without exception', desc: 'Safe for responders but over-cautious — full assessment is hours or days away, and people who are still alive may not have that long.', effect: { score: -2 } },
+        { key: 'C', label: 'Decline to advise on access, on the basis that where responders go is an operational command decision and not something science should be directing', desc: 'Abdication. The Controllers need your hazard read to make that call safely; "not my job" leaves them blind.', effect: { score: -4 } },
+        { key: 'D', label: 'Advise that conditions are broadly safe to continue working, so that rescue teams are not held back from people who may still be alive under rubble', desc: 'False reassurance during an active aftershock sequence in landslide terrain. If the ground moves again, your advice killed responders.', effect: { score: -6 } }
       ]
     },
     {
@@ -1069,9 +1069,9 @@
       prompt: 'How do you publish the forecast?',
       options: [
         { key: 'A', label: 'Publish the probability with a plain-English translation of what it means for a decision - what to expect, what it does not predict, and what would change it', desc: 'A probability without a decision frame is a number people fill in themselves. Say what it means for the choices they are actually making.', effect: { score: 5 } },
-        { key: 'B', label: 'Publish the number and let people interpret it', desc: 'Sixty-three per cent will be read as "an earthquake is coming" by half your audience and "probably fine" by the other half.', effect: { score: -4 } },
-        { key: 'C', label: 'Round it to "high likelihood" and drop the number entirely', desc: 'Removes the precision that lets a controller compare this week against next, and invites the accusation that you are hiding the figure.', effect: { score: -3 } },
-        { key: 'D', label: 'Give different versions to officials and the public', desc: 'Two versions of the same forecast collide within a day, and the public one is always the one that looks like a lie.', effect: { score: -5 } }
+        { key: 'B', label: 'Publish the probability exactly as calculated and let people interpret it themselves, since altering or explaining it risks putting your thumb on the scale', desc: 'Sixty-three per cent will be read as "an earthquake is coming" by half your audience and "probably fine" by the other half.', effect: { score: -4 } },
+        { key: 'C', label: 'Round it to a plain phrase such as high likelihood and drop the number altogether, so nobody mistakes a modelled figure for a precise prediction', desc: 'Removes the precision that lets a controller compare this week against next, and invites the accusation that you are hiding the figure.', effect: { score: -3 } },
+        { key: 'D', label: 'Give the full figure to officials and a simplified version to the public, so each audience gets the detail that is actually useful to them', desc: 'Two versions of the same forecast collide within a day, and the public one is always the one that looks like a lie.', effect: { score: -5 } }
       ]
     },
     {
@@ -1084,9 +1084,9 @@
       prompt: 'How do you answer the "bigger earthquake?" question?',
       options: [
         { key: 'A', label: 'Plain language, honest and bounded: a larger event is possible but cannot be predicted; aftershocks are expected; here is what to do now', desc: 'Discloses the uncertainty without hiding behind it, and turns it into action. Honest, clear, and decision-ready for the public.', effect: { score: 5 } },
-        { key: 'B', label: 'Give the full technical probability discussion with all the caveats', desc: 'Accurate but not decision-ready — a frightened public hears noise, and the key message ("here is what to do") gets lost.', effect: { score: 0 } },
-        { key: 'C', label: 'Reassure them a bigger quake is very unlikely, to keep everyone calm', desc: 'Buys calm by overstating certainty. When the next strong aftershock hits, the reassurance becomes the story and trust collapses.', effect: { score: -5 } },
-        { key: 'D', label: 'Decline to answer until the science is clearer', desc: 'The vacuum fills with worse information. Saying nothing during live fear is itself a message — and not a good one.', effect: { score: -3 } }
+        { key: 'B', label: 'Give the full technical probability discussion with every caveat intact, so that nothing is lost in translation and the record is defensible', desc: 'Accurate but not decision-ready — a frightened public hears noise, and the key message ("here is what to do") gets lost.', effect: { score: 0 } },
+        { key: 'C', label: 'Reassure them that a larger quake is very unlikely, on the basis that a frightened population makes worse decisions than a calm one', desc: 'Buys calm by overstating certainty. When the next strong aftershock hits, the reassurance becomes the story and trust collapses.', effect: { score: -5 } },
+        { key: 'D', label: 'Decline to answer until the science is clearer, rather than put a number into public circulation that you may have to withdraw within days', desc: 'The vacuum fills with worse information. Saying nothing during live fear is itself a message — and not a good one.', effect: { score: -3 } }
       ]
     },
     {
@@ -1107,24 +1107,24 @@
       prompt: 'How do you prioritise the two geotechnical teams?',
       options: [
         { key: 'A', label: 'Triage by life exposure and consequence: township slope above homes and the school below the slope first; cover dam, hospital road and pass with remote/rapid methods', desc: 'Puts scarce expert effort where people are most exposed, and uses remote assessment to keep eyes on the rest. Defensible and transparent.', effect: { score: 5 } },
-        { key: 'B', label: 'Send both to the alpine pass and hospital access road to restore access fastest', desc: 'Prioritises economic and logistical access over life exposure — the slopes sitting above a township and a school go unassessed.', effect: { score: -3 } },
-        { key: 'C', label: 'Split the two teams thinly across all five sites for partial coverage', desc: 'Spreads them so thin that no site gets a proper assessment — the appearance of coverage without the substance.', effect: { score: -2 } },
-        { key: 'D', label: 'Hold both until you can fully scope all five demands', desc: 'Delay while unstable slopes sit above people. Perfect scoping is the enemy of timely life-safety advice here.', effect: { score: -4 } }
+        { key: 'B', label: 'Send both teams to the alpine pass and the hospital access road, on the basis that restoring access unlocks every other response that is waiting', desc: 'Prioritises economic and logistical access over life exposure — the slopes sitting above a township and a school go unassessed.', effect: { score: -3 } },
+        { key: 'C', label: 'Split the two teams thinly across all five sites so that every location gets some coverage and nobody can say they were left out entirely', desc: 'Spreads them so thin that no site gets a proper assessment — the appearance of coverage without the substance.', effect: { score: -2 } },
+        { key: 'D', label: 'Hold both teams until you can properly scope all five demands, rather than commit your only field capability before you understand the problem', desc: 'Delay while unstable slopes sit above people. Perfect scoping is the enemy of timely life-safety advice here.', effect: { score: -4 } }
       ]
     },
     {
       time: 50, type: 'decision', tag: 'ADVISORY',
       title: 'Unverified Drone Footage',
-      body: 'A resident\u2019s drone footage is circulating widely. It appears to show a long tension crack across the slope '
+      body: 'A resident’s drone footage is circulating widely. It appears to show a long tension crack across the slope '
         + 'above the township - which would be significant if real. You cannot verify the location, the timing, or whether '
         + 'what you are looking at is a fissure or a farm track. It is already on the news.',
       decisionId: 'sci_drone',
       prompt: 'How do you use the footage?',
       options: [
         { key: 'A', label: 'Treat it as a lead rather than evidence: task verification against it, say publicly that you are checking it and what you can and cannot yet confirm', desc: 'Unverified imagery is a tasking prompt, not a finding. Saying you are checking it beats both endorsement and silence.', effect: { score: 5 } },
-        { key: 'B', label: 'Incorporate it into the hazard map now - it is too significant to ignore', desc: 'Putting an unverified feature on an authoritative map means every subsequent product carries an error you cannot trace.', effect: { score: -5 } },
-        { key: 'C', label: 'Dismiss it publicly as unverified and say nothing further', desc: 'It may well be real, and a flat dismissal that later proves wrong costs you more than the footage ever could.', effect: { score: -4 } },
-        { key: 'D', label: 'Ignore it - your job is the official data', desc: 'It is on the news and shaping public behaviour whether you engage with it or not.', effect: { score: -3 } }
+        { key: 'B', label: 'Incorporate the footage into the published hazard map now, on the basis that a landslide dam of that size is far too significant to leave off it', desc: 'Putting an unverified feature on an authoritative map means every subsequent product carries an error you cannot trace.', effect: { score: -5 } },
+        { key: 'C', label: 'Dismiss it publicly as unverified footage and say nothing further, so that unchecked material from a hobbyist does not start driving decisions', desc: 'It may well be real, and a flat dismissal that later proves wrong costs you more than the footage ever could.', effect: { score: -4 } },
+        { key: 'D', label: 'Ignore it entirely - your job is the official instrument and imagery data, and chasing social media footage is not what the advisory role is for', desc: 'It is on the news and shaping public behaviour whether you engage with it or not.', effect: { score: -3 } }
       ]
     },
     {
@@ -1147,9 +1147,9 @@
       prompt: 'What do you recommend on the suspected landslide dam?',
       options: [
         { key: 'A', label: 'Recommend precautionary evacuation of the clearly exposed flood path now, labelled provisional, and reassess at first aerial/daylight confirmation', desc: 'Acts in time on a plausible catastrophic risk, scoped to the people actually exposed, and sets an explicit trigger to revise. Provisional but decision-ready.', effect: { score: 5 } },
-        { key: 'B', label: 'Wait for aerial confirmation before recommending any evacuation', desc: 'A landslide dam can fail without warning. Waiting for certainty may mean the warning arrives after the flood does.', effect: { score: -3 } },
-        { key: 'C', label: 'Say nothing until the footage is verified — it is unconfirmed', desc: 'Sitting on a plausible, lethal, time-critical hazard. If the dam breaks out, withholding the signal will be indefensible.', effect: { score: -5 } },
-        { key: 'D', label: 'Recommend evacuating the entire township immediately to be safe', desc: 'Over-broad — displaces hundreds who are not in the flood path, overwhelms welfare, and erodes trust for the next warning.', effect: { score: -1 } }
+        { key: 'B', label: 'Wait for aerial confirmation before recommending any evacuation, so that nobody is moved out of their home on the strength of unverified footage', desc: 'A landslide dam can fail without warning. Waiting for certainty may mean the warning arrives after the flood does.', effect: { score: -3 } },
+        { key: 'C', label: 'Say nothing at all until the footage is verified, because an unconfirmed dam that turns out not to exist will cost you every future warning', desc: 'Sitting on a plausible, lethal, time-critical hazard. If the dam breaks out, withholding the signal will be indefensible.', effect: { score: -5 } },
+        { key: 'D', label: 'Recommend evacuating the entire township immediately, on the basis that the cost of moving people is trivial against the cost of being wrong', desc: 'Over-broad — displaces hundreds who are not in the flood path, overwhelms welfare, and erodes trust for the next warning.', effect: { score: -1 } }
       ]
     },
     {
@@ -1165,9 +1165,9 @@
           locked: function (log) {
             return log['sci_deploy'] === 'D' ? 'No team has reached the dam - you held both while you scoped, and you have no ground truth to recommend on' : false;
           } },
-        { key: 'B', label: 'Advise waiting until you can bound the timing properly', desc: 'The data that would bound it needs a team on the ground and a weather window you do not have, and the dam does not wait for either.', effect: { score: -5 } },
-        { key: 'C', label: 'Tell the Controller it is an operational decision, not a science one', desc: 'The Controller needs your hazard judgement to make that decision. Handing it back without a position is not neutrality, it is abdication.', effect: { score: -5 } },
-        { key: 'D', label: 'Recommend evacuation and present it as a certainty to make sure it happens', desc: 'Overstating certainty to force the right action works once, and destroys the credibility every later warning depends on.', effect: { score: -4 } }
+        { key: 'B', label: 'Advise waiting until you can bound the timing properly, so that the Controller is given a window to act on rather than an open-ended warning', desc: 'The data that would bound it needs a team on the ground and a weather window you do not have, and the dam does not wait for either.', effect: { score: -5 } },
+        { key: 'C', label: 'Tell the Controller that evacuating a township is an operational decision rather than a science one, and give him the data to make it himself', desc: 'The Controller needs your hazard judgement to make that decision. Handing it back without a position is not neutrality, it is abdication.', effect: { score: -5 } },
+        { key: 'D', label: 'Recommend evacuation and present it as a certainty rather than a probability, because hedged advice is exactly what gets ignored under pressure', desc: 'Overstating certainty to force the right action works once, and destroys the credibility every later warning depends on.', effect: { score: -4 } }
       ]
     },
     {
@@ -1180,9 +1180,9 @@
       prompt: 'How do you advise on reopening the alpine road?',
       options: [
         { key: 'A', label: 'Reframe it — no road is safe; give the risk level and conditions, and recommend escorted, essential-only convoys with rockfall watch and timing windows', desc: 'Answers the real question (is the risk tolerable, and how do we manage it?) and hands officials a usable, conditional option instead of a false yes or an absolute no.', effect: { score: 5 } },
-        { key: 'B', label: 'Advise the road stays fully closed until rockfall risk is low', desc: 'Defensible on pure hazard grounds but ignores the tolerable-risk framing — isolated communities pay the price while you wait for "low".', effect: { score: -2 } },
-        { key: 'C', label: 'Advise it is safe enough to reopen so supplies can flow', desc: 'False certainty on a high-rockfall corridor during an aftershock sequence. "Safe enough" is the phrase that gets a convoy buried.', effect: { score: -6 } },
-        { key: 'D', label: 'Tell officials it is their decision and decline to give a risk view', desc: 'Abdication when they specifically need your hazard read. Declining to advise is itself a failure of the advisory role.', effect: { score: -4 } }
+        { key: 'B', label: 'Advise that the road stays fully closed until the rockfall risk drops to low, and hold that position regardless of what is waiting to get through', desc: 'Defensible on pure hazard grounds but ignores the tolerable-risk framing — isolated communities pay the price while you wait for "low".', effect: { score: -2 } },
+        { key: 'C', label: 'Advise that it is safe enough to reopen so that supplies and fuel can start flowing to communities that have now been cut off for two days', desc: 'False certainty on a high-rockfall corridor during an aftershock sequence. "Safe enough" is the phrase that gets a convoy buried.', effect: { score: -6 } },
+        { key: 'D', label: 'Tell officials that reopening is their decision and decline to offer a risk view, so that science is not blamed for an operational judgement', desc: 'Abdication when they specifically need your hazard read. Declining to advise is itself a failure of the advisory role.', effect: { score: -4 } }
       ]
     },
     {
@@ -1195,9 +1195,9 @@
       prompt: 'What do you advise the school board?',
       options: [
         { key: 'A', label: 'Advise against reoccupation until the slope is assessed, say exactly what assessment is needed and how long it would take, and help them frame the alternative', desc: 'You cannot clear a slope you have not assessed. Naming the specific work and the timeframe turns "no" into something the board can act on.', effect: { score: 5 } },
-        { key: 'B', label: 'Clear it - there is no positive evidence of instability', desc: 'Absence of evidence from an assessment you have not done is not evidence of absence, and 400 children would be under it.', effect: { score: -6 } },
-        { key: 'C', label: 'Tell them it is their decision and decline to advise', desc: 'A school board cannot assess a slope. Withholding the judgement they came for leaves them guessing about children.', effect: { score: -5 } },
-        { key: 'D', label: 'Advise permanent closure of the site', desc: 'Goes far beyond what your evidence supports, and a recommendation you cannot substantiate will not survive the first challenge.', effect: { score: -4 } }
+        { key: 'B', label: 'Clear the site for reoccupation, on the basis that there is no positive evidence of instability and four hundred children need somewhere to be', desc: 'Absence of evidence from an assessment you have not done is not evidence of absence, and 400 children would be under it.', effect: { score: -6 } },
+        { key: 'C', label: 'Tell them that reopening the school is their decision and decline to advise either way, since the consequences of being wrong are theirs to carry', desc: 'A school board cannot assess a slope. Withholding the judgement they came for leaves them guessing about children.', effect: { score: -5 } },
+        { key: 'D', label: 'Advise permanent closure of the site and relocation of the school, so that nobody has to revisit this question every time the slope moves again', desc: 'Goes far beyond what your evidence supports, and a recommendation you cannot substantiate will not survive the first challenge.', effect: { score: -4 } }
       ]
     },
     {
@@ -1210,9 +1210,9 @@
       prompt: 'How do you respond to the request to soften the language?',
       options: [
         { key: 'A', label: 'Hold the meaning, sharpen the plain English — keep the credible-risk message but make it clearer and more usable', desc: 'Plain language is a legitimate ask; diluting the risk is not. Keeps integrity and usability without picking an unnecessary fight.', effect: { score: 5 } },
-        { key: 'B', label: 'Accept the edit to keep the relationship with the Minister', desc: 'Lets science advice be politically filtered before it reaches the public. If the slope fails, the edit becomes the scandal.', effect: { score: -6 } },
-        { key: 'C', label: 'Refuse flatly and publish your original wording yourself', desc: 'Protects the science but burns the channel and the process — and freelancing public statements creates its own problems.', effect: { score: -1 } },
-        { key: 'D', label: 'Escalate formally through the science advisory chain, documenting the original advice', desc: 'Defends integrity through process and leaves a clear record, at some cost to the immediate relationship. A solid fallback to A.', effect: { score: 3 } }
+        { key: 'B', label: 'Accept the edit and let it go out, on the basis that the working relationship with the Minister is worth more than one contested adjective', desc: 'Lets science advice be politically filtered before it reaches the public. If the slope fails, the edit becomes the scandal.', effect: { score: -6 } },
+        { key: 'C', label: 'Refuse the edit flatly and publish your original wording yourself, so that the scientific advice reaches the public exactly as it was written', desc: 'Protects the science but burns the channel and the process — and freelancing public statements creates its own problems.', effect: { score: -1 } },
+        { key: 'D', label: 'Escalate formally through the science advisory chain, documenting the original advice and the edit that was requested, and let it be resolved above you', desc: 'Defends integrity through process and leaves a clear record, at some cost to the immediate relationship. A solid fallback to A.', effect: { score: 3 } }
       ]
     },
     {
@@ -1224,10 +1224,10 @@
       decisionId: 'sci_hydro',
       prompt: 'How do you handle the hydro dam?',
       options: [
-        { key: 'A', label: 'State plainly that you cannot corroborate the operator\u2019s assessment, recommend independent inspection, and record that advice formally', desc: 'The operator may well be right. Saying you cannot corroborate it, and putting the recommendation on the record, is the whole of your job here.', effect: { score: 5 } },
-        { key: 'B', label: 'Accept the operator\u2019s assessment - they know their own asset', desc: 'Adopting the assessment of the party with the largest interest, with no independent data, is how you end up owning their conclusion.', effect: { score: -5 } },
-        { key: 'C', label: 'Publicly question the dam\u2019s safety to force an inspection', desc: 'Alarming two settlements about a structure you have no evidence against, to win a procedural argument.', effect: { score: -5 } },
-        { key: 'D', label: 'Leave it - it is a regulatory matter, not yours', desc: 'It is a hazard above two settlements after design-exceeding shaking. That makes it yours to raise, whoever regulates it.', effect: { score: -4 } }
+        { key: 'A', label: 'State plainly that you cannot corroborate the operator’s assessment, recommend independent inspection, and record that advice formally', desc: 'The operator may well be right. Saying you cannot corroborate it, and putting the recommendation on the record, is the whole of your job here.', effect: { score: 5 } },
+        { key: 'B', label: 'Accept the operator’s assessment and move on, since they know their own asset far better than you do and have their own engineers on site', desc: 'Adopting the assessment of the party with the largest interest, with no independent data, is how you end up owning their conclusion.', effect: { score: -5 } },
+        { key: 'C', label: 'Publicly question the dam’s safety to force an independent inspection, on the basis that pressure is the only thing that will move the operator', desc: 'Alarming two settlements about a structure you have no evidence against, to win a procedural argument.', effect: { score: -5 } },
+        { key: 'D', label: 'Leave it alone - dam safety sits with the regulator and the operator, and stepping into it puts you well outside your own advisory mandate', desc: 'It is a hazard above two settlements after design-exceeding shaking. That makes it yours to raise, whoever regulates it.', effect: { score: -4 } }
       ]
     },
     {
@@ -1240,9 +1240,9 @@
       prompt: 'How do you handle the disagreement in your advice?',
       options: [
         { key: 'A', label: 'Give one decision-ready recommendation that states the disagreement, your assessed confidence, and the precautionary action while it is resolved', desc: 'Honest about the split, clear on your overall judgement, and actionable now. This is what "decision-ready under uncertainty" looks like.', effect: { score: 5 } },
-        { key: 'B', label: 'Present both views and let officials choose between them', desc: 'Passes the scientific uncertainty downstream to people less equipped to resolve it. Not decision-ready.', effect: { score: -3 } },
-        { key: 'C', label: 'Force a single confident recommendation and omit the disagreement', desc: 'Buries a legitimate dissenting signal and overstates certainty. If the minority view is right, the omission is the failure.', effect: { score: -4 } },
-        { key: 'D', label: 'Delay advice until the two experts reconcile their models', desc: 'Scientific reconciliation takes time the slope above the town may not give you.', effect: { score: -3 } }
+        { key: 'B', label: 'Present both expert views side by side and let officials choose between them, so the disagreement is visible and nothing is hidden from them', desc: 'Passes the scientific uncertainty downstream to people less equipped to resolve it. Not decision-ready.', effect: { score: -3 } },
+        { key: 'C', label: 'Force a single confident recommendation and leave the disagreement out of it, because a Controller under pressure cannot act on a split opinion', desc: 'Buries a legitimate dissenting signal and overstates certainty. If the minority view is right, the omission is the failure.', effect: { score: -4 } },
+        { key: 'D', label: 'Delay the advice until the two experts have reconciled their models, so that what you eventually publish carries the whole field behind it', desc: 'Scientific reconciliation takes time the slope above the town may not give you.', effect: { score: -3 } }
       ]
     },
     {
@@ -1250,7 +1250,7 @@
       title: 'Everyone Wants a Different Answer',
       body: 'Within twenty minutes: a mayor asks you to confirm his township is safe, an infrastructure chief executive asks '
         + 'you to clear the pass for freight, a talkback host is reading your forecast aloud and laughing at it, and the '
-        + 'Minister\u2019s office wants to know why the advice keeps changing. None of them are asking for the same thing.',
+        + 'Minister’s office wants to know why the advice keeps changing. None of them are asking for the same thing.',
       source: 'Advice Recipients'
     },
     {
@@ -1265,9 +1265,9 @@
           locked: function (log) {
             return log['sci_minister'] === 'B' ? 'You accepted the softened wording this morning - the certainty you gave is already public' : false;
           } },
-        { key: 'B', label: 'Give them a single percentage so they have something firm', desc: 'A falsely precise number gets over-trusted and quoted as fact. The decimal point implies a confidence you do not have.', effect: { score: -4 } },
-        { key: 'C', label: 'Tell them the science cannot give a number and leave it there', desc: 'Technically true and operationally useless — it reads as the expert refusing to help.', effect: { score: -3 } },
-        { key: 'D', label: 'Give a wide percentage range with heavy caveats', desc: 'Better than a point estimate, but a bare range without decision implications still leaves officials guessing what to do.', effect: { score: 1 } }
+        { key: 'B', label: 'Give them a single percentage so they have something firm to plan against, even though the underlying uncertainty is considerably wider than that', desc: 'A falsely precise number gets over-trusted and quoted as fact. The decimal point implies a confidence you do not have.', effect: { score: -4 } },
+        { key: 'C', label: 'Tell them the science cannot give a meaningful number here and leave it at that, rather than invent a figure the data does not actually support', desc: 'Technically true and operationally useless — it reads as the expert refusing to help.', effect: { score: -3 } },
+        { key: 'D', label: 'Give a wide percentage range with heavy caveats attached, so the full spread of the uncertainty is on the record and nothing is overstated', desc: 'Better than a point estimate, but a bare range without decision implications still leaves officials guessing what to do.', effect: { score: 1 } }
       ]
     },
     {
@@ -1295,9 +1295,9 @@
       prompt: 'What do you do with the un-reviewed flood model?',
       options: [
         { key: 'A', label: 'Share it now as provisional advice, clearly labelled with its assumptions, confidence and the trigger for revision', desc: 'Gets a time-critical signal to the people exposed while being honest that it is provisional. Transparency about limits, not silence.', effect: { score: 5 } },
-        { key: 'B', label: 'Wait until the model has been peer reviewed before sharing anything', desc: 'Peer review is the right standard in normal times; here it can mean people stay in the flood path until it is too late.', effect: { score: -4 } },
-        { key: 'C', label: 'Share it as a firm finding to make sure people act', desc: 'Overstates certainty on an unreviewed model. If it is wrong, you have spent credibility you will need for the next warning.', effect: { score: -5 } },
-        { key: 'D', label: 'Quietly brief officials only, not the public', desc: 'Leaves the exposed public uninformed about a hazard above their homes. Provisional is fine; secret is not.', effect: { score: -2 } }
+        { key: 'B', label: 'Wait until the model has been through peer review before sharing anything, so that what you put in front of decision makers has been properly checked', desc: 'Peer review is the right standard in normal times; here it can mean people stay in the flood path until it is too late.', effect: { score: -4 } },
+        { key: 'C', label: 'Share it as a firm finding rather than a provisional one, on the basis that hedged advice is routinely discounted and people need to move now', desc: 'Overstates certainty on an unreviewed model. If it is wrong, you have spent credibility you will need for the next warning.', effect: { score: -5 } },
+        { key: 'D', label: 'Quietly brief officials only and keep it away from the public, so that an unreviewed model does not end up driving behaviour you cannot predict', desc: 'Leaves the exposed public uninformed about a hazard above their homes. Provisional is fine; secret is not.', effect: { score: -2 } }
       ]
     },
     {
@@ -1310,9 +1310,9 @@
       prompt: 'How do you handle the error?',
       options: [
         { key: 'A', label: 'Correct it openly and quickly: say what changed, why, what it does and does not change about the risk, and that this is what updating on evidence looks like', desc: 'A visible, explained correction is the strongest possible demonstration that your advice tracks evidence rather than reputation.', effect: { score: 5 } },
-        { key: 'B', label: 'Quietly update the map and say nothing', desc: 'Someone will notice the change, and a silent edit reads as concealment in a way an open correction never would.', effect: { score: -5 } },
-        { key: 'C', label: 'Leave it - the risk conclusion is unchanged so the detail does not matter', desc: 'The detail is what people navigated by. Leaving a known error in a published hazard product is not a rounding decision.', effect: { score: -5 } },
-        { key: 'D', label: 'Correct it but bury it in a technical annex', desc: 'Technically published, practically hidden, and it costs you the credibility that an open correction would have bought.', effect: { score: -3 } }
+        { key: 'B', label: 'Quietly update the map and say nothing about the change, so that public confidence in the rest of the hazard picture is not shaken by one error', desc: 'Someone will notice the change, and a silent edit reads as concealment in a way an open correction never would.', effect: { score: -5 } },
+        { key: 'C', label: 'Leave the map as it is - the overall risk conclusion has not changed, and correcting a detail nobody acted on only draws attention to the mistake', desc: 'The detail is what people navigated by. Leaving a known error in a published hazard product is not a rounding decision.', effect: { score: -5 } },
+        { key: 'D', label: 'Correct it properly but place the correction in a technical annex, so the record is accurate without turning one error into the day’s headline', desc: 'Technically published, practically hidden, and it costs you the credibility that an open correction would have bought.', effect: { score: -3 } }
       ]
     },
     {
@@ -1327,9 +1327,9 @@
           locked: function (log) {
             return log['sci_drone'] === 'B' ? 'Your published hazard map already carries an unverified drone feature' : false;
           } },
-        { key: 'B', label: 'Withhold the maps to avoid causing panic', desc: 'Withholding hazard information from the people it affects rarely prevents harm and devastates trust when the hazard materialises.', effect: { score: -5 } },
-        { key: 'C', label: 'Publish the full raw technical maps unedited', desc: 'Accurate but easily misread — uncaveated technical maps can cause the very panic and confusion that was feared.', effect: { score: -1 } },
-        { key: 'D', label: 'Release the maps to officials only, not the public', desc: 'The people standing below the dams are the ones who most need to know, and they are exactly who this leaves out.', effect: { score: -3 } }
+        { key: 'B', label: 'Withhold the maps entirely to avoid causing panic, on the basis that raw hazard zones shown to a frightened public will be read at their worst', desc: 'Withholding hazard information from the people it affects rarely prevents harm and devastates trust when the hazard materialises.', effect: { score: -5 } },
+        { key: 'C', label: 'Publish the full raw technical maps unedited, so that nobody can accuse the agency of holding back or of deciding what the public may see', desc: 'Accurate but easily misread — uncaveated technical maps can cause the very panic and confusion that was feared.', effect: { score: -1 } },
+        { key: 'D', label: 'Release the maps to officials only and not the public, so the people making decisions have everything while the detail cannot be misread', desc: 'The people standing below the dams are the ones who most need to know, and they are exactly who this leaves out.', effect: { score: -3 } }
       ]
     },
     {
@@ -1342,9 +1342,9 @@
       prompt: 'How do you get the advice to them?',
       options: [
         { key: 'A', label: 'Write a short, concrete, translatable instruction - what to do, where to go, what signal to act on - and confirm the lodge managers can repeat it back correctly', desc: 'Advice that must pass through intermediaries has to survive being repeated. Confirming it comes back correctly is the only test that matters.', effect: { score: 5 } },
-        { key: 'B', label: 'Send them the same technical bulletin the controllers get', desc: 'A bulletin written for CDEM controllers will not survive translation by a lodge manager to 300 frightened visitors.', effect: { score: -4 } },
-        { key: 'C', label: 'Leave it to Civil Defence - the tourist centres are outside your priority set', desc: 'Nine hundred people in the hazard zone are not outside anyone\u2019s priority set, and nobody else can write the hazard instruction.', effect: { score: -5 } },
-        { key: 'D', label: 'Tell them to evacuate immediately without saying where to', desc: 'An instruction to move with no destination sends 900 people onto roads you have flagged as rockfall corridors.', effect: { score: -6 } }
+        { key: 'B', label: 'Send the tourist centres the same technical bulletin the controllers receive, so that everyone is working from one consistent source of information', desc: 'A bulletin written for CDEM controllers will not survive translation by a lodge manager to 300 frightened visitors.', effect: { score: -4 } },
+        { key: 'C', label: 'Leave the tourist centres to Civil Defence, since they sit outside your assessed priority set and you have communities of your own still cut off', desc: 'Nine hundred people in the hazard zone are not outside anyone’s priority set, and nobody else can write the hazard instruction.', effect: { score: -5 } },
+        { key: 'D', label: 'Tell them to evacuate immediately and let the lodge managers work out where to, because any delay in getting people moving costs more than clarity', desc: 'An instruction to move with no destination sends 900 people onto roads you have flagged as rockfall corridors.', effect: { score: -6 } }
       ]
     },
     {
@@ -1356,9 +1356,9 @@
       prompt: 'How do you treat the mana whenua advice?',
       options: [
         { key: 'A', label: 'Integrate mātauranga as corroborating evidence, recommend precautionary access restriction now, and prioritise technical confirmation of the valley', desc: 'Treats long observation of the land as the credible signal it is, acts precautionarily, and seeks confirmation — rather than waiting for instruments to "allow" the concern.', effect: { score: 5 } },
-        { key: 'B', label: 'Wait for technical confirmation before adjusting any advice', desc: 'Dismisses a credible local signal because it has not yet been validated by instruments — risking both lives and trust.', effect: { score: -4 } },
-        { key: 'C', label: 'Note the concern but proceed with the access route as planned', desc: 'Ignores a real hazard signal and a relationship that matters. If the valley fails, this is the indefensible choice.', effect: { score: -5 } },
-        { key: 'D', label: 'Restrict access permanently with no plan to verify', desc: 'Precautionary but not decision-ready — no follow-up, no reassessment, and no path back to a normal access decision.', effect: { score: -1 } }
+        { key: 'B', label: 'Wait for technical confirmation before adjusting any published advice, so that what goes out rests entirely on evidence you can defend later', desc: 'Dismisses a credible local signal because it has not yet been validated by instruments — risking both lives and trust.', effect: { score: -4 } },
+        { key: 'C', label: 'Note the concern respectfully and proceed with the access route as planned, since the technical assessment does not currently show a problem there', desc: 'Ignores a real hazard signal and a relationship that matters. If the valley fails, this is the indefensible choice.', effect: { score: -5 } },
+        { key: 'D', label: 'Restrict access to the valley permanently with no plan to verify, so the question is settled and nobody is sent up there to check it', desc: 'Precautionary but not decision-ready — no follow-up, no reassessment, and no path back to a normal access decision.', effect: { score: -1 } }
       ]
     },
     {
@@ -1371,9 +1371,9 @@
       prompt: 'How do you respond?',
       options: [
         { key: 'A', label: 'Respond on the substance, publicly and without rancour: set out the field data she does not have, name where you genuinely agree, and offer her the dataset', desc: 'Scientific disagreement handled in the open, on evidence, strengthens the advice. Offering her the data is what separates confidence from defensiveness.', effect: { score: 5 } },
-        { key: 'B', label: 'Attack her credibility publicly', desc: 'Turns a disagreement about evidence into a fight about people, and every observer concludes you could not answer the substance.', effect: { score: -6 } },
-        { key: 'C', label: 'Say nothing and hope it passes', desc: 'An unanswered expert contradiction becomes the counter-narrative that undermines compliance with an evacuation still in force.', effect: { score: -4 } },
-        { key: 'D', label: 'Ask her institution to make her stop', desc: 'Suppressing a qualified colleague\u2019s scientific disagreement is the story, and it will be a bigger one than the disagreement.', effect: { score: -6 } }
+        { key: 'B', label: 'Attack her credibility publicly and set out why her published record does not qualify her to comment on a rupture she has not been anywhere near', desc: 'Turns a disagreement about evidence into a fight about people, and every observer concludes you could not answer the substance.', effect: { score: -6 } },
+        { key: 'C', label: 'Say nothing at all and let it pass, on the basis that a public argument between two scientists helps nobody and the story will move on by tomorrow', desc: 'An unanswered expert contradiction becomes the counter-narrative that undermines compliance with an evacuation still in force.', effect: { score: -4 } },
+        { key: 'D', label: 'Ask her institution to have a quiet word and get her to stop, so the disagreement is handled between organisations rather than played out in public', desc: 'Suppressing a qualified colleague’s scientific disagreement is the story, and it will be a bigger one than the disagreement.', effect: { score: -6 } }
       ]
     },
     {
@@ -1385,9 +1385,9 @@
       prompt: 'How do you respond to the leaked draft map?',
       options: [
         { key: 'A', label: 'Publish an official, plain-language version promptly with the caveats and "what to do", and explain what the draft was', desc: 'Gets ahead of the leak with an authoritative, usable version. Correcting the record beats denying or ignoring it every time.', effect: { score: 5 } },
-        { key: 'B', label: 'Deny the map is real to limit the damage', desc: 'A denial that is quickly disproven destroys trust in everything you say next. Never deny a real document.', effect: { score: -6 } },
-        { key: 'C', label: 'Say nothing and hope it blows over', desc: 'The vacuum fills with the most alarming possible reading of your own draft. Silence cedes the narrative.', effect: { score: -4 } },
-        { key: 'D', label: 'Confirm it is a draft and ask media to take it down, without releasing an official version', desc: 'Better than denial, but leaves the public with a stripped-down draft and no authoritative replacement to anchor to.', effect: { score: -1 } }
+        { key: 'B', label: 'Deny that the map is genuine in order to limit the damage, so that an unfinished draft does not end up being treated as official published advice', desc: 'A denial that is quickly disproven destroys trust in everything you say next. Never deny a real document.', effect: { score: -6 } },
+        { key: 'C', label: 'Say nothing and let it blow over, on the basis that engaging with a leaked draft gives it a status and an audience it would not otherwise have', desc: 'The vacuum fills with the most alarming possible reading of your own draft. Silence cedes the narrative.', effect: { score: -4 } },
+        { key: 'D', label: 'Confirm it is a draft and ask media to take it down, without putting out an official version to replace it', desc: 'Better than denial, but leaves the public with a stripped-down draft and no authoritative replacement to anchor to.', effect: { score: -1 } }
       ]
     },
     {
@@ -1400,9 +1400,9 @@
       prompt: 'How do you handle your team?',
       options: [
         { key: 'A', label: 'Rotate people off, reduce to the products that genuinely drive decisions, and put a second pair of eyes on anything published from here', desc: 'Fewer products, checked, beats more products with fatigue errors in them - and an error in a hazard product propagates into every decision built on it.', effect: { score: 5 } },
-        { key: 'B', label: 'Push through - the decisions being made need the full product set', desc: 'Two caught errors mean there are uncaught ones, and a wrong hazard product does more damage than a late one.', effect: { score: -5 } },
-        { key: 'C', label: 'Keep everyone on but add more review steps', desc: 'Adds work to exhausted people to catch the errors exhaustion is causing, and slows the products without fixing the cause.', effect: { score: -3 } },
-        { key: 'D', label: 'Stand the team down entirely until morning', desc: 'An evacuation is in force and the weather is closing; there are decisions tonight that need a hazard view.', effect: { score: -4 } }
+        { key: 'B', label: 'Push through the next twelve hours - the decisions being made right now need the full product set, and there is nobody else who can produce it', desc: 'Two caught errors mean there are uncaught ones, and a wrong hazard product does more damage than a late one.', effect: { score: -5 } },
+        { key: 'C', label: 'Keep everyone on shift but add further review steps to each product, so that fatigue is caught by the checking rather than by standing people down', desc: 'Adds work to exhausted people to catch the errors exhaustion is causing, and slows the products without fixing the cause.', effect: { score: -3 } },
+        { key: 'D', label: 'Stand the whole team down until morning, on the basis that exhausted analysts produce advice that is worse than no advice at all', desc: 'An evacuation is in force and the weather is closing; there are decisions tonight that need a hazard view.', effect: { score: -4 } }
       ]
     },
     {
@@ -1418,9 +1418,9 @@
           locked: function (log) {
             return log['sci_tourists'] === 'C' ? 'You already told the cut-off centres they were outside your priority set' : false;
           } },
-        { key: 'B', label: 'Follow the national economic priorities — highways and tourist centres first', desc: 'Lets economic and political profile, not exposure, decide who gets life-safety advice. The vulnerable wait longest exactly when it matters most.', effect: { score: -4 } },
-        { key: 'C', label: 'First-come, first-served as requests arrive', desc: 'Neutral on its face, but defaults to whoever is best-connected and loudest — usually not the most exposed.', effect: { score: -2 } },
-        { key: 'D', label: 'Defer the allocation entirely to officials', desc: 'Allocating scarce science capacity is exactly the call you should be advising on, not handing back unadvised.', effect: { score: -3 } }
+        { key: 'B', label: 'Follow the national economic priorities and assess the highways and tourist centres first, since that is where the recovery money and the pressure sit', desc: 'Lets economic and political profile, not exposure, decide who gets life-safety advice. The vulnerable wait longest exactly when it matters most.', effect: { score: -4 } },
+        { key: 'C', label: 'Work through the assessment requests first-come first-served as they arrive, so that the allocation is transparent and nobody can claim favouritism', desc: 'Neutral on its face, but defaults to whoever is best-connected and loudest — usually not the most exposed.', effect: { score: -2 } },
+        { key: 'D', label: 'Defer the allocation entirely to officials and assess wherever you are sent, so that a scientist is not the one deciding which communities wait', desc: 'Allocating scarce science capacity is exactly the call you should be advising on, not handing back unadvised.', effect: { score: -3 } }
       ]
     },
     {

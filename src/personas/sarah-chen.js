@@ -916,9 +916,9 @@
       prompt: 'Do you go to your family or stay and lead?',
       options: [
         { key: 'A', label: 'Secure your family fast and focused - get word out, check the school and your parents - brief your team before you go, and return to lead', desc: 'You cannot lead well while frantic about your children. Make family safe, delegate clearly, and come back - humane and realistic.', effect: { score: 5 } },
-        { key: 'B', label: 'Stay at the shop and push your worry down - the business needs you now', desc: 'A leader sick with worry about her own children makes poor calls, and they are your children. Suppressing it is not the same as resolving it.', effect: { score: -3 } },
-        { key: 'C', label: 'Leave entirely and do not return to the shop today', desc: 'Abandons 12 staff and the town’s emergency supply with no leader at the moment both need direction most.', effect: { score: -4 } },
-        { key: 'D', label: 'Send a junior staff member to check on your family while you stay', desc: 'Offloads your most personal duty onto staff who have their own frightened families to worry about.', effect: { score: -2 } }
+        { key: 'B', label: 'Stay at the shop and push the worry down for now, on the basis that twelve staff and a town full of people are relying on you being here', desc: 'A leader sick with worry about her own children makes poor calls, and they are your children. Suppressing it is not the same as resolving it.', effect: { score: -3 } },
+        { key: 'C', label: 'Leave entirely and do not come back to the shop today, because nothing in that building matters more than knowing your own children are safe', desc: 'Abandons 12 staff and the town’s emergency supply with no leader at the moment both need direction most.', effect: { score: -4 } },
+        { key: 'D', label: 'Send one of your junior staff to check on your family while you stay and hold the shop together, since they can move faster than you can right now', desc: 'Offloads your most personal duty onto staff who have their own frightened families to worry about.', effect: { score: -2 } }
       ]
     },
     {
@@ -931,9 +931,9 @@
       prompt: 'What do you do first?',
       options: [
         { key: 'A', label: 'Clear everyone out and keep them out, ventilate from a distance, isolate the area, and get Fire and Emergency to it before anyone goes back in', desc: 'A suspected LPG leak in a damaged building with aftershocks continuing is the one hazard that can kill everyone in the shop at once.', effect: { score: 5 } },
-        { key: 'B', label: 'Move the cylinders outside yourself so you can keep serving', desc: 'Handling damaged LPG cylinders yourself, in a confined damaged space, with a possible leak already present.', effect: { score: -6 } },
-        { key: 'C', label: 'Keep the back closed off and serve customers from the front', desc: 'A partition does not contain LPG, and you are keeping people inside a building with an uncontrolled gas hazard.', effect: { score: -5 } },
-        { key: 'D', label: 'Wait and see whether the smell gets stronger', desc: 'By the time the smell is unmistakable in a confined space, the decision has already been taken out of your hands.', effect: { score: -6 } }
+        { key: 'B', label: 'Move the cylinders outside yourself so the shop can keep serving, since you know exactly where they are and how the valves work on them', desc: 'Handling damaged LPG cylinders yourself, in a confined damaged space, with a possible leak already present.', effect: { score: -6 } },
+        { key: 'C', label: 'Keep the back of the shop closed off and serve customers from the front, so trading continues while the leak stays contained behind a door', desc: 'A partition does not contain LPG, and you are keeping people inside a building with an uncontrolled gas hazard.', effect: { score: -5 } },
+        { key: 'D', label: 'Wait and see whether the smell gets any stronger before acting, rather than close a shop the whole township is queueing outside over a faint whiff', desc: 'By the time the smell is unmistakable in a confined space, the decision has already been taken out of your hands.', effect: { score: -6 } }
       ]
     },
     {
@@ -945,9 +945,9 @@
       prompt: 'What do you do about the unsafe building?',
       options: [
         { key: 'A', label: 'Close the building to entry now, move essential emergency stock to a safe spot outside or at the door, and serve people from there', desc: 'Life before assets - and you still supply the community, just without sending anyone into a gas-affected, aftershock-prone building.', effect: { score: 5 } },
-        { key: 'B', label: 'Keep trading inside - the community needs the supplies', desc: 'Someone has already been hurt; a gas leak plus aftershocks makes the next injury potentially fatal. No sale is worth it.', effect: { score: -6 } },
-        { key: 'C', label: 'Allow controlled access, a few customers at a time', desc: 'Fewer people, but still inside an unsafe, possibly gas-leaking building. The hazard does not care how many are in the room.', effect: { score: -3 } },
-        { key: 'D', label: 'Lock up entirely and turn everyone away with no supplies', desc: 'Safe, but abandons a community that genuinely needs the gear you could have passed out from the front.', effect: { score: -2 } }
+        { key: 'B', label: 'Keep trading inside the building - the community needs these supplies today, and the structure has stood through everything the day has thrown at it', desc: 'Someone has already been hurt; a gas leak plus aftershocks makes the next injury potentially fatal. No sale is worth it.', effect: { score: -6 } },
+        { key: 'C', label: 'Allow controlled access with only a few customers inside at a time, so people can still get what they need without crowding a damaged building', desc: 'Fewer people, but still inside an unsafe, possibly gas-leaking building. The hazard does not care how many are in the room.', effect: { score: -3 } },
+        { key: 'D', label: 'Lock the building up entirely and turn everyone away, on the basis that no sale is worth having somebody hurt inside premises you own', desc: 'Safe, but abandons a community that genuinely needs the gear you could have passed out from the front.', effect: { score: -2 } }
       ]
     },
     {
@@ -960,9 +960,9 @@
       prompt: 'How do you handle payment?',
       options: [
         { key: 'A', label: 'Trade on a written ledger - name, contact, items and value, signed - and tell people plainly you will invoice when systems return', desc: 'A simple written record keeps goods moving to people who need them and keeps the business recoverable. Both matter.', effect: { score: 5 } },
-        { key: 'B', label: 'Cash only, no exceptions', desc: 'Nobody has cash, so the stock stays on the shelf while the town goes without - and you make no money either.', effect: { score: -4 } },
-        { key: 'C', label: 'Hand out what people need with no record at all', desc: 'Generous and unrecoverable. With four weeks of runway, this is the decision that closes the shop the town needs in a month.', effect: { score: -3 } },
-        { key: 'D', label: 'Take card numbers written on paper to process later', desc: 'Handwritten card details in a damaged shop is a data-security and fraud exposure you cannot defend to anyone.', effect: { score: -5 } }
+        { key: 'B', label: 'Cash only with no exceptions, so that every transaction is settled on the spot and the business is not left carrying debts it cannot chase', desc: 'Nobody has cash, so the stock stays on the shelf while the town goes without - and you make no money either.', effect: { score: -4 } },
+        { key: 'C', label: 'Hand out what people need with no record at all, on the basis that this is an emergency and sorting out the paperwork can wait for weeks', desc: 'Generous and unrecoverable. With four weeks of runway, this is the decision that closes the shop the town needs in a month.', effect: { score: -3 } },
+        { key: 'D', label: 'Take card numbers written down on paper and process them once the systems come back, so nobody goes without and the business still gets paid', desc: 'Handwritten card details in a damaged shop is a data-security and fraud exposure you cannot defend to anyone.', effect: { score: -5 } }
       ]
     },
     {
@@ -974,9 +974,9 @@
       prompt: 'How do you handle your staff?',
       options: [
         { key: 'A', label: 'Release anyone who needs to go to their families, keep willing volunteers, and support the distraught migrant staff member', desc: 'People and safety before trading. Those who stay will be volunteers, and you have not trapped frightened staff away from their families.', effect: { score: 5 } },
-        { key: 'B', label: 'Require all staff to stay - there is no business without staff', desc: 'Traps frightened people away from their own families and at risk in a damaged building. Unsafe and corrosive to trust.', effect: { score: -5 } },
-        { key: 'C', label: 'Let everyone go and close completely', desc: 'Defensible and safe, but gives up the community-supply role that willing volunteers might have kept running.', effect: { score: -1 } },
-        { key: 'D', label: 'Pressure staff to stay by stressing how much the community needs them', desc: 'Guilt-tripping frightened staff is manipulation; it damages morale and the loyalty you will need for the recovery.', effect: { score: -3 } }
+        { key: 'B', label: 'Require all staff to stay on shift, because there is no business without them and the queue outside is not getting any shorter', desc: 'Traps frightened people away from their own families and at risk in a damaged building. Unsafe and corrosive to trust.', effect: { score: -5 } },
+        { key: 'C', label: 'Let everyone go home to their families and close the shop completely, so that nobody has to choose between their job and their own people', desc: 'Defensible and safe, but gives up the community-supply role that willing volunteers might have kept running.', effect: { score: -1 } },
+        { key: 'D', label: 'Press staff to stay by reminding them how much the community is depending on this shop today, and how few other options anyone has', desc: 'Guilt-tripping frightened staff is manipulation; it damages morale and the loyalty you will need for the recovery.', effect: { score: -3 } }
       ]
     },
     {
@@ -989,9 +989,9 @@
       prompt: 'How do you support them?',
       options: [
         { key: 'A', label: 'Sort their accommodation and food tonight yourself, connect them to Civil Defence welfare and someone who speaks their language, and make sure they know their job is safe', desc: 'They have no other network, and you are it. Practical shelter plus a clear word on their job removes the fear they are not voicing.', effect: { score: 5 } },
-        { key: 'B', label: 'Point them to the welfare centre and get back to the shop', desc: 'A direction is not support for two people with no transport, no local knowledge and limited English.', effect: { score: -3 } },
-        { key: 'C', label: 'Say nothing - they have not asked for help', desc: 'Staff with the least security and the most to lose are precisely the ones who will not ask.', effect: { score: -4 } },
-        { key: 'D', label: 'Let them sleep in the shop overnight', desc: 'Puts two employees inside a damaged building with a gas hazard, to solve a problem the welfare system exists for.', effect: { score: -5 } }
+        { key: 'B', label: 'Point them toward the welfare centre and get back to the shop, since Civil Defence is set up for exactly this and you are not', desc: 'A direction is not support for two people with no transport, no local knowledge and limited English.', effect: { score: -3 } },
+        { key: 'C', label: 'Say nothing and let them come to you if they need something, since they have not asked for help and you do not want to embarrass anyone', desc: 'Staff with the least security and the most to lose are precisely the ones who will not ask.', effect: { score: -4 } },
+        { key: 'D', label: 'Let them sleep in the shop overnight, so they have a roof and somewhere warm without you having to sort anything more formal tonight', desc: 'Puts two employees inside a damaged building with a gas hazard, to solve a problem the welfare system exists for.', effect: { score: -5 } }
       ]
     },
     {
@@ -1003,9 +1003,9 @@
       prompt: 'How do you allocate the scarce emergency supplies?',
       options: [
         { key: 'A', label: 'Ration per person at fair prices, prioritise the vulnerable and essential needs, and hold a reserve for emergency services', desc: 'Fair, proportionate, and keeps something back for responders. Defensible even though no allocation pleases everyone.', effect: { score: 5 } },
-        { key: 'B', label: 'Sell normally, first-come first-served, until it runs out', desc: 'The early and well-off empty the shelves; the vulnerable and those still digging out their homes miss out entirely.', effect: { score: -3 } },
-        { key: 'C', label: 'Reserve everything for emergency services and sell nothing to the public', desc: 'Responders matter, but the public also genuinely needs water, light and warmth tonight.', effect: { score: -2 } },
-        { key: 'D', label: 'Give it all away free to whoever asks', desc: 'Generous, but empties your stock within the hour and leaves nothing for later or for the business the town needs to survive.', effect: { score: -3 } }
+        { key: 'B', label: 'Sell normally on a first-come first-served basis until the stock runs out, so that nobody can accuse you of deciding who deserves what', desc: 'The early and well-off empty the shelves; the vulnerable and those still digging out their homes miss out entirely.', effect: { score: -3 } },
+        { key: 'C', label: 'Reserve the entire stock for emergency services and sell nothing over the counter, so the people running the response are not left short', desc: 'Responders matter, but the public also genuinely needs water, light and warmth tonight.', effect: { score: -2 } },
+        { key: 'D', label: 'Give it all away free to whoever asks, because charging people for water and torches on a day like this is not something you want to be', desc: 'Generous, but empties your stock within the hour and leaves nothing for later or for the business the town needs to survive.', effect: { score: -3 } }
       ]
     },
     {
@@ -1021,9 +1021,9 @@
           locked: function (log) {
             return log['sarah_supplies'] === 'D' ? 'You gave your emergency stock away free this morning - there is nothing left to pool' : false;
           } },
-        { key: 'B', label: 'Refuse - your stock is your business’s survival', desc: 'Defensible commercially, and it keeps four separate queues running for the same scarce goods in a town that cannot travel.', effect: { score: -3 } },
-        { key: 'C', label: 'Join it on a handshake with no record of contributions', desc: 'Four businesses, no record, and a month of arguments about who put in what while everyone is trying to recover.', effect: { score: -3 } },
-        { key: 'D', label: 'Agree publicly and hold your best stock back privately', desc: 'The pooling only works on trust, and being caught holding back destroys yours for the whole recovery.', effect: { score: -5 } }
+        { key: 'B', label: 'Refuse to join the pool - this stock is the only thing standing between your business and closing, and no other owner is carrying your debt', desc: 'Defensible commercially, and it keeps four separate queues running for the same scarce goods in a town that cannot travel.', effect: { score: -3 } },
+        { key: 'C', label: 'Join the pool on a handshake with no written record, since everyone in the room has known each other for years and paperwork slows it down', desc: 'Four businesses, no record, and a month of arguments about who put in what while everyone is trying to recover.', effect: { score: -3 } },
+        { key: 'D', label: 'Agree publicly to the pool and quietly hold your best stock back, so you look like a good neighbour without gutting your own shelves', desc: 'The pooling only works on trust, and being caught holding back destroys yours for the whole recovery.', effect: { score: -5 } }
       ]
     },
     {
@@ -1034,10 +1034,10 @@
       decisionId: 'sarah_price',
       prompt: 'What do you do about pricing?',
       options: [
-        { key: 'A', label: 'Hold prices at normal levels and be seen to do so - trust now is worth more than margin', desc: 'Avoids any whiff of profiteering and protects the community relationship the business depends on for its own recovery.', effect: { score: 5 } },
-        { key: 'B', label: 'Raise prices sharply to reflect replacement cost and scarcity', desc: 'Price-gouging emergency goods in a disaster torches 18 years of trust and invites reputational and legal damage.', effect: { score: -6 } },
-        { key: 'C', label: 'Raise prices modestly and transparently to cover genuine replacement cost', desc: 'Defensible if it is truly cost-recovery and openly explained, but the optics of any rise in this moment are dangerous.', effect: { score: 1 } },
-        { key: 'D', label: 'Stop selling the scarce items rather than decide on a price', desc: 'Denies the community supplies it needs just to avoid making the pricing call.', effect: { score: -2 } }
+        { key: 'A', label: 'Hold prices at exactly their normal levels and be seen to be doing it, because the trust of a town you will trade in for another eighteen years is worth more than the margin', desc: 'Avoids any whiff of profiteering and protects the community relationship the business depends on for its own recovery.', effect: { score: 5 } },
+        { key: 'B', label: 'Raise prices sharply to reflect what replacement will actually cost you and how scarce these goods have suddenly become across the district', desc: 'Price-gouging emergency goods in a disaster torches 18 years of trust and invites reputational and legal damage.', effect: { score: -6 } },
+        { key: 'C', label: 'Raise prices modestly and explain openly that it covers the genuine cost of replacing stock you may not be able to reorder for weeks', desc: 'Defensible if it is truly cost-recovery and openly explained, but the optics of any rise in this moment are dangerous.', effect: { score: 1 } },
+        { key: 'D', label: 'Stop selling the scarce items altogether rather than have to set a price on them, so nobody can accuse you of profiting from the situation', desc: 'Denies the community supplies it needs just to avoid making the pricing call.', effect: { score: -2 } }
       ]
     },
     {
@@ -1049,9 +1049,9 @@
       prompt: 'How do you handle it?',
       options: [
         { key: 'A', label: 'First aid and get her to the medical centre, clear and secure every remaining shelving bay, write down what happened while it is fresh, and notify your insurer as soon as you can reach them', desc: 'Care first, then remove the hazard that is still standing, then the record - which protects her claim as much as your business.', effect: { score: 5 } },
-        { key: 'B', label: 'Patch her up, apologise, and keep the queue moving', desc: 'Leaves every other leaning bay exactly as it was, so the next aftershock produces the next casualty.', effect: { score: -5 } },
-        { key: 'C', label: 'Ask her not to make a claim, given everything you are dealing with', desc: 'Pressuring an injured customer out of a claim is the single worst thing you could do here, legally and to your reputation.', effect: { score: -6 } },
-        { key: 'D', label: 'Close the shop completely for the rest of the day', desc: 'Overcorrects: securing the shelving and trading from the front was available, and the town still needs supplies tonight.', effect: { score: -2 } }
+        { key: 'B', label: 'Patch her up, apologise properly, and keep the queue moving, because there are forty people waiting and only one of you to serve them', desc: 'Leaves every other leaning bay exactly as it was, so the next aftershock produces the next casualty.', effect: { score: -5 } },
+        { key: 'C', label: 'Ask her not to make a formal claim given everything you are already dealing with, and offer to pay for whatever treatment she needs directly instead', desc: 'Pressuring an injured customer out of a claim is the single worst thing you could do here, legally and to your reputation.', effect: { score: -6 } },
+        { key: 'D', label: 'Close the shop completely for the rest of the day, so that nobody else can be hurt by shelving that has already come down on one customer once', desc: 'Overcorrects: securing the shelving and trading from the front was available, and the town still needs supplies tonight.', effect: { score: -2 } }
       ]
     },
     {
@@ -1063,9 +1063,9 @@
       prompt: 'How do you handle payment?',
       options: [
         { key: 'A', label: 'Extend informal credit to known locals with a simple written record, and use judgement on essentials for others', desc: 'Keeps essentials flowing to neighbours who genuinely cannot pay today, while a written record protects your cash flow later.', effect: { score: 5 } },
-        { key: 'B', label: 'Cash only - no payment, no goods - to preserve business cash flow', desc: 'Denies essentials to neighbours who simply cannot access money today, in a community you will rely on for years.', effect: { score: -3 } },
-        { key: 'C', label: 'Give everything away to anyone who asks', desc: 'No record and no recoverable value; generous to a fault, and it threatens the business the community will need tomorrow.', effect: { score: -3 } },
-        { key: 'D', label: 'Credit for tourists, cash for locals', desc: 'Backwards: you will never see the tourists again, while the locals you know are the ones you can safely extend credit to.', effect: { score: -2 } }
+        { key: 'B', label: 'Cash only, with no payment meaning no goods, so that the cash flow keeping twelve people employed does not disappear in a single afternoon', desc: 'Denies essentials to neighbours who simply cannot access money today, in a community you will rely on for years.', effect: { score: -3 } },
+        { key: 'C', label: 'Give everything away to anyone who asks for it, on the basis that a town in this state should not be turned away over money', desc: 'No record and no recoverable value; generous to a fault, and it threatens the business the community will need tomorrow.', effect: { score: -3 } },
+        { key: 'D', label: 'Offer credit to the stranded tourists and take cash from locals, since visitors have no way to get money and locals can settle up later', desc: 'Backwards: you will never see the tourists again, while the locals you know are the ones you can safely extend credit to.', effect: { score: -2 } }
       ]
     },
     {
@@ -1094,9 +1094,9 @@
       prompt: 'How do you handle the medical centre’s request?',
       options: [
         { key: 'A', label: 'Prioritise the medical centre for the life-critical share, supply what you can, and ration the remainder to the public', desc: 'A medical centre treating the injured is a life-safety priority; you meet their critical need and still ration fairly to others.', effect: { score: 5 } },
-        { key: 'B', label: 'Serve the paying public at the counter first', desc: 'Puts counter cash ahead of a medical centre treating casualties. Life safety has to come first here.', effect: { score: -5 } },
-        { key: 'C', label: 'Give the medical centre absolutely everything and leave nothing for the public', desc: 'The medical priority is right, but the public also has real basic needs for the cold night ahead.', effect: { score: -2 } },
-        { key: 'D', label: 'Make them wait while you work out what to do', desc: 'A medical centre treating casualties cannot wait while you deliberate.', effect: { score: -3 } }
+        { key: 'B', label: 'Serve the paying public at the counter first in the order they arrived, since they have been queueing since morning and the centre can wait', desc: 'Puts counter cash ahead of a medical centre treating casualties. Life safety has to come first here.', effect: { score: -5 } },
+        { key: 'C', label: 'Give the medical centre absolutely everything it asks for and leave nothing on the shelves, because medical need outranks every other claim', desc: 'The medical priority is right, but the public also has real basic needs for the cold night ahead.', effect: { score: -2 } },
+        { key: 'D', label: 'Make the medical centre wait while you work out a proper allocation, rather than commit stock you may need more urgently in an hour', desc: 'A medical centre treating casualties cannot wait while you deliberate.', effect: { score: -3 } }
       ]
     },
     {
@@ -1109,9 +1109,9 @@
       prompt: 'What do you tell the bank?',
       options: [
         { key: 'A', label: 'Give an honest position with the numbers you actually have, state clearly what you need and by when, and ask for a written short-term arrangement', desc: 'Banks fund businesses they can see clearly. An honest position with a specific ask survives scrutiny; an optimistic one does not.', effect: { score: 5 } },
-        { key: 'B', label: 'Overstate your position to protect the facility', desc: 'When the real numbers arrive, and they will, you have handed the bank grounds to call the guarantee against your house.', effect: { score: -6 } },
-        { key: 'C', label: 'Tell him you cannot talk about it today', desc: 'He is deciding today either way, and he will decide on no information rather than yours.', effect: { score: -4 } },
-        { key: 'D', label: 'Ask him to freeze everything until the insurance is settled', desc: 'Insurance settlement is months away, and a frozen facility means no payroll and no restock next week.', effect: { score: -3 } }
+        { key: 'B', label: 'Overstate your position to protect the overdraft facility, since a bank that senses trouble will pull the line exactly when you most need it', desc: 'When the real numbers arrive, and they will, you have handed the bank grounds to call the guarantee against your house.', effect: { score: -6 } },
+        { key: 'C', label: 'Tell him you cannot talk about it today and will come back to him, because you have a damaged building and a queue and no time for this', desc: 'He is deciding today either way, and he will decide on no information rather than yours.', effect: { score: -4 } },
+        { key: 'D', label: 'Ask him to freeze everything until the insurance is settled, so that nothing has to be decided until you know what you are actually working with', desc: 'Insurance settlement is months away, and a frozen facility means no payroll and no restock next week.', effect: { score: -3 } }
       ]
     },
     {
@@ -1122,10 +1122,10 @@
       decisionId: 'sarah_generator',
       prompt: 'Who gets the last generator?',
       options: [
-        { key: 'A', label: 'Sell it to the farmer at a fair, normal price - life-critical medicine outranks a tourist’s cash', desc: 'Need over the highest bidder. Keeping medicine cold is a life-safety use, and the choice protects your standing in the town.', effect: { score: 5 } },
-        { key: 'B', label: 'Take the tourist’s $5,000 - the business badly needs the cash', desc: 'Selling a life-critical item to the highest bidder over a medical need is the definition of disaster profiteering.', effect: { score: -6 } },
-        { key: 'C', label: 'Auction it to whoever pays the most', desc: 'Need-blind by design, and the most exposed way to profiteer on a life-essential item.', effect: { score: -5 } },
-        { key: 'D', label: 'Refuse to sell it to either and keep it for the shop', desc: 'Hoards a critical asset the community urgently needs while people go without.', effect: { score: -3 } }
+        { key: 'A', label: 'Sell it to the farmer at a fair and entirely normal price, because insulin that has to stay cold for a diabetic child outranks a tourist waving five thousand dollars', desc: 'Need over the highest bidder. Keeping medicine cold is a life-safety use, and the choice protects your standing in the town.', effect: { score: 5 } },
+        { key: 'B', label: 'Take the tourist’s five thousand dollars, since the business badly needs the cash and he is offering many times what the generator is worth', desc: 'Selling a life-critical item to the highest bidder over a medical need is the definition of disaster profiteering.', effect: { score: -6 } },
+        { key: 'C', label: 'Auction it openly to whoever pays the most, so the market decides rather than you having to judge whose need is the more deserving', desc: 'Need-blind by design, and the most exposed way to profiteer on a life-essential item.', effect: { score: -5 } },
+        { key: 'D', label: 'Refuse to sell it to either of them and keep it running the shop, since the chiller stock and the till are what keep everyone supplied', desc: 'Hoards a critical asset the community urgently needs while people go without.', effect: { score: -3 } }
       ]
     },
     {
@@ -1146,9 +1146,9 @@
       prompt: 'Whose instruction do you follow?',
       options: [
         { key: 'A', label: 'Make the dangerous hazards safe now (secure the gas cylinders, clear hazards), document everything with photos and notes first, and tell the insurer what you did and why', desc: 'Life-safety and lawful emergency direction override "touch nothing", and documenting first protects your insurance position.', effect: { score: 5 } },
-        { key: 'B', label: 'Follow the insurer and leave everything exactly where it is', desc: 'Leaves scattered gas cylinders as a live public hazard purely to protect a claim. Safety has to come first.', effect: { score: -5 } },
-        { key: 'C', label: 'Clear and dispose of everything fast to get the site sorted', desc: 'Over-clears - destroying evidence and possibly insured stock - without the documentation that would protect you.', effect: { score: -3 } },
-        { key: 'D', label: 'Do nothing until you get written clarification from the insurer', desc: 'Leaves a dangerous hazard in a public street while you wait for paperwork that may take hours.', effect: { score: -3 } }
+        { key: 'B', label: 'Follow the insurer’s instruction to the letter and leave everything exactly where it fell, so that no part of the claim can later be disputed', desc: 'Leaves scattered gas cylinders as a live public hazard purely to protect a claim. Safety has to come first.', effect: { score: -5 } },
+        { key: 'C', label: 'Clear and dispose of everything quickly to get the site usable again, because a shop full of wreckage cannot trade and trading is what pays wages', desc: 'Over-clears - destroying evidence and possibly insured stock - without the documentation that would protect you.', effect: { score: -3 } },
+        { key: 'D', label: 'Do nothing at all until you have written clarification from the insurer, so that you are never the one who broke the terms of the policy', desc: 'Leaves a dangerous hazard in a public street while you wait for paperwork that may take hours.', effect: { score: -3 } }
       ]
     },
     {
@@ -1164,9 +1164,9 @@
           locked: function (log) {
             return log['sarah_building'] === 'B' ? 'The council closed your building after you kept trading through the warning' : false;
           } },
-        { key: 'B', label: 'Reopen the whole shop - the engineer is being cautious', desc: 'Substituting your judgement for the engineer’s on a rear section he specifically excluded, with staff and customers inside.', effect: { score: -6 } },
-        { key: 'C', label: 'Stay closed until the written clearance arrives', desc: 'Cautious, and it leaves the town without supplies for a day when a compliant front-of-shop operation was expressly available.', effect: { score: -2 } },
-        { key: 'D', label: 'Serve from the front but send staff into the rear for stock', desc: 'Keeps customers out of the excluded area and sends your own employees into it instead, which is worse.', effect: { score: -6 } }
+        { key: 'B', label: 'Reopen the whole shop - the engineer is being cautious, the building has stood through every aftershock so far, and people need the stock', desc: 'Substituting your judgement for the engineer’s on a rear section he specifically excluded, with staff and customers inside.', effect: { score: -6 } },
+        { key: 'C', label: 'Stay closed until the written clearance actually arrives, however long that takes, so that nothing rests on a verbal opinion given in a hurry', desc: 'Cautious, and it leaves the town without supplies for a day when a compliant front-of-shop operation was expressly available.', effect: { score: -2 } },
+        { key: 'D', label: 'Serve customers from the cleared front but send staff into the rear for stock as needed, since the public never has to go past the barrier', desc: 'Keeps customers out of the excluded area and sends your own employees into it instead, which is worse.', effect: { score: -6 } }
       ]
     },
     {
@@ -1178,9 +1178,9 @@
       prompt: 'How do you handle the employee?',
       options: [
         { key: 'A', label: 'Handle it calmly and consistently: let them take essentials now, recorded as staff credit or pay, and apply the same fair rule to every staff member', desc: 'Humane, consistent and documented - it meets a real need without either condoning theft or destroying morale.', effect: { score: 5 } },
-        { key: 'B', label: 'Dismiss them on the spot for theft', desc: 'Harsh given a family with nothing, and it shatters the trust and morale of the team you still need.', effect: { score: -4 } },
-        { key: 'C', label: 'Ignore it and let staff take what they want', desc: 'No record, unfair to everyone else, and the stock the community needs quietly walks out the door.', effect: { score: -3 } },
-        { key: 'D', label: 'Make a public example of them in front of the others', desc: 'Public humiliation of a desperate employee poisons the whole team’s trust in you as a leader.', effect: { score: -4 } }
+        { key: 'B', label: 'Dismiss them on the spot for theft, so that the rest of the team can see exactly where the line is before anybody else decides to cross it', desc: 'Harsh given a family with nothing, and it shatters the trust and morale of the team you still need.', effect: { score: -4 } },
+        { key: 'C', label: 'Ignore it and let staff take what they need, since they are working unpaid hours in a damaged building and their families are short too', desc: 'No record, unfair to everyone else, and the stock the community needs quietly walks out the door.', effect: { score: -3 } },
+        { key: 'D', label: 'Make a public example of them in front of the rest of the team, so the message lands once and you never have to have this conversation again', desc: 'Public humiliation of a desperate employee poisons the whole team’s trust in you as a leader.', effect: { score: -4 } }
       ]
     },
     {
@@ -1199,9 +1199,9 @@
       prompt: 'How do you respond to the accusation?',
       options: [
         { key: 'A', label: 'Respond once, calmly and factually - state what you are actually charging and doing for the community - then get back to the emergency', desc: 'Corrects the record once with facts and denies the pile-on the fight it wants, without burning hours you do not have.', effect: { score: 5 } },
-        { key: 'B', label: 'Get into the comments and argue with your accusers', desc: 'Feeds the pile-on, keeps the story alive, and drains time and composure you need elsewhere.', effect: { score: -3 } },
-        { key: 'C', label: 'Ignore it entirely', desc: 'An unanswered accusation hardens into "the truth", and the cancellations keep coming.', effect: { score: -2 } },
-        { key: 'D', label: 'Publicly threaten legal action against whoever posted it', desc: 'Looks defensive and aggressive, and amplifies a story you wanted to shrink.', effect: { score: -3 } }
+        { key: 'B', label: 'Get into the comments and argue it out with your accusers, because the claim is untrue and letting it stand unchallenged is how it becomes fact', desc: 'Feeds the pile-on, keeps the story alive, and drains time and composure you need elsewhere.', effect: { score: -3 } },
+        { key: 'C', label: 'Ignore it entirely and carry on serving people, on the basis that anyone who has actually been in the shop today knows what you have been charging', desc: 'An unanswered accusation hardens into "the truth", and the cancellations keep coming.', effect: { score: -2 } },
+        { key: 'D', label: 'Publicly threaten legal action against whoever posted it, so that it comes down quickly and nobody else in town tries the same thing', desc: 'Looks defensive and aggressive, and amplifies a story you wanted to shrink.', effect: { score: -3 } }
       ]
     },
     {
@@ -1217,9 +1217,9 @@
           locked: function (log) {
             return log['sarah_credit'] === 'C' ? 'The cash went out this morning as unrecorded giveaways - there is no payroll left to run' : false;
           } },
-        { key: 'B', label: 'Pay them and say nothing about the runway', desc: 'They will plan their own lives around a security you know may not last a month, and they will not forgive learning it late.', effect: { score: -3 } },
-        { key: 'C', label: 'Defer wages until the insurance pays', desc: 'Staff with damaged homes and no other income cannot lend you their wages, and legally you cannot ask them to.', effect: { score: -6 } },
-        { key: 'D', label: 'Lay off half the staff immediately to protect the runway', desc: 'Cuts the people you need to reopen, in a town with nowhere else to work, before you have even asked about support.', effect: { score: -4 } }
+        { key: 'B', label: 'Pay them on Friday as normal and say nothing about the runway, because frightening your staff about their jobs helps nobody this week', desc: 'They will plan their own lives around a security you know may not last a month, and they will not forgive learning it late.', effect: { score: -3 } },
+        { key: 'C', label: 'Defer wages until the insurance pays out, and explain that everyone will be made whole the moment the money actually lands in the account', desc: 'Staff with damaged homes and no other income cannot lend you their wages, and legally you cannot ask them to.', effect: { score: -6 } },
+        { key: 'D', label: 'Lay off half the staff immediately to protect the cash runway, so that the business survives long enough to re-employ them later on', desc: 'Cuts the people you need to reopen, in a town with nowhere else to work, before you have even asked about support.', effect: { score: -4 } }
       ]
     },
     {
@@ -1233,9 +1233,9 @@
       prompt: 'How do you respond to the demands on your stock?',
       options: [
         { key: 'A', label: 'Contribute a fair, proportionate share to the official response, keep a reserve for the public and the business, and agree it openly with Civil Defence', desc: 'Proportionate and transparent - it supports the response and the community without sinking the business the town needs for recovery.', effect: { score: 5 } },
-        { key: 'B', label: 'Donate everything they ask for', desc: 'Generous, but may sink the business the community will depend on for recovery, and empties the public supply at once.', effect: { score: -4 } },
-        { key: 'C', label: 'Refuse to give anything at all', desc: 'Protects the business but abandons the official response and badly damages the reputation you will need afterwards.', effect: { score: -4 } },
-        { key: 'D', label: 'Quietly favour whoever can do the most for you later', desc: 'Self-dealing - the opposite of the transparent, defensible decision-making the moment demands.', effect: { score: -5 } }
+        { key: 'B', label: 'Donate everything the response asks for without argument, because a business that holds back supplies in a disaster does not get forgiven for it', desc: 'Generous, but may sink the business the community will depend on for recovery, and empties the public supply at once.', effect: { score: -4 } },
+        { key: 'C', label: 'Refuse to give anything at all, on the basis that you are already carrying uninsured losses and nobody is offering to underwrite your generosity', desc: 'Protects the business but abandons the official response and badly damages the reputation you will need afterwards.', effect: { score: -4 } },
+        { key: 'D', label: 'Quietly favour whichever agencies and people can do the most for you later, since goodwill is the only currency that survives a recovery', desc: 'Self-dealing - the opposite of the transparent, defensible decision-making the moment demands.', effect: { score: -5 } }
       ]
     },
     {
@@ -1263,9 +1263,9 @@
       prompt: 'Do you guard the business overnight or go home?',
       options: [
         { key: 'A', label: 'Board up and secure what you can, set up a shared neighbourhood watch with nearby owners, and go home to your family for the night', desc: 'Proportionate security plus your family - you do not have to choose between the two by standing guard alone all night.', effect: { score: 5 } },
-        { key: 'B', label: 'Stand guard at the shop alone all night against the looting risk', desc: 'Exhausting and dangerous, leaves your family alone, and one person cannot really secure a broken-open shop anyway.', effect: { score: -3 } },
-        { key: 'C', label: 'Leave it wide open and go home, doing nothing to secure it', desc: 'Invites the loss of the very stock the community will need from you tomorrow.', effect: { score: -2 } },
-        { key: 'D', label: 'Bring your children to the shop to help you guard it overnight', desc: 'Puts your kids in a damaged, dark, unsafe building through a freezing night. The wrong place for them.', effect: { score: -4 } }
+        { key: 'B', label: 'Stand guard at the shop alone all night against the looting risk, since there is nobody else to do it and the front windows are gone', desc: 'Exhausting and dangerous, leaves your family alone, and one person cannot really secure a broken-open shop anyway.', effect: { score: -3 } },
+        { key: 'C', label: 'Leave the shop open and go home without securing anything, on the basis that people who need supplies overnight should be able to get them', desc: 'Invites the loss of the very stock the community will need from you tomorrow.', effect: { score: -2 } },
+        { key: 'D', label: 'Bring your children down to the shop so they can help you guard it overnight, keeping the family together and the premises watched', desc: 'Puts your kids in a damaged, dark, unsafe building through a freezing night. The wrong place for them.', effect: { score: -4 } }
       ]
     },
     {
@@ -1281,9 +1281,9 @@
           locked: function (log) {
             return log['sarah_donate'] === 'B' ? 'You donated the entire emergency stock earlier today - there is nothing left to allocate' : false;
           } },
-        { key: 'B', label: 'Hand over everything to Civil Defence', desc: 'Closes the only supply point the street has, sends the queue away empty, and leaves you with no record and no recoverable value.', effect: { score: -4 } },
-        { key: 'C', label: 'Refuse - your customers have been queuing since this morning', desc: 'The welfare centre is sheltering the people least able to queue at all, and a split was available to serve both.', effect: { score: -4 } },
-        { key: 'D', label: 'Agree, then quietly keep the best stock back for the counter', desc: 'Undermines the official response and destroys the relationship you will need through the entire recovery.', effect: { score: -5 } }
+        { key: 'B', label: 'Hand the entire stock over to Civil Defence, since they are running the official response and are better placed than you to decide who needs it', desc: 'Closes the only supply point the street has, sends the queue away empty, and leaves you with no record and no recoverable value.', effect: { score: -4 } },
+        { key: 'C', label: 'Refuse the request outright - your customers have been queueing since this morning and several of them have nowhere else to go for supplies', desc: 'The welfare centre is sheltering the people least able to queue at all, and a split was available to serve both.', effect: { score: -4 } },
+        { key: 'D', label: 'Agree to the request and quietly keep the best stock back for the counter, so the welfare centre is served without emptying your shelves', desc: 'Undermines the official response and destroys the relationship you will need through the entire recovery.', effect: { score: -5 } }
       ]
     },
     {
