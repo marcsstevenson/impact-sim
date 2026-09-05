@@ -575,6 +575,20 @@ function switchPersona(id) {
   startGame(id);
 }
 
+// The guidance screen. A third .screen rather than a separate page, so it
+// inherits the app's styling and stays available offline with everything else.
+function showGuidance() {
+  document.getElementById('title-screen').classList.remove('active');
+  document.getElementById('guidance-screen').classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function hideGuidance() {
+  document.getElementById('guidance-screen').classList.remove('active');
+  document.getElementById('title-screen').classList.add('active');
+  window.scrollTo(0, 0);
+}
+
 // Back to the scenario picker from anywhere in a run, including the debrief.
 // Nothing is saved, so this only has to stop the clock and clear away whatever
 // is on screen - startGame() resets the rest of GameState on the way back in.
@@ -599,6 +613,8 @@ function goHome() {
   if (feed) feed.innerHTML = '';
 
   document.getElementById('game-screen').classList.remove('active');
+  var guide = document.getElementById('guidance-screen');
+  if (guide) guide.classList.remove('active');
   document.getElementById('title-screen').classList.add('active');
   window.scrollTo(0, 0);
 }
