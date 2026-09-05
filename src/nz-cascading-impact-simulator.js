@@ -1162,7 +1162,7 @@ function showDecision(event) {
       html += '<button class="decision-btn" disabled style="opacity:0.4;cursor:not-allowed;border-color:var(--accent-red);">' +
         '<span class="opt-key" style="background:rgba(240,98,146,0.15);color:var(--accent-red);">' + letter + '</span>' +
         '<div class="opt-text"><div class="opt-label" style="text-decoration:line-through;color:var(--text-muted);">' + opt.label + '</div>' +
-        '<div style="font-size:11px;color:var(--accent-red);margin-top:4px;">' + (typeof locked === 'string' ? locked : 'Unavailable due to prior decisions') + '</div>' +
+        '<div style="font-size:12px;color:var(--accent-red);margin-top:4px;">' + (typeof locked === 'string' ? locked : 'Unavailable due to prior decisions') + '</div>' +
         '</div></button>';
     } else {
       html += '<button class="decision-btn" onclick="makeDecision(\'' + opt.key + '\')">' +

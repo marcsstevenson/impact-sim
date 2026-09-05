@@ -768,7 +768,10 @@ body {
   text-align: left;
   color: var(--text-primary);
   font-family: var(--font-body);
-  font-size: 11px;
+  /* Up from 11px. These are long options read under time pressure, and the
+     panel is max-height 45vh with overflow-y auto, so a longer decision
+     scrolls rather than pushing the feed off screen. */
+  font-size: 13px;
   line-height: 1.5;
 }
 
@@ -781,20 +784,21 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   border-radius: 4px;
   background: rgba(255,183,77,0.15);
   color: var(--accent-amber);
   font-weight: 600;
-  font-size: 11px;
+  font-size: 12px;
   flex-shrink: 0;
   margin-top: 1px;
 }
 
 .decision-btn .opt-text { flex: 1; }
 .decision-btn .opt-text .opt-label { font-weight: 500; color: var(--text-primary); }
-.decision-btn .opt-text .opt-desc { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+/* Kept a step below the label so the rationale stays subordinate to the choice. */
+.decision-btn .opt-text .opt-desc { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
 
 /* Right Panel - Situation Board */
 .panel-right {
