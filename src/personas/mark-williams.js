@@ -71,6 +71,91 @@
     }
   };
 
+  // ---- Live schematic -------------------------------------------------------
+  // Every decision here turns on where things are relative to the van: rockfall
+  // behind, damaged bridge ahead, a tunnel 800 m up the road, a river below and
+  // unstable slopes above. That was five text rows the player had to hold in
+  // their head while deciding under time pressure.
+  //
+  // The drawing keeps no state of its own. sync() re-reads the same panel rows
+  // the consequence mutators write, so when a consequence chokes the tunnel or
+  // takes the bridge out, the picture degrades with it and cannot drift.
+  var SCHEMATIC_PARTS = [
+    { sel: '.sch-slope',    label: 'Steep Slopes'  },
+    { sel: '.sch-rockfall', label: 'Road Behind'   },
+    { sel: '.sch-tunnel',   label: 'Tunnel (800m)' },
+    { sel: '.sch-bridge',   label: 'Road Ahead'    },
+    { sel: '.sch-river',    label: 'River Below'   }
+  ];
+
+  SCENARIO_CONFIGS.markwilliams.schematic = {
+    title: 'Where You Are',
+    render: function () {
+      // The panel is ~260 px wide, so this is drawn short and wide with the
+      // slope as a surveyor's batter symbol rather than a filled mass - a solid
+      // block at "failed" red swamped everything else in the column.
+      var ticks = '';
+      for (var x = 6; x <= 294; x += 16) {
+        ticks += 'M' + x + ' 30 l-7 11 ';
+      }
+      return '' +
+      '<svg class="sch" viewBox="0 0 300 132" role="img" aria-label="Cross-section of the highway: unstable slopes above, rockfall blocking the road behind the van, a tunnel 800 metres ahead, a damaged bridge beyond that, and a rising river below">' +
+        // unstable slope above, drawn as a batter line with ticks
+        '<g class="sch-slope">' +
+          '<path class="sch-edge" d="M0 30 H300"/>' +
+          '<path class="sch-edge sch-hatch" d="' + ticks + '"/>' +
+        '</g>' +
+        // the road
+        '<rect class="sch-road" x="0" y="52" width="300" height="22" rx="2"/>' +
+        '<line class="sch-centreline" x1="8" y1="63" x2="292" y2="63"/>' +
+        // rockfall blocking the way back
+        '<g class="sch-rockfall">' +
+          '<path class="sch-fill" d="M4 74 L16 50 L28 60 L40 46 L52 74 Z"/>' +
+          '<circle class="sch-fill" cx="20" cy="68" r="5"/>' +
+          '<circle class="sch-fill" cx="38" cy="66" r="4"/>' +
+        '</g>' +
+        // the van
+        '<g class="sch-van">' +
+          '<rect x="112" y="42" width="44" height="15" rx="3"/>' +
+          '<circle cx="123" cy="59" r="3.6"/><circle cx="145" cy="59" r="3.6"/>' +
+        '</g>' +
+        // tunnel portal, 800 m ahead
+        '<g class="sch-tunnel">' +
+          '<path class="sch-fill" d="M198 74 V56 a15 15 0 0 1 30 0 V74 Z"/>' +
+        '</g>' +
+        // damaged bridge beyond it - drawn with the span already broken
+        '<g class="sch-bridge">' +
+          '<path class="sch-edge" d="M254 52 H272 M290 52 H300"/>' +
+          '<path class="sch-edge" d="M272 52 L277 66 M290 52 L285 66"/>' +
+        '</g>' +
+        // the river below
+        '<g class="sch-river">' +
+          '<path class="sch-edge" d="M0 104 q25 -8 50 0 t50 0 t50 0 t50 0 t50 0 t50 0"/>' +
+          '<path class="sch-edge" d="M0 118 q25 -8 50 0 t50 0 t50 0 t50 0 t50 0 t50 0"/>' +
+        '</g>' +
+        // captions, clear of both the road and the river
+        '<text class="sch-cap" x="28"  y="90" text-anchor="middle">behind</text>' +
+        '<text class="sch-cap" x="134" y="90" text-anchor="middle">van</text>' +
+        '<text class="sch-cap" x="213" y="90" text-anchor="middle">tunnel</text>' +
+        '<text class="sch-cap" x="277" y="90" text-anchor="middle">bridge</text>' +
+      '</svg>';
+    },
+    sync: function (panel) {
+      var svg = panel.querySelector('.sch');
+      if (!svg) return;
+      for (var i = 0; i < SCHEMATIC_PARTS.length; i++) {
+        var part = SCHEMATIC_PARTS[i];
+        var state = readPanelItem('transport-section', part.label);
+        var nodes = svg.querySelectorAll(part.sel);
+        for (var n = 0; n < nodes.length; n++) {
+          nodes[n].setAttribute('data-state', state ? state.cls : 'unknown');
+        }
+        // Keep the accessible description in step with the drawing.
+        if (state) svg.setAttribute('data-' + part.label.toLowerCase().replace(/[^a-z]+/g, '-'), state.value);
+      }
+    }
+  };
+
   UTILITY_DEFAULTS.markwilliams = {
     water: { label: 'Water (4 bottles)', value: 40, unit: '%' },
     food: { label: 'Snacks (8 bars)', value: 40, unit: '%' },

@@ -782,6 +782,60 @@ function renderPanel(titleId, containerId, title, items, build) {
   }
 }
 
+// ============ PER-PERSONA SCHEMATIC ============
+// Some scenarios turn on spatial relationships that only exist in prose. Mark
+// Williams decides about a tunnel 800 m ahead, a rockfall behind, a river below
+// and slopes above - and until now the player had to assemble that picture from
+// five text rows while under time pressure.
+//
+// A persona opts in with SCENARIO_CONFIGS[id].schematic = { title, render, sync }.
+// render() returns markup once; sync() is called after anything mutates a panel,
+// so the drawing degrades in step with the state it is drawn from rather than
+// keeping its own copy of the truth.
+function renderSchematic() {
+  if (typeof document === 'undefined') return;
+  var section = document.getElementById('schematic-section');
+  var panel = document.getElementById('schematic-panel');
+  var titleEl = document.getElementById('schematic-title');
+  if (!section || !panel) return;
+  var cfg = SCENARIO_CONFIGS[GameState.scenario];
+  var sch = cfg && cfg.schematic;
+  section.style.display = sch ? '' : 'none';
+  panel.innerHTML = sch ? sch.render() : '';
+  if (titleEl) titleEl.textContent = sch && sch.title ? sch.title : '';
+  syncSchematic();
+}
+
+function syncSchematic() {
+  if (typeof document === 'undefined') return;
+  var cfg = SCENARIO_CONFIGS[GameState.scenario];
+  var sch = cfg && cfg.schematic;
+  if (!sch || !sch.sync) return;
+  var panel = document.getElementById('schematic-panel');
+  if (panel && panel.firstChild) sch.sync(panel);
+}
+
+// Read a panel row's current value and status class. The schematic reads the
+// same DOM the mutators write, so the two cannot drift apart.
+function readPanelItem(panelId, label) {
+  if (typeof document === 'undefined') return null;
+  var panel = document.getElementById(panelId);
+  if (!panel) return null;
+  var items = panel.querySelectorAll('.sit-item');
+  for (var i = 0; i < items.length; i++) {
+    var lbl = items[i].querySelector('.sit-label');
+    if (lbl && lbl.textContent === label) {
+      var val = items[i].querySelector('.sit-value');
+      if (!val) return null;
+      var cls = ['good', 'degraded', 'failed', 'unknown'].filter(function (c) {
+        return val.className.indexOf(c) > -1;
+      })[0] || 'unknown';
+      return { value: stripStatusIndicator(val.textContent), cls: cls };
+    }
+  }
+  return null;
+}
+
 function renderPanels(p) {
   renderPanel('cdem-groups-title', 'cdem-groups', p.groupsTitle, p.groups, buildSitItems);
   renderPanel('agency-title', 'agency-status', p.agenciesTitle, p.agencies, buildSitItems);
@@ -790,6 +844,7 @@ function renderPanels(p) {
   renderPanel('cascade-title', 'cascade-tracker', p.cascadeTitle, p.cascades, buildCascadeItems);
   // resources-section is populated by renderUtilityPanel()
   setPanelTitle('resources-title', p.resourcesTitle);
+  renderSchematic();
 }
 
 function configureLocalPanels() {
@@ -1802,6 +1857,8 @@ function updatePanelItem(panelId, label, newValue, newCls) {
       break;
     }
   }
+  // The schematic is drawn from these rows, so it re-reads them after each move.
+  syncSchematic();
 }
 
 function updateMeterItem(panelId, label, newPct, newCls) {

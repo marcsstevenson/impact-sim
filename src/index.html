@@ -582,6 +582,41 @@ body {
 
 /* Context plate on the opening entry. Bleeds to the card edges, so it cancels
    the card's 12px/14px padding and sits under the rounded top corners. */
+/* ---- Per-persona schematic ------------------------------------------------
+   Status colour is driven by data-state, which sync() copies off the panel row
+   the element is drawn from. One rule per state rather than per element, so a
+   new part only has to name its row. */
+.sch {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 2px 0 4px;
+}
+.sch-road { fill: rgba(148, 163, 184, 0.16); }
+.sch-centreline {
+  stroke: rgba(226, 232, 240, 0.35);
+  stroke-width: 1.2;
+  stroke-dasharray: 7 7;
+}
+.sch-van rect, .sch-van circle { fill: var(--accent-cyan); }
+
+.sch .sch-fill { fill: var(--text-muted); transition: fill 0.4s ease; }
+.sch .sch-edge { fill: none; stroke: var(--text-muted); stroke-width: 2; stroke-linecap: round; transition: stroke 0.4s ease; }
+.sch [data-state="good"] .sch-fill,     .sch .sch-fill[data-state="good"]     { fill: var(--accent-green); }
+.sch [data-state="good"] .sch-edge,     .sch .sch-edge[data-state="good"]     { stroke: var(--accent-green); }
+.sch [data-state="degraded"] .sch-fill, .sch .sch-fill[data-state="degraded"] { fill: var(--accent-amber); }
+.sch [data-state="degraded"] .sch-edge, .sch .sch-edge[data-state="degraded"] { stroke: var(--accent-amber); }
+.sch [data-state="failed"] .sch-fill,   .sch .sch-fill[data-state="failed"]   { fill: var(--accent-red); }
+.sch [data-state="failed"] .sch-edge,   .sch .sch-edge[data-state="failed"]   { stroke: var(--accent-red); }
+.sch [data-state="unknown"] .sch-fill,  .sch .sch-fill[data-state="unknown"]  { fill: var(--text-muted); }
+.sch [data-state="unknown"] .sch-edge,  .sch .sch-edge[data-state="unknown"]  { stroke: var(--text-muted); }
+.sch-hatch { stroke-width: 1.4; opacity: 0.55; }
+.sch-cap {
+  fill: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 11px;
+}
+
 /* ---- AF8 locator map (inline SVG, styled here so it themes with the app) ---- */
 .event-map {
   margin: 14px 0 4px;
@@ -1299,6 +1334,13 @@ body {
         <div class="sit-item"><span class="sit-label">Fuel</span><span class="sit-value degraded">Limited</span></div>
         <div class="sit-item"><span class="sit-label">FMCG</span><span class="sit-value degraded">Disrupted</span></div>
         </div>
+      </div>
+
+      <!-- Optional per-persona schematic. Empty and hidden unless the active
+           scenario registers one; markwilliams is the first to. -->
+      <div class="sit-section" id="schematic-section" style="display:none;">
+        <div class="sit-section-title" id="schematic-title"></div>
+        <div id="schematic-panel"></div>
       </div>
 
       <div class="sit-section">
