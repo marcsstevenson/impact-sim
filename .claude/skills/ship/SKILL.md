@@ -57,6 +57,12 @@ and `.wrangler/` is gitignored. **This file is the record.**
    ```
    Hash whichever file the change actually touched. All three must match.
 
+   **Use `curl -sL`, and hash `/` rather than `/index.html`.** Pages answers
+   `/index.html` with a 308 to `/`, so a plain `curl -s` returns an empty body and
+   hashes to `e3b0c44298fc1c14` — the SHA-256 of nothing. That reads as a failed
+   deploy when the deploy was fine. Seeing `e3b0c442...` means you fetched nothing,
+   not that the file is wrong.
+
 6. **Report** the live URL, the deployment id, what shipped, and the checker results.
 
 ## Cloudflare's edge cache will lie to you
