@@ -76,6 +76,9 @@ body {
 .title-bg {
   position: absolute;
   inset: 0;
+  /* Decorative only. Without this it is a positioned element painting over the
+     in-flow footer, and it silently swallowed every click on the footer links. */
+  pointer-events: none;
   background:
     radial-gradient(ellipse at 20% 50%, rgba(240,98,146,0.08) 0%, transparent 60%),
     radial-gradient(ellipse at 80% 30%, rgba(59,130,246,0.06) 0%, transparent 50%),
@@ -89,6 +92,7 @@ body {
   width: 100%;
   height: 120px;
   opacity: 0.15;
+  pointer-events: none;   /* decorative, same reason as .title-bg */
 }
 
 .seismo-line svg {
@@ -286,10 +290,26 @@ body {
 
 .title-desc {
   max-width: min(600px, 100%);
-  margin: 0 auto 2.5rem;
+  margin: 0 auto 0.9rem;
   color: var(--text-secondary);
   font-size: 13px;
   line-height: 1.8;
+}
+/* The reassurance is the one thing on this screen a hesitant participant needs
+   to read, so it gets its own panel rather than being the dimmest text here.
+   It also has to sit clear of .seismo-line, whose trace crosses this band and
+   makes low-contrast body copy hard to read. */
+.title-note {
+  max-width: min(600px, 100%);
+  margin: 0 auto 2.5rem;
+  padding: 11px 18px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.75;
+  background: rgba(26, 34, 53, 0.85);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  position: relative;
 }
 
 .btn {
@@ -341,6 +361,38 @@ body {
   font-size: 11px;
   color: var(--text-muted);
   letter-spacing: 1px;
+  /* Matches .title-content so the footer paints above .title-bg rather than
+     under its gradient. */
+  position: relative;
+  z-index: 2;
+}
+.footer-credits {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+.credits-label { margin-bottom: 2px; }
+.credit { line-height: 1.7; }
+.credit strong { color: var(--text-primary); }
+.credit a { color: var(--accent-cyan); text-decoration: none; }
+.credit a:hover, .credit a:focus-visible { text-decoration: underline; }
+
+/* The mailto is underlined rather than colour-only so it still reads as a link
+   for anyone who cannot pick the cyan out against the muted footer text. */
+.footer-feedback {
+  margin-top: 12px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.footer-feedback a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(77, 208, 225, 0.4);
+  padding-bottom: 1px;
+}
+.footer-feedback a:hover,
+.footer-feedback a:focus-visible {
+  color: var(--text-primary);
+  border-bottom-color: currentColor;
 }
 
 /* ============ GAME SCREEN ============ */
@@ -448,6 +500,7 @@ body {
   font-size: 11px;
   white-space: nowrap;
   border-radius: 3px;
+  position: relative;   /* anchors .val-delta on the Effectiveness readout */
 }
 
 .status-item .label { color: var(--text-muted); }
@@ -529,6 +582,64 @@ body {
 
 /* Context plate on the opening entry. Bleeds to the card edges, so it cancels
    the card's 12px/14px padding and sits under the rounded top corners. */
+/* ---- AF8 locator map (inline SVG, styled here so it themes with the app) ---- */
+.event-map {
+  margin: 14px 0 4px;
+  padding: 12px 12px 10px;
+  background: rgba(10, 14, 23, 0.5);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.event-map figcaption {
+  margin-top: 8px;
+  font-size: 10px;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  text-align: center;
+}
+.af8map {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  margin: 0 auto;
+}
+.af8map-coast {
+  fill: rgba(148, 163, 184, 0.13);
+  stroke: #7c8aa5;
+  stroke-width: 1.1;
+  stroke-linejoin: round;
+}
+.af8map-fault {
+  fill: none;
+  stroke: var(--accent-red);
+  stroke-width: 3.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.af8map-fault-rest {
+  fill: none;
+  stroke: #7c8aa5;
+  stroke-width: 2;
+  stroke-dasharray: 5 4;
+  stroke-linecap: round;
+}
+.af8map-dot { fill: var(--text-primary); }
+.af8map-dot.port { fill: var(--accent-amber); }
+.af8map-label {
+  fill: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 11px;
+}
+.af8map-label.epicentre, .af8map-label.rupture { fill: var(--accent-red); }
+.af8map-epi circle { fill: none; stroke: var(--accent-red); stroke-width: 1.3; opacity: 0.6; }
+.af8map-epi .af8map-epi-core { fill: var(--accent-red); opacity: 1; stroke: none; }
+.af8map-keytext {
+  fill: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 10px;
+}
+
 .event-shot {
   display: block;
   width: calc(100% + 28px);
@@ -683,6 +794,73 @@ body {
   border-radius: 4px;
   transition: background 0.3s ease, box-shadow 0.3s ease;
   border-left: 2px solid transparent;
+  position: relative;   /* anchors .val-delta */
+}
+
+/* The transient "+8" / "-15" that pops beside a value the moment it moves.
+   Absolutely positioned so it can never reflow the row, and given its own
+   background so it stays readable over the value it briefly covers. */
+.val-delta {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  z-index: 3;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 2px 5px;
+  border-radius: 3px;
+  background: var(--bg-card);
+  border: 1px solid currentColor;
+  pointer-events: none;
+  white-space: nowrap;
+  animation: valDeltaPop 2.2s ease-out forwards;
+}
+.val-delta.up { color: var(--accent-green); }
+.val-delta.down { color: var(--accent-red); }
+@keyframes valDeltaPop {
+  0%   { opacity: 0; transform: translateY(-50%) scale(0.85); }
+  10%  { opacity: 1; transform: translateY(-50%) scale(1); }
+  65%  { opacity: 1; transform: translateY(-50%) scale(1); }
+  100% { opacity: 0; transform: translateY(-160%) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .val-delta { animation: valDeltaFade 2.2s ease-out forwards; }
+  @keyframes valDeltaFade {
+    0%, 80% { opacity: 1; transform: translateY(-50%); }
+    100%    { opacity: 0; transform: translateY(-50%); }
+  }
+}
+
+/* The consolidated "what your decision did" card in the event feed. Same shape
+   as .cop-changes, but keyed green/red on direction rather than always red. */
+.metric-changes {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-cyan);
+  border-radius: 6px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.metric-change {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 12px;
+  font-family: var(--font-body);
+}
+.metric-change-label { color: var(--text-secondary); flex: 1; }
+.metric-change-delta { font-weight: 700; min-width: 42px; text-align: right; }
+.metric-change-delta.up { color: var(--accent-green); }
+.metric-change-delta.down { color: var(--accent-red); }
+.metric-change-now {
+  color: var(--text-muted);
+  font-size: 11px;
+  min-width: 62px;
+  text-align: right;
 }
 
 .sit-item:hover { background: rgba(255,255,255,0.02); }
@@ -951,7 +1129,8 @@ body {
   .title-main { font-size: clamp(1.85rem, 8.5vw, 2.5rem); letter-spacing: -0.5px; }
   .title-sub { font-size: 0.95rem; }
   .title-framework { font-size: 10px; letter-spacing: 1.5px; margin-bottom: 1.75rem; }
-  .title-desc { font-size: 12px; line-height: 1.7; margin-bottom: 1.75rem; }
+  .title-desc { font-size: 12px; line-height: 1.7; margin-bottom: 0.75rem; }
+  .title-note { font-size: 11.5px; line-height: 1.65; margin-bottom: 1.75rem; }
 
   .scenario-lede { margin: 20px 0 12px; }
   .scenario-grid { grid-template-columns: 1fr; gap: 12px; }
@@ -989,7 +1168,10 @@ body {
     <p class="title-sub">Mana Tangata: Power of Leadership Through the People</p>
     <p class="title-framework">SAFER Framework · CIMS 3rd Edition</p>
     <p class="title-desc">
-      Step into the role of a CDEM Controller coordinating the South Island response to a magnitude 8 rupture of the Alpine Fault. Manage cascading hazards, coordinate across six CDEM Groups, and make decisions that determine outcomes for over a million people.
+      A rehearsal space for decision-making under pressure. Eight roles live through the same magnitude 8 rupture of the Alpine Fault from very different seats &mdash; a national Controller, a school principal, a lone adult with a van full of children &mdash; each tracking the things that role actually has to hold.
+    </p>
+    <p class="title-note">
+      There are no wrong answers, nobody is watching, and nothing is recorded &mdash; it all stays in your browser. Work a scenario through to the end and you get a debrief on the calls you made and what the doctrine suggests.
     </p>
     <p class="scenario-lede">Choose a role. Each puts you somewhere different in the same rupture.</p>
     <div class="scenario-grid" id="scenario-grid"></div>
@@ -1003,9 +1185,20 @@ body {
   </div>
   <div class="title-footer">
     <div style="margin-bottom:8px;">Built for emergency management training · Based on NZ CIMS doctrine</div>
-    <div style="font-size:11px;color:var(--text-secondary);">
-      Designed and developed by <strong style="color:var(--text-primary);">Victoria Kluge</strong>
-      <br><a href="https://vakconsultingllc.com" target="_blank" style="color:var(--accent-cyan);text-decoration:none;">VAK Consulting LLC</a> · Interactive Emergency Management Training
+    <!-- One line per person, so the VAK affiliation attaches to Victoria alone
+         rather than reading as though it covers both credits. -->
+    <div class="footer-credits">
+      <div class="credits-label">Designed and developed by</div>
+      <div class="credit">
+        <strong>Victoria Kluge</strong> ·
+        <a href="https://vakconsultingllc.com" target="_blank">VAK Consulting LLC</a> ·
+        Interactive Emergency Management Training
+      </div>
+      <div class="credit"><strong>Marc Stevenson</strong></div>
+    </div>
+    <div class="footer-feedback">
+      Found a problem, or have feedback on a scenario?
+      <a href="mailto:brenden.winder@gmail.com?subject=AF8%20Cascading%20Impact%20Simulator%20feedback">Email Brenden Winder</a>
     </div>
   </div>
 </div>

@@ -100,21 +100,8 @@ function checkPersona(ctx, id, errors, counts) {
     // 2b. Option labels must be of comparable length - see checkLabelSpread.
     checkLabelSpread(d.decisionId, d.options, fail);
 
-    // 2a. bestPractice must be the highest-scoring option, or the guide teaches
-    //     one answer while the score rewards another - prin_food taught A at 4
-    //     points while D scored 5.
-    if (n.bestPractice && optionKeys(d).indexOf(n.bestPractice) !== -1) {
-      var top = -Infinity, topKeys = [];
-      d.options.forEach(function (o) {
-        var sc = (o.effect && o.effect.score) || 0;
-        if (sc > top) { top = sc; topKeys = [o.key]; }
-        else if (sc === top) topKeys.push(o.key);
-      });
-      if (topKeys.indexOf(n.bestPractice) === -1) {
-        fail('FACILITATOR_NOTES["' + d.decisionId + '"].bestPractice is "' + n.bestPractice +
-          '" but the highest score (' + top + ') belongs to ' + topKeys.join('/'));
-      }
-    }
+    // 2a. bestPractice must be the highest-scoring option - now checked for
+    //     every scenario by checkBestPracticeScores(), not just the personas.
 
     // 2. bestPractice names a real option key.
     if (n.bestPractice && optionKeys(d).indexOf(n.bestPractice) === -1) {
@@ -320,6 +307,82 @@ function checkCimsCitations(ctx, errors) {
   });
 }
 
+// ---------------------------------------------------------------------------
+// Shuffle safety. seedOptionOrder() reorders the options every session, so an
+// authored letter is not what the player sees and an option cannot assume a
+// sibling was read first. Both of these run over every scenario, including the
+// engine-native af8 and local, which is where both original violations lived.
+// ---------------------------------------------------------------------------
+
+// Words that only parse if something else was read first. "Both - fuel now,
+// evacuation prepared" was fine as the third option and nonsense as the first.
+// Only leading position matters: "both teams", "both patients" mid-sentence
+// refer to the scenario body, not to sibling options.
+var SIBLING_REFERRING = /^\s*(both|all three|all of (the )?(above|them)|none of the above|either|neither|also|instead|as above|same as|do all)\b/i;
+
+// Authored letters in facilitator prose. The debrief remaps the chip via
+// displayLetterForRecorded() but prints teachingNote raw underneath, so
+// "Option C is correct" contradicts a chip reading "Best: A".
+// Matches "Option B" and "option (B)".
+var LETTER_REFERENCE = /\boption\s*\(?[A-D]\)?(?![a-z0-9])/i;
+
+function checkShuffleSafety(ctx, errors) {
+  Object.keys(ctx.PERSONA_EVENTS).forEach(function (sid) {
+    var items = decisionsOf(ctx.PERSONA_EVENTS[sid]).map(function (d) {
+      return { where: d.decisionId, options: d.options };
+    });
+    (ctx.NOISE_POOL[sid] || []).forEach(function (n) {
+      items.push({ where: sid + ' noise "' + (n.title || '') + '"', options: n.options });
+    });
+    items.forEach(function (item) {
+      (item.options || []).forEach(function (o) {
+        if (SIBLING_REFERRING.test(o.label || '')) {
+          errors.push(item.where + ': option "' + o.key + '" label opens with "' +
+            (o.label || '').split(' ')[0] + '", which assumes another option was read first - ' +
+            'the options are shuffled, so it can appear anywhere');
+        }
+      });
+    });
+  });
+
+  Object.keys(ctx.FACILITATOR_NOTES).forEach(function (decId) {
+    var n = ctx.FACILITATOR_NOTES[decId];
+    var prose = [n.learningObjective, n.teachingNote]
+      .concat(n.discussionPrompts || [])
+      .filter(Boolean);
+    prose.forEach(function (text) {
+      var m = LETTER_REFERENCE.exec(text);
+      if (m) {
+        errors.push(decId + ': facilitator prose names "' + m[0] + '" - letters are shuffled ' +
+          'per session, so name the option by its content instead');
+      }
+    });
+  });
+}
+
+// bestPractice must be the highest-scoring option, or the guide teaches one
+// answer while the score rewards another. Runs over every scenario: this lived
+// inside checkPersona and so never saw af8 or local, where eoc_level taught C
+// (+1) while B scored +3.
+function checkBestPracticeScores(ctx, errors) {
+  Object.keys(ctx.PERSONA_EVENTS).forEach(function (sid) {
+    decisionsOf(ctx.PERSONA_EVENTS[sid]).forEach(function (d) {
+      var n = ctx.FACILITATOR_NOTES[d.decisionId];
+      if (!n || !n.bestPractice || optionKeys(d).indexOf(n.bestPractice) === -1) return;
+      var top = -Infinity, topKeys = [];
+      d.options.forEach(function (o) {
+        var sc = (o.effect && o.effect.score) || 0;
+        if (sc > top) { top = sc; topKeys = [o.key]; }
+        else if (sc === top) topKeys.push(o.key);
+      });
+      if (topKeys.indexOf(n.bestPractice) === -1) {
+        errors.push(d.decisionId + ': FACILITATOR_NOTES.bestPractice is "' + n.bestPractice +
+          '" but the highest score (' + top + ') belongs to ' + topKeys.join('/'));
+      }
+    });
+  });
+}
+
 function main() {
   var args = process.argv.slice(2);
   var countsOnly = args.indexOf('--counts') !== -1;
@@ -334,9 +397,11 @@ function main() {
     checkPersona(ctx, id, errors, counts);
   });
 
-  // Doctrine citations span the built-in af8/local notes as well as the
-  // personas, so this runs once over every note rather than per persona.
+  // These three span the built-in af8/local content as well as the personas,
+  // so they run once over every scenario rather than per persona.
   checkCimsCitations(ctx, errors);
+  checkShuffleSafety(ctx, errors);
+  checkBestPracticeScores(ctx, errors);
 
   console.log(['persona', 'events', 'decisions', 'noise', 'conseq', 'stateChg', 'locks'].join('\t'));
   Object.keys(counts).forEach(function (id) {
